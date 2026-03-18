@@ -1,2 +1,3 @@
-# idrp-frontend
-Front End Application for IDRP
+# IIIT Dharwad
+
+IDRP Application code
