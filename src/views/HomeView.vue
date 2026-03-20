@@ -20,7 +20,7 @@
         </a>
         <div v-show="aboutOpen" class="absolute top-full left-0 pt-2 w-44 z-50">
           <div class="bg-white rounded-lg shadow-lg border border-gray-100 py-1">
-            <router-link to="/idrp"         class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors">IDRP</router-link>
+            <router-link to="/about-idrp"         class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors">IDRP</router-link>
             <router-link to="/our-board"    class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors">Our Board</router-link>
             <router-link to="/our-team"     class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors">Our Team</router-link>
             <router-link to="/our-partners" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors">Our Partners</router-link>
@@ -100,7 +100,7 @@
             </svg>
           </button>
           <div v-show="mobileAbout" class="pl-4 pb-2 flex flex-col gap-1">
-            <router-link @click="mobileOpen=false" to="/idrp"         class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">IDRP</router-link>
+            <router-link @click="mobileOpen=false" to="/about-idrp"         class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">IDRP</router-link>
             <router-link @click="mobileOpen=false" to="/our-board"    class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Our Board</router-link>
             <router-link @click="mobileOpen=false" to="/our-team"     class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Our Team</router-link>
             <router-link @click="mobileOpen=false" to="/our-partners" class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Our Partners</router-link>
@@ -293,20 +293,6 @@
     </div>
   </section>
 
-
-  <div v-if="showForm" class="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
-    <div class="bg-white p-8 rounded-xl w-100">
-      <h2 class="text-xl font-bold mb-4">Apply Now</h2>
-      <input class="w-full border p-2 mb-3 rounded" placeholder="Name" />
-      <input class="w-full border p-2 mb-3 rounded" placeholder="Startup Name" />
-      <input class="w-full border p-2 mb-3 rounded" placeholder="Email" />
-      <textarea class="w-full border p-2 mb-3 rounded" placeholder="Details"></textarea>
-      <div class="flex justify-between">
-        <button class="bg-teal-700 text-white px-4 py-2 rounded">Submit</button>
-        <button class="bg-gray-300 px-4 py-2 rounded" @click="showForm = false">Close</button>
-      </div>
-    </div>
-  </div>
 
   <!-- Programs -->
   <section class="py-24 px-6 md:px-16 bg-white">
@@ -913,7 +899,7 @@ const acceleratorFeatures = [
 
 // ── Footer links ───────────────────────────────────────────────
 const footerAbout = [
-  { label: 'About IDRP',      to: '/idrp' },
+  { label: 'About IDRP',      to: '/about-idrp' },
   { label: 'Our Board',       to: '/our-board' },
   { label: 'Our Team',        to: '/our-team' },
   { label: 'Our Partners',    to: '/our-partners' },
