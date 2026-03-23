@@ -1,11 +1,11 @@
 <template>
-  <div class="acceleration-view">
+  <div class="pre-incubation-view">
     <!-- Hero Banner -->
     <section class="relative h-[50vh] min-h-[340px] overflow-hidden">
       <img
         v-if="showHeroImage"
         src="/incubation-hero.jfif"
-        alt="Acceleration"
+        alt="Yuva Udyani"
         class="absolute inset-0 h-full w-full object-cover object-center"
         @error="showHeroImage = false"
       />
@@ -20,8 +20,11 @@
           </span>
         </div>
         <h1 class="text-5xl font-extrabold leading-tight text-white md:text-6xl">
-          Acceleration
+          Yuva Udyani
         </h1>
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-teal-100 md:text-lg">
+          IDRP's pre-incubation pathway for student innovators, aspiring founders, and early-stage teams.
+        </p>
       </div>
     </section>
 
@@ -33,21 +36,24 @@
             Our Approach
           </span>
           <h2 class="mt-3 mb-6 text-3xl font-bold leading-tight text-gray-900">
-            Scale with Speed. Grow with Strategy.
+            Yuva Udyani: Shaping Early Ideas into Incubation-Ready Ventures
           </h2>
+
           <div class="space-y-4 leading-relaxed text-gray-600">
             <p>
-              Once your product is validated and gaining traction, the next step
-              is accelerating growth. IDRP Acceleration Programs are tailored to
-              help startups at this stage expand operations, refine their
-              strategies, and build meaningful connections with investors,
-              partners, and target markets.
+              Yuva Udyani is IDRP’s pre-incubation program designed for founders who are at the idea,
+              problem-validation, or early prototype stage. It is the right starting point for innovators
+              who need guidance before entering full incubation.
             </p>
             <p>
-              Whether you're gearing up for your next funding round, entering
-              new markets, or strengthening your internal systems, our programs
-              provide the resources, mentorship, and visibility needed to scale
-              with clarity and confidence.
+              The program helps teams validate the problem, understand user needs, explore solution fit,
+              shape an initial business model, and build founder readiness. It creates a structured pathway
+              from concept to credibility.
+            </p>
+            <p>
+              Whether the venture begins as a student idea, research output, technical innovation, or
+              early startup concept, Yuva Udyani provides mentor-led support to help founders move toward
+              the next stage with clarity and confidence.
             </p>
           </div>
         </div>
@@ -55,14 +61,12 @@
         <div class="lg:w-1/2">
           <div
             class="h-96 overflow-hidden rounded-3xl shadow-2xl"
-            :class="{
-              'bg-gradient-to-br from-teal-100 to-cyan-50': !showIntroImage,
-            }"
+            :class="{ 'bg-gradient-to-br from-teal-100 to-cyan-50': !showIntroImage }"
           >
             <img
               v-if="showIntroImage"
               src="/incubation-intro.jfif"
-              alt="Acceleration at IDRP"
+              alt="Yuva Udyani at IDRP"
               class="h-full w-full object-cover"
               @error="showIntroImage = false"
             />
@@ -71,15 +75,15 @@
       </div>
     </section>
 
-    <!-- Value of Acceleration -->
+    <!-- Value -->
     <section class="bg-gray-50 px-6 py-24 md:px-16">
       <div class="mx-auto flex max-w-6xl flex-col items-center gap-16 lg:flex-row">
         <div class="lg:w-1/2">
           <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-            Why Accelerate?
+            Why Yuva Udyani?
           </span>
           <h2 class="mt-3 mb-8 text-3xl font-bold leading-tight text-gray-900">
-            The Value of Acceleration
+            Build the Right Foundations Before Incubation
           </h2>
 
           <ul class="space-y-4">
@@ -88,9 +92,7 @@
               :key="item"
               class="flex items-start gap-4"
             >
-              <div
-                class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-600 shadow-sm"
-              >
+              <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-600 shadow-sm">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -116,14 +118,12 @@
         <div class="lg:w-1/2">
           <div
             class="h-96 overflow-hidden rounded-3xl shadow-2xl"
-            :class="{
-              'bg-gradient-to-br from-teal-100 to-cyan-50': !showValueImage,
-            }"
+            :class="{ 'bg-gradient-to-br from-teal-100 to-cyan-50': !showValueImage }"
           >
             <img
               v-if="showValueImage"
               src="/incubation-value.jfif"
-              alt="Value of Acceleration"
+              alt="Value of Yuva Udyani"
               class="h-full w-full object-cover"
               @error="showValueImage = false"
             />
@@ -132,7 +132,7 @@
       </div>
     </section>
 
-    <!-- Our Acceleration Programs -->
+    <!-- Tracks -->
     <section class="bg-white px-6 py-24 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-16 text-center">
@@ -140,17 +140,17 @@
             Call for Applications
           </span>
           <h2 class="mt-2 text-4xl font-bold text-gray-900">
-            Our Acceleration Programs
+            Yuva Udyani Tracks
           </h2>
           <p class="mx-auto mt-3 max-w-xl text-gray-500">
-            Built for startups ready to move fast and scale smart.
+            Choose the pathway that best matches your current stage and prepare for Udhyami incubation.
           </p>
         </div>
 
         <article
           v-for="program in programs"
-          :key="program.id"
-          class="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl"
+          :key="program.title"
+          class="mb-12 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-300 last:mb-0 hover:shadow-xl"
         >
           <div
             class="h-1 bg-gradient-to-r"
@@ -175,14 +175,9 @@
                   {{ program.title }}
                 </h3>
 
-                <div class="mb-6 space-y-3 text-sm leading-relaxed text-gray-600">
-                  <p
-                    v-for="paragraph in program.description"
-                    :key="paragraph"
-                  >
-                    {{ paragraph }}
-                  </p>
-                </div>
+                <p class="mb-6 text-sm leading-relaxed text-gray-600">
+                  {{ program.description }}
+                </p>
 
                 <RouterLink
                   :to="program.applyTo"
@@ -283,23 +278,17 @@
       >
         <div>
           <h3 class="text-2xl font-bold text-white">
-            Ready to accelerate your startup?
+            Have an idea but not sure where to begin?
           </h3>
           <p class="mt-2 text-teal-100">
-            Apply today or talk to our team to learn more about the program.
+            Talk to our team and we will guide you through Yuva Udyani and the path toward Udhyami.
           </p>
         </div>
 
         <div class="flex shrink-0 gap-4">
           <RouterLink
-            to="/apply/deep-tech-accelerator"
-            class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition-colors hover:bg-teal-50"
-          >
-            Apply Now
-          </RouterLink>
-          <RouterLink
             to="/contact"
-            class="rounded-full border-2 border-white px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-600"
+            class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition-colors hover:bg-teal-50"
           >
             Talk to Us
           </RouterLink>
@@ -314,7 +303,7 @@ import { reactive, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 
 type AccordionKey = 'eligibility' | 'offers' | 'details'
-type ProgramId = 'deep-tech-accelerator'
+type ProgramId = 'idea' | 'prototype'
 
 type TableRow = {
   label: string
@@ -347,10 +336,10 @@ type Program = {
   title: string
   duration: string
   mode: string
+  description: string
   applyTo: string
   gradientClass: string
   durationBadgeClass: string
-  description: string[]
   sections: ProgramSection[]
 }
 
@@ -359,47 +348,42 @@ const showIntroImage = ref(true)
 const showValueImage = ref(true)
 
 const valueItems: string[] = [
-  'Focus on fundraising, customer acquisition, and building scalable operations',
-  'Guidance from experienced founders, investors, and domain experts',
-  'Access to investor networks, pitch opportunities, and demo day showcases',
-  'Support in developing scale-up strategies, refining pitch decks, and enhancing storytelling',
-  'Assistance with grants, ecosystem connections, and ongoing alumni support',
+  'Helps founders validate whether the identified problem is real, relevant, and worth solving',
+  'Supports customer discovery, solution framing, and problem-solution fit',
+  'Guides early startup teams from concept toward prototype or MVP planning',
+  'Builds founder readiness in business model thinking, storytelling, and pitching',
+  'Creates a stronger pathway into Udhyami incubation and future funding opportunities',
 ]
 
 const programs: Program[] = [
   {
-    id: 'deep-tech-accelerator',
-    title: 'Deep-Tech Accelerator',
-    duration: '6 Months Intensive',
-    mode: 'On-Site',
-    applyTo: '/apply/deep-tech-accelerator',
+    id: 'idea',
+    title: 'Idea Validation Track',
+    duration: '6-9 Months',
+    mode: 'Hybrid / Flexible',
+    description:
+      'Designed for aspiring founders and early teams who have identified a problem space but are still refining the right solution. This track helps participants validate the opportunity, understand users, shape a venture hypothesis, and prepare for the next stage.',
+    applyTo: '/apply/pre-incubation',
     gradientClass: 'from-teal-500 to-cyan-400',
     durationBadgeClass: 'bg-teal-50 text-teal-700',
-    description: [
-      'A fast-track program designed for startups with validated, cutting-edge technology that are ready to enter and compete in the market. The Deep-Tech Accelerator focuses on bridging the gap between innovation and commercialization by helping founders refine their go-to-market (GTM) strategies, validate product-market fit, and build a strong foundation for scalable growth.',
-      'Through intensive workshops, hands-on mentorship, and direct access to industry and investor networks, startups gain the clarity and traction needed to move from product readiness to market success. The program also emphasizes Series A preparedness, equipping founders with the tools, insights, and confidence required to raise their next round.',
-      'Participants benefit from structured GTM sessions, pilot project opportunities with corporates, investor pitch platforms, and continuous guidance to align their technology with real-world demand and growth opportunities.',
-    ],
     sections: [
       {
         key: 'eligibility',
         title: 'Eligibility',
-        contentType: 'list',
-        items: [
-          'Early-stage startups in the focused sectors with a market-ready MVP and the ambition to scale.',
-        ],
+        contentType: 'text',
+        text: 'Students, researchers, innovators, and founder teams at idea, concept, or early validation stage.',
       },
       {
         key: 'offers',
-        title: 'What This Program Offers',
+        title: 'What This Track Offers',
         contentType: 'list',
         items: [
-          'Intensive GTM workshops',
-          'Pilot project facilitation',
-          'Corporate partnership opportunities',
-          'Investor pitch sessions',
-          'Product-market fit validation',
-          'Series A readiness training',
+          'Problem discovery and customer interview guidance',
+          'Problem-solution fit mentoring',
+          'Business model and value proposition support',
+          'Pitch deck and founder readiness sessions',
+          'Access to mentors and ecosystem interactions',
+          'A structured pathway toward Udhyami incubation readiness',
         ],
       },
       {
@@ -407,9 +391,55 @@ const programs: Program[] = [
         title: 'Program Details',
         contentType: 'table',
         rows: [
-          { label: 'Mode', value: 'On-Site' },
-          { label: 'Duration', value: '6 Months Intensive' },
-          { label: 'Cohort Size', value: '15-20 Startups' },
+          { label: 'Mode', value: 'Hybrid / Flexible' },
+          { label: 'Duration', value: '6-9 Months' },
+          { label: 'Ideal For', value: 'Idea-stage founders' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'prototype',
+    title: 'Prototype Readiness Track',
+    duration: '9-12 Months',
+    mode: 'Hybrid / Mentor-Led',
+    description:
+      'Built for teams that already have an early concept, research outcome, technical direction, or prototype and want to strengthen it into a viable startup case. This track supports validation, product direction, and readiness for formal incubation.',
+    applyTo: '/apply/pre-incubation',
+    gradientClass: 'from-cyan-400 to-teal-500',
+    durationBadgeClass: 'bg-cyan-50 text-cyan-700',
+    sections: [
+      {
+        key: 'eligibility',
+        title: 'Eligibility',
+        contentType: 'list',
+        intro: "You're eligible if you have:",
+        items: [
+          'An early concept with technical, research, or domain depth',
+          'A prototype, proof of concept, research output, or MVP roadmap in progress',
+        ],
+      },
+      {
+        key: 'offers',
+        title: 'What This Track Offers',
+        contentType: 'list',
+        items: [
+          'Prototype and MVP planning support',
+          'Market validation and early user feedback loops',
+          'Mentoring on positioning, value proposition, and startup narrative',
+          'Readiness for Udhyami incubation applications',
+          'Pitch preparation and venture refinement',
+          'Access to IDRP experts, events, and ecosystem support',
+        ],
+      },
+      {
+        key: 'details',
+        title: 'Program Details',
+        contentType: 'table',
+        rows: [
+          { label: 'Mode', value: 'Hybrid / Mentor-Led' },
+          { label: 'Duration', value: '9-12 Months' },
+          { label: 'Ideal For', value: 'Prototype / PoC-stage teams' },
         ],
       },
     ],
@@ -417,7 +447,12 @@ const programs: Program[] = [
 ]
 
 const openSections = reactive<Record<ProgramId, Record<AccordionKey, boolean>>>({
-  'deep-tech-accelerator': {
+  idea: {
+    eligibility: false,
+    offers: false,
+    details: false,
+  },
+  prototype: {
     eligibility: false,
     offers: false,
     details: false,

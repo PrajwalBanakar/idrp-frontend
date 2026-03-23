@@ -1,6 +1,7 @@
 # IIIT Dharwad
 
 IDRP Application code
+
 ```
 idrp-frontend
 ├─ .prettierrc.json
@@ -46,7 +47,9 @@ idrp-frontend
 │     ├─ AboutView.vue
 │     ├─ AccelerationView.vue
 │     ├─ AccessFundingView.vue
+│     ├─ ApplyView.vue
 │     ├─ BusinessServicesView.vue
+│     ├─ ContactView.vue
 │     ├─ CoWorkingView.vue
 │     ├─ EventsView.vue
 │     ├─ HomeView.vue

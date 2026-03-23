@@ -1,193 +1,322 @@
 <template>
-  <AppLayout>
-
-    <!-- ─── Hero Banner ─────────────────────────────────────────── -->
+  <div class="mentors-view">
+    <!-- Hero Banner -->
     <section class="relative h-[50vh] min-h-[340px] overflow-hidden">
-      <img :src="'/mentors-hero.jfif'" alt="Mentors"
-        class="absolute inset-0 w-full h-full object-cover object-center"
-        onerror="this.style.display='none'" />
-      <div class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/80 to-teal-700/30"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
-      <div class="relative z-10 h-full flex flex-col justify-center px-10 md:px-20 max-w-2xl">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-1 h-8 bg-teal-400 rounded-full"></div>
-          <span class="text-teal-300 font-semibold text-sm uppercase tracking-widest">Guidance &amp; Expertise</span>
-        </div>
-        <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4">Mentors</h1>
-      </div>
-    </section>
+      <img
+        v-if="showHeroImage"
+        src="/mentors-hero.jfif"
+        alt="Mentors"
+        class="absolute inset-0 h-full w-full object-cover object-center"
+        @error="showHeroImage = false"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/80 to-teal-700/30" />
+      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
 
-    <!-- ─── Intro ──────────────────────────────────────────────── -->
-    <section class="py-20 px-6 md:px-16 bg-white">
-      <div class="max-w-3xl mx-auto text-center">
-        <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">Expert Network</span>
-        <h2 class="text-3xl font-bold text-gray-900 mt-3 mb-6">Find Your Mentors At IDRP</h2>
-        <p class="text-gray-600 text-lg leading-relaxed mb-5">
-          We provide access to a diverse network of experienced industry experts who support your journey. Connect with mentors through one-on-one sessions, gain valuable insights, and get guidance to move your startup forward. Book your session today.
-        </p>
-        <p class="text-gray-600 text-lg leading-relaxed">
-          We support founders at every stage, from early ideation to scaling. Through our flexible open incubation model, founder-first programs, and strong ecosystem, we help you build with confidence, connect with the right people, and grow sustainably.
-        </p>
-        <div class="mt-8 w-16 h-1 bg-gradient-to-r from-teal-500 to-cyan-400 rounded-full mx-auto"></div>
-      </div>
-    </section>
-
-    <!-- ─── Domain Tags ────────────────────────────────────────── -->
-    <section class="py-6 px-6 md:px-16 bg-gray-50">
-      <div class="max-w-4xl mx-auto">
-        <p class="text-center text-sm font-semibold text-gray-500 uppercase tracking-widest mb-6">Mentors available across domains</p>
-        <div class="flex flex-wrap justify-center gap-3">
-          <span v-for="domain in domains" :key="domain"
-            class="px-4 py-2 bg-white border border-teal-200 text-teal-700 rounded-full text-sm font-semibold hover:bg-teal-700 hover:text-white transition-colors duration-200 cursor-default">
-            {{ domain }}
+      <div class="relative z-10 flex h-full max-w-2xl flex-col justify-center px-10 md:px-20">
+        <div class="mb-4 flex items-center gap-3">
+          <div class="h-8 w-1 rounded-full bg-teal-400" />
+          <span class="text-sm font-semibold uppercase tracking-widest text-teal-300">
+            Guidance & Support
           </span>
         </div>
+        <h1 class="mb-4 text-5xl font-extrabold leading-tight text-white md:text-6xl">
+          Mentors
+        </h1>
       </div>
     </section>
 
-    <!-- ─── Request a Mentor Form ──────────────────────────────── -->
-    <section class="py-24 px-6 md:px-16 bg-white">
-      <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-12">
-          <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">Connect</span>
-          <h2 class="text-4xl font-bold text-gray-900 mt-2">Request a Mentor</h2>
-          <p class="text-gray-500 mt-3 max-w-xl mx-auto">Tell us what kind of expertise you need and we will connect you with the right mentor from our network.</p>
+    <!-- Intro -->
+    <section class="bg-white px-6 py-20 md:px-16">
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+          Mentor Network
+        </span>
+        <h2 class="mt-3 mb-6 text-3xl font-bold text-gray-900">
+          Experts who empower ideas, technology, and growth
+        </h2>
+        <p class="text-lg leading-relaxed text-gray-600">
+          Our mentor network supports innovators, startups, and teams at different stages
+          of their journey. From business strategy and market validation to technology
+          development and academic guidance, our mentors help transform promising ideas
+          into impactful outcomes.
+        </p>
+        <div class="mx-auto mt-8 h-1 w-16 rounded-full bg-gradient-to-r from-teal-500 to-cyan-400" />
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <section class="bg-white px-6 pb-8 md:px-16">
+      <div class="mx-auto max-w-6xl">
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <button
+            v-for="tab in mentorTabs"
+            :key="tab.key"
+            type="button"
+            @click="setTab(tab.key)"
+            class="rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200"
+            :class="
+              activeTab === tab.key
+                ? 'bg-teal-600 text-white shadow-lg'
+                : 'border border-gray-200 bg-white text-gray-700 hover:border-teal-300 hover:text-teal-700'
+            "
+          >
+            {{ tab.label }}
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentors Grid -->
+    <section class="bg-white px-6 pb-24 md:px-16">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-12 text-center">
+          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+            {{ activeCategoryTitle }}
+          </span>
+          <h3 class="mt-3 text-3xl font-bold text-gray-900">
+            Meet our {{ activeCategoryTitle.toLowerCase() }}
+          </h3>
         </div>
 
-        <form @submit.prevent="submitMentorRequest" class="bg-gray-50 rounded-3xl p-8 md:p-10 border border-gray-100 space-y-6">
-
-          <!-- Industry Domain -->
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Industry Domain / Area of Expertise Needed <span class="text-red-500">*</span></label>
-            <select v-model="mentorForm.domain"
-              class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 bg-white text-gray-700"
-              required>
-              <option value="" disabled>Select a domain</option>
-              <option v-for="d in domains" :key="d" :value="d">{{ d }}</option>
-            </select>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-2">Mentor Name</label>
-              <input v-model="mentorForm.name" type="text" placeholder="Full name of preferred mentor (if known)"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 bg-white"
-                 />
+        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 sm:gap-16">
+          <article
+            v-for="mentor in activeMentors"
+            :key="mentor.name"
+            class="group flex flex-col items-center text-center"
+          >
+            <div
+              class="mb-5 h-60 w-60 overflow-hidden rounded-full shadow-lg ring-4 ring-gray-100 transition-all duration-300 group-hover:ring-teal-300"
+            >
+              <img
+                v-if="mentor.visible"
+                :src="mentor.image"
+                :alt="mentor.name"
+                class="h-full w-full object-cover object-top"
+                @error="mentor.visible = false"
+              />
+              <div
+                v-else
+                class="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-100 to-cyan-50 text-5xl"
+              >
+                👤
+              </div>
             </div>
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-2">Your Name <span class="text-red-500">*</span></label>
-              <input v-model="mentorForm.yourName" type="text" placeholder="Your full name"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 bg-white"
-                required />
-            </div>
-          </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-2">Email ID <span class="text-red-500">*</span></label>
-              <input v-model="mentorForm.email" type="email" placeholder="you@startup.com"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 bg-white"
-                required />
-            </div>
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number <span class="text-red-500">*</span></label>
-              <input v-model="mentorForm.phone" type="tel" placeholder="+91 98765 43210"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 bg-white"
-                required />
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Functional Area <span class="text-red-500">*</span></label>
-            <input v-model="mentorForm.functionalArea" type="text" placeholder="e.g. Product Strategy, Fundraising, Marketing, Legal"
-              class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 bg-white"
-              required />
-          </div>
-
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Brief Details <span class="text-red-500">*</span></label>
-            <textarea v-model="mentorForm.details" rows="4"
-              placeholder="Briefly describe your startup, the challenge you're facing, and what kind of mentorship support you are looking for..."
-              class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 bg-white resize-none"
-              required></textarea>
-          </div>
-
-          <!-- Disclaimer -->
-          <div class="bg-white rounded-xl border border-gray-200 p-5 text-xs text-gray-500 leading-relaxed">
-            <p class="font-semibold text-gray-700 mb-2">Disclaimer &amp; Consent</p>
-            <p>By submitting this form, I/We consent to IDRP collecting and using the provided information solely for the purpose of evaluating and delivering incubation, acceleration, funding, mentorship, networking, and related programs. The information is shared voluntarily, and I/We acknowledge that no confidential or proprietary data should be submitted unless we are comfortable with its use for these purposes. IDRP will maintain reasonable confidentiality, will not share information with third parties without consent (except where required by law or for service delivery), and may contact us using the provided details regarding this application and relevant opportunities.</p>
-          </div>
-
-          <div class="flex items-start gap-3">
-            <input id="mentorConsent" v-model="mentorForm.consent" type="checkbox"
-              class="mt-0.5 w-4 h-4 rounded accent-teal-600 shrink-0 cursor-pointer"
-              required />
-            <label for="mentorConsent" class="text-sm text-gray-600 cursor-pointer leading-relaxed">
-              I have read and agree to the disclaimer
-            </label>
-          </div>
-
-          <div class="pt-2">
-            <button type="submit"
-              class="w-full bg-teal-700 hover:bg-teal-800 text-white font-bold py-4 rounded-xl transition-colors duration-200 text-sm tracking-wide">
-              Submit Request
-            </button>
-          </div>
-
-          <div v-if="mentorSubmitted" class="flex items-center gap-3 bg-teal-50 border border-teal-200 rounded-xl px-5 py-4 text-teal-700 text-sm font-medium">
-            <span class="text-xl">✅</span>
-            Thank you! We will match you with a suitable mentor and get back to you shortly.
-          </div>
-
-        </form>
+            <h3 class="text-lg font-bold text-gray-900">{{ mentor.name }}</h3>
+            <p class="mt-1 text-sm font-semibold text-teal-600">
+              {{ mentor.role }}
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- ─── Become a Mentor CTA ───────────────────────────────── -->
-    <section class="py-20 px-6 md:px-16 bg-gradient-to-br from-teal-800 to-cyan-600">
-      <div class="max-w-2xl mx-auto text-center">
-        <div class="text-4xl mb-5">🌟</div>
-        <h2 class="text-3xl font-bold text-white mb-4">Want to become a Mentor?</h2>
-        <p class="text-teal-100 text-lg leading-relaxed mb-8">
-          Share your experience and expertise with the next generation of deep-tech founders. Join our growing network of mentors and help shape India's startup ecosystem.
-        </p>
-        <router-link to="/contact"
-          class="inline-block bg-white text-teal-800 font-bold px-8 py-4 rounded-full hover:bg-teal-50 transition-colors text-sm shadow-xl">
-          Contact Us
-        </router-link>
+    <!-- CTA -->
+    <section class="bg-gradient-to-r from-teal-700 to-cyan-600 px-6 py-16 md:px-16">
+      <div
+        class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left"
+      >
+        <div>
+          <h3 class="text-2xl font-bold text-white">
+            Looking to connect with the IDRP ecosystem?
+          </h3>
+          <p class="mt-2 text-teal-100">
+            Explore our programs, boards, and mentoring support.
+          </p>
+        </div>
+
+        <div class="flex shrink-0 gap-4">
+          <RouterLink
+            to="/about-idrp"
+            class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition-colors hover:bg-teal-50"
+          >
+            About IDRP
+          </RouterLink>
+          <RouterLink
+            to="/contact"
+            class="rounded-full border-2 border-white px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-600"
+          >
+            Contact Us
+          </RouterLink>
+        </div>
       </div>
     </section>
-
-  </AppLayout>
+  </div>
 </template>
 
-<script setup>
-import AppLayout from '@/components/AppLayout.vue'
-import { ref } from 'vue'
+<script setup lang="ts">
+import { computed, reactive, ref, watch } from 'vue'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
 
-const domains = [
-  'Artificial Intelligence', 'Computer Vision', 'Extended Reality (XR)', 'Blockchain',
-  'Cyber Security', 'Space Tech', 'IoT', 'HealthTech', 'MedTech', 'FinTech',
-  'AgriTech', 'Industry 4.0', 'Semiconductor', 'Mobility', 'SaaS / B2B',
-  'Product Strategy', 'Fundraising', 'Legal & IP', 'Marketing & GTM', 'HR & Operations',
+type MentorTabKey = 'business' | 'technology' | 'faculty'
+
+type Mentor = {
+  name: string
+  role: string
+  image: string
+  visible: boolean
+}
+
+const route = useRoute()
+const router = useRouter()
+const showHeroImage = ref(true)
+
+const mentorTabs: { key: MentorTabKey; label: string }[] = [
+  { key: 'business', label: 'Business Mentors' },
+  { key: 'technology', label: 'Technology Mentors' },
+  { key: 'faculty', label: 'Faculty Mentors' },
 ]
 
-const mentorSubmitted = ref(false)
+function getValidTab(tab: unknown): MentorTabKey {
+  if (tab === 'technology' || tab === 'faculty' || tab === 'business') {
+    return tab
+  }
+  return 'business'
+}
 
-const mentorForm = ref({
-  domain: '',
-  name: '',
-  yourName: '',
-  email: '',
-  phone: '',
-  functionalArea: '',
-  details: '',
-  consent: false,
+const activeTab = ref<MentorTabKey>(getValidTab(route.query.tab))
+
+watch(
+  () => route.query.tab,
+  (newTab) => {
+    activeTab.value = getValidTab(newTab)
+  }
+)
+
+function setTab(tab: MentorTabKey) {
+  activeTab.value = tab
+  router.replace({
+    path: '/mentors',
+    query: { tab },
+  })
+}
+
+const businessMentors = reactive<Mentor[]>([
+  {
+    name: 'Mr. Placeholder One',
+    role: 'Business Mentor',
+    image: '/business-mentor-1.jfif',
+    visible: true,
+  },
+  {
+    name: 'Ms. Placeholder Two',
+    role: 'Business Mentor',
+    image: '/business-mentor-2.jfif',
+    visible: true,
+  },
+  {
+    name: 'Mr. Placeholder Three',
+    role: 'Business Mentor',
+    image: '/business-mentor-3.jfif',
+    visible: true,
+  },
+  {
+    name: 'Ms. Placeholder Four',
+    role: 'Business Mentor',
+    image: '/business-mentor-4.jfif',
+    visible: true,
+  },
+  {
+    name: 'Mr. Placeholder Five',
+    role: 'Business Mentor',
+    image: '/business-mentor-5.jfif',
+    visible: true,
+  },
+  {
+    name: 'Ms. Placeholder Six',
+    role: 'Business Mentor',
+    image: '/business-mentor-6.jfif',
+    visible: true,
+  },
+])
+
+const technologyMentors = reactive<Mentor[]>([
+  {
+    name: 'Dr. Placeholder One',
+    role: 'Technology Mentor',
+    image: '/technology-mentor-1.jfif',
+    visible: true,
+  },
+  {
+    name: 'Dr. Placeholder Two',
+    role: 'Technology Mentor',
+    image: '/technology-mentor-2.jfif',
+    visible: true,
+  },
+  {
+    name: 'Dr. Placeholder Three',
+    role: 'Technology Mentor',
+    image: '/technology-mentor-3.jfif',
+    visible: true,
+  },
+  {
+    name: 'Dr. Placeholder Four',
+    role: 'Technology Mentor',
+    image: '/technology-mentor-4.jfif',
+    visible: true,
+  },
+  {
+    name: 'Dr. Placeholder Five',
+    role: 'Technology Mentor',
+    image: '/technology-mentor-5.jfif',
+    visible: true,
+  },
+  {
+    name: 'Dr. Placeholder Six',
+    role: 'Technology Mentor',
+    image: '/technology-mentor-6.jfif',
+    visible: true,
+  },
+])
+
+const facultyMentors = reactive<Mentor[]>([
+  {
+    name: 'Prof. Placeholder One',
+    role: 'Faculty Mentor',
+    image: '/faculty-mentor-1.jfif',
+    visible: true,
+  },
+  {
+    name: 'Prof. Placeholder Two',
+    role: 'Faculty Mentor',
+    image: '/faculty-mentor-2.jfif',
+    visible: true,
+  },
+  {
+    name: 'Prof. Placeholder Three',
+    role: 'Faculty Mentor',
+    image: '/faculty-mentor-3.jfif',
+    visible: true,
+  },
+  {
+    name: 'Prof. Placeholder Four',
+    role: 'Faculty Mentor',
+    image: '/faculty-mentor-4.jfif',
+    visible: true,
+  },
+  {
+    name: 'Prof. Placeholder Five',
+    role: 'Faculty Mentor',
+    image: '/faculty-mentor-5.jfif',
+    visible: true,
+  },
+  {
+    name: 'Prof. Placeholder Six',
+    role: 'Faculty Mentor',
+    image: '/faculty-mentor-6.jfif',
+    visible: true,
+  },
+])
+
+const activeMentors = computed(() => {
+  if (activeTab.value === 'technology') return technologyMentors
+  if (activeTab.value === 'faculty') return facultyMentors
+  return businessMentors
 })
 
-function submitMentorRequest() {
-  mentorSubmitted.value = true
-  mentorForm.value = { domain: '', name: '', yourName: '', email: '', phone: '', functionalArea: '', details: '', consent: false }
-  setTimeout(() => { mentorSubmitted.value = false }, 6000)
-}
+const activeCategoryTitle = computed(() => {
+  if (activeTab.value === 'technology') return 'Technology Mentors'
+  if (activeTab.value === 'faculty') return 'Faculty Mentors'
+  return 'Business Mentors'
+})
 </script>

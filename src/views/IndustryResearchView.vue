@@ -1,11 +1,11 @@
 <template>
-  <div class="co-working-view">
+  <div class="industry-research-view">
     <!-- Hero -->
     <section class="relative h-[50vh] min-h-[340px] overflow-hidden">
       <img
         v-if="showHeroImage"
-        src="/incubation-hero.jfif"
-        alt="Co-Working"
+        src="/industry-research-hero.jfif"
+        alt="Industry Research"
         class="absolute inset-0 h-full w-full object-cover object-center"
         @error="showHeroImage = false"
       />
@@ -20,7 +20,7 @@
           </span>
         </div>
         <h1 class="mb-4 text-5xl font-extrabold leading-tight text-white md:text-6xl">
-          Co-Working
+          Industry Research
         </h1>
       </div>
     </section>
@@ -29,27 +29,26 @@
     <section class="bg-white px-6 py-24 md:px-16">
       <div class="mx-auto max-w-4xl text-center">
         <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-          Our Space
+          Research & Collaboration
         </span>
         <h2 class="mt-3 mb-6 text-3xl font-bold leading-tight text-gray-900">
-          Work, Connect &amp; Grow. A Space Designed for Startups.
+          Solving Real Industry Problems Through Applied Research.
         </h2>
 
         <div class="space-y-4 text-base leading-relaxed text-gray-600">
           <p>
-            At IDRP, co-working goes beyond just providing a desk. It's a
-            launchpad for ideas, a hub for innovators, and a community where
-            ambition meets support.
+            At IDRP, Industry Research connects academic capability, technical depth, and practical
+            problem-solving to address real-world business and engineering challenges.
           </p>
           <p>
-            Our vibrant 55,000 sq. ft. campus, located in Dharwad, brings
-            together entrepreneurs, creators, and changemakers under one roof.
-            The centrally connected, premium space is designed to inspire
-            collaboration, creativity, and growth.
+            We work with industries, startups, institutions, and innovation teams to define problem
+            statements, investigate opportunities, validate approaches, and create knowledge-driven
+            solutions with measurable value.
           </p>
           <p>
-            Whether you're a solo founder, an early-stage startup, or a scaling
-            team, IDRP offers a flexible workspace that evolves with your needs.
+            From exploratory studies to applied technology validation and implementation pathways,
+            our research engagements are structured to deliver insights that can lead to innovation,
+            efficiency, and strategic growth.
           </p>
         </div>
 
@@ -57,47 +56,47 @@
       </div>
     </section>
 
-    <!-- Why Choose IDRP -->
+    <!-- Research Areas -->
     <section class="bg-gray-50 px-6 py-24 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-14 text-center">
           <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-            Amenities
+            Focus Areas
           </span>
           <h2 class="mt-2 text-4xl font-bold text-gray-900">
-            Why Choose IDRP for Co-Working?
+            What Industry Research at IDRP Covers
           </h2>
           <p class="mx-auto mt-3 max-w-xl text-gray-500">
-            Everything you need to focus, build, and collaborate in one
-            world-class campus.
+            Research collaborations designed to generate insights, solutions, and actionable
+            innovation pathways.
           </p>
         </div>
 
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
           <article
-            v-for="amenity in amenities"
-            :key="amenity.title"
+            v-for="area in researchAreas"
+            :key="area.title"
             class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:border-teal-200 hover:shadow-xl"
           >
             <div
               class="relative h-36 overflow-hidden"
-              :class="amenity.bg"
+              :class="area.bg"
             >
               <img
-                v-if="amenity.visible"
-                :src="amenity.image"
-                :alt="amenity.title"
+                v-if="area.visible"
+                :src="area.image"
+                :alt="area.title"
                 class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                @error="amenity.visible = false"
+                @error="area.visible = false"
               />
               <div class="absolute inset-0 flex items-center justify-center">
-                <span class="text-4xl">{{ amenity.emoji }}</span>
+                <span class="text-4xl">{{ area.emoji }}</span>
               </div>
             </div>
 
             <div class="p-4 text-center">
               <p class="text-sm font-bold text-gray-800 transition-colors group-hover:text-teal-700">
-                {{ amenity.title }}
+                {{ area.title }}
               </p>
             </div>
           </article>
@@ -110,10 +109,10 @@
       <div class="mx-auto max-w-5xl">
         <div class="mb-14 text-center">
           <h2 class="text-3xl font-bold text-white">
-            Collaborate Within a Thriving Startup Community
+            Turning Questions Into Scalable Outcomes
           </h2>
           <p class="mt-3 text-teal-100">
-            Join a campus built for the builders of tomorrow.
+            Research that strengthens innovation, decision-making, and implementation readiness.
           </p>
         </div>
 
@@ -134,23 +133,23 @@
       </div>
     </section>
 
-    <!-- Book a Tour Form -->
+    <!-- Collaboration Form -->
     <section class="bg-white px-6 py-24 md:px-16">
       <div class="mx-auto max-w-3xl">
         <div class="mb-12 text-center">
           <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-            Visit Us
+            Collaborate With Us
           </span>
-          <h2 class="mt-2 text-4xl font-bold text-gray-900">Book a Tour</h2>
+          <h2 class="mt-2 text-4xl font-bold text-gray-900">Start a Research Discussion</h2>
           <p class="mx-auto mt-3 max-w-xl text-gray-500">
-            Come experience the IDRP campus. Fill in your details and we will
-            reach out to schedule your visit.
+            Share your research interest, problem statement, or collaboration requirement and our
+            team will connect with you.
           </p>
         </div>
 
         <form
           class="space-y-6 rounded-3xl border border-gray-100 bg-gray-50 p-8 md:p-10"
-          @submit.prevent="submitTour"
+          @submit.prevent="submitResearchForm"
         >
           <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
@@ -158,7 +157,7 @@
                 Your Name <span class="text-red-500">*</span>
               </label>
               <input
-                v-model.trim="tourForm.name"
+                v-model.trim="researchForm.name"
                 type="text"
                 placeholder="Full name"
                 class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
@@ -168,12 +167,40 @@
 
             <div>
               <label class="mb-2 block text-sm font-semibold text-gray-700">
+                Organization <span class="text-red-500">*</span>
+              </label>
+              <input
+                v-model.trim="researchForm.organization"
+                type="text"
+                placeholder="Organization / Institution / Startup"
+                class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div>
+              <label class="mb-2 block text-sm font-semibold text-gray-700">
                 Phone Number <span class="text-red-500">*</span>
               </label>
               <input
-                v-model.trim="tourForm.phone"
+                v-model.trim="researchForm.phone"
                 type="tel"
                 placeholder="+91 98765 43210"
+                class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+                required
+              />
+            </div>
+
+            <div>
+              <label class="mb-2 block text-sm font-semibold text-gray-700">
+                Email ID <span class="text-red-500">*</span>
+              </label>
+              <input
+                v-model.trim="researchForm.email"
+                type="email"
+                placeholder="you@company.com"
                 class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
                 required
               />
@@ -182,29 +209,16 @@
 
           <div>
             <label class="mb-2 block text-sm font-semibold text-gray-700">
-              Email ID <span class="text-red-500">*</span>
-            </label>
-            <input
-              v-model.trim="tourForm.email"
-              type="email"
-              placeholder="you@startup.com"
-              class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
-              required
-            />
-          </div>
-
-          <div>
-            <label class="mb-2 block text-sm font-semibold text-gray-700">
-              Type of Space <span class="text-red-500">*</span>
+              Research Area <span class="text-red-500">*</span>
             </label>
             <select
-              v-model="tourForm.spaceType"
+              v-model="researchForm.researchArea"
               class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
             >
-              <option value="" disabled>Select a space type</option>
+              <option value="" disabled>Select a research area</option>
               <option
-                v-for="option in spaceOptions"
+                v-for="option in researchOptions"
                 :key="option"
                 :value="option"
               >
@@ -215,44 +229,42 @@
 
           <div>
             <label class="mb-2 block text-sm font-semibold text-gray-700">
-              Additional Details
-              <span class="font-normal text-gray-400">(Optional)</span>
+              Problem Statement / Requirement <span class="text-red-500">*</span>
             </label>
             <textarea
-              v-model.trim="tourForm.details"
-              rows="4"
-              placeholder="Tell us about your team size, preferred visit dates, or any specific requirements..."
+              v-model.trim="researchForm.details"
+              rows="5"
+              placeholder="Describe the challenge, domain, research need, expected outcomes, or collaboration scope..."
               class="w-full resize-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+              required
             />
           </div>
 
           <div class="rounded-xl border border-gray-200 bg-white p-5 text-xs leading-relaxed text-gray-500">
             <p class="mb-2 font-semibold text-gray-700">Disclaimer &amp; Consent</p>
             <p>
-              By submitting this form, I/We consent to IDRP collecting and using
-              the provided information solely for the purpose of evaluating and
-              delivering incubation, acceleration, funding, mentorship,
-              networking, and related programs. The information is shared
-              voluntarily, and I/We acknowledge that no confidential or
-              proprietary data should be submitted unless we are comfortable
-              with its use for these purposes. IDRP will maintain reasonable
-              confidentiality, will not share information with third parties
-              without consent (except where required by law or for service
-              delivery), and may contact us using the provided details regarding
-              this application and relevant opportunities.
+              By submitting this form, I/We consent to IDRP collecting and using the provided
+              information solely for the purpose of evaluating and responding to research,
+              consulting, innovation, collaboration, prototyping, and related service requests.
+              The information is shared voluntarily, and I/We acknowledge that no confidential or
+              proprietary data should be submitted unless we are comfortable with its use for these
+              purposes. IDRP will maintain reasonable confidentiality, will not share information
+              with third parties without consent (except where required by law or for service
+              delivery), and may contact us using the provided details regarding this request and
+              relevant opportunities.
             </p>
           </div>
 
           <div class="flex items-start gap-3">
             <input
-              id="tourConsent"
-              v-model="tourForm.consent"
+              id="researchConsent"
+              v-model="researchForm.consent"
               type="checkbox"
               class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded accent-teal-600"
               required
             />
             <label
-              for="tourConsent"
+              for="researchConsent"
               class="cursor-pointer text-sm leading-relaxed text-gray-600"
             >
               I have read and agree to the disclaimer
@@ -264,17 +276,16 @@
               type="submit"
               class="w-full rounded-xl bg-teal-700 py-4 text-sm font-bold tracking-wide text-white transition-colors duration-200 hover:bg-teal-800"
             >
-              Book My Tour
+              Submit Research Enquiry
             </button>
           </div>
 
           <div
-            v-if="tourSubmitted"
+            v-if="formSubmitted"
             class="flex items-center gap-3 rounded-xl border border-teal-200 bg-teal-50 px-5 py-4 text-sm font-medium text-teal-700"
           >
             <span class="text-xl">✅</span>
-            Thank you! We have received your request and will get in touch shortly
-            to confirm your tour.
+            Thank you! We have received your enquiry and will get in touch shortly.
           </div>
         </form>
       </div>
@@ -285,11 +296,12 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 
-type TourForm = {
+type ResearchForm = {
   name: string
+  organization: string
   phone: string
   email: string
-  spaceType: string
+  researchArea: string
   details: string
   consent: boolean
 }
@@ -299,7 +311,7 @@ type Stat = {
   label: string
 }
 
-type Amenity = {
+type ResearchAreaCard = {
   title: string
   emoji: string
   image: string
@@ -308,120 +320,88 @@ type Amenity = {
 }
 
 const showHeroImage = ref(true)
-const tourSubmitted = ref(false)
+const formSubmitted = ref(false)
 
-const spaceOptions: string[] = [
-  'Work Station',
-  'Work Cabin',
-  'Meeting Room',
-  'Board Room',
-  'Auditorium',
+const researchOptions: string[] = [
+  'Applied Technology Research',
+  'Process Improvement Research',
+  'Product Validation Research',
+  'Feasibility Study',
+  'Innovation Strategy Research',
+  'AI / Data / Digital Transformation Research',
 ]
 
-const tourForm = reactive<TourForm>({
+const researchForm = reactive<ResearchForm>({
   name: '',
+  organization: '',
   phone: '',
   email: '',
-  spaceType: '',
+  researchArea: '',
   details: '',
   consent: false,
 })
 
 const stats: Stat[] = [
-  { value: '45+', label: 'Active Startups' },
-  { value: '1000+', label: 'Mixers, Masterclasses, and Pitch Events' },
-  { value: '650+', label: 'Innovators, Tech-Developers, and Founders' },
-  { value: '130+', label: 'On-site Mentors, Investors & Ecosystem Enablers' },
+  { value: '25+', label: 'Industry Collaboration Themes' },
+  { value: '40+', label: 'Applied Research Engagements' },
+  { value: '15+', label: 'Emerging Technology Focus Areas' },
+  { value: '100+', label: 'Experts, Mentors & Innovation Enablers' },
 ]
 
-const amenities = reactive<Amenity[]>([
+const researchAreas = reactive<ResearchAreaCard[]>([
   {
-    title: 'Flexible Office Spaces',
-    emoji: '🏢',
-    image: '/cowork-office.jfif',
+    title: 'Applied Technology Research',
+    emoji: '🔬',
+    image: '/industry-tech.jfif',
     bg: 'bg-teal-50',
     visible: true,
   },
   {
-    title: 'Cafeteria & Breakout Zones',
-    emoji: '☕',
-    image: '/cowork-cafe.jfif',
-    bg: 'bg-amber-50',
-    visible: true,
-  },
-  {
-    title: 'Secure Premises & Reception',
-    emoji: '🔒',
-    image: '/cowork-secure.jfif',
-    bg: 'bg-blue-50',
-    visible: true,
-  },
-  {
-    title: '24/7 Access & Power Backup',
-    emoji: '⚡',
-    image: '/cowork-power.jfif',
-    bg: 'bg-yellow-50',
-    visible: true,
-  },
-  {
-    title: 'High-Speed Internet',
-    emoji: '🌐',
-    image: '/cowork-wifi.jfif',
+    title: 'Process & Performance Studies',
+    emoji: '📊',
+    image: '/industry-process.jfif',
     bg: 'bg-cyan-50',
     visible: true,
   },
   {
-    title: 'Meeting & Board Rooms',
-    emoji: '🤝',
-    image: '/cowork-meeting.jfif',
-    bg: 'bg-indigo-50',
-    visible: true,
-  },
-  {
-    title: 'Event Spaces & Auditorium',
-    emoji: '🎤',
-    image: '/cowork-events.jfif',
-    bg: 'bg-rose-50',
-    visible: true,
-  },
-  {
-    title: 'Easy & Fast Accessibility',
-    emoji: '📍',
-    image: '/cowork-access.jfif',
-    bg: 'bg-orange-50',
-    visible: true,
-  },
-  {
-    title: 'Vibrant Community',
-    emoji: '💡',
-    image: '/cowork-community.jfif',
-    bg: 'bg-teal-50',
-    visible: true,
-  },
-  {
-    title: 'Ample Parking & Green Campus',
-    emoji: '🌿',
-    image: '/cowork-green.jfif',
+    title: 'Feasibility & Validation',
+    emoji: '✅',
+    image: '/industry-feasibility.jfif',
     bg: 'bg-green-50',
+    visible: true,
+  },
+  {
+    title: 'Innovation & Strategy',
+    emoji: '💡',
+    image: '/industry-innovation.jfif',
+    bg: 'bg-amber-50',
+    visible: true,
+  },
+  {
+    title: 'Pilot & Solution Pathways',
+    emoji: '🚀',
+    image: '/industry-pilot.jfif',
+    bg: 'bg-indigo-50',
     visible: true,
   },
 ])
 
-function resetTourForm() {
-  tourForm.name = ''
-  tourForm.phone = ''
-  tourForm.email = ''
-  tourForm.spaceType = ''
-  tourForm.details = ''
-  tourForm.consent = false
+function resetResearchForm() {
+  researchForm.name = ''
+  researchForm.organization = ''
+  researchForm.phone = ''
+  researchForm.email = ''
+  researchForm.researchArea = ''
+  researchForm.details = ''
+  researchForm.consent = false
 }
 
-function submitTour() {
-  tourSubmitted.value = true
-  resetTourForm()
+function submitResearchForm() {
+  formSubmitted.value = true
+  resetResearchForm()
 
   window.setTimeout(() => {
-    tourSubmitted.value = false
+    formSubmitted.value = false
   }, 6000)
 }
 </script>

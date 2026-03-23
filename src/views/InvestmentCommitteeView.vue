@@ -1,11 +1,11 @@
 <template>
-  <div class="our-team-view">
+  <div class="investment-committee-view">
     <!-- Hero Banner -->
     <section class="relative h-[50vh] min-h-[340px] overflow-hidden">
       <img
         v-if="showHeroImage"
-        src="/team-hero.jfif"
-        alt="Our Team"
+        src="/investment-committee-hero.jfif"
+        alt="Investment Committee"
         class="absolute inset-0 h-full w-full object-cover object-center"
         @error="showHeroImage = false"
       />
@@ -16,41 +16,40 @@
         <div class="mb-4 flex items-center gap-3">
           <div class="h-8 w-1 rounded-full bg-teal-400" />
           <span class="text-sm font-semibold uppercase tracking-widest text-teal-300">
-            The People Behind IDRP
+            Strategic Evaluation
           </span>
         </div>
         <h1 class="mb-4 text-5xl font-extrabold leading-tight text-white md:text-6xl">
-          Our Team
+          Investment Committee
         </h1>
       </div>
     </section>
 
-    <!-- Intro Text -->
+    <!-- Intro -->
     <section class="bg-white px-6 py-20 md:px-16">
       <div class="mx-auto max-w-3xl text-center">
         <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-          Meet the Team
+          Committee Overview
         </span>
         <h2 class="mt-3 mb-6 text-3xl font-bold text-gray-900">
-          Expertise that drives execution
+          Enabling informed decisions for startup growth
         </h2>
         <p class="text-lg leading-relaxed text-gray-600">
-          Our team combines deep expertise in incubation, investment, and
-          operations, bringing together strategy, experience, and execution.
-          With strong leadership and domain insight, they guide startups from
-          idea to scalable growth, fostering an ecosystem where innovation leads
-          to impact.
+          The Investment Committee provides strategic review and evaluation support
+          for ventures associated with IDRP. It brings together expertise from
+          entrepreneurship, technology, finance, and ecosystem leadership to assess
+          opportunities, strengthen investment readiness, and guide scalable growth.
         </p>
         <div class="mx-auto mt-8 h-1 w-16 rounded-full bg-gradient-to-r from-teal-500 to-cyan-400" />
       </div>
     </section>
 
-    <!-- Team Members -->
+    <!-- Committee Members -->
     <section class="bg-white px-6 pb-24 md:px-16">
-      <div class="mx-auto max-w-5xl">
-        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2">
+      <div class="mx-auto max-w-6xl">
+        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 sm:gap-16">
           <article
-            v-for="member in teamMembers"
+            v-for="member in committeeMembers"
             :key="member.name"
             class="group flex flex-col items-center text-center"
           >
@@ -88,19 +87,19 @@
       >
         <div>
           <h3 class="text-2xl font-bold text-white">
-            Want to join the IDRP family?
+            Interested in the IDRP innovation ecosystem?
           </h3>
           <p class="mt-2 text-teal-100">
-            Explore career opportunities or get in touch with us.
+            Learn more about our programs, mentors, and startup support initiatives.
           </p>
         </div>
 
         <div class="flex shrink-0 gap-4">
           <RouterLink
-            to="/careers"
+            to="/about-idrp"
             class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition-colors hover:bg-teal-50"
           >
-            Careers
+            About IDRP
           </RouterLink>
           <RouterLink
             to="/contact"
@@ -118,7 +117,7 @@
 import { reactive, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 
-type TeamMember = {
+type CommitteeMember = {
   name: string
   role: string
   image: string
@@ -127,17 +126,41 @@ type TeamMember = {
 
 const showHeroImage = ref(true)
 
-const teamMembers = reactive<TeamMember[]>([
+const committeeMembers = reactive<CommitteeMember[]>([
   {
-    name: 'Prof. Mahadev Prasanna',
-    role: 'Director',
-    image: '/board-prasanna.jfif',
+    name: 'Dr. Placeholder One',
+    role: 'Chair, Investment Committee',
+    image: '/investment-member-1.jfif',
     visible: true,
   },
   {
-    name: 'Dr. Deepak K T',
-    role: 'CEO, IDRP',
-    image: '/board-deepak.jfif',
+    name: 'Mr. Placeholder Two',
+    role: 'Committee Member',
+    image: '/investment-member-2.jfif',
+    visible: true,
+  },
+  {
+    name: 'Ms. Placeholder Three',
+    role: 'Committee Member',
+    image: '/investment-member-3.jfif',
+    visible: true,
+  },
+  {
+    name: 'Dr. Placeholder Four',
+    role: 'Committee Member',
+    image: '/investment-member-4.jfif',
+    visible: true,
+  },
+  {
+    name: 'Mr. Placeholder Five',
+    role: 'Committee Member',
+    image: '/investment-member-5.jfif',
+    visible: true,
+  },
+  {
+    name: 'Ms. Placeholder Six',
+    role: 'Committee Member',
+    image: '/investment-member-6.jfif',
     visible: true,
   },
 ])

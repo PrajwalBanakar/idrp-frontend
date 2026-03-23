@@ -1,324 +1,474 @@
 <template>
-  <AppLayout>
-
-    <!-- ─── Hero Banner ─────────────────────────────────────────── -->
+  <div class="incubation-view">
+    <!-- Hero Banner -->
     <section class="relative h-[50vh] min-h-[340px] overflow-hidden">
-      <img :src="'/incubation-hero.jfif'" alt="Incubation"
-        class="absolute inset-0 w-full h-full object-cover object-center"
-        onerror="this.style.display='none'" />
-      <div class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/80 to-teal-700/30"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
-      <div class="relative z-10 h-full flex flex-col justify-center px-10 md:px-20 max-w-2xl">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-1 h-8 bg-teal-400 rounded-full"></div>
-          <span class="text-teal-300 font-semibold text-sm uppercase tracking-widest">Programs</span>
+      <img
+        v-if="showHeroImage"
+        src="/incubation-hero.jfif"
+        alt="Udhyami"
+        class="absolute inset-0 h-full w-full object-cover object-center"
+        @error="showHeroImage = false"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/80 to-teal-700/30" />
+      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+
+      <div class="relative z-10 flex h-full max-w-2xl flex-col justify-center px-10 md:px-20">
+        <div class="mb-4 flex items-center gap-3">
+          <div class="h-8 w-1 rounded-full bg-teal-400" />
+          <span class="text-sm font-semibold uppercase tracking-widest text-teal-300">
+            Programs
+          </span>
         </div>
-        <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4">Incubation</h1>
+        <h1 class="text-5xl font-extrabold leading-tight text-white md:text-6xl">
+          Udhyami
+        </h1>
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-teal-100 md:text-lg">
+          IDRP’s incubation pathway for startups ready to move from early validation toward growth, traction, and venture-building.
+        </p>
       </div>
     </section>
 
-    <!-- ─── Intro ──────────────────────────────────────────────── -->
-    <section class="py-24 px-6 md:px-16 bg-white">
-      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+    <!-- Intro -->
+    <section class="bg-white px-6 py-24 md:px-16">
+      <div class="mx-auto flex max-w-6xl flex-col items-center gap-16 lg:flex-row">
         <div class="lg:w-1/2">
-          <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">Our Approach</span>
-          <h2 class="text-3xl font-bold text-gray-900 mt-3 mb-6 leading-tight">Guiding Startups Towards Growth &amp; Impact</h2>
-          <div class="space-y-4 text-gray-600 leading-relaxed">
-            <p>At IDRP, we believe early-stage startups need more than just infrastructure. They need structure, mentorship, and the right support to succeed in the market.</p>
-            <p>Our incubation programs are designed for founders ready to move beyond idea validation or MVP development. With hands-on guidance, access to experienced mentors, and strong ecosystem connections, we help startups achieve product-market fit, build strong foundations, and prepare for scale.</p>
-            <p>Whether you're refining your pitch or shaping your go-to-market strategy, our programs are tailored to support your journey.</p>
+          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+            Our Approach
+          </span>
+          <h2 class="mt-3 mb-6 text-3xl font-bold leading-tight text-gray-900">
+            Udhyami: Guiding Startups Towards Growth &amp; Impact
+          </h2>
+
+          <div class="space-y-4 leading-relaxed text-gray-600">
+            <p>
+              At IDRP, we believe early-stage startups need more than infrastructure alone. They need
+              structured guidance, strong mentorship, and the right ecosystem support to grow with clarity.
+            </p>
+            <p>
+              Udhyami is designed for founders who are ready to move beyond idea exploration and early
+              validation into focused venture-building. With hands-on support, expert mentors, and access
+              to a collaborative innovation ecosystem, startups can strengthen their product, sharpen their
+              market approach, and prepare for long-term growth.
+            </p>
+            <p>
+              Whether you are refining your business model, building customer traction, or preparing your
+              next major milestone, Udhyami supports your journey with a founder-first approach.
+            </p>
           </div>
         </div>
+
         <div class="lg:w-1/2">
-          <div class="rounded-3xl overflow-hidden shadow-2xl h-96">
-            <img :src="'/incubation-intro.jfif'" alt="Incubation at IDRP"
-              class="w-full h-full object-cover"
-              onerror="this.parentElement.classList.add('bg-gradient-to-br','from-teal-100','to-cyan-50'); this.style.display='none'" />
+          <div
+            class="h-96 overflow-hidden rounded-3xl shadow-2xl"
+            :class="{
+              'bg-gradient-to-br from-teal-100 to-cyan-50': !showIntroImage,
+            }"
+          >
+            <img
+              v-if="showIntroImage"
+              src="/incubation-intro.jfif"
+              alt="Udhyami at IDRP"
+              class="h-full w-full object-cover"
+              @error="showIntroImage = false"
+            />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ─── Value of Incubation ───────────────────────────────── -->
-    <section class="py-24 px-6 md:px-16 bg-gray-50">
-      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
-        <!-- Left: Content -->
+    <!-- Value of Udhyami -->
+    <section class="bg-gray-50 px-6 py-24 md:px-16">
+      <div class="mx-auto flex max-w-6xl flex-col items-center gap-16 lg:flex-row">
         <div class="lg:w-1/2">
-          <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">Why Incubate?</span>
-          <h2 class="text-3xl font-bold text-gray-900 mt-3 mb-8 leading-tight">The Value of Incubation</h2>
+          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+            Why Udhyami?
+          </span>
+          <h2 class="mt-3 mb-8 text-3xl font-bold leading-tight text-gray-900">
+            The Value of Incubation Through Udhyami
+          </h2>
+
           <ul class="space-y-4">
-            <li v-for="item in valueItems" :key="item"
-              class="flex items-start gap-4 group">
-              <div class="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="white" class="w-4 h-4">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            <li
+              v-for="item in valueItems"
+              :key="item"
+              class="group flex items-start gap-4"
+            >
+              <div
+                class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-600 shadow-sm"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2.5"
+                  stroke="white"
+                  class="h-4 w-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
                 </svg>
               </div>
-              <p class="text-gray-700 leading-relaxed text-sm pt-1">{{ item }}</p>
+              <p class="pt-1 text-sm leading-relaxed text-gray-700">
+                {{ item }}
+              </p>
             </li>
           </ul>
         </div>
-        <!-- Right: Image -->
+
         <div class="lg:w-1/2">
-          <div class="rounded-3xl overflow-hidden shadow-2xl h-96">
-            <img :src="'/incubation-value.jfif'" alt="Value of Incubation"
-              class="w-full h-full object-cover"
-              onerror="this.parentElement.classList.add('bg-gradient-to-br','from-teal-100','to-cyan-50'); this.style.display='none'" />
+          <div
+            class="h-96 overflow-hidden rounded-3xl shadow-2xl"
+            :class="{
+              'bg-gradient-to-br from-teal-100 to-cyan-50': !showValueImage,
+            }"
+          >
+            <img
+              v-if="showValueImage"
+              src="/incubation-value.jfif"
+              alt="Value of Udhyami"
+              class="h-full w-full object-cover"
+              @error="showValueImage = false"
+            />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ─── Our Incubation Programs ───────────────────────────── -->
-    <section class="py-24 px-6 md:px-16 bg-white">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-          <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">Call for Applications</span>
-          <h2 class="text-4xl font-bold text-gray-900 mt-2">Our Incubation Programs</h2>
-          <p class="text-gray-500 mt-3 max-w-xl mx-auto">Choose the program that fits your stage and ambition.</p>
+    <!-- Our Udhyami Programs -->
+    <section class="bg-white px-6 py-24 md:px-16">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-16 text-center">
+          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+            Call for Applications
+          </span>
+          <h2 class="mt-2 text-4xl font-bold text-gray-900">
+            Udhyami Pathways
+          </h2>
+          <p class="mx-auto mt-3 max-w-xl text-gray-500">
+            Choose the incubation pathway that best matches your startup stage and operating model.
+          </p>
         </div>
 
-        <!-- Program 1: Resident -->
-        <div class="mb-12 bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-          <div class="h-1 bg-gradient-to-r from-teal-500 to-cyan-400"></div>
+        <article
+          v-for="program in programs"
+          :key="program.title"
+          class="mb-12 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-300 last:mb-0 hover:shadow-xl"
+        >
+          <div
+            class="h-1 bg-gradient-to-r"
+            :class="program.gradientClass"
+          />
           <div class="p-8 md:p-10">
-            <div class="flex flex-col md:flex-row md:items-start gap-8">
-              <!-- Left: Description -->
+            <div class="flex flex-col gap-8 md:flex-row md:items-start">
               <div class="flex-1">
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="bg-teal-50 text-teal-700 text-xs font-bold px-3 py-1 rounded-full">12-18 Months</span>
-                  <span class="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full">On-Site</span>
+                <div class="mb-4 flex items-center gap-3">
+                  <span
+                    class="rounded-full px-3 py-1 text-xs font-bold"
+                    :class="program.durationBadgeClass"
+                  >
+                    {{ program.duration }}
+                  </span>
+                  <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-bold text-gray-600">
+                    {{ program.mode }}
+                  </span>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-3">Resident Incubation Program</h3>
-                <p class="text-gray-600 text-sm leading-relaxed mb-6">Designed for early-stage startups at the idea, PoC, or MVP stage, this program offers a comprehensive support system to help you build, validate, and scale your venture. With access to dedicated infrastructure, expert mentorship, and funding opportunities, founders can focus on turning their ideas into impactful businesses within a collaborative campus environment.</p>
-                <router-link to="/apply/resident-incubation"
-                  class="inline-block bg-teal-700 text-white font-bold px-6 py-2.5 rounded-xl hover:bg-teal-800 transition-colors text-sm">
+
+                <h3 class="mb-3 text-2xl font-bold text-gray-900">
+                  {{ program.title }}
+                </h3>
+
+                <p class="mb-6 text-sm leading-relaxed text-gray-600">
+                  {{ program.description }}
+                </p>
+
+                <RouterLink
+                  :to="program.applyTo"
+                  class="inline-block rounded-xl bg-teal-700 px-6 py-2.5 text-sm font-bold text-white transition-colors hover:bg-teal-800"
+                >
                   Apply Now
-                </router-link>
+                </RouterLink>
               </div>
 
-              <!-- Right: Accordion details -->
-              <div class="md:w-80 flex flex-col gap-3 shrink-0">
-
-                <!-- Eligibility -->
-                <div class="border border-gray-100 rounded-2xl overflow-hidden">
-                  <button @click="residentOpen.eligibility = !residentOpen.eligibility"
-                    class="w-full flex items-center justify-between px-5 py-4 text-sm font-semibold text-gray-800 hover:bg-gray-50 transition-colors">
-                    Eligibility
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200"
-                      :class="{ 'rotate-180': residentOpen.eligibility }"
-                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              <div class="flex shrink-0 flex-col gap-3 md:w-80">
+                <div
+                  v-for="section in program.sections"
+                  :key="section.key"
+                  class="overflow-hidden rounded-2xl border border-gray-100"
+                >
+                  <button
+                    type="button"
+                    class="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-semibold text-gray-800 transition-colors hover:bg-gray-50"
+                    @click="toggleSection(program.id, section.key)"
+                  >
+                    {{ section.title }}
+                    <svg
+                      class="h-4 w-4 text-gray-400 transition-transform duration-200"
+                      :class="{ 'rotate-180': isSectionOpen(program.id, section.key) }"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </button>
-                  <div v-show="residentOpen.eligibility" class="px-5 pb-4 text-sm text-gray-600 border-t border-gray-100 pt-3">
-                    Early-stage startups at idea, PoC, or MVP stage.
+
+                  <div
+                    v-show="isSectionOpen(program.id, section.key)"
+                    class="border-t border-gray-100 px-5 pt-3 pb-4"
+                  >
+                    <template v-if="section.contentType === 'text'">
+                      <p class="text-sm text-gray-600">
+                        {{ section.text }}
+                      </p>
+                    </template>
+
+                    <template v-else-if="section.contentType === 'list'">
+                      <p
+                        v-if="section.intro"
+                        class="mb-2 text-sm text-gray-600"
+                      >
+                        {{ section.intro }}
+                      </p>
+                      <ul class="space-y-2">
+                        <li
+                          v-for="item in section.items"
+                          :key="item"
+                          class="flex items-start gap-2 text-sm text-gray-600"
+                        >
+                          <span class="mt-0.5 shrink-0 text-teal-500">✓</span>
+                          {{ item }}
+                        </li>
+                      </ul>
+                    </template>
+
+                    <template v-else-if="section.contentType === 'table'">
+                      <table class="w-full text-sm">
+                        <tbody>
+                          <tr
+                            v-for="row in section.rows"
+                            :key="row.label"
+                            class="border-b border-gray-50 last:border-b-0"
+                          >
+                            <td class="px-0 py-3 font-semibold text-gray-500">
+                              {{ row.label }}
+                            </td>
+                            <td class="px-0 py-3 font-medium text-gray-800">
+                              {{ row.value }}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </template>
                   </div>
                 </div>
-
-                <!-- What it offers -->
-                <div class="border border-gray-100 rounded-2xl overflow-hidden">
-                  <button @click="residentOpen.offers = !residentOpen.offers"
-                    class="w-full flex items-center justify-between px-5 py-4 text-sm font-semibold text-gray-800 hover:bg-gray-50 transition-colors">
-                    What This Program Offers
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200"
-                      :class="{ 'rotate-180': residentOpen.offers }"
-                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div v-show="residentOpen.offers" class="px-5 pb-4 border-t border-gray-100 pt-3">
-                    <ul class="space-y-2">
-                      <li v-for="item in residentOffers" :key="item" class="flex items-start gap-2 text-sm text-gray-600">
-                        <span class="text-teal-500 mt-0.5 shrink-0">✓</span>{{ item }}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Details table -->
-                <div class="border border-gray-100 rounded-2xl overflow-hidden">
-                  <button @click="residentOpen.details = !residentOpen.details"
-                    class="w-full flex items-center justify-between px-5 py-4 text-sm font-semibold text-gray-800 hover:bg-gray-50 transition-colors">
-                    Program Details
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200"
-                      :class="{ 'rotate-180': residentOpen.details }"
-                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div v-show="residentOpen.details" class="border-t border-gray-100">
-                    <table class="w-full text-sm">
-                      <tbody>
-                        <tr class="border-b border-gray-50">
-                          <td class="px-5 py-3 font-semibold text-gray-500">Mode</td>
-                          <td class="px-5 py-3 text-gray-800 font-medium">On-Site</td>
-                        </tr>
-                        <tr class="border-b border-gray-50">
-                          <td class="px-5 py-3 font-semibold text-gray-500">Duration</td>
-                          <td class="px-5 py-3 text-gray-800 font-medium">12-18 Months</td>
-                        </tr>
-                        <tr>
-                          <td class="px-5 py-3 font-semibold text-gray-500">Cohort Size</td>
-                          <td class="px-5 py-3 text-gray-800 font-medium">15-20 Startups</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Program 2: Virtual -->
-        <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-          <div class="h-1 bg-gradient-to-r from-cyan-400 to-teal-500"></div>
-          <div class="p-8 md:p-10">
-            <div class="flex flex-col md:flex-row md:items-start gap-8">
-              <!-- Left: Description -->
-              <div class="flex-1">
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="bg-cyan-50 text-cyan-700 text-xs font-bold px-3 py-1 rounded-full">6-12 Months</span>
-                  <span class="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full">Online</span>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-3">Virtual Incubation Program</h3>
-                <p class="text-gray-600 text-sm leading-relaxed mb-6">Designed for founders who want to leverage IDRP's ecosystem without being physically present, this program offers flexible, remote support to help early-stage startups grow and scale. With access to mentorship, resources, and investor networks, entrepreneurs across India can build, learn, and connect from anywhere.</p>
-                <router-link to="/apply/virtual-incubation"
-                  class="inline-block bg-teal-700 text-white font-bold px-6 py-2.5 rounded-xl hover:bg-teal-800 transition-colors text-sm">
-                  Apply Now
-                </router-link>
-              </div>
-
-              <!-- Right: Accordion details -->
-              <div class="md:w-80 flex flex-col gap-3 shrink-0">
-
-                <!-- Eligibility -->
-                <div class="border border-gray-100 rounded-2xl overflow-hidden">
-                  <button @click="virtualOpen.eligibility = !virtualOpen.eligibility"
-                    class="w-full flex items-center justify-between px-5 py-4 text-sm font-semibold text-gray-800 hover:bg-gray-50 transition-colors">
-                    Eligibility
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200"
-                      :class="{ 'rotate-180': virtualOpen.eligibility }"
-                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div v-show="virtualOpen.eligibility" class="px-5 pb-4 border-t border-gray-100 pt-3">
-                    <p class="text-sm text-gray-600 mb-2">You're eligible if you have:</p>
-                    <ul class="space-y-1.5">
-                      <li class="flex items-start gap-2 text-sm text-gray-600"><span class="text-teal-500 mt-0.5 shrink-0">✓</span>A registered startup</li>
-                      <li class="flex items-start gap-2 text-sm text-gray-600"><span class="text-teal-500 mt-0.5 shrink-0">✓</span>A working MVP, already market-tested with early or pilot customers</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- What it offers -->
-                <div class="border border-gray-100 rounded-2xl overflow-hidden">
-                  <button @click="virtualOpen.offers = !virtualOpen.offers"
-                    class="w-full flex items-center justify-between px-5 py-4 text-sm font-semibold text-gray-800 hover:bg-gray-50 transition-colors">
-                    What This Program Offers
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200"
-                      :class="{ 'rotate-180': virtualOpen.offers }"
-                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div v-show="virtualOpen.offers" class="px-5 pb-4 border-t border-gray-100 pt-3">
-                    <ul class="space-y-2">
-                      <li v-for="item in virtualOffers" :key="item" class="flex items-start gap-2 text-sm text-gray-600">
-                        <span class="text-teal-500 mt-0.5 shrink-0">✓</span>{{ item }}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Details table -->
-                <div class="border border-gray-100 rounded-2xl overflow-hidden">
-                  <button @click="virtualOpen.details = !virtualOpen.details"
-                    class="w-full flex items-center justify-between px-5 py-4 text-sm font-semibold text-gray-800 hover:bg-gray-50 transition-colors">
-                    Program Details
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200"
-                      :class="{ 'rotate-180': virtualOpen.details }"
-                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div v-show="virtualOpen.details" class="border-t border-gray-100">
-                    <table class="w-full text-sm">
-                      <tbody>
-                        <tr class="border-b border-gray-50">
-                          <td class="px-5 py-3 font-semibold text-gray-500">Mode</td>
-                          <td class="px-5 py-3 text-gray-800 font-medium">Online</td>
-                        </tr>
-                        <tr class="border-b border-gray-50">
-                          <td class="px-5 py-3 font-semibold text-gray-500">Duration</td>
-                          <td class="px-5 py-3 text-gray-800 font-medium">6-12 Months</td>
-                        </tr>
-                        <tr>
-                          <td class="px-5 py-3 font-semibold text-gray-500">Cohort Size</td>
-                          <td class="px-5 py-3 text-gray-800 font-medium">15-20 Startups</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
+        </article>
       </div>
     </section>
 
-    <!-- ─── CTA ───────────────────────────────────────────────── -->
-    <section class="py-16 px-6 md:px-16 bg-gradient-to-r from-teal-700 to-cyan-600">
-      <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+    <!-- CTA -->
+    <section class="bg-gradient-to-r from-teal-700 to-cyan-600 px-6 py-16 md:px-16">
+      <div
+        class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left"
+      >
         <div>
-          <h3 class="text-2xl font-bold text-white">Not sure which program is right for you?</h3>
-          <p class="text-teal-100 mt-2">Talk to our team and we will help you find the best fit.</p>
+          <h3 class="text-2xl font-bold text-white">
+            Not sure which Udhyami pathway is right for you?
+          </h3>
+          <p class="mt-2 text-teal-100">
+            Talk to our team and we will help you identify the best fit for your startup.
+          </p>
         </div>
-        <div class="flex gap-4 shrink-0">
-          <router-link to="/contact" class="bg-white text-teal-800 font-bold px-6 py-3 rounded-full hover:bg-teal-50 transition-colors text-sm shadow-lg">Talk to Us</router-link>
+
+        <div class="flex shrink-0 gap-4">
+          <RouterLink
+            to="/contact"
+            class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition-colors hover:bg-teal-50"
+          >
+            Talk to Us
+          </RouterLink>
         </div>
       </div>
     </section>
-
-  </AppLayout>
+  </div>
 </template>
 
-<script setup>
-import AppLayout from '@/components/AppLayout.vue'
-import { ref } from 'vue'
+<script setup lang="ts">
+import { reactive, ref } from 'vue'
+import { RouterLink } from 'vue-router'
 
-const residentOpen = ref({ eligibility: false, offers: false, details: false })
-const virtualOpen  = ref({ eligibility: false, offers: false, details: false })
+type AccordionKey = 'eligibility' | 'offers' | 'details'
+type ProgramId = 'resident' | 'virtual'
 
-const valueItems = [
-  'Helps you sharpen your product and build with clear direction',
-  'Provides structured, milestone-driven guidance',
-  'Connects you with experienced mentors and industry experts',
-  'Prepares you for fundraising, partnerships, and scaling',
-  'A founder-first community driven by peer learning and expert insights',
+type TableRow = {
+  label: string
+  value: string
+}
+
+type ProgramSection =
+  | {
+      key: AccordionKey
+      title: string
+      contentType: 'text'
+      text: string
+    }
+  | {
+      key: AccordionKey
+      title: string
+      contentType: 'list'
+      items: string[]
+      intro?: string
+    }
+  | {
+      key: AccordionKey
+      title: string
+      contentType: 'table'
+      rows: TableRow[]
+    }
+
+type Program = {
+  id: ProgramId
+  title: string
+  duration: string
+  mode: string
+  description: string
+  applyTo: string
+  gradientClass: string
+  durationBadgeClass: string
+  sections: ProgramSection[]
+}
+
+const showHeroImage = ref(true)
+const showIntroImage = ref(true)
+const showValueImage = ref(true)
+
+const valueItems: string[] = [
+  'Helps startups sharpen product direction and build with stronger market clarity',
+  'Provides structured, milestone-driven guidance for venture growth',
+  'Connects founders with experienced mentors, experts, and ecosystem support',
+  'Supports readiness for partnerships, traction-building, and future fundraising',
+  'Creates a founder-first community driven by collaboration, peer learning, and execution',
 ]
 
-const residentOffers = [
-  'Dedicated workspace at campus',
-  'Access to research labs and equipment',
-  'Technical mentorship from faculty',
-  'Business development support',
-  'Seed funding up to Rs.50 lakhs',
-  'Industry networking events',
+const programs: Program[] = [
+  {
+    id: 'resident',
+    title: 'Udhyami Resident',
+    duration: '12-18 Months',
+    mode: 'On-Site',
+    description:
+      'Designed for early-stage startups at the idea, PoC, or MVP stage, Udhyami Resident offers a structured on-campus incubation environment with access to mentors, infrastructure, business support, and ecosystem opportunities. It is ideal for founders who benefit from close engagement, collaborative working, and deeper integration with the IDRP innovation environment.',
+    applyTo: '/apply/resident-incubation',
+    gradientClass: 'from-teal-500 to-cyan-400',
+    durationBadgeClass: 'bg-teal-50 text-teal-700',
+    sections: [
+      {
+        key: 'eligibility',
+        title: 'Eligibility',
+        contentType: 'text',
+        text: 'Early-stage startups at idea, PoC, or MVP stage that are ready for structured incubation support.',
+      },
+      {
+        key: 'offers',
+        title: 'What This Program Offers',
+        contentType: 'list',
+        items: [
+          'Dedicated workspace within the campus ecosystem',
+          'Access to relevant labs, facilities, and support infrastructure',
+          'Technical mentorship from faculty and domain experts',
+          'Business development and venture guidance',
+          'Ecosystem connects for growth and exposure',
+          'A structured incubation pathway through IDRP',
+        ],
+      },
+      {
+        key: 'details',
+        title: 'Program Details',
+        contentType: 'table',
+        rows: [
+          { label: 'Mode', value: 'On-Site' },
+          { label: 'Duration', value: '12-18 Months' },
+          { label: 'Ideal For', value: 'Founders seeking immersive incubation support' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'virtual',
+    title: 'Udhyami Virtual',
+    duration: '6-12 Months',
+    mode: 'Online',
+    description:
+      'Designed for founders who want to leverage IDRP’s incubation ecosystem without being physically present, Udhyami Virtual offers flexible remote support for startups building from different locations. It helps founders access mentorship, business guidance, expert connects, and structured support while continuing to operate from wherever they are.',
+    applyTo: '/apply/virtual-incubation',
+    gradientClass: 'from-cyan-400 to-teal-500',
+    durationBadgeClass: 'bg-cyan-50 text-cyan-700',
+    sections: [
+      {
+        key: 'eligibility',
+        title: 'Eligibility',
+        contentType: 'list',
+        intro: "You're eligible if you have:",
+        items: [
+          'A startup or founder team with a clear venture direction',
+          'An early product, MVP, prototype, or market-tested startup case',
+        ],
+      },
+      {
+        key: 'offers',
+        title: 'What This Program Offers',
+        contentType: 'list',
+        items: [
+          'Remote mentorship sessions and regular guidance',
+          'Access to digital ecosystem resources',
+          'Business and venture-building support',
+          'Investor, expert, and mentor connects',
+          'Flexible participation from any location',
+          'A remote incubation pathway through IDRP',
+        ],
+      },
+      {
+        key: 'details',
+        title: 'Program Details',
+        contentType: 'table',
+        rows: [
+          { label: 'Mode', value: 'Online' },
+          { label: 'Duration', value: '6-12 Months' },
+          { label: 'Ideal For', value: 'Startups seeking flexible incubation support' },
+        ],
+      },
+    ],
+  },
 ]
 
-const virtualOffers = [
-  'Remote mentorship sessions',
-  'Access to digital resources',
-  'Investor connect programs',
-  'Online Startup School',
-  'Alumni network access',
-  'Grant application support',
-]
+const openSections = reactive<Record<ProgramId, Record<AccordionKey, boolean>>>({
+  resident: {
+    eligibility: false,
+    offers: false,
+    details: false,
+  },
+  virtual: {
+    eligibility: false,
+    offers: false,
+    details: false,
+  },
+})
+
+function toggleSection(programId: ProgramId, sectionKey: AccordionKey) {
+  openSections[programId][sectionKey] = !openSections[programId][sectionKey]
+}
+
+function isSectionOpen(programId: ProgramId, sectionKey: AccordionKey) {
+  return openSections[programId][sectionKey]
+}
 </script>

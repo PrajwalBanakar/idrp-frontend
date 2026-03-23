@@ -1,337 +1,1189 @@
 <template>
-  <!-- Navbar -->
-  <nav class="flex justify-between items-center px-10 py-4 shadow bg-white relative z-50">
-    <router-link to="/" class="flex items-center space-x-2">
-      <img :src="'/iiitd.webp'" alt="IDRP Logo" class="h-8 w-8" />
-      <span class="text-lg font-bold text-teal-700">IIIT Dharwad Research Park</span>
-    </router-link>
+  <div class="app-layout">
+    <header class="site-header" :class="{ 'site-header--scrolled': isScrolled }">
+      <div class="container header-inner">
+        <RouterLink to="/" class="brand" @click="closeAllMenus">
+          <img src="/idrp.jfif" alt="IDRP" class="brand-logo" />
+          <div class="brand-text">
+            <span class="brand-title">IDRP</span>
+            <span class="brand-subtitle">Ignite • Incubate • Innovate</span>
+          </div>
+        </RouterLink>
 
-    <div class="space-x-6 hidden md:flex items-center">
+        <nav class="desktop-nav">
+          <RouterLink
+            to="/"
+            class="nav-link"
+            :class="{ 'nav-link--active': isExactNavMatch('/') }"
+          >
+            Home
+          </RouterLink>
 
-      <!-- About Dropdown -->
-      <div class="relative" @mouseenter="openDropdown('about')" @mouseleave="closeDropdown('about')">
-        <a class="cursor-pointer flex items-center gap-1 hover:text-teal-700 transition-colors py-2">
-          About
-          <svg class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-180': aboutOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
-        <div v-show="aboutOpen" class="absolute top-full left-0 w-44 z-50">
-          <div class="bg-white rounded-lg shadow-lg border border-gray-100 py-1 mt-1">
-            <a @click="navigate('/about-idrp')"   class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer">IDRP</a>
-            <a @click="navigate('/our-board')"    class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer">Our Board</a>
-            <a @click="navigate('/our-team')"     class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer">Our Team</a>
-            <a @click="navigate('/our-partners')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer">Our Partners</a>
-            <a @click="navigate('/mentors')"      class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer">Mentors</a>
+          <div
+            class="nav-group"
+            @mouseenter="openDropdown('about')"
+            @mouseleave="scheduleDropdownClose"
+          >
+            <button
+              type="button"
+              class="nav-link nav-button"
+              :class="{ 'nav-link--active': isSectionActive(aboutLinks) }"
+              @click="toggleDropdown('about')"
+            >
+              About
+              <span class="chevron" :class="{ 'chevron--open': activeDropdown === 'about' }">
+                ▾
+              </span>
+            </button>
+
+            <transition name="fade-slide">
+              <div
+                v-if="activeDropdown === 'about'"
+                class="dropdown-menu"
+                @mouseenter="cancelDropdownClose"
+                @mouseleave="scheduleDropdownClose"
+              >
+                <template v-for="item in aboutLinks" :key="item.label">
+                  <RouterLink
+                    v-if="item.to"
+                    :to="item.to"
+                    class="dropdown-link"
+                    :class="{ 'dropdown-link--active': isExactNavMatch(item.to) }"
+                    @click="closeAllMenus"
+                  >
+                    {{ item.label }}
+                  </RouterLink>
+
+                  <div v-else class="dropdown-group">
+                    <div class="dropdown-link dropdown-link--parent">
+                      {{ item.label }}
+                    </div>
+
+                    <RouterLink
+                      v-for="child in item.children"
+                      :key="child.to"
+                      :to="child.to!"
+                      class="dropdown-link dropdown-link--child"
+                      :class="{ 'dropdown-link--active': isExactNavMatch(child.to!) }"
+                      @click="closeAllMenus"
+                    >
+                      {{ child.label }}
+                    </RouterLink>
+                  </div>
+                </template>
+              </div>
+            </transition>
+          </div>
+
+          <div
+            class="nav-group"
+            @mouseenter="openDropdown('programs')"
+            @mouseleave="scheduleDropdownClose"
+          >
+            <button
+              type="button"
+              class="nav-link nav-button"
+              :class="{ 'nav-link--active': isSectionActive(programLinks) }"
+              @click="toggleDropdown('programs')"
+            >
+              Programs
+              <span class="chevron" :class="{ 'chevron--open': activeDropdown === 'programs' }">
+                ▾
+              </span>
+            </button>
+
+            <transition name="fade-slide">
+              <div
+                v-if="activeDropdown === 'programs'"
+                class="dropdown-menu"
+                @mouseenter="cancelDropdownClose"
+                @mouseleave="scheduleDropdownClose"
+              >
+                <RouterLink
+                  v-for="item in programLinks"
+                  :key="item.to"
+                  :to="item.to!"
+                  class="dropdown-link"
+                  :class="{ 'dropdown-link--active': isExactNavMatch(item.to!) }"
+                  @click="closeAllMenus"
+                >
+                  {{ item.label }}
+                </RouterLink>
+              </div>
+            </transition>
+          </div>
+
+          <div
+            class="nav-group"
+            @mouseenter="openDropdown('courses')"
+            @mouseleave="scheduleDropdownClose"
+          >
+            <button
+              type="button"
+              class="nav-link nav-button"
+              :class="{ 'nav-link--active': isSectionActive(courseLinks) }"
+              @click="toggleDropdown('courses')"
+            >
+              Courses & Workshops
+              <span class="chevron" :class="{ 'chevron--open': activeDropdown === 'courses' }">
+                ▾
+              </span>
+            </button>
+
+            <transition name="fade-slide">
+              <div
+                v-if="activeDropdown === 'courses'"
+                class="dropdown-menu"
+                @mouseenter="cancelDropdownClose"
+                @mouseleave="scheduleDropdownClose"
+              >
+                <RouterLink
+                  v-for="item in courseLinks"
+                  :key="item.to"
+                  :to="item.to!"
+                  class="dropdown-link"
+                  :class="{ 'dropdown-link--active': isExactNavMatch(item.to!) }"
+                  @click="closeAllMenus"
+                >
+                  {{ item.label }}
+                </RouterLink>
+              </div>
+            </transition>
+          </div>
+
+          <div
+            class="nav-group"
+            @mouseenter="openDropdown('services')"
+            @mouseleave="scheduleDropdownClose"
+          >
+            <button
+              type="button"
+              class="nav-link nav-button"
+              :class="{ 'nav-link--active': isSectionActive(serviceLinks) }"
+              @click="toggleDropdown('services')"
+            >
+              Services
+              <span class="chevron" :class="{ 'chevron--open': activeDropdown === 'services' }">
+                ▾
+              </span>
+            </button>
+
+            <transition name="fade-slide">
+              <div
+                v-if="activeDropdown === 'services'"
+                class="dropdown-menu"
+                @mouseenter="cancelDropdownClose"
+                @mouseleave="scheduleDropdownClose"
+              >
+                <RouterLink
+                  v-for="item in serviceLinks"
+                  :key="item.to"
+                  :to="item.to!"
+                  class="dropdown-link"
+                  :class="{ 'dropdown-link--active': isExactNavMatch(item.to!) }"
+                  @click="closeAllMenus"
+                >
+                  {{ item.label }}
+                </RouterLink>
+              </div>
+            </transition>
+          </div>
+
+          <RouterLink
+            to="/events"
+            class="nav-link"
+            :class="{ 'nav-link--active': isExactNavMatch('/events') }"
+          >
+            Events
+          </RouterLink>
+
+          <RouterLink
+            to="/startups"
+            class="nav-link"
+            :class="{ 'nav-link--active': isExactNavMatch('/startups') }"
+          >
+            Startups
+          </RouterLink>
+
+          <RouterLink
+            to="/contact"
+            class="nav-link nav-link--cta"
+            :class="{ 'nav-link--active': isExactNavMatch('/contact') }"
+          >
+            Contact
+          </RouterLink>
+        </nav>
+
+        <button
+          type="button"
+          class="mobile-toggle"
+          :aria-expanded="String(isMobileMenuOpen)"
+          aria-label="Toggle navigation menu"
+          @click="toggleMobileMenu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
+      <transition name="mobile-menu">
+        <div v-if="isMobileMenuOpen" class="mobile-nav">
+          <div class="container mobile-nav-inner">
+            <RouterLink
+              to="/"
+              class="mobile-link"
+              :class="{ 'mobile-link--active': isExactNavMatch('/') }"
+              @click="closeAllMenus"
+            >
+              Home
+            </RouterLink>
+
+            <div class="mobile-section">
+              <button
+                type="button"
+                class="mobile-section-trigger"
+                :class="{ 'mobile-section-trigger--active': isSectionActive(aboutLinks) }"
+                @click="toggleMobileSection('about')"
+              >
+                <span>About</span>
+                <span>{{ mobileSections.about ? '−' : '+' }}</span>
+              </button>
+
+              <div v-if="mobileSections.about" class="mobile-submenu">
+                <template v-for="item in aboutLinks" :key="item.label">
+                  <RouterLink
+                    v-if="item.to"
+                    :to="item.to"
+                    class="mobile-sublink"
+                    :class="{ 'mobile-sublink--active': isExactNavMatch(item.to) }"
+                    @click="closeAllMenus"
+                  >
+                    {{ item.label }}
+                  </RouterLink>
+
+                  <div v-else class="mobile-subgroup">
+                    <div class="mobile-sublink mobile-sublink--parent">
+                      {{ item.label }}
+                    </div>
+
+                    <RouterLink
+                      v-for="child in item.children"
+                      :key="child.to"
+                      :to="child.to!"
+                      class="mobile-sublink mobile-sublink--child"
+                      :class="{ 'mobile-sublink--active': isExactNavMatch(child.to!) }"
+                      @click="closeAllMenus"
+                    >
+                      {{ child.label }}
+                    </RouterLink>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+            <div class="mobile-section">
+              <button
+                type="button"
+                class="mobile-section-trigger"
+                :class="{ 'mobile-section-trigger--active': isSectionActive(programLinks) }"
+                @click="toggleMobileSection('programs')"
+              >
+                <span>Programs</span>
+                <span>{{ mobileSections.programs ? '−' : '+' }}</span>
+              </button>
+
+              <div v-if="mobileSections.programs" class="mobile-submenu">
+                <RouterLink
+                  v-for="item in programLinks"
+                  :key="item.to"
+                  :to="item.to!"
+                  class="mobile-sublink"
+                  :class="{ 'mobile-sublink--active': isExactNavMatch(item.to!) }"
+                  @click="closeAllMenus"
+                >
+                  {{ item.label }}
+                </RouterLink>
+              </div>
+            </div>
+
+            <div class="mobile-section">
+              <button
+                type="button"
+                class="mobile-section-trigger"
+                :class="{ 'mobile-section-trigger--active': isSectionActive(courseLinks) }"
+                @click="toggleMobileSection('courses')"
+              >
+                <span>Courses & Workshops</span>
+                <span>{{ mobileSections.courses ? '−' : '+' }}</span>
+              </button>
+
+              <div v-if="mobileSections.courses" class="mobile-submenu">
+                <RouterLink
+                  v-for="item in courseLinks"
+                  :key="item.to"
+                  :to="item.to!"
+                  class="mobile-sublink"
+                  :class="{ 'mobile-sublink--active': isExactNavMatch(item.to!) }"
+                  @click="closeAllMenus"
+                >
+                  {{ item.label }}
+                </RouterLink>
+              </div>
+            </div>
+
+            <div class="mobile-section">
+              <button
+                type="button"
+                class="mobile-section-trigger"
+                :class="{ 'mobile-section-trigger--active': isSectionActive(serviceLinks) }"
+                @click="toggleMobileSection('services')"
+              >
+                <span>Services</span>
+                <span>{{ mobileSections.services ? '−' : '+' }}</span>
+              </button>
+
+              <div v-if="mobileSections.services" class="mobile-submenu">
+                <RouterLink
+                  v-for="item in serviceLinks"
+                  :key="item.to"
+                  :to="item.to!"
+                  class="mobile-sublink"
+                  :class="{ 'mobile-sublink--active': isExactNavMatch(item.to!) }"
+                  @click="closeAllMenus"
+                >
+                  {{ item.label }}
+                </RouterLink>
+              </div>
+            </div>
+
+            <RouterLink
+              to="/events"
+              class="mobile-link"
+              :class="{ 'mobile-link--active': isExactNavMatch('/events') }"
+              @click="closeAllMenus"
+            >
+              Events
+            </RouterLink>
+
+            <RouterLink
+              to="/startups"
+              class="mobile-link"
+              :class="{ 'mobile-link--active': isExactNavMatch('/startups') }"
+              @click="closeAllMenus"
+            >
+              Startups
+            </RouterLink>
+
+            <RouterLink
+              to="/contact"
+              class="mobile-link mobile-link--cta"
+              :class="{ 'mobile-link--active': isExactNavMatch('/contact') }"
+              @click="closeAllMenus"
+            >
+              Contact
+            </RouterLink>
           </div>
         </div>
+      </transition>
+    </header>
+
+    <main class="page-main">
+      <RouterView />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <section class="footer-brand">
+          <img src="/idrp.jfif" alt="IDRP" class="footer-logo" />
+          <h3>IDRP</h3>
+          <p>
+            Supporting innovation, incubation, acceleration, and ecosystem development through a
+            strong startup and research platform.
+          </p>
+        </section>
+
+        <section>
+          <h4 class="footer-title">About</h4>
+          <nav class="footer-links">
+            <template v-for="item in aboutLinks" :key="item.label">
+              <RouterLink
+                v-if="item.to"
+                :to="item.to"
+                class="footer-link"
+                :class="{ 'footer-link--active': isExactNavMatch(item.to) }"
+              >
+                {{ item.label }}
+              </RouterLink>
+
+              <template v-else>
+                <span class="footer-link footer-link--heading">{{ item.label }}</span>
+                <RouterLink
+                  v-for="child in item.children"
+                  :key="child.to"
+                  :to="child.to!"
+                  class="footer-link footer-link--child"
+                  :class="{ 'footer-link--active': isExactNavMatch(child.to!) }"
+                >
+                  {{ child.label }}
+                </RouterLink>
+              </template>
+            </template>
+
+            <RouterLink
+              to="/events"
+              class="footer-link"
+              :class="{ 'footer-link--active': isExactNavMatch('/events') }"
+            >
+              Events
+            </RouterLink>
+
+            <RouterLink
+              to="/startups"
+              class="footer-link"
+              :class="{ 'footer-link--active': isExactNavMatch('/startups') }"
+            >
+              Startups
+            </RouterLink>
+          </nav>
+        </section>
+
+        <section>
+          <h4 class="footer-title">Programs & Services</h4>
+          <nav class="footer-links">
+            <RouterLink
+              v-for="item in [...programLinks, ...serviceLinks]"
+              :key="item.to"
+              :to="item.to!"
+              class="footer-link"
+              :class="{ 'footer-link--active': isExactNavMatch(item.to!) }"
+            >
+              {{ item.label }}
+            </RouterLink>
+          </nav>
+        </section>
+
+        <section>
+          <h4 class="footer-title">Quick Actions</h4>
+          <nav class="footer-links">
+            <RouterLink
+              to="/apply/resident-incubation"
+              class="footer-link"
+              :class="{ 'footer-link--active': isExactNavMatch('/apply/resident-incubation') }"
+            >
+              Apply Now
+            </RouterLink>
+            <RouterLink
+              to="/contact"
+              class="footer-link"
+              :class="{ 'footer-link--active': isExactNavMatch('/contact') }"
+            >
+              Contact Us
+            </RouterLink>
+            <RouterLink
+              to="/careers"
+              class="footer-link"
+              :class="{ 'footer-link--active': isExactNavMatch('/careers') }"
+            >
+              Careers
+            </RouterLink>
+          </nav>
+        </section>
       </div>
 
-      <!-- Programs Dropdown -->
-      <div class="relative" @mouseenter="openDropdown('programs')" @mouseleave="closeDropdown('programs')">
-        <a class="cursor-pointer flex items-center gap-1 hover:text-teal-700 transition-colors py-2">
-          Programs
-          <svg class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-180': programsOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
-        <div v-show="programsOpen" class="absolute top-full left-0 w-44 z-50">
-          <div class="bg-white rounded-lg shadow-lg border border-gray-100 py-1 mt-1">
-            <a @click="navigate('/incubation')"   class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer">Incubation</a>
-            <a @click="navigate('/acceleration')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer">Acceleration</a>
-          </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>© {{ currentYear }} IDRP. All rights reserved.</p>
+          <button type="button" class="footer-top-link" @click="scrollToTop">Back to top ↑</button>
         </div>
       </div>
+    </footer>
 
-      <!-- Services Dropdown -->
-      <div class="relative" @mouseenter="openDropdown('services')" @mouseleave="closeDropdown('services')">
-        <a class="cursor-pointer flex items-center gap-1 hover:text-teal-700 transition-colors py-2">
-          Services
-          <svg class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-180': servicesOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
-        <div v-show="servicesOpen" class="absolute top-full left-0 w-52 z-50">
-          <div class="bg-white rounded-lg shadow-lg border border-gray-100 py-1 mt-1">
-            <a @click="navigate('/funding')"           class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer">Access to Funding</a>
-            <a @click="navigate('/market-connects')"   class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer">Market Connects</a>
-            <a @click="navigate('/business-services')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer">Business Services</a>
-            <a @click="navigate('/co-working')"        class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer">Co-Working</a>
-          </div>
-        </div>
-      </div>
-
-      <router-link to="/events"   class="cursor-pointer hover:text-teal-700 transition-colors" active-class="text-teal-700 font-semibold">Events</router-link>
-      <router-link to="/startups" class="cursor-pointer hover:text-teal-700 transition-colors" active-class="text-teal-700 font-semibold">Startups</router-link>
-    </div>
-
-    <router-link to="/contact" class="border border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white transition-colors px-5 py-2 rounded-full font-medium hidden md:inline-flex">
-      Contact Us
-    </router-link>
-
-    <!-- Hamburger -->
-    <button @click="mobileOpen = !mobileOpen" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors" aria-label="Toggle menu">
-      <svg v-if="!mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </nav>
-
-  <!-- Mobile Drawer -->
-  <Transition name="slide-down">
-    <div v-show="mobileOpen" class="md:hidden fixed top-[64px] left-0 right-0 bg-white z-40 shadow-xl border-t border-gray-100 max-h-[85vh] overflow-y-auto">
-      <div class="px-6 py-4 flex flex-col gap-1">
-        <div>
-          <button @click="mobileAbout = !mobileAbout" class="w-full flex items-center justify-between py-3 text-gray-800 font-medium hover:text-teal-700 transition-colors">
-            About
-            <svg class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-180': mobileAbout }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div v-show="mobileAbout" class="pl-4 pb-2 flex flex-col gap-1">
-            <router-link @click="mobileOpen=false" to="/about-idrp"    class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">IDRP</router-link>
-            <router-link @click="mobileOpen=false" to="/our-board"     class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Our Board</router-link>
-            <router-link @click="mobileOpen=false" to="/our-team"      class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Our Team</router-link>
-            <router-link @click="mobileOpen=false" to="/our-partners"  class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Our Partners</router-link>
-            <router-link @click="mobileOpen=false" to="/mentors"       class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Mentors</router-link>
-          </div>
-        </div>
-        <div>
-          <button @click="mobilePrograms = !mobilePrograms" class="w-full flex items-center justify-between py-3 text-gray-800 font-medium hover:text-teal-700 transition-colors">
-            Programs
-            <svg class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-180': mobilePrograms }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div v-show="mobilePrograms" class="pl-4 pb-2 flex flex-col gap-1">
-            <router-link @click="mobileOpen=false" to="/incubation"   class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Incubation</router-link>
-            <router-link @click="mobileOpen=false" to="/acceleration" class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Acceleration</router-link>
-          </div>
-        </div>
-        <div>
-          <button @click="mobileServices = !mobileServices" class="w-full flex items-center justify-between py-3 text-gray-800 font-medium hover:text-teal-700 transition-colors">
-            Services
-            <svg class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-180': mobileServices }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div v-show="mobileServices" class="pl-4 pb-2 flex flex-col gap-1">
-            <router-link @click="mobileOpen=false" to="/funding"           class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Access to Funding</router-link>
-            <router-link @click="mobileOpen=false" to="/market-connects"   class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Market Connects</router-link>
-            <router-link @click="mobileOpen=false" to="/business-services" class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Business Services</router-link>
-            <router-link @click="mobileOpen=false" to="/co-working"        class="py-2 text-sm text-gray-600 hover:text-teal-700 transition-colors">Co-Working</router-link>
-          </div>
-        </div>
-        <div class="border-t border-gray-100 pt-1">
-          <router-link @click="mobileOpen=false" to="/events"   class="block py-3 text-gray-800 font-medium hover:text-teal-700 transition-colors">Events</router-link>
-          <router-link @click="mobileOpen=false" to="/startups" class="block py-3 text-gray-800 font-medium hover:text-teal-700 transition-colors">Startups</router-link>
-        </div>
-        <div class="pt-2 pb-4">
-          <router-link @click="mobileOpen=false" to="/contact" class="block w-full text-center bg-teal-700 text-white font-semibold py-3 rounded-xl hover:bg-teal-800 transition-colors">
-            Contact Us
-          </router-link>
-        </div>
-      </div>
-    </div>
-  </Transition>
-
-  <!-- Page content slot -->
-  <slot />
-
-  <!-- Scroll to Top -->
-  <Transition name="fade">
-    <button v-show="showScrollTop" @click="scrollToTop"
-      class="fixed bottom-8 right-8 z-50 bg-teal-700 hover:bg-teal-800 text-white w-11 h-11 rounded-full shadow-lg flex items-center justify-center transition-colors duration-200"
-      aria-label="Scroll to top">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />
-      </svg>
-    </button>
-  </Transition>
-
-  <!-- Footer -->
-  <footer class="bg-gray-950 text-gray-300">
-    <div class="max-w-7xl mx-auto px-6 md:px-16 pt-16 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-
-      <div class="lg:col-span-2 flex flex-col gap-5">
-        <router-link to="/" class="flex items-center gap-2.5 w-fit">
-          <img :src="'/iiitd.webp'" alt="IDRP" class="h-9 w-9" />
-          <div>
-            <p class="text-white font-bold text-sm leading-tight">IIIT Dharwad</p>
-            <p class="text-teal-400 text-xs font-semibold tracking-wide">Research Park</p>
-          </div>
-        </router-link>
-        <p class="text-sm text-gray-400 leading-relaxed max-w-xs">Nurturing deep-tech innovations that address India's most complex technological and societal challenges.</p>
-        <div class="flex items-start gap-2.5 text-sm">
-          <svg class="w-4 h-4 text-teal-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-          </svg>
-          <div>
-            <p class="text-gray-300 font-medium">Pi Block, IIIT Dharwad</p>
-            <a href="https://www.google.com/maps/place/IIIT+Dharwad+Research+Park+(IDRP)/@15.3925499,75.0236567,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb8d30008aeeadb:0x8a69d94bb8a9e11e!8m2!3d15.3925499!4d75.0262316!16s%2Fg%2F11w8gt2mw6?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D"
-              target="_blank" rel="noopener" class="text-gray-400 hover:text-teal-400 transition-colors text-xs mt-0.5 inline-block">
-              92VG+2F9, IIIT Circle Rd, Dharwad, Karnataka 580009 ↗
-            </a>
-          </div>
-        </div>
-        <div class="flex items-center gap-2.5 text-sm">
-          <svg class="w-4 h-4 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-          </svg>
-          <a href="tel:+910000000000" class="text-gray-400 hover:text-teal-400 transition-colors">+91 00000 00000</a>
-        </div>
-        <div class="flex items-center gap-2.5 text-sm">
-          <svg class="w-4 h-4 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-          </svg>
-          <a href="mailto:contact@idrp.in" class="text-gray-400 hover:text-teal-400 transition-colors">contact@idrp.in</a>
-        </div>
-        <div class="flex items-center gap-3 mt-1">
-          <a v-for="social in socials" :key="social.name" :href="social.url" target="_blank" rel="noopener"
-            class="w-9 h-9 rounded-xl bg-white/5 hover:bg-teal-600 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"
-            :aria-label="social.name">
-            <span v-html="social.icon"></span>
-          </a>
-        </div>
-      </div>
-
-      <div>
-        <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-5">About</h4>
-        <ul class="space-y-3">
-          <li v-for="link in footerAbout" :key="link.label">
-            <router-link :to="link.to" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">{{ link.label }}</router-link>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-5">Programs & Services</h4>
-        <ul class="space-y-3">
-          <li v-for="link in footerPrograms" :key="link.label">
-            <router-link :to="link.to" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">{{ link.label }}</router-link>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-5">Information</h4>
-        <ul class="space-y-3">
-          <li v-for="link in footerInfo" :key="link.label">
-            <router-link :to="link.to" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">{{ link.label }}</router-link>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-    <div class="max-w-7xl mx-auto px-6 md:px-16">
-      <div class="border-t border-white/10 py-6 flex flex-col sm:flex-row justify-between items-center gap-3">
-        <p class="text-xs text-gray-500">© {{ new Date().getFullYear() }} IIIT Dharwad Research Park. All rights reserved.</p>
-        <div class="flex gap-5 text-xs text-gray-500">
-          <span class="hover:text-teal-400 transition-colors cursor-default">Privacy Policy</span>
-          <span class="hover:text-teal-400 transition-colors cursor-default">Terms of Use</span>
-          <router-link to="/contact" class="hover:text-teal-400 transition-colors">Contact Us</router-link>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <transition name="fade">
+      <button
+        v-if="showScrollTop"
+        type="button"
+        class="scroll-top"
+        aria-label="Scroll to top"
+        @click="scrollToTop"
+      >
+        ↑
+      </button>
+    </transition>
+  </div>
 </template>
 
-<script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
+<script setup lang="ts">
+import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 
-const router = useRouter()
-
-function openDropdown(name) {
-  clearTimeout(closeTimer)
-  if (name === 'about')    aboutOpen.value    = true
-  if (name === 'programs') programsOpen.value = true
-  if (name === 'services') servicesOpen.value = true
+type NavItem = {
+  label: string
+  to?: string
+  children?: NavItem[]
 }
 
-function closeDropdown(name) {
-  closeTimer = setTimeout(function() {
-    if (name === 'about')    aboutOpen.value    = false
-    if (name === 'programs') programsOpen.value = false
-    if (name === 'services') servicesOpen.value = false
-  }, 150)
-}
+type DropdownKey = 'about' | 'programs' | 'services' | 'courses'
+type MobileSectionKey = DropdownKey
 
+const route = useRoute()
 
-function navigate(path) {
-  aboutOpen.value    = false
-  programsOpen.value = false
-  servicesOpen.value = false
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-  router.push(path).catch(function() {})
-}
+const aboutLinks: NavItem[] = [
+  { label: 'About IDRP', to: '/about-idrp' },
+  { label: 'Our Team', to: '/our-team' },
+  { label: 'IDRP Board', to: '/our-board' },
+  { label: 'Advisory Board', to: '/advisory-board' },
+  {
+    label: 'Mentors',
+    children: [
+      { label: 'Business Mentors', to: '/mentors?tab=business' },
+      { label: 'Technology Mentors', to: '/mentors?tab=technology' },
+      { label: 'Faculty Mentors', to: '/mentors?tab=faculty' },
+    ],
+  },
+  { label: 'Investment Committee', to: '/investment-committee' },
+]
 
-// Nav state
-const aboutOpen    = ref(false)
-const programsOpen = ref(false)
-const servicesOpen = ref(false)
-const mobileOpen   = ref(false)
-const mobileAbout    = ref(false)
-const mobilePrograms = ref(false)
-const mobileServices = ref(false)
-let closeTimer = null
+const programLinks: NavItem[] = [
+  { label: 'Pre Incubation', to: '/pre-incubation' },
+  { label: 'Incubation', to: '/incubation' },
+]
 
-// Scroll to top
+const serviceLinks: NavItem[] = [
+  { label: 'Access to Funding', to: '/funding' },
+  { label: 'Market Connects', to: '/market-connects' },
+  { label: 'Business Services', to: '/business-services' },
+  { label: 'Co-Working', to: '/co-working' },
+  { label: 'Industry Research', to: '/industry-research' },
+  { label: 'Prototype Development', to: '/prototype-development' },
+  { label: 'Technical Education Academy', to: '/technical-education-academy' },
+  { label: 'Consulting', to: '/consulting' },
+]
+
+const courseLinks: NavItem[] = [
+  { label: 'All Courses & Workshops', to: '/courses' },
+  { label: 'Online M.Tech (2 Years)', to: '/courses/online-mtech' },
+  { label: 'IET Program (3 Months)', to: '/courses' },
+  { label: 'FDP Workshop (2 Days)', to: '/courses' },
+  { label: '3DW (2 Days)', to: '/courses' },
+]
+
+const activeDropdown = ref<DropdownKey | null>(null)
+const isMobileMenuOpen = ref(false)
 const showScrollTop = ref(false)
-function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }) }
-function handleScroll() { showScrollTop.value = window.scrollY > 400 }
+const isScrolled = ref(false)
 
-onMounted(() => window.addEventListener('scroll', handleScroll))
-onUnmounted(() => window.removeEventListener('scroll', handleScroll))
+const mobileSections = reactive<Record<MobileSectionKey, boolean>>({
+  about: false,
+  programs: false,
+  services: false,
+  courses: false,
+})
 
-// Footer data
-const footerAbout = [
-  { label: 'About IDRP',   to: '/about-idrp' },
-  { label: 'Our Board',    to: '/our-board' },
-  { label: 'Our Team',     to: '/our-team' },
-  { label: 'Our Partners', to: '/our-partners' },
-  { label: 'Mentors',      to: '/mentors' },
-  { label: 'Careers',      to: '/careers' },
-  { label: 'Events',       to: '/events' },
-  { label: 'Startups',     to: '/startups' },
-]
-const footerPrograms = [
-  { label: 'Resident Incubation',   to: '/incubation' },
-  { label: 'Virtual Incubation',    to: '/incubation' },
-  { label: 'Deep-Tech Accelerator', to: '/acceleration' },
-  { label: 'Access to Funding',     to: '/funding' },
-  { label: 'Market Connects',       to: '/market-connects' },
-  { label: 'Business Services',     to: '/business-services' },
-  { label: 'Co-Working',            to: '/co-working' },
-  { label: 'Startup School',        to: '/startup-school' },
-]
-const footerInfo = [
-  { label: 'Contact Us',     to: '/contact' },
-  { label: 'FAQ',            to: '/faq' },
-  { label: 'Help Center',    to: '/help' },
-  { label: 'Apply Now',      to: '/apply/resident-incubation' },
-  { label: 'News & Updates', to: '/news' },
-  { label: 'Gallery',        to: '/gallery' },
-  { label: 'Annual Reports', to: '/reports' },
-  { label: 'Grievance',      to: '/grievance' },
-]
-const socials = [
-  { name: 'LinkedIn',   url: 'https://linkedin.com',  icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>` },
-  { name: 'Twitter / X', url: 'https://twitter.com', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>` },
-  { name: 'Instagram',  url: 'https://instagram.com', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>` },
-  { name: 'YouTube',    url: 'https://youtube.com',  icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>` },
-  { name: 'Facebook',   url: 'https://facebook.com', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>` },
-]
+const currentYear = computed(() => new Date().getFullYear())
+
+let dropdownCloseTimer: number | null = null
+
+function normalizeQueryValue(value: unknown) {
+  if (Array.isArray(value)) return value[0] ?? ''
+  return value ?? ''
+}
+
+function isExactNavMatch(to: string) {
+  const [targetPath, queryString] = to.split('?')
+
+  if (route.path !== targetPath) return false
+
+  if (!queryString) {
+    return Object.keys(route.query).length === 0
+  }
+
+  const params = new URLSearchParams(queryString)
+
+  for (const [key, value] of params.entries()) {
+    if (String(normalizeQueryValue(route.query[key])) !== value) {
+      return false
+    }
+  }
+
+  const targetKeys = Array.from(params.keys())
+  const routeKeys = Object.keys(route.query)
+
+  return targetKeys.length === routeKeys.length
+}
+
+function isSectionActive(items: NavItem[]) {
+  return items.some((item) => {
+    if (item.to && isExactNavMatch(item.to)) return true
+    if (item.children) {
+      return item.children.some((child) => child.to && isExactNavMatch(child.to))
+    }
+    return false
+  })
+}
+
+function clearDropdownTimer() {
+  if (dropdownCloseTimer !== null) {
+    window.clearTimeout(dropdownCloseTimer)
+    dropdownCloseTimer = null
+  }
+}
+
+function openDropdown(name: DropdownKey) {
+  clearDropdownTimer()
+  activeDropdown.value = name
+}
+
+function toggleDropdown(name: DropdownKey) {
+  clearDropdownTimer()
+  activeDropdown.value = activeDropdown.value === name ? null : name
+}
+
+function scheduleDropdownClose() {
+  clearDropdownTimer()
+  dropdownCloseTimer = window.setTimeout(() => {
+    activeDropdown.value = null
+  }, 120)
+}
+
+function cancelDropdownClose() {
+  clearDropdownTimer()
+}
+
+function toggleMobileMenu() {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+  if (!isMobileMenuOpen.value) {
+    resetMobileSections()
+  }
+}
+
+function toggleMobileSection(section: MobileSectionKey) {
+  mobileSections[section] = !mobileSections[section]
+}
+
+function resetMobileSections() {
+  mobileSections.about = false
+  mobileSections.programs = false
+  mobileSections.services = false
+  mobileSections.courses = false
+}
+
+function closeAllMenus() {
+  activeDropdown.value = null
+  isMobileMenuOpen.value = false
+  resetMobileSections()
+  clearDropdownTimer()
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+}
+
+function handleScroll() {
+  const y = window.scrollY
+  isScrolled.value = y > 16
+  showScrollTop.value = y > 400
+}
+
+watch(
+  () => route.fullPath,
+  () => {
+    closeAllMenus()
+  },
+)
+
+onMounted(() => {
+  handleScroll()
+  window.addEventListener('scroll', handleScroll, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  clearDropdownTimer()
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
-.fade-enter-from, .fade-leave-to { opacity: 0; }
-.slide-down-enter-active { transition: all 0.3s ease; }
-.slide-down-leave-active { transition: all 0.25s ease; }
-.slide-down-enter-from, .slide-down-leave-to { opacity: 0; transform: translateY(-8px); }
+:global(*) {
+  box-sizing: border-box;
+}
+
+:global(html) {
+  scroll-behavior: smooth;
+}
+
+:global(body) {
+  margin: 0;
+  color: #14213d;
+  background: #ffffff;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+
+:global(a) {
+  color: inherit;
+  text-decoration: none;
+}
+
+:global(button) {
+  font: inherit;
+}
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(20, 33, 61, 0.08);
+  transition:
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.site-header--scrolled {
+  box-shadow: 0 12px 30px rgba(20, 33, 61, 0.08);
+  border-color: rgba(20, 33, 61, 0.12);
+}
+
+.header-inner {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.brand-logo,
+.footer-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+
+.brand-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.brand-subtitle {
+  color: #5b6577;
+  font-size: 0.77rem;
+  line-height: 1.3;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-group {
+  position: relative;
+}
+
+.nav-link,
+.nav-button {
+  color: #22304d;
+  padding: 0.72rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-link:hover,
+.nav-button:hover,
+.nav-link--active {
+  background: rgba(16, 91, 255, 0.08);
+  color: #105bff;
+}
+
+.nav-link--cta {
+  color: #ffffff;
+  background: linear-gradient(135deg, #105bff, #0b7adf);
+}
+
+.nav-link--cta:hover,
+.nav-link--cta.nav-link--active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #0e52e6, #096ec7);
+}
+
+.chevron {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.chevron--open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 0;
+  min-width: 250px;
+  padding: 0.5rem;
+  border: 1px solid rgba(20, 33, 61, 0.08);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(20, 33, 61, 0.12);
+}
+
+.dropdown-link {
+  display: block;
+  padding: 0.8rem 0.95rem;
+  color: #22304d;
+  border-radius: 12px;
+  font-weight: 500;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.dropdown-link:hover,
+.dropdown-link--active {
+  background: rgba(16, 91, 255, 0.08);
+  color: #105bff;
+}
+
+.dropdown-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-link--parent {
+  font-weight: 700;
+  color: #22304d;
+  cursor: default;
+}
+
+.dropdown-link--child {
+  padding-left: 1.6rem;
+  font-size: 0.92rem;
+  color: #4d5b78;
+}
+
+.mobile-toggle {
+  display: none;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+.mobile-toggle span {
+  width: 24px;
+  height: 2.5px;
+  border-radius: 999px;
+  background: #22304d;
+}
+
+.mobile-nav {
+  border-top: 1px solid rgba(20, 33, 61, 0.08);
+  background: #ffffff;
+}
+
+.mobile-nav-inner {
+  padding: 0.6rem 0 1rem;
+}
+
+.mobile-link,
+.mobile-section-trigger,
+.mobile-sublink {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #22304d;
+  background: transparent;
+  border: 0;
+  padding: 0.95rem 0;
+  text-align: left;
+}
+
+.mobile-link,
+.mobile-section-trigger {
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mobile-link--cta {
+  color: #105bff;
+}
+
+.mobile-link--active,
+.mobile-sublink--active,
+.mobile-section-trigger--active {
+  color: #105bff;
+}
+
+.mobile-section {
+  border-top: 1px solid rgba(20, 33, 61, 0.06);
+}
+
+.mobile-submenu {
+  padding: 0 0 0.35rem 0.9rem;
+}
+
+.mobile-subgroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-sublink {
+  font-weight: 500;
+  color: #4d5b78;
+}
+
+.mobile-sublink--parent {
+  font-weight: 700;
+  color: #22304d;
+  padding-top: 0.9rem;
+}
+
+.mobile-sublink--child {
+  padding-left: 1rem;
+}
+
+.page-main {
+  flex: 1;
+}
+
+.site-footer {
+  margin-top: auto;
+  color: #edf2ff;
+  background: linear-gradient(180deg, #162340 0%, #0f172a 100%);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 0.9fr;
+  gap: 2rem;
+  padding: 3.5rem 0 2.5rem;
+}
+
+.footer-brand h3,
+.footer-title {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.footer-brand p {
+  max-width: 34ch;
+  margin: 1rem 0 0;
+  color: rgba(237, 242, 255, 0.78);
+  line-height: 1.7;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.footer-link {
+  color: rgba(237, 242, 255, 0.8);
+  transition: color 0.18s ease;
+}
+
+.footer-link:hover,
+.footer-link--active {
+  color: #ffffff;
+}
+
+.footer-link--heading {
+  font-weight: 700;
+  color: #ffffff;
+  cursor: default;
+}
+
+.footer-link--child {
+  padding-left: 0.9rem;
+  color: rgba(237, 242, 255, 0.74);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(237, 242, 255, 0.1);
+}
+
+.footer-bottom-inner {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-bottom-inner p {
+  margin: 0;
+  color: rgba(237, 242, 255, 0.72);
+}
+
+.footer-top-link {
+  color: #ffffff;
+  border: 1px solid rgba(237, 242, 255, 0.18);
+  background: transparent;
+  padding: 0.65rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.footer-top-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.scroll-top {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #105bff, #0b7adf);
+  box-shadow: 0 16px 32px rgba(16, 91, 255, 0.28);
+  cursor: pointer;
+}
+
+.fade-slide-enter-active,
+.fade-slide-leave-active,
+.fade-enter-active,
+.fade-leave-active,
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition: all 0.2s ease;
+}
+
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+@media (max-width: 1080px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: inline-flex;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    width: min(100% - 1.25rem, 1180px);
+  }
+
+  .header-inner {
+    min-height: 72px;
+  }
+
+  .brand-logo,
+  .footer-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-title {
+    font-size: 1rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    padding: 2.75rem 0 2rem;
+  }
+
+  .footer-bottom-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .scroll-top {
+    right: 0.9rem;
+    bottom: 0.9rem;
+  }
+}
 </style>
