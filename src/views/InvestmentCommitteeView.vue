@@ -128,40 +128,22 @@ const showHeroImage = ref(true)
 
 const committeeMembers = reactive<CommitteeMember[]>([
   {
-    name: 'Dr. Placeholder One',
+    name: 'Prof. Mahadeva Prasanna',
     role: 'Chair, Investment Committee',
-    image: '/investment-member-1.jfif',
+    image: '/board-prasanna.jfif',
     visible: true,
   },
   {
-    name: 'Mr. Placeholder Two',
+    name: 'Dr. Deepak K T',
     role: 'Committee Member',
-    image: '/investment-member-2.jfif',
+    image: '/board-deepak.jfif',
     visible: true,
   },
   {
-    name: 'Ms. Placeholder Three',
+    name: 'Ram Subramanian',
     role: 'Committee Member',
-    image: '/investment-member-3.jfif',
+    image: '/investment-ram.jfif',
     visible: true,
-  },
-  {
-    name: 'Dr. Placeholder Four',
-    role: 'Committee Member',
-    image: '/investment-member-4.jfif',
-    visible: true,
-  },
-  {
-    name: 'Mr. Placeholder Five',
-    role: 'Committee Member',
-    image: '/investment-member-5.jfif',
-    visible: true,
-  },
-  {
-    name: 'Ms. Placeholder Six',
-    role: 'Committee Member',
-    image: '/investment-member-6.jfif',
-    visible: true,
-  },
+  }
 ])
 </script>

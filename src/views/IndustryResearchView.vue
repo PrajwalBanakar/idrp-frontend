@@ -1,27 +1,30 @@
 <template>
-  <div class="industry-research-view">
+  <div>
     <!-- Hero -->
-    <section class="relative h-[50vh] min-h-[340px] overflow-hidden">
+    <section class="relative h-[52vh] min-h-[360px] overflow-hidden">
       <img
         v-if="showHeroImage"
-        src="/industry-research-hero.jfif"
-        alt="Industry Research"
+        src="/mentors-hero.jfif"
+        alt="Industry Research and Advisory"
         class="absolute inset-0 h-full w-full object-cover object-center"
         @error="showHeroImage = false"
       />
-      <div class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/80 to-teal-700/30" />
-      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
-
-      <div class="relative z-10 flex h-full max-w-2xl flex-col justify-center px-10 md:px-20">
-        <div class="mb-4 flex items-center gap-3">
-          <div class="h-8 w-1 rounded-full bg-teal-400" />
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-300">
+      <div class="absolute inset-0 bg-gradient-to-r from-teal-950/90 via-teal-900/75 to-cyan-800/45" />
+      <div class="relative z-10 mx-auto flex h-full max-w-6xl items-end px-6 py-16 md:px-16">
+        <div class="max-w-3xl">
+          <span
+            class="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white/90 backdrop-blur-sm"
+          >
             Services
           </span>
+          <h1 class="mb-4 mt-5 text-5xl font-extrabold leading-tight text-white md:text-6xl">
+            Industry Research &amp; Advisory
+          </h1>
+          <p class="max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">
+            Applied research, consulting, and innovation support for industries, startups,
+            institutions, and technology teams working on real-world challenges.
+          </p>
         </div>
-        <h1 class="mb-4 text-5xl font-extrabold leading-tight text-white md:text-6xl">
-          Industry Research
-        </h1>
       </div>
     </section>
 
@@ -29,26 +32,27 @@
     <section class="bg-white px-6 py-24 md:px-16">
       <div class="mx-auto max-w-4xl text-center">
         <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-          Research & Collaboration
+          Research, Consulting &amp; Collaboration
         </span>
         <h2 class="mt-3 mb-6 text-3xl font-bold leading-tight text-gray-900">
-          Solving Real Industry Problems Through Applied Research.
+          Solving Real Industry Problems Through Applied Research, Advisory, and Strategic Support.
         </h2>
 
         <div class="space-y-4 text-base leading-relaxed text-gray-600">
           <p>
-            At IDRP, Industry Research connects academic capability, technical depth, and practical
-            problem-solving to address real-world business and engineering challenges.
+            At IDRP, Industry Research &amp; Advisory connects academic capability, technical depth,
+            strategic thinking, and practical problem-solving to address real-world business,
+            engineering, and innovation challenges.
           </p>
           <p>
             We work with industries, startups, institutions, and innovation teams to define problem
-            statements, investigate opportunities, validate approaches, and create knowledge-driven
-            solutions with measurable value.
+            statements, investigate opportunities, validate approaches, improve systems, and create
+            knowledge-driven solutions with measurable value.
           </p>
           <p>
-            From exploratory studies to applied technology validation and implementation pathways,
-            our research engagements are structured to deliver insights that can lead to innovation,
-            efficiency, and strategic growth.
+            From exploratory studies and applied technology validation to consulting, innovation
+            support, and implementation pathways, our engagements are designed to deliver clarity,
+            direction, and scalable outcomes.
           </p>
         </div>
 
@@ -56,7 +60,7 @@
       </div>
     </section>
 
-    <!-- Research Areas -->
+    <!-- Focus Areas -->
     <section class="bg-gray-50 px-6 py-24 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-14 text-center">
@@ -64,11 +68,11 @@
             Focus Areas
           </span>
           <h2 class="mt-2 text-4xl font-bold text-gray-900">
-            What Industry Research at IDRP Covers
+            What Industry Research &amp; Advisory at IDRP Covers
           </h2>
-          <p class="mx-auto mt-3 max-w-xl text-gray-500">
-            Research collaborations designed to generate insights, solutions, and actionable
-            innovation pathways.
+          <p class="mx-auto mt-3 max-w-2xl text-gray-500">
+            Research, consulting, and innovation support designed to generate insights, solutions,
+            and implementation pathways.
           </p>
         </div>
 
@@ -76,12 +80,9 @@
           <article
             v-for="area in researchAreas"
             :key="area.title"
-            class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:border-teal-200 hover:shadow-xl"
+            class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
           >
-            <div
-              class="relative h-36 overflow-hidden"
-              :class="area.bg"
-            >
+            <div class="relative h-36 overflow-hidden" :class="area.bg">
               <img
                 v-if="area.visible"
                 :src="area.image"
@@ -94,7 +95,7 @@
               </div>
             </div>
 
-            <div class="p-4 text-center">
+            <div class="flex-1 p-4 text-center">
               <p class="text-sm font-bold text-gray-800 transition-colors group-hover:text-teal-700">
                 {{ area.title }}
               </p>
@@ -109,10 +110,11 @@
       <div class="mx-auto max-w-5xl">
         <div class="mb-14 text-center">
           <h2 class="text-3xl font-bold text-white">
-            Turning Questions Into Scalable Outcomes
+            Turning Questions Into Actionable Outcomes
           </h2>
           <p class="mt-3 text-teal-100">
-            Research that strengthens innovation, decision-making, and implementation readiness.
+            Research, advisory, and innovation support that strengthen decision-making, execution,
+            and implementation readiness.
           </p>
         </div>
 
@@ -133,17 +135,19 @@
       </div>
     </section>
 
-    <!-- Collaboration Form -->
+    <!-- Enquiry Form -->
     <section class="bg-white px-6 py-24 md:px-16">
       <div class="mx-auto max-w-3xl">
         <div class="mb-12 text-center">
           <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-            Collaborate With Us
+            Connect With Us
           </span>
-          <h2 class="mt-2 text-4xl font-bold text-gray-900">Start a Research Discussion</h2>
+          <h2 class="mt-2 text-4xl font-bold text-gray-900">
+            Start a Research or Advisory Discussion
+          </h2>
           <p class="mx-auto mt-3 max-w-xl text-gray-500">
-            Share your research interest, problem statement, or collaboration requirement and our
-            team will connect with you.
+            Share your research interest, business challenge, consulting requirement, or
+            collaboration need and our team will connect with you.
           </p>
         </div>
 
@@ -172,7 +176,7 @@
               <input
                 v-model.trim="researchForm.organization"
                 type="text"
-                placeholder="Organization / Institution / Startup"
+                placeholder="Company / Startup / Institution"
                 class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
                 required
               />
@@ -200,7 +204,7 @@
               <input
                 v-model.trim="researchForm.email"
                 type="email"
-                placeholder="you@company.com"
+                placeholder="you@example.com"
                 class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
                 required
               />
@@ -209,14 +213,14 @@
 
           <div>
             <label class="mb-2 block text-sm font-semibold text-gray-700">
-              Research Area <span class="text-red-500">*</span>
+              Area of Interest <span class="text-red-500">*</span>
             </label>
             <select
               v-model="researchForm.researchArea"
               class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
             >
-              <option value="" disabled>Select a research area</option>
+              <option value="" disabled>Select an area</option>
               <option
                 v-for="option in researchOptions"
                 :key="option"
@@ -229,12 +233,12 @@
 
           <div>
             <label class="mb-2 block text-sm font-semibold text-gray-700">
-              Problem Statement / Requirement <span class="text-red-500">*</span>
+              Requirement / Challenge / Problem Statement <span class="text-red-500">*</span>
             </label>
             <textarea
               v-model.trim="researchForm.details"
               rows="5"
-              placeholder="Describe the challenge, domain, research need, expected outcomes, or collaboration scope..."
+              placeholder="Describe the challenge, domain, research need, consulting requirement, expected outcomes, or collaboration scope..."
               class="w-full resize-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
             />
@@ -245,13 +249,13 @@
             <p>
               By submitting this form, I/We consent to IDRP collecting and using the provided
               information solely for the purpose of evaluating and responding to research,
-              consulting, innovation, collaboration, prototyping, and related service requests.
-              The information is shared voluntarily, and I/We acknowledge that no confidential or
-              proprietary data should be submitted unless we are comfortable with its use for these
-              purposes. IDRP will maintain reasonable confidentiality, will not share information
-              with third parties without consent (except where required by law or for service
-              delivery), and may contact us using the provided details regarding this request and
-              relevant opportunities.
+              consulting, innovation, collaboration, prototyping, advisory, and related service
+              requests. The information is shared voluntarily, and I/We acknowledge that no
+              confidential or proprietary data should be submitted unless we are comfortable with
+              its use for these purposes. IDRP will maintain reasonable confidentiality, will not
+              share information with third parties without consent (except where required by law or
+              for service delivery), and may contact us using the provided details regarding this
+              request and relevant opportunities.
             </p>
           </div>
 
@@ -276,7 +280,7 @@
               type="submit"
               class="w-full rounded-xl bg-teal-700 py-4 text-sm font-bold tracking-wide text-white transition-colors duration-200 hover:bg-teal-800"
             >
-              Submit Research Enquiry
+              Submit Enquiry
             </button>
           </div>
 
@@ -324,11 +328,12 @@ const formSubmitted = ref(false)
 
 const researchOptions: string[] = [
   'Applied Technology Research',
-  'Process Improvement Research',
-  'Product Validation Research',
-  'Feasibility Study',
-  'Innovation Strategy Research',
-  'AI / Data / Digital Transformation Research',
+  'Industry Problem Solving & Validation',
+  'Strategy & Advisory Support',
+  'Process Improvement & Performance Study',
+  'Innovation / Product / Feasibility Support',
+  'AI / Data / Digital Transformation',
+  'Pilot / Execution / Implementation Support',
 ]
 
 const researchForm = reactive<ResearchForm>({
@@ -342,45 +347,45 @@ const researchForm = reactive<ResearchForm>({
 })
 
 const stats: Stat[] = [
-  { value: '25+', label: 'Industry Collaboration Themes' },
-  { value: '40+', label: 'Applied Research Engagements' },
+  { value: '40+', label: 'Industry Research & Advisory Engagements' },
+  { value: '25+', label: 'Collaboration & Consulting Themes' },
   { value: '15+', label: 'Emerging Technology Focus Areas' },
   { value: '100+', label: 'Experts, Mentors & Innovation Enablers' },
 ]
 
 const researchAreas = reactive<ResearchAreaCard[]>([
   {
-    title: 'Applied Technology Research',
+    title: 'Applied Research & Technology Validation',
     emoji: '🔬',
     image: '/industry-tech.jfif',
     bg: 'bg-teal-50',
     visible: true,
   },
   {
-    title: 'Process & Performance Studies',
+    title: 'Strategy, Advisory & Planning',
+    emoji: '📘',
+    image: '/consulting-strategy.jfif',
+    bg: 'bg-blue-50',
+    visible: true,
+  },
+  {
+    title: 'Process Improvement & Performance Studies',
     emoji: '📊',
     image: '/industry-process.jfif',
     bg: 'bg-cyan-50',
     visible: true,
   },
   {
-    title: 'Feasibility & Validation',
-    emoji: '✅',
-    image: '/industry-feasibility.jfif',
-    bg: 'bg-green-50',
-    visible: true,
-  },
-  {
-    title: 'Innovation & Strategy',
+    title: 'Innovation, Product & Feasibility Support',
     emoji: '💡',
     image: '/industry-innovation.jfif',
     bg: 'bg-amber-50',
     visible: true,
   },
   {
-    title: 'Pilot & Solution Pathways',
+    title: 'Execution, Pilot & Solution Pathways',
     emoji: '🚀',
-    image: '/industry-pilot.jfif',
+    image: '/consulting-execution.jfif',
     bg: 'bg-indigo-50',
     visible: true,
   },

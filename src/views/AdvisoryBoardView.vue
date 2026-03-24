@@ -128,39 +128,27 @@ const showHeroImage = ref(true)
 
 const advisoryMembers = reactive<AdvisoryMember[]>([
   {
-    name: 'Dr. Placeholder One',
+    name: 'Kathik Sankaran',
     role: 'Advisory Board Member',
-    image: '/advisory-member-1.jfif',
+    image: '/advisory-karthik.jfif',
     visible: true,
   },
   {
-    name: 'Dr. Placeholder Two',
+    name: 'Poyni Bhatt',
     role: 'Advisory Board Member',
-    image: '/advisory-member-2.jfif',
+    image: '/advisory-poyni.jfif',
     visible: true,
   },
   {
-    name: 'Mr. Placeholder Three',
+    name: 'Ram Subramanian',
     role: 'Advisory Board Member',
-    image: '/advisory-member-3.jfif',
+    image: '/advisory-ram.jfif',
     visible: true,
   },
   {
-    name: 'Ms. Placeholder Four',
+    name: 'Amar Gaonkar',
     role: 'Advisory Board Member',
-    image: '/advisory-member-4.jfif',
-    visible: true,
-  },
-  {
-    name: 'Dr. Placeholder Five',
-    role: 'Advisory Board Member',
-    image: '/advisory-member-5.jfif',
-    visible: true,
-  },
-  {
-    name: 'Mr. Placeholder Six',
-    role: 'Advisory Board Member',
-    image: '/advisory-member-6.jfif',
+    image: '/advisory-amar.jfif',
     visible: true,
   },
 ])

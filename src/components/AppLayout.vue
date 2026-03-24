@@ -11,14 +11,6 @@
         </RouterLink>
 
         <nav class="desktop-nav">
-          <RouterLink
-            to="/"
-            class="nav-link"
-            :class="{ 'nav-link--active': isExactNavMatch('/') }"
-          >
-            Home
-          </RouterLink>
-
           <div
             class="nav-group"
             @mouseenter="openDropdown('about')"
@@ -54,21 +46,24 @@
                     {{ item.label }}
                   </RouterLink>
 
-                  <div v-else class="dropdown-group">
+                  <div v-else class="dropdown-group has-children">
                     <div class="dropdown-link dropdown-link--parent">
-                      {{ item.label }}
+                      <span>{{ item.label }}</span>
+                      <span class="submenu-arrow">›</span>
                     </div>
 
-                    <RouterLink
-                      v-for="child in item.children"
-                      :key="child.to"
-                      :to="child.to!"
-                      class="dropdown-link dropdown-link--child"
-                      :class="{ 'dropdown-link--active': isExactNavMatch(child.to!) }"
-                      @click="closeAllMenus"
-                    >
-                      {{ child.label }}
-                    </RouterLink>
+                    <div class="submenu">
+                      <RouterLink
+                        v-for="child in item.children"
+                        :key="child.to"
+                        :to="child.to!"
+                        class="dropdown-link"
+                        :class="{ 'dropdown-link--active': isExactNavMatch(child.to!) }"
+                        @click="closeAllMenus"
+                      >
+                        {{ child.label }}
+                      </RouterLink>
+                    </div>
                   </div>
                 </template>
               </div>
@@ -99,103 +94,99 @@
                 @mouseenter="cancelDropdownClose"
                 @mouseleave="scheduleDropdownClose"
               >
-                <RouterLink
-                  v-for="item in programLinks"
-                  :key="item.to"
-                  :to="item.to!"
-                  class="dropdown-link"
-                  :class="{ 'dropdown-link--active': isExactNavMatch(item.to!) }"
-                  @click="closeAllMenus"
-                >
-                  {{ item.label }}
-                </RouterLink>
+                <template v-for="item in programLinks" :key="item.label">
+                  <RouterLink
+                    v-if="item.to"
+                    :to="item.to"
+                    class="dropdown-link"
+                    :class="{ 'dropdown-link--active': isExactNavMatch(item.to) }"
+                    @click="closeAllMenus"
+                  >
+                    {{ item.label }}
+                  </RouterLink>
+
+                  <div v-else class="dropdown-group has-children">
+                    <div class="dropdown-link dropdown-link--parent">
+                      <span>{{ item.label }}</span>
+                      <span class="submenu-arrow">›</span>
+                    </div>
+
+                    <div class="submenu">
+                      <RouterLink
+                        v-for="child in item.children"
+                        :key="child.to"
+                        :to="child.to!"
+                        class="dropdown-link"
+                        :class="{ 'dropdown-link--active': isExactNavMatch(child.to!) }"
+                        @click="closeAllMenus"
+                      >
+                        {{ child.label }}
+                      </RouterLink>
+                    </div>
+                  </div>
+                </template>
               </div>
             </transition>
           </div>
 
           <div
             class="nav-group"
-            @mouseenter="openDropdown('courses')"
+            @mouseenter="openDropdown('community')"
             @mouseleave="scheduleDropdownClose"
           >
             <button
               type="button"
               class="nav-link nav-button"
-              :class="{ 'nav-link--active': isSectionActive(courseLinks) }"
-              @click="toggleDropdown('courses')"
+              :class="{ 'nav-link--active': isSectionActive(communityLinks) }"
+              @click="toggleDropdown('community')"
             >
-              Courses & Workshops
-              <span class="chevron" :class="{ 'chevron--open': activeDropdown === 'courses' }">
+              Community
+              <span class="chevron" :class="{ 'chevron--open': activeDropdown === 'community' }">
                 ▾
               </span>
             </button>
 
             <transition name="fade-slide">
               <div
-                v-if="activeDropdown === 'courses'"
+                v-if="activeDropdown === 'community'"
                 class="dropdown-menu"
                 @mouseenter="cancelDropdownClose"
                 @mouseleave="scheduleDropdownClose"
               >
-                <RouterLink
-                  v-for="item in courseLinks"
-                  :key="item.to"
-                  :to="item.to!"
-                  class="dropdown-link"
-                  :class="{ 'dropdown-link--active': isExactNavMatch(item.to!) }"
-                  @click="closeAllMenus"
-                >
-                  {{ item.label }}
-                </RouterLink>
+                <template v-for="item in communityLinks" :key="item.label">
+                  <RouterLink
+                    v-if="item.to"
+                    :to="item.to"
+                    class="dropdown-link"
+                    :class="{ 'dropdown-link--active': isExactNavMatch(item.to) }"
+                    @click="closeAllMenus"
+                  >
+                    {{ item.label }}
+                  </RouterLink>
+
+                  <div v-else class="dropdown-group has-children">
+                    <div class="dropdown-link dropdown-link--parent">
+                      <span>{{ item.label }}</span>
+                      <span class="submenu-arrow">›</span>
+                    </div>
+
+                    <div class="submenu">
+                      <RouterLink
+                        v-for="child in item.children"
+                        :key="child.to"
+                        :to="child.to!"
+                        class="dropdown-link"
+                        :class="{ 'dropdown-link--active': isExactNavMatch(child.to!) }"
+                        @click="closeAllMenus"
+                      >
+                        {{ child.label }}
+                      </RouterLink>
+                    </div>
+                  </div>
+                </template>
               </div>
             </transition>
           </div>
-
-          <div
-            class="nav-group"
-            @mouseenter="openDropdown('services')"
-            @mouseleave="scheduleDropdownClose"
-          >
-            <button
-              type="button"
-              class="nav-link nav-button"
-              :class="{ 'nav-link--active': isSectionActive(serviceLinks) }"
-              @click="toggleDropdown('services')"
-            >
-              Services
-              <span class="chevron" :class="{ 'chevron--open': activeDropdown === 'services' }">
-                ▾
-              </span>
-            </button>
-
-            <transition name="fade-slide">
-              <div
-                v-if="activeDropdown === 'services'"
-                class="dropdown-menu"
-                @mouseenter="cancelDropdownClose"
-                @mouseleave="scheduleDropdownClose"
-              >
-                <RouterLink
-                  v-for="item in serviceLinks"
-                  :key="item.to"
-                  :to="item.to!"
-                  class="dropdown-link"
-                  :class="{ 'dropdown-link--active': isExactNavMatch(item.to!) }"
-                  @click="closeAllMenus"
-                >
-                  {{ item.label }}
-                </RouterLink>
-              </div>
-            </transition>
-          </div>
-
-          <RouterLink
-            to="/events"
-            class="nav-link"
-            :class="{ 'nav-link--active': isExactNavMatch('/events') }"
-          >
-            Events
-          </RouterLink>
 
           <RouterLink
             to="/startups"
@@ -230,15 +221,6 @@
       <transition name="mobile-menu">
         <div v-if="isMobileMenuOpen" class="mobile-nav">
           <div class="container mobile-nav-inner">
-            <RouterLink
-              to="/"
-              class="mobile-link"
-              :class="{ 'mobile-link--active': isExactNavMatch('/') }"
-              @click="closeAllMenus"
-            >
-              Home
-            </RouterLink>
-
             <div class="mobile-section">
               <button
                 type="button"
@@ -294,16 +276,34 @@
               </button>
 
               <div v-if="mobileSections.programs" class="mobile-submenu">
-                <RouterLink
-                  v-for="item in programLinks"
-                  :key="item.to"
-                  :to="item.to!"
-                  class="mobile-sublink"
-                  :class="{ 'mobile-sublink--active': isExactNavMatch(item.to!) }"
-                  @click="closeAllMenus"
-                >
-                  {{ item.label }}
-                </RouterLink>
+                <template v-for="item in programLinks" :key="item.label">
+                  <RouterLink
+                    v-if="item.to"
+                    :to="item.to"
+                    class="mobile-sublink"
+                    :class="{ 'mobile-sublink--active': isExactNavMatch(item.to) }"
+                    @click="closeAllMenus"
+                  >
+                    {{ item.label }}
+                  </RouterLink>
+
+                  <div v-else class="mobile-subgroup">
+                    <div class="mobile-sublink mobile-sublink--parent">
+                      {{ item.label }}
+                    </div>
+
+                    <RouterLink
+                      v-for="child in item.children"
+                      :key="child.to"
+                      :to="child.to!"
+                      class="mobile-sublink mobile-sublink--child"
+                      :class="{ 'mobile-sublink--active': isExactNavMatch(child.to!) }"
+                      @click="closeAllMenus"
+                    >
+                      {{ child.label }}
+                    </RouterLink>
+                  </div>
+                </template>
               </div>
             </div>
 
@@ -311,60 +311,44 @@
               <button
                 type="button"
                 class="mobile-section-trigger"
-                :class="{ 'mobile-section-trigger--active': isSectionActive(courseLinks) }"
-                @click="toggleMobileSection('courses')"
+                :class="{ 'mobile-section-trigger--active': isSectionActive(communityLinks) }"
+                @click="toggleMobileSection('community')"
               >
-                <span>Courses & Workshops</span>
-                <span>{{ mobileSections.courses ? '−' : '+' }}</span>
+                <span>Community</span>
+                <span>{{ mobileSections.community ? '−' : '+' }}</span>
               </button>
 
-              <div v-if="mobileSections.courses" class="mobile-submenu">
-                <RouterLink
-                  v-for="item in courseLinks"
-                  :key="item.to"
-                  :to="item.to!"
-                  class="mobile-sublink"
-                  :class="{ 'mobile-sublink--active': isExactNavMatch(item.to!) }"
-                  @click="closeAllMenus"
-                >
-                  {{ item.label }}
-                </RouterLink>
+              <div v-if="mobileSections.community" class="mobile-submenu">
+                <template v-for="item in communityLinks" :key="item.label">
+                  <RouterLink
+                    v-if="item.to"
+                    :to="item.to"
+                    class="mobile-sublink"
+                    :class="{ 'mobile-sublink--active': isExactNavMatch(item.to) }"
+                    @click="closeAllMenus"
+                  >
+                    {{ item.label }}
+                  </RouterLink>
+
+                  <div v-else class="mobile-subgroup">
+                    <div class="mobile-sublink mobile-sublink--parent">
+                      {{ item.label }}
+                    </div>
+
+                    <RouterLink
+                      v-for="child in item.children"
+                      :key="child.to"
+                      :to="child.to!"
+                      class="mobile-sublink mobile-sublink--child"
+                      :class="{ 'mobile-sublink--active': isExactNavMatch(child.to!) }"
+                      @click="closeAllMenus"
+                    >
+                      {{ child.label }}
+                    </RouterLink>
+                  </div>
+                </template>
               </div>
             </div>
-
-            <div class="mobile-section">
-              <button
-                type="button"
-                class="mobile-section-trigger"
-                :class="{ 'mobile-section-trigger--active': isSectionActive(serviceLinks) }"
-                @click="toggleMobileSection('services')"
-              >
-                <span>Services</span>
-                <span>{{ mobileSections.services ? '−' : '+' }}</span>
-              </button>
-
-              <div v-if="mobileSections.services" class="mobile-submenu">
-                <RouterLink
-                  v-for="item in serviceLinks"
-                  :key="item.to"
-                  :to="item.to!"
-                  class="mobile-sublink"
-                  :class="{ 'mobile-sublink--active': isExactNavMatch(item.to!) }"
-                  @click="closeAllMenus"
-                >
-                  {{ item.label }}
-                </RouterLink>
-              </div>
-            </div>
-
-            <RouterLink
-              to="/events"
-              class="mobile-link"
-              :class="{ 'mobile-link--active': isExactNavMatch('/events') }"
-              @click="closeAllMenus"
-            >
-              Events
-            </RouterLink>
 
             <RouterLink
               to="/startups"
@@ -430,14 +414,10 @@
               </template>
             </template>
 
-            <RouterLink
-              to="/events"
-              class="footer-link"
-              :class="{ 'footer-link--active': isExactNavMatch('/events') }"
-            >
-              Events
-            </RouterLink>
-
+            <span class="footer-link footer-link--heading">Community</span>
+            <RouterLink to="/events" class="footer-link">Events</RouterLink>
+            <RouterLink to="/our-partners" class="footer-link">Partners</RouterLink>
+            <RouterLink to="/resources" class="footer-link">Resources</RouterLink>
             <RouterLink
               to="/startups"
               class="footer-link"
@@ -451,15 +431,29 @@
         <section>
           <h4 class="footer-title">Programs & Services</h4>
           <nav class="footer-links">
-            <RouterLink
-              v-for="item in [...programLinks, ...serviceLinks]"
-              :key="item.to"
-              :to="item.to!"
-              class="footer-link"
-              :class="{ 'footer-link--active': isExactNavMatch(item.to!) }"
-            >
-              {{ item.label }}
-            </RouterLink>
+            <template v-for="item in programLinks" :key="item.label">
+              <RouterLink
+                v-if="item.to"
+                :to="item.to"
+                class="footer-link"
+                :class="{ 'footer-link--active': isExactNavMatch(item.to) }"
+              >
+                {{ item.label }}
+              </RouterLink>
+
+              <template v-else>
+                <span class="footer-link footer-link--heading">{{ item.label }}</span>
+                <RouterLink
+                  v-for="child in item.children"
+                  :key="child.to"
+                  :to="child.to!"
+                  class="footer-link footer-link--child"
+                  :class="{ 'footer-link--active': isExactNavMatch(child.to!) }"
+                >
+                  {{ child.label }}
+                </RouterLink>
+              </template>
+            </template>
           </nav>
         </section>
 
@@ -523,7 +517,7 @@ type NavItem = {
   children?: NavItem[]
 }
 
-type DropdownKey = 'about' | 'programs' | 'services' | 'courses'
+type DropdownKey = 'about' | 'programs' | 'community'
 type MobileSectionKey = DropdownKey
 
 const route = useRoute()
@@ -531,8 +525,6 @@ const route = useRoute()
 const aboutLinks: NavItem[] = [
   { label: 'About IDRP', to: '/about-idrp' },
   { label: 'Our Team', to: '/our-team' },
-  { label: 'IDRP Board', to: '/our-board' },
-  { label: 'Advisory Board', to: '/advisory-board' },
   {
     label: 'Mentors',
     children: [
@@ -545,27 +537,38 @@ const aboutLinks: NavItem[] = [
 ]
 
 const programLinks: NavItem[] = [
-  { label: 'Pre Incubation', to: '/pre-incubation' },
-  { label: 'Incubation', to: '/incubation' },
+  {
+    label: 'Incubation Programs',
+    children: [
+      { label: 'Pre Incubation', to: '/pre-incubation' },
+      { label: 'Incubation', to: '/incubation' },
+    ],
+  },
+  {
+    label: 'Government Initiatives',
+    children: [
+      { label: 'New Age Innovation Network', to: '/programs/nain' },
+      { label: 'Common Instrumentation Facility', to: '/programs/cif' },
+      {
+        label: 'Centre of Excellence in Quantum AI and Computing',
+        to: '/programs/coe-quantum-ai',
+      },
+      { label: 'Capacity Building for Design and Entrepreneurship', to: '/programs/cbde' },
+    ],
+  },
+  {
+    label: 'Services',
+    children: [
+      { label: 'Industry Research & Advisory', to: '/industry-research' },
+      { label: 'Technical Education Academy', to: '/technical-education-academy' },
+    ],
+  },
 ]
 
-const serviceLinks: NavItem[] = [
-  { label: 'Access to Funding', to: '/funding' },
-  { label: 'Market Connects', to: '/market-connects' },
-  { label: 'Business Services', to: '/business-services' },
-  { label: 'Co-Working', to: '/co-working' },
-  { label: 'Industry Research', to: '/industry-research' },
-  { label: 'Prototype Development', to: '/prototype-development' },
-  { label: 'Technical Education Academy', to: '/technical-education-academy' },
-  { label: 'Consulting', to: '/consulting' },
-]
-
-const courseLinks: NavItem[] = [
-  { label: 'All Courses & Workshops', to: '/courses' },
-  { label: 'Online M.Tech (2 Years)', to: '/courses/online-mtech' },
-  { label: 'IET Program (3 Months)', to: '/courses' },
-  { label: 'FDP Workshop (2 Days)', to: '/courses' },
-  { label: '3DW (2 Days)', to: '/courses' },
+const communityLinks: NavItem[] = [
+  { label: 'Events', to: '/events' },
+  { label: 'Partners', to: '/our-partners' },
+  { label: 'Resources', to: '/resources' },
 ]
 
 const activeDropdown = ref<DropdownKey | null>(null)
@@ -576,8 +579,7 @@ const isScrolled = ref(false)
 const mobileSections = reactive<Record<MobileSectionKey, boolean>>({
   about: false,
   programs: false,
-  services: false,
-  courses: false,
+  community: false,
 })
 
 const currentYear = computed(() => new Date().getFullYear())
@@ -664,8 +666,7 @@ function toggleMobileSection(section: MobileSectionKey) {
 function resetMobileSections() {
   mobileSections.about = false
   mobileSections.programs = false
-  mobileSections.services = false
-  mobileSections.courses = false
+  mobileSections.community = false
 }
 
 function closeAllMenus() {
@@ -873,7 +874,7 @@ onBeforeUnmount(() => {
   position: absolute;
   top: calc(100% + 0.6rem);
   left: 0;
-  min-width: 250px;
+  min-width: 260px;
   padding: 0.5rem;
   border: 1px solid rgba(20, 33, 61, 0.08);
   border-radius: 18px;
@@ -899,20 +900,48 @@ onBeforeUnmount(() => {
 }
 
 .dropdown-group {
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 
-.dropdown-link--parent {
+.has-children > .dropdown-link--parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   font-weight: 700;
   color: #22304d;
   cursor: default;
 }
 
-.dropdown-link--child {
-  padding-left: 1.6rem;
-  font-size: 0.92rem;
-  color: #4d5b78;
+.submenu-arrow {
+  flex-shrink: 0;
+  opacity: 0.6;
+  font-size: 1rem;
+}
+
+.submenu {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 0.45rem);
+  min-width: 260px;
+  padding: 0.5rem;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(20, 33, 61, 0.08);
+  box-shadow: 0 18px 40px rgba(20, 33, 61, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(8px);
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease,
+    transform 0.18s ease;
+}
+
+.has-children:hover > .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
 }
 
 .mobile-toggle {

@@ -165,58 +165,133 @@
           <p class="text-gray-500 mt-3 text-lg">Guiding startups from idea to scale</p>
         </div>
 
-        <div class="flex flex-col gap-6 max-w-3xl mx-auto">
-          <article
-            v-for="program in programs"
-            :key="program.title"
-            class="rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl hover:border-teal-200 transition-all duration-300"
-          >
-            <div class="h-1 bg-gradient-to-r from-teal-500 to-cyan-400" />
-            <div class="p-8">
-              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
-                <div>
-                  <span
-                    class="text-xs font-semibold bg-teal-50 text-teal-700 px-3 py-1 rounded-full"
+        <div class="max-w-5xl mx-auto space-y-14">
+          <!-- Incubation Programs -->
+          <div>
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold text-gray-900">Incubation Programs</h3>
+              <p class="text-gray-500 mt-2">
+                Guiding startups from idea validation to growth and scale.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6">
+              <RouterLink
+                v-for="program in programs"
+                :key="program.title"
+                :to="program.detailsTo"
+                class="block rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl hover:border-teal-200 transition-all duration-300"
+              >
+                <div class="h-1 bg-gradient-to-r from-teal-500 to-cyan-400" />
+                <div class="p-8">
+                  <div
+                    class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5"
                   >
-                    {{ program.duration }}
-                  </span>
-                  <h3 class="text-2xl font-bold text-gray-900 mt-3">{{ program.title }}</h3>
+                    <div>
+                      <span
+                        class="text-xs font-semibold bg-teal-50 text-teal-700 px-3 py-1 rounded-full"
+                      >
+                        {{ program.duration }}
+                      </span>
+                      <h3 class="text-2xl font-bold text-gray-900 mt-3">{{ program.title }}</h3>
+                    </div>
+
+                    <RouterLink
+                      :to="program.applyTo"
+                      class="shrink-0 self-start sm:self-center bg-teal-700 text-white font-semibold px-6 py-2.5 rounded-xl hover:bg-teal-800 transition-colors text-sm whitespace-nowrap relative z-10"
+                      @click.stop
+                    >
+                      Apply Now
+                    </RouterLink>
+                  </div>
+
+                  <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                    {{ program.description }}
+                  </p>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <div
+                      v-for="feature in program.features"
+                      :key="feature"
+                      class="flex items-center gap-2.5 text-sm text-gray-700"
+                    >
+                      <svg
+                        class="w-4 h-4 text-teal-500 shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2.5"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {{ feature }}
+                    </div>
+                  </div>
                 </div>
+              </RouterLink>
+            </div>
+          </div>
 
-                <RouterLink
-                  :to="program.applyTo"
-                  class="shrink-0 self-start sm:self-center bg-teal-700 text-white font-semibold px-6 py-2.5 rounded-xl hover:bg-teal-800 transition-colors text-sm whitespace-nowrap"
-                >
-                  Apply Now
-                </RouterLink>
-              </div>
+          <!-- Government Initiatives -->
+          <div>
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold text-gray-900">Government Initiatives</h3>
+              <p class="text-gray-500 mt-2">
+                Strategic government-supported programs that strengthen innovation, research,
+                infrastructure, and entrepreneurship.
+              </p>
+            </div>
 
-              <p class="text-gray-500 text-sm leading-relaxed mb-6">{{ program.description }}</p>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <RouterLink
+                v-for="item in governmentPrograms"
+                :key="item.title"
+                :to="item.route"
+                class="group bg-white rounded-2xl border border-gray-200 p-8 hover:shadow-xl hover:border-teal-200 transition-all duration-300"
+              >
                 <div
-                  v-for="feature in program.features"
-                  :key="feature"
-                  class="flex items-center gap-2.5 text-sm text-gray-700"
+                  class="w-12 h-12 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center mb-5 group-hover:bg-teal-700 group-hover:text-white transition-colors"
                 >
-                  <svg
-                    class="w-4 h-4 text-teal-500 shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      stroke-width="2.5"
-                      d="M5 13l4 4L19 7"
+                      stroke-width="2"
+                      d="M3 21h18M4 18h16M6 18V7l6-4 6 4v11M9 10h.01M12 10h.01M15 10h.01"
                     />
                   </svg>
-                  {{ feature }}
                 </div>
-              </div>
+
+                <h4
+                  class="text-xl font-bold text-gray-900 group-hover:text-teal-700 transition-colors"
+                >
+                  {{ item.title }}
+                </h4>
+
+                <p class="text-gray-500 text-sm leading-relaxed mt-3">
+                  {{ item.description }}
+                </p>
+
+                <div
+                  class="mt-6 inline-flex items-center gap-2 text-teal-700 font-semibold group-hover:gap-3 transition-all duration-200"
+                >
+                  Explore
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </RouterLink>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
@@ -261,7 +336,7 @@
 
           <!-- IET -->
           <RouterLink
-            to="/courses"
+            to="/courses/iet"
             class="group bg-white p-8 rounded-2xl border hover:shadow-lg transition block"
           >
             <span class="text-xs bg-teal-50 text-teal-700 px-3 py-1 rounded-full"> 3 Months </span>
@@ -284,7 +359,7 @@
 
           <!-- FDP -->
           <RouterLink
-            to="/courses"
+            to="/courses/fdp"
             class="group bg-white p-8 rounded-2xl border hover:shadow-lg transition block"
           >
             <span class="text-xs bg-teal-50 text-teal-700 px-3 py-1 rounded-full"> 2 Days </span>
@@ -307,7 +382,7 @@
 
           <!-- 3DW -->
           <RouterLink
-            to="/courses"
+            to="/courses/3dw"
             class="group bg-white p-8 rounded-2xl border hover:shadow-lg transition block"
           >
             <span class="text-xs bg-teal-50 text-teal-700 px-3 py-1 rounded-full"> 2–3 Days </span>
@@ -331,47 +406,50 @@
       </div>
     </section>
 
-  <!-- Services -->
-<section class="py-24 px-6 md:px-16 bg-gray-50">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-14">
-      <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">
-        What We Provide
-      </span>
-      <h2 class="text-4xl font-bold text-gray-900 mt-2">Our Services</h2>
-      <p class="text-gray-500 mt-4 max-w-2xl mx-auto leading-relaxed">
-        From ideation to scale and beyond, IDRP provides end-to-end support tailored to every
-        stage of your journey—whether you're launching a startup, building a prototype, or
-        expanding into industry collaboration.
-      </p>
-    </div>
+    <!-- Services -->
+    <section class="py-24 px-6 md:px-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">
+            What We Provide
+          </span>
+          <h2 class="text-4xl font-bold text-gray-900 mt-2">Our Services</h2>
+          <p class="text-gray-500 mt-4 max-w-2xl mx-auto leading-relaxed">
+            IDRP supports innovation through focused industry collaboration and high-impact
+            technical learning initiatives.
+          </p>
+        </div>
 
-    <div class="grid grid-cols-1 xl:grid-cols-12 gap-10 items-start">
-      <!-- Services Grid -->
-      <div class="xl:col-span-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <RouterLink
             v-for="service in services"
             :key="service.title"
             :to="service.route"
-            class="group bg-white rounded-2xl p-6 border border-gray-100 hover:border-teal-200 hover:shadow-lg transition-all duration-300 h-full flex flex-col"
+            class="group bg-white rounded-3xl p-10 md:p-12 border border-gray-100 hover:border-teal-200 hover:shadow-2xl transition-all duration-300 min-h-[320px] flex flex-col justify-between"
           >
-            <div
-              class="w-12 h-12 rounded-xl bg-teal-50 group-hover:bg-teal-600 flex items-center justify-center text-teal-600 group-hover:text-white transition-colors duration-300 shrink-0 mb-5"
-            >
-              <span v-html="service.icon" />
-            </div>
+            <div>
+              <div
+                class="w-16 h-16 rounded-2xl bg-teal-50 group-hover:bg-teal-600 flex items-center justify-center text-teal-600 group-hover:text-white transition-colors duration-300 mb-8"
+              >
+                <span v-html="service.icon" />
+              </div>
 
-            <div class="flex items-start justify-between gap-3 mb-2">
-              <h3 class="font-bold text-lg text-gray-900 group-hover:text-teal-700 transition-colors leading-snug">
+              <h3
+                class="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-teal-700 transition-colors leading-snug mb-5"
+              >
                 {{ service.title }}
               </h3>
-              <svg
-                class="w-4 h-4 mt-1 text-gray-300 group-hover:text-teal-500 group-hover:translate-x-1 transition-all duration-200 shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+
+              <p class="text-gray-500 text-base leading-relaxed">
+                {{ service.description }}
+              </p>
+            </div>
+
+            <div
+              class="mt-8 inline-flex items-center gap-2 text-teal-700 font-semibold group-hover:gap-3 transition-all duration-200"
+            >
+              Explore
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -380,75 +458,10 @@
                 />
               </svg>
             </div>
-
-            <p class="text-gray-500 text-sm leading-relaxed mt-1">
-              {{ service.description }}
-            </p>
           </RouterLink>
         </div>
       </div>
-
-      <!-- Side Content -->
-      <div class="xl:col-span-4">
-        <div class="sticky top-24 flex flex-col gap-8">
-          <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
-            <div
-              class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center text-teal-600 mb-5"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-5 h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
-                />
-              </svg>
-            </div>
-
-            <p class="text-gray-700 text-lg leading-relaxed">
-              We combine incubation, research, consulting, education, and product support to help
-              innovators move faster with clarity and confidence.
-            </p>
-
-            <RouterLink
-              to="/contact"
-              class="inline-flex items-center gap-2 mt-6 text-teal-700 font-semibold text-sm hover:gap-3 transition-all duration-200"
-            >
-              Talk to us
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </RouterLink>
-          </div>
-
-          <div
-            class="rounded-2xl overflow-hidden shadow-lg h-72 bg-teal-100 flex items-center justify-center"
-          >
-            <img
-              v-if="showServiceImage"
-              src="/services.jpg"
-              alt="IDRP Services"
-              class="w-full h-full object-cover"
-              @error="showServiceImage = false"
-            />
-            <span v-else class="text-teal-400 text-sm">services.jpg</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Approach -->
     <section class="py-24 px-6 md:px-16 bg-white">
@@ -801,6 +814,7 @@ type Program = {
   title: string
   duration: string
   description: string
+  detailsTo: string
   applyTo: string
   features: string[]
 }
@@ -856,37 +870,6 @@ type CourseOffering = {
   description: string
   route: string
 }
-
-const courseOfferings: CourseOffering[] = [
-  {
-    title: 'Online M.Tech Program',
-    duration: '2 Years',
-    description:
-      'A comprehensive online postgraduate program focused on advanced technical learning, research orientation, and industry relevance.',
-    route: '/courses/online-mtech',
-  },
-  {
-    title: 'IET Program',
-    duration: '3 Months',
-    description:
-      'A short-term industry-oriented learning program designed for focused exposure and practical capability building.',
-    route: '/courses/iet',
-  },
-  {
-    title: 'Faculty Development Program (FDP)',
-    duration: '2 Days',
-    description:
-      'A short workshop for faculty focused on pedagogy, emerging technologies, and academic-industry alignment.',
-    route: '/courses/fdp',
-  },
-  {
-    title: '3DW',
-    duration: '2 Days',
-    description:
-      'A compact workshop format for rapid technical immersion and hands-on learning in focused themes.',
-    route: '/courses/3dw',
-  },
-]
 
 const heroSlides: HeroSlide[] = [
   {
@@ -952,6 +935,7 @@ const programs: Program[] = [
     duration: '6–12 months',
     description:
       'A structured early-stage program for founders at idea, problem-validation, or prototype stage. Designed to help aspiring startups validate the problem, refine the solution, build an MVP roadmap, and prepare for incubation readiness.',
+    detailsTo: '/pre-incubation',
     applyTo: '/apply/pre-incubation',
     features: [
       'Idea validation and customer discovery',
@@ -967,6 +951,7 @@ const programs: Program[] = [
     duration: '12–18 months',
     description:
       'Comprehensive support for startups at idea, PoC, or MVP stage. Get access to dedicated workspace, labs, mentorship, and seed funding opportunities.',
+    detailsTo: '/incubation',
     applyTo: '/apply/resident-incubation',
     features: [
       'Dedicated workspace at campus',
@@ -982,6 +967,7 @@ const programs: Program[] = [
     duration: '6–12 months',
     description:
       'Remote support for startups and entrepreneurs who want to leverage our ecosystem without physical presence. Perfect for early-stage ventures across India.',
+    detailsTo: '/incubation',
     applyTo: '/apply/virtual-incubation',
     features: [
       'Remote mentorship sessions',
@@ -992,79 +978,58 @@ const programs: Program[] = [
       'Grant application support',
     ],
   },
-  // {
-  //   title: 'Deep-Tech Accelerator',
-  //   duration: '6 months intensive',
-  //   description:
-  //     'Fast-track program for startups with proven technology ready for market entry. Focus on GTM strategy, scaling, and Series A preparation.',
-  //   applyTo: '/apply/deep-tech-accelerator',
-  //   features: [
-  //     'Intensive GTM workshops',
-  //     'Pilot project facilitation',
-  //     'Corporate partnership opportunities',
-  //     'Investor pitch sessions',
-  //     'Product-market fit validation',
-  //     'Series A readiness training',
-  //   ],
-  // },
+]
+
+type GovernmentProgram = {
+  title: string
+  description: string
+  route: string
+}
+
+const governmentPrograms: GovernmentProgram[] = [
+  {
+    title: 'New Age Innovation Network',
+    description:
+      'A government-supported initiative focused on innovation, entrepreneurship development, and startup ecosystem strengthening for student and early-stage founders.',
+    route: '/programs/nain',
+  },
+  {
+    title: 'Common Instrumentation Facility',
+    description:
+      'Shared access to advanced instrumentation, lab facilities, and prototyping infrastructure that supports research, product development, and deep-tech experimentation.',
+    route: '/programs/cif',
+  },
+  {
+    title: 'Centre of Excellence in Quantum AI and Computing',
+    description:
+      'A focused initiative to advance research, talent development, and innovation in quantum technologies, artificial intelligence, and next-generation computing systems.',
+    route: '/programs/coe-quantum-ai',
+  },
+  {
+    title: 'Capacity Building for Design and Entrepreneurship',
+    description:
+      'A structured program to build innovation capability, product thinking, design mindset, and entrepreneurial readiness among students, researchers, and aspiring founders.',
+    route: '/programs/cbde',
+  },
 ]
 
 const services: Service[] = [
   {
-    title: 'Access to Funding',
-    description: 'Tap into funding opportunities powered by government initiatives',
-    route: '/funding',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" /></svg>`,
-  },
-  {
-    title: 'Market Connects',
-    description: 'Strategic support for startups growing beyond borders',
-    route: '/market-connects',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" /></svg>`,
-  },
-  {
-    title: 'Business Services',
-    description: 'Adaptable support designed with our open incubation approach',
-    route: '/business-services',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" /></svg>`,
-  },
-  {
-    title: 'Co-Working',
-    description: 'Ready-to-use office spaces designed for productivity',
-    route: '/co-working',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>`,
-  },
-  // {
-  //   title: 'Incubation',
-  //   description: 'End-to-end incubation support for transforming ideas into ventures',
-  //   route: '/incubation',
-  //   icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v3m0 0h3m-3 0H9m9-9a9 9 0 1 0-18 0c0 2.238.82 4.278 2.172 5.842.4.463.828.964 1.037 1.541l.387 1.064A1.125 1.125 0 0 0 4.653 21h14.694a1.125 1.125 0 0 0 1.057-.753l.387-1.064c.21-.577.637-1.078 1.037-1.541A8.963 8.963 0 0 0 21 12Z" /></svg>`,
-  // },
-  {
-    title: 'Industry Research',
-    description: 'Collaborative research solutions aligned with real industry challenges',
+    title: 'Industry Research and Advisory',
+    description:
+      'Collaborative research, consulting, and strategic advisory support aligned with real industry challenges and innovation goals.',
     route: '/industry-research',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12M3.75 3h16.5M3.75 3v16.5m4.5-9 2.25 2.25 3.75-4.5 2.25 2.25 3-3" /></svg>`,
-  },
-  {
-    title: 'Prototype Development',
-    description: 'Build, test, and refine functional prototypes for product validation',
-    route: '/prototype-development',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3v5.25m4.5-5.25v5.25m-7.5 0h10.5m-12 0h13.5a1.5 1.5 0 0 1 1.5 1.5v8.25a3 3 0 0 1-3 3H6.75a3 3 0 0 1-3-3V9.75a1.5 1.5 0 0 1 1.5-1.5Zm3 5.25h7.5" /></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12M3.75 3h16.5M3.75 3v16.5m4.5-9 2.25 2.25 3.75-4.5 2.25 2.25 3-3" /></svg>`,
   },
   {
     title: 'Technical Education Academy',
-    description: 'Specialized technical training programs for students, faculty, and professionals',
+    description:
+      'Specialized technical education programs, industry-ready courses, and capacity-building initiatives for students, faculty, and professionals.',
     route: '/technical-education-academy',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14.25 4.5 9.75 12 5.25l7.5 4.5-7.5 4.5Zm0 0v6.75m0-6.75 6.16-3.696a.75.75 0 0 1 1.09.665v4.431a.75.75 0 0 1-.384.654L12 21m0-6.75L5.134 10.554a.75.75 0 0 0-1.134.651v4.446a.75.75 0 0 0 .384.654L12 21" /></svg>`,
-  },
-  {
-    title: 'Consulting',
-    description: 'Expert advisory services to solve business, technology, and innovation challenges',
-    route: '/consulting',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3.862A2.25 2.25 0 0 1 11.25 3h1.5a2.25 2.25 0 0 1 1.682.862l.717.841a2.25 2.25 0 0 0 1.682.797h1.157a2.25 2.25 0 0 1 2.25 2.25v1.157a2.25 2.25 0 0 0 .797 1.682l.84.717A2.25 2.25 0 0 1 21 12.75v1.5a2.25 2.25 0 0 1-.862 1.682l-.841.717a2.25 2.25 0 0 0-.797 1.682v1.157a2.25 2.25 0 0 1-2.25 2.25h-1.157a2.25 2.25 0 0 0-1.682.797l-.717.84A2.25 2.25 0 0 1 12.75 21h-1.5a2.25 2.25 0 0 1-1.682-.862l-.717-.841a2.25 2.25 0 0 0-1.682-.797H6a2.25 2.25 0 0 1-2.25-2.25v-1.157a2.25 2.25 0 0 0-.797-1.682l-.84-.717A2.25 2.25 0 0 1 1.5 14.25v-1.5a2.25 2.25 0 0 1 .862-1.682l.841-.717A2.25 2.25 0 0 0 4 8.668V7.511A2.25 2.25 0 0 1 6.25 5.26h1.157a2.25 2.25 0 0 0 1.682-.797l.479-.601ZM9.75 12a2.25 2.25 0 1 0 4.5 0 2.25 2.25 0 0 0-4.5 0Z" /></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14.25 4.5 9.75 12 5.25l7.5 4.5-7.5 4.5Zm0 0v6.75m0-6.75 6.16-3.696a.75.75 0 0 1 1.09.665v4.431a.75.75 0 0 1-.384.654L12 21m0-6.75L5.134 10.554a.75.75 0 0 0-1.134.651v4.446a.75.75 0 0 0 .384.654L12 21" /></svg>`,
   },
 ]
+
 const approaches: IconCard[] = [
   {
     title: 'Curated networking events for founders',
@@ -1456,9 +1421,7 @@ const filteredPartners = computed(() => {
   if (activePartnerTab.value === 'all') {
     return allPartners
   }
-  return allPartners.filter(
-    (partner) => partner.category === activePartnerTab.value,
-  )
+  return allPartners.filter((partner) => partner.category === activePartnerTab.value)
 })
 
 const duplicatedStories = computed(() => [...successStories, ...successStories])

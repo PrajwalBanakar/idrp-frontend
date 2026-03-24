@@ -36,13 +36,6 @@
           >
             Enquire Now
           </RouterLink>
-
-          <RouterLink
-            to="/courses"
-            class="rounded-full border border-white px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10"
-          >
-            Back to Courses
-          </RouterLink>
         </div>
       </div>
     </section>
@@ -172,12 +165,6 @@
             class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition hover:bg-teal-50"
           >
             Apply Now
-          </RouterLink>
-          <RouterLink
-            to="/courses"
-            class="rounded-full border border-white px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10"
-          >
-            View All Offerings
           </RouterLink>
         </div>
       </div>

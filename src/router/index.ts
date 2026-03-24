@@ -42,6 +42,14 @@ export const ROUTE_NAMES = {
   PROTOTYPE_DEVELOPMENT: 'prototype-development',
   TECHNICAL_EDUCATION_ACADEMY: 'technical-education-academy',
   CONSULTING: 'consulting',
+  RESOURCES: 'resources',
+  MATCHMAKING: 'matchmaking',
+  STARTUP_MATCHMAKING: 'startup-matchmaking',
+  INVESTOR_MATCHMAKING: 'investor-matchmaking',
+  CBDE: 'cbde',
+  NAIN: 'nain',
+  CIF: 'cif',
+  COE_QUANTUM_AI: 'coe-quantum-ai',
 } as const
 
 const routes: RouteRecordRaw[] = [
@@ -138,19 +146,43 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/programs/nain',
+    name: ROUTE_NAMES.NAIN,
+    component: () => import('@/views/NainView.vue'),
+    meta: {
+      title: 'New Age Innovation Network',
+    },
+  },
+  {
+    path: '/programs/cif',
+    name: ROUTE_NAMES.CIF,
+    component: () => import('@/views/CifView.vue'),
+    meta: {
+      title: 'Common Instrumentation Facility',
+    },
+  },
+  {
+    path: '/programs/coe-quantum-ai',
+    name: ROUTE_NAMES.COE_QUANTUM_AI,
+    component: () => import('@/views/QuantumAIView.vue'),
+    meta: {
+      title: 'Centre of Excellence in Quantum AI and Computing',
+    },
+  },
+  {
+    path: '/programs/cbde',
+    name: ROUTE_NAMES.CBDE,
+    component: () => import('@/views/CbdeView.vue'),
+    meta: {
+      title: 'Capacity Building for Design and Entrepreneurship',
+    },
+  },
+  {
     path: '/funding',
     name: ROUTE_NAMES.FUNDING,
     component: () => import('@/views/AccessFundingView.vue'),
     meta: {
       title: 'Access Funding',
-    },
-  },
-  {
-    path: '/courses',
-    name: ROUTE_NAMES.COURSES,
-    component: () => import('@/views/CoursesView.vue'),
-    meta: {
-      title: 'Courses & Workshops',
     },
   },
   {
@@ -237,6 +269,22 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/matchmaking/startup',
+    name: ROUTE_NAMES.STARTUP_MATCHMAKING,
+    component: () => import('@/views/StartupMatchmakingFormView.vue'),
+    meta: {
+      title: 'Startup Matchmaking Form',
+    },
+  },
+  {
+    path: '/matchmaking/investor',
+    name: ROUTE_NAMES.INVESTOR_MATCHMAKING,
+    component: () => import('@/views/InvestorMatchmakingFormView.vue'),
+    meta: {
+      title: 'Investor Matchmaking Form',
+    },
+  },
+  {
     path: '/co-working',
     name: ROUTE_NAMES.CO_WORKING,
     component: () => import('@/views/CoWorkingView.vue'),
@@ -277,7 +325,6 @@ const routes: RouteRecordRaw[] = [
     },
   },
 
-
   // Community
   {
     path: '/events',
@@ -288,11 +335,27 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/resources',
+    name: ROUTE_NAMES.RESOURCES,
+    component: () => import('@/views/ResourcesView.vue'),
+    meta: {
+      title: 'Resources',
+    },
+  },
+  {
     path: '/startups',
     name: ROUTE_NAMES.STARTUPS,
     component: () => import('@/views/StartupsView.vue'),
     meta: {
       title: 'Startups',
+    },
+  },
+  {
+    path: '/matchmaking',
+    name: ROUTE_NAMES.MATCHMAKING,
+    component: () => import('@/views/MatchmakingView.vue'),
+    meta: {
+      title: 'Investor Startup Matchmaking',
     },
   },
 
