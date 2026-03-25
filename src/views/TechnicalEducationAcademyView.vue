@@ -1,6 +1,5 @@
 <template>
   <div class="technical-education-academy-view">
-    <!-- Hero -->
     <section class="relative h-[52vh] min-h-[360px] overflow-hidden">
       <img
         v-if="showHeroImage"
@@ -28,13 +27,12 @@
       </div>
     </section>
 
-    <!-- Intro -->
     <section class="bg-white px-6 py-24 md:px-16">
       <div class="mx-auto max-w-4xl text-center">
         <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
           Learning & Capacity Building
         </span>
-        <h2 class="mt-3 mb-6 text-3xl font-bold leading-tight text-gray-900">
+        <h2 class="mb-6 mt-3 text-3xl font-bold leading-tight text-gray-900">
           Practical Technical Learning for Students, Faculty, and Professionals.
         </h2>
 
@@ -58,7 +56,6 @@
       </div>
     </section>
 
-    <!-- Academy Areas -->
     <section class="bg-gray-50 px-6 py-24 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-14 text-center">
@@ -76,7 +73,7 @@
 
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
           <article
-            v-for="area in academyAreas"
+            v-for="area in academyAreasWithVisibility"
             :key="area.title"
             class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
           >
@@ -103,7 +100,6 @@
       </div>
     </section>
 
-    <!-- Stats -->
     <section class="bg-gradient-to-br from-teal-800 to-cyan-600 px-6 py-24 md:px-16">
       <div class="mx-auto max-w-5xl">
         <div class="mb-14 text-center">
@@ -116,11 +112,7 @@
         </div>
 
         <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
-          <div
-            v-for="stat in stats"
-            :key="stat.label"
-            class="text-center"
-          >
+          <div v-for="stat in academyStats" :key="stat.label" class="text-center">
             <p class="text-4xl font-extrabold text-white md:text-5xl">
               {{ stat.value }}
             </p>
@@ -132,7 +124,6 @@
       </div>
     </section>
 
-    <!-- Courses & Workshops -->
     <section class="bg-white px-6 py-24 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-14 text-center">
@@ -144,7 +135,8 @@
           </h2>
           <p class="mx-auto mt-3 max-w-3xl text-gray-500">
             Explore structured learning pathways, postgraduate programs, faculty development
-            initiatives, and short-duration workshops offered through the Technical Education Academy.
+            initiatives, and short-duration workshops offered through the Technical Education
+            Academy.
           </p>
         </div>
 
@@ -198,7 +190,6 @@
       </div>
     </section>
 
-    <!-- CTA -->
     <section class="bg-gradient-to-r from-teal-700 to-cyan-600 px-6 py-16 md:px-16">
       <div class="mx-auto max-w-4xl text-center">
         <h3 class="text-3xl font-bold text-white">
@@ -227,7 +218,6 @@
       </div>
     </section>
 
-    <!-- Enquiry Form -->
     <section class="bg-white px-6 py-24 md:px-16">
       <div class="mx-auto max-w-3xl">
         <div class="mb-12 text-center">
@@ -311,11 +301,7 @@
               required
             >
               <option value="" disabled>Select a program area</option>
-              <option
-                v-for="option in academyOptions"
-                :key="option"
-                :value="option"
-              >
+              <option v-for="option in academyOptions" :key="option" :value="option">
                 {{ option }}
               </option>
             </select>
@@ -389,8 +375,12 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref, onBeforeUnmount } from 'vue'
 import { RouterLink } from 'vue-router'
+import { academyAreas, academyOptions, academyStats, courses } from '@/data/courses'
+
+let successMessageTimeout: number | null = null
+
 
 type AcademyForm = {
   name: string
@@ -402,40 +392,12 @@ type AcademyForm = {
   consent: boolean
 }
 
-type Stat = {
-  value: string
-  label: string
-}
-
-type AcademyArea = {
-  title: string
-  emoji: string
-  image: string
-  bg: string
+type AcademyAreaWithVisibility = (typeof academyAreas)[number] & {
   visible: boolean
-}
-
-type CourseCard = {
-  title: string
-  duration: string
-  type: string
-  description: string
-  route: string
-  features: string[]
 }
 
 const showHeroImage = ref(true)
 const formSubmitted = ref(false)
-
-const academyOptions: string[] = [
-  'Online M.Tech Program',
-  'IET Program',
-  'Faculty Development Program',
-  '3DW Workshop',
-  'Student Technical Training',
-  'Industry-Oriented Workshop',
-  'Customized Technical Program',
-]
 
 const academyForm = reactive<AcademyForm>({
   name: '',
@@ -447,109 +409,24 @@ const academyForm = reactive<AcademyForm>({
   consent: false,
 })
 
-const stats: Stat[] = [
-  { value: '100+', label: 'Training Sessions & Workshops' },
-  { value: '25+', label: 'Technical Domains Covered' },
-  { value: '5000+', label: 'Students, Faculty & Professionals Reached' },
-  { value: '50+', label: 'Institutional & Industry Learning Partners' },
-]
+const academyAreasWithVisibility = reactive<AcademyAreaWithVisibility[]>(
+  academyAreas.map((area) => ({
+    ...area,
+    visible: true,
+  })),
+)
 
-const academyAreas = reactive<AcademyArea[]>([
-  {
-    title: 'Student Upskilling',
-    emoji: '🎓',
-    image: '/academy-students.jfif',
-    bg: 'bg-teal-50',
-    visible: true,
-  },
-  {
-    title: 'Faculty Development',
-    emoji: '👩‍🏫',
-    image: '/academy-faculty.jfif',
-    bg: 'bg-cyan-50',
-    visible: true,
-  },
-  {
-    title: 'Workshops & Bootcamps',
-    emoji: '🛠️',
-    image: '/academy-workshops.jfif',
-    bg: 'bg-amber-50',
-    visible: true,
-  },
-  {
-    title: 'Emerging Technology Training',
-    emoji: '💻',
-    image: '/academy-tech.jfif',
-    bg: 'bg-indigo-50',
-    visible: true,
-  },
-  {
-    title: 'Innovation Learning',
-    emoji: '🚀',
-    image: '/academy-innovation.jfif',
-    bg: 'bg-green-50',
-    visible: true,
-  },
-])
-
-const courses: CourseCard[] = [
-  {
-    title: 'Online M.Tech Program',
-    duration: '2 Years',
-    type: 'Postgraduate Program',
-    description:
-      'A structured online postgraduate program designed to build advanced capability in deep-tech, applied AI, research-oriented problem solving, and innovation-led engineering practice.',
-    route: '/courses/online-mtech',
-    features: [
-      'Online delivery for working professionals and learners',
-      'Advanced technical and research-oriented learning',
-      'Industry and innovation relevance',
-      'Designed for long-term capability building',
-    ],
-  },
-  {
-    title: 'IET Program',
-    duration: '3 Months',
-    type: 'Short-Term Program',
-    description:
-      'A focused learning track intended to provide practical exposure, applied technical grounding, and industry-facing learning for emerging innovators and professionals.',
-    route: '/courses/iet',
-    features: [
-      'Short-duration structured engagement',
-      'Practical orientation',
-      'Focused skill-building',
-      'Industry relevance',
-    ],
-  },
-  {
-    title: 'Faculty Development Program (FDP)',
-    duration: '2 Days',
-    type: 'Workshop',
-    description:
-      'A compact faculty-focused program to strengthen pedagogy, technology awareness, research alignment, and emerging domain readiness.',
-    route: '/courses/fdp',
-    features: [
-      'Faculty upskilling',
-      'Emerging technology orientation',
-      'Pedagogy and research alignment',
-      'Short and intensive format',
-    ],
-  },
-  {
-    title: '3DW',
-    duration: '2 Days',
-    type: 'Workshop',
-    description:
-      'A hands-on short workshop format designed for rapid technical immersion, focused learning outcomes, and applied exposure to specific tools or themes.',
-    route: '/courses/3dw',
-    features: [
-      'Hands-on learning',
-      'Focused technical immersion',
-      'Short-format delivery',
-      'Practical outcomes',
-    ],
-  },
-]
+const hasValidForm = computed(() => {
+  return (
+    academyForm.name.trim() &&
+    academyForm.organization.trim() &&
+    academyForm.phone.trim() &&
+    academyForm.email.trim() &&
+    academyForm.programType &&
+    academyForm.details.trim() &&
+    academyForm.consent
+  )
+})
 
 function resetAcademyForm() {
   academyForm.name = ''
@@ -562,11 +439,25 @@ function resetAcademyForm() {
 }
 
 function submitAcademyForm() {
+  if (!hasValidForm.value) return
+
   formSubmitted.value = true
   resetAcademyForm()
 
-  window.setTimeout(() => {
+  if (successMessageTimeout) {
+    window.clearTimeout(successMessageTimeout)
+  }
+
+  successMessageTimeout = window.setTimeout(() => {
     formSubmitted.value = false
+    successMessageTimeout = null
   }, 6000)
 }
+
+onBeforeUnmount(() => {
+  if (successMessageTimeout) {
+    window.clearTimeout(successMessageTimeout)
+  }
+})
+
 </script>

@@ -2,6 +2,7 @@
 
 IDRP Application code
 
+
 ```
 idrp-frontend
 ├─ .prettierrc.json
@@ -85,10 +86,41 @@ idrp-frontend
 │  ├─ App.vue
 │  ├─ assets
 │  ├─ components
-│  │  └─ AppLayout.vue
+│  │  ├─ AppLayout.vue
+│  │  ├─ courses
+│  │  ├─ events
+│  │  │  ├─ EventCard.vue
+│  │  │  └─ EventsSection.vue
+│  │  ├─ home
+│  │  │  ├─ ApproachSection.vue
+│  │  │  ├─ AwardsSection.vue
+│  │  │  ├─ CourseSection.vue
+│  │  │  ├─ CTASection.vue
+│  │  │  ├─ HeroSection.vue
+│  │  │  ├─ ImpactSection.vue
+│  │  │  ├─ PartnersSection.vue
+│  │  │  ├─ ProgramsSection.vue
+│  │  │  ├─ ServicesSection.vue
+│  │  │  └─ SuccessStoriesSection.vue
+│  │  ├─ partners
+│  │  │  ├─ PartnerCard.vue
+│  │  │  ├─ PartnerFormSection.vue
+│  │  │  ├─ PartnersGridSection.vue
+│  │  │  ├─ PartnersHeroSection.vue
+│  │  │  └─ PartnersIntroSection.vue
+│  │  └─ startups
+│  │     ├─ StartupCard.vue
+│  │     ├─ StartupsCTASection.vue
+│  │     ├─ StartupsHeroSection.vue
+│  │     ├─ StartupsIntroSection.vue
+│  │     └─ StartupsPortfolioSection.vue
 │  ├─ data
+│  │  ├─ courses.ts
 │  │  ├─ events.ts
-│  │  └─ newsletters.ts
+│  │  ├─ home.ts
+│  │  ├─ newsletters.ts
+│  │  ├─ partners.ts
+│  │  └─ startups.ts
 │  ├─ main.ts
 │  ├─ router
 │  │  └─ index.ts
@@ -96,6 +128,10 @@ idrp-frontend
 │  ├─ stores
 │  │  └─ counter.ts
 │  ├─ style.css
+│  ├─ types
+│  │  ├─ courses.ts
+│  │  ├─ events.ts
+│  │  └─ partners.ts
 │  └─ views
 │     ├─ AboutView.vue
 │     ├─ AccelerationView.vue
@@ -108,6 +144,7 @@ idrp-frontend
 │     ├─ CommunityMembershipApplyView.vue
 │     ├─ ConsultingView.vue
 │     ├─ ContactView.vue
+│     ├─ CourseDetailView.vue
 │     ├─ CoursesView.vue
 │     ├─ CoWorkingView.vue
 │     ├─ EventDetailView.vue
