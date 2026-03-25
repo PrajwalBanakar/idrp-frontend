@@ -23,7 +23,9 @@
             Knowledge Hub
           </span>
         </div>
-        <h1 class="mb-4 text-5xl font-extrabold leading-tight text-white md:text-6xl">Resources</h1>
+        <h1 class="mb-4 text-5xl font-extrabold leading-tight text-white md:text-6xl">
+          Resources
+        </h1>
       </div>
     </section>
 
@@ -51,17 +53,93 @@
       </div>
     </section>
 
-    <!-- Resource Categories -->
-    <section class="bg-gray-50 px-6 py-6 md:px-16">
+    <!-- Newsletter Bookshelf -->
+    <section class="bg-gradient-to-b from-[#f7f4ee] to-[#efe9dd] px-6 py-20 md:px-16">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-14 text-center">
+          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+            Featured Collection
+          </span>
+          <h2 class="mt-2 text-4xl font-bold text-gray-900">Newsletter Bookshelf</h2>
+          <p class="mx-auto mt-4 max-w-3xl text-gray-600">
+            Browse IDRP newsletters as a curated bookshelf and open each issue in its own dedicated
+            reading view.
+          </p>
+        </div>
+
+        <div
+          class="relative overflow-hidden rounded-[2rem] border border-[#d9d0c1] bg-[#f8f3ea] px-6 py-10 shadow-[0_20px_60px_rgba(0,0,0,0.06)] md:px-10"
+        >
+          <div
+            class="pointer-events-none absolute left-4 right-4 top-[7.25rem] hidden h-4 rounded-full bg-gradient-to-b from-[#9a6a3d] to-[#6f4725] shadow-lg md:block"
+          />
+          <div
+            class="pointer-events-none absolute left-4 right-4 bottom-8 hidden h-4 rounded-full bg-gradient-to-b from-[#9a6a3d] to-[#6f4725] shadow-lg md:block"
+          />
+
+          <div class="relative z-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+            <RouterLink
+              v-for="newsletter in newsletters"
+              :key="newsletter.id"
+              :to="`/resources/newsletters/${newsletter.slug}`"
+              class="group relative flex h-[240px] w-full items-end justify-center outline-none transition-transform duration-300 hover:-translate-y-2 focus-visible:-translate-y-2"
+            >
+              <div
+                class="relative h-[220px] w-[92%] rounded-l-md rounded-r-xl border border-black/10 text-left shadow-[12px_10px_24px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:shadow-[16px_14px_30px_rgba(0,0,0,0.22)]"
+                :style="{ background: newsletter.coverGradient }"
+              >
+                <div class="absolute left-0 top-0 h-full w-4 rounded-l-md bg-black/15" />
+                <div
+                  class="absolute left-0 top-0 h-10 w-full rounded-t-xl bg-gradient-to-b from-white/20 to-transparent"
+                />
+
+                <div class="flex h-full flex-col justify-between p-4 pl-6 text-white">
+                  <div>
+                    <span
+                      class="inline-flex rounded-full bg-white/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white/95 backdrop-blur-sm"
+                    >
+                      {{ newsletter.issue }}
+                    </span>
+                  </div>
+
+                  <div>
+                    <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/80">
+                      IDRP Newsletter
+                    </p>
+                    <h3 class="line-clamp-4 text-lg font-extrabold leading-snug">
+                      {{ newsletter.title }}
+                    </h3>
+                    <p class="mt-3 text-xs text-white/85">
+                      {{ newsletter.date }}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="absolute right-0 top-[6px] h-[calc(100%-12px)] w-2 rounded-r-xl bg-white/70"
+                />
+              </div>
+            </RouterLink>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Resource Categories -->
+    <section class="bg-gray-50 px-6 py-8 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-16 text-center">
           <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
             Collections
           </span>
-          <h2 class="mt-2 text-4xl font-bold text-gray-900">Explore Resources</h2>
+          <h2 class="mt-2 text-4xl font-bold text-gray-900">Explore More Resources</h2>
         </div>
 
-        <div v-for="category in resourceCategories" :key="category.key" class="mb-16 last:mb-4">
+        <div
+          v-for="category in resourceCategories"
+          :key="category.key"
+          class="mb-16 last:mb-4"
+        >
           <div class="mb-6 flex items-start gap-4">
             <div
               class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-lg text-white"
@@ -85,7 +163,7 @@
             <article
               v-for="item in category.items"
               :key="item.title"
-              class="rounded-2xl border border-gray-100 bg-white p-5 transition-all duration-300 hover:shadow-md"
+              class="rounded-2xl border border-gray-100 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
               :class="category.hoverBorderClass"
             >
               <div class="mb-3 flex items-center justify-between gap-3">
@@ -150,7 +228,7 @@
               <h3 class="text-2xl font-bold text-gray-900">For Startups</h3>
             </div>
 
-            <p class="text-gray-600 leading-relaxed">
+            <p class="leading-relaxed text-gray-600">
               Founders can discover investors aligned with their domain, growth stage, funding ask,
               and long-term vision.
             </p>
@@ -173,15 +251,13 @@
               <h3 class="text-2xl font-bold text-gray-900">For Investors</h3>
             </div>
 
-            <p class="text-gray-600 leading-relaxed">
+            <p class="leading-relaxed text-gray-600">
               Investors can access a higher quality startup pipeline filtered by sector, maturity,
               funding fit, and ecosystem readiness.
             </p>
 
             <ul class="mt-6 space-y-3 text-sm leading-relaxed text-gray-600">
-              <li>
-                • Investor preference capture across sectors, stage, geography, and cheque size
-              </li>
+              <li>• Investor preference capture across sectors, stage, geography, and cheque size</li>
               <li>• Startup recommendations through curated fit assessment</li>
               <li>• Access to startup summaries, deck references, and traction snapshots</li>
               <li>• Support for demo days, focused meetings, and thematic showcases</li>
@@ -207,17 +283,17 @@
       </div>
     </section>
 
-    <!-- Submit Resource / Matchmaking Interest Form -->
+    <!-- CTA -->
     <section class="bg-white px-6 py-24 md:px-16">
       <div class="mx-auto max-w-5xl">
-        <div class="rounded-3xl border border-gray-100 bg-gray-50 p-8 md:p-12 text-center">
+        <div class="rounded-3xl border border-gray-100 bg-gray-50 p-8 text-center md:p-12">
           <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
             Next Step
           </span>
           <h2 class="mt-2 text-4xl font-bold text-gray-900">
             Explore Resources or Start Matchmaking
           </h2>
-          <p class="mx-auto mt-4 max-w-2xl text-gray-500 leading-relaxed">
+          <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-gray-500">
             Discover curated knowledge assets across newsletters, blogs, papers, and reports, or
             move into the dedicated investor–startup matchmaking flow for structured ecosystem
             engagement.
@@ -252,8 +328,9 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import { newsletters } from '@/data/newsletters'
 
 type ResourceItem = {
   title: string
@@ -282,47 +359,22 @@ type MatchmakingStep = {
   description: string
 }
 
+type Newsletter = {
+  id: number
+  slug: string
+  title: string
+  issue: string
+  date: string
+  description: string
+  preview: string
+  highlights: string[]
+  coverGradient: string
+  pdfUrl?: string
+}
+
 const showHeroImage = ref(true)
 
 const resourceCategories: ResourceCategory[] = [
-  {
-    key: 'newsletters',
-    title: 'Newsletters',
-    subtitle: 'Periodic updates from the ecosystem.',
-    description:
-      'Stay updated with curated newsletters featuring startup activity, program highlights, ecosystem developments, and innovation opportunities.',
-    icon: '📰',
-    iconBgClass: 'bg-teal-600',
-    textClass: 'text-teal-600',
-    hoverBorderClass: 'hover:border-teal-200',
-    badgeClass: 'bg-teal-50 text-teal-700',
-    items: [
-      {
-        title: 'IDRP Innovation Digest – March 2026',
-        description:
-          'Monthly updates on startups, incubation activities, partnerships, and community initiatives.',
-        type: 'Newsletter',
-        meta: 'March 2026',
-        tag: 'Ecosystem Updates',
-      },
-      {
-        title: 'Founder Community Bulletin',
-        description:
-          'Highlights from founder sessions, events, opportunities, and important announcements.',
-        type: 'Newsletter',
-        meta: 'Monthly',
-        tag: 'Founder Network',
-      },
-      {
-        title: 'Research & Innovation Circular',
-        description:
-          'A consolidated view of ongoing research, technical developments, and collaboration opportunities.',
-        type: 'Newsletter',
-        meta: 'Quarterly',
-        tag: 'Research',
-      },
-    ],
-  },
   {
     key: 'blogs',
     title: 'Blogs',

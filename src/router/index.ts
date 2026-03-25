@@ -50,6 +50,9 @@ export const ROUTE_NAMES = {
   NAIN: 'nain',
   CIF: 'cif',
   COE_QUANTUM_AI: 'coe-quantum-ai',
+  EVENT_DETAIL: 'event-detail',
+  EVENT_REGISTER: 'event-register',
+  NEWSLETTER_DETAIL: 'newsletter-detail',
 } as const
 
 const routes: RouteRecordRaw[] = [
@@ -335,11 +338,35 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/events/:id',
+    name: ROUTE_NAMES.EVENT_DETAIL,
+    component: () => import('@/views/EventDetailView.vue'),
+    meta: {
+      title: 'Event Detail',
+    },
+  },
+  {
+    path: '/events/:id/register',
+    name: ROUTE_NAMES.EVENT_REGISTER,
+    component: () => import('@/views/EventRegistrationView.vue'),
+    meta: {
+      title: 'Event Registration',
+    },
+  },
+  {
     path: '/resources',
     name: ROUTE_NAMES.RESOURCES,
     component: () => import('@/views/ResourcesView.vue'),
     meta: {
       title: 'Resources',
+    },
+  },
+  {
+    path:'/resources/newsletters/:slug',
+    name: ROUTE_NAMES.NEWSLETTER_DETAIL,
+    component: () => import('@/views/NewsletterDetailView.vue'),
+    meta: {
+      title: 'Newsletter Detail',
     },
   },
   {

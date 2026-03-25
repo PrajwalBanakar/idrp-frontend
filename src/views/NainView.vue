@@ -1,341 +1,583 @@
 <template>
-  <div class="nain-view">
-    <!-- Hero Banner -->
-    <section class="relative h-[50vh] min-h-[340px] overflow-hidden">
-      <img
-        v-if="showHeroImage"
-        src="/nain-hero.jfif"
-        alt="New Age Innovation Network"
-        class="absolute inset-0 h-full w-full object-cover object-center"
-        @error="showHeroImage = false"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/80 to-teal-700/30" />
-      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+  <div class="nain-view bg-white">
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-gradient-to-r from-teal-900 via-teal-800 to-cyan-700">
+      <div class="absolute inset-0 opacity-10">
+        <div class="h-full w-full bg-[radial-gradient(circle_at_top_left,_white_0,_transparent_35%),radial-gradient(circle_at_bottom_right,_white_0,_transparent_30%)]"></div>
+      </div>
 
-      <div class="relative z-10 flex h-full max-w-3xl flex-col justify-center px-10 md:px-20">
-        <div class="mb-4 flex items-center gap-3">
-          <div class="h-8 w-1 rounded-full bg-teal-400" />
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-300">
+      <div class="relative mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-24">
+        <div class="max-w-3xl">
+          <div class="mb-4 inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-teal-100">
             Government Initiatives
-          </span>
+          </div>
+
+          <h1 class="text-4xl font-extrabold leading-tight text-white md:text-6xl">
+            New Age Innovation Network
+          </h1>
+
+          <p class="mt-5 max-w-2xl text-base leading-7 text-teal-50 md:text-lg">
+            NAIN at IDRP supports innovation, mentoring, prototyping, and entrepreneurship by
+            connecting institutes, faculty mentors, and student teams through structured project
+            guidance and ecosystem support.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#institutes"
+              class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition hover:bg-teal-50"
+            >
+              Explore Institutes
+            </a>
+            <RouterLink
+              to="/contact"
+              class="rounded-full border border-white/30 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10"
+            >
+              Contact IDRP
+            </RouterLink>
+          </div>
         </div>
-        <h1 class="text-4xl font-extrabold leading-tight text-white md:text-6xl">
-          New Age Innovation Network
-        </h1>
-        <p class="mt-4 max-w-2xl text-base leading-relaxed text-teal-100 md:text-lg">
-          A government-supported initiative that promotes student innovation, startup culture,
-          ideation, and entrepreneurship through structured institutional support.
-        </p>
       </div>
     </section>
 
-    <!-- Intro -->
-    <section class="bg-white px-6 py-24 md:px-16">
-      <div class="mx-auto flex max-w-6xl flex-col items-center gap-16 lg:flex-row">
-        <div class="lg:w-1/2">
+    <!-- Overview -->
+    <section class="mx-auto max-w-7xl px-6 py-16 md:px-12">
+      <div class="grid gap-10 lg:grid-cols-[1.25fr_0.75fr]">
+        <div>
           <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
             Overview
           </span>
-          <h2 class="mt-3 mb-6 text-3xl font-bold leading-tight text-gray-900">
-            NAIN: Building a Strong Innovation & Entrepreneurship Culture
+          <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
+            Building an institute-level innovation network
           </h2>
-
-          <div class="space-y-4 leading-relaxed text-gray-600">
+          <div class="mt-6 space-y-4 text-[15px] leading-7 text-slate-600">
             <p>
-              The New Age Innovation Network (NAIN) is aimed at fostering innovation-driven thinking
-              among students and aspiring entrepreneurs by providing a structured platform for idea
-              development, experimentation, and early-stage venture support.
+              The New Age Innovation Network (NAIN) builds an innovation pipeline by mentoring
+              institutes, supporting student idea development, enabling project execution, and
+              strengthening early-stage entrepreneurial thinking.
             </p>
             <p>
-              Through NAIN, IDRP can encourage innovators to identify real-world challenges, convert
-              ideas into prototypes, and prepare for entrepreneurial journeys with access to mentors,
-              institutional facilities, and ecosystem support.
-            </p>
-            <p>
-              It serves as a valuable bridge between academic creativity and startup readiness,
-              enabling promising ideas to move toward validation, impact, and long-term growth.
+              As the number of supported institutes and projects grows every year, this page is
+              designed to showcase mentorship in a scalable way — institute-wise, year-wise, and
+              project-wise.
             </p>
           </div>
         </div>
 
-        <div class="lg:w-1/2">
-          <div
-            class="h-96 overflow-hidden rounded-3xl shadow-2xl"
-            :class="{
-              'bg-gradient-to-br from-teal-100 to-cyan-50': !showIntroImage,
-            }"
-          >
-            <img
-              v-if="showIntroImage"
-              src="/nain-intro.jfif"
-              alt="NAIN at IDRP"
-              class="h-full w-full object-cover"
-              @error="showIntroImage = false"
-            />
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+          <div class="rounded-3xl border border-teal-100 bg-teal-50 p-6">
+            <p class="text-sm font-semibold uppercase tracking-wider text-teal-700">
+              Institutes Supported
+            </p>
+            <p class="mt-2 text-4xl font-extrabold text-slate-900">
+              {{ institutes.length }}
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-cyan-100 bg-cyan-50 p-6">
+            <p class="text-sm font-semibold uppercase tracking-wider text-cyan-700">
+              Total Projects Listed
+            </p>
+            <p class="mt-2 text-4xl font-extrabold text-slate-900">
+              {{ totalProjects }}
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Value Section -->
-    <section class="bg-gray-50 px-6 py-24 md:px-16">
-      <div class="mx-auto flex max-w-6xl flex-col items-center gap-16 lg:flex-row">
-        <div class="lg:w-1/2">
+    <!-- Faculty Mentor Spotlight -->
+    <section class="bg-slate-50">
+      <div class="mx-auto max-w-7xl px-6 py-16 md:px-12">
+        <div class="mb-8">
           <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-            Why NAIN?
+            Faculty Mentor
           </span>
-          <h2 class="mt-3 mb-8 text-3xl font-bold leading-tight text-gray-900">
-            The Value of the NAIN Initiative
+          <h2 class="mt-3 text-3xl font-bold text-slate-900">
+            IIIT Dharwad Faculty Mentor
           </h2>
+        </div>
 
-          <ul class="space-y-4">
-            <li
-              v-for="item in valueItems"
-              :key="item"
-              class="group flex items-start gap-4"
+        <div class="grid gap-8 overflow-hidden rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[220px_1fr] md:p-8">
+          <div class="overflow-hidden rounded-3xl bg-slate-100">
+            <img
+              v-if="facultyMentor.image"
+              :src="facultyMentor.image"
+              :alt="facultyMentor.name"
+              class="h-full w-full object-cover"
+            />
+            <div
+              v-else
+              class="flex h-64 items-center justify-center text-lg font-bold text-slate-400"
             >
-              <div
-                class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-600 shadow-sm"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2.5"
-                  stroke="white"
-                  class="h-4 w-4"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4.5 12.75l6 6 9-13.5"
-                  />
-                </svg>
-              </div>
-              <p class="pt-1 text-sm leading-relaxed text-gray-700">
-                {{ item }}
-              </p>
-            </li>
-          </ul>
-        </div>
-
-        <div class="lg:w-1/2">
-          <div
-            class="h-96 overflow-hidden rounded-3xl shadow-2xl"
-            :class="{
-              'bg-gradient-to-br from-teal-100 to-cyan-50': !showValueImage,
-            }"
-          >
-            <img
-              v-if="showValueImage"
-              src="/nain-value.jfif"
-              alt="Value of NAIN"
-              class="h-full w-full object-cover"
-              @error="showValueImage = false"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Focus Areas -->
-    <section class="bg-white px-6 py-24 md:px-16">
-      <div class="mx-auto max-w-6xl">
-        <div class="mb-16 text-center">
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-            Focus Areas
-          </span>
-          <h2 class="mt-2 text-4xl font-bold text-gray-900">
-            What NAIN Supports
-          </h2>
-          <p class="mx-auto mt-3 max-w-2xl text-gray-500">
-            NAIN supports the journey from ideation to entrepreneurial readiness through structured
-            innovation support and ecosystem engagement.
-          </p>
-        </div>
-
-        <div class="grid gap-8 md:grid-cols-2">
-          <article
-            v-for="area in focusAreas"
-            :key="area.title"
-            class="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl"
-          >
-            <div class="h-1 bg-gradient-to-r from-teal-500 to-cyan-400" />
-            <div class="p-8 md:p-10">
-              <h3 class="mb-4 text-2xl font-bold text-gray-900">
-                {{ area.title }}
-              </h3>
-              <p class="mb-6 text-sm leading-relaxed text-gray-600">
-                {{ area.description }}
-              </p>
-
-              <ul class="space-y-3">
-                <li
-                  v-for="point in area.points"
-                  :key="point"
-                  class="flex items-start gap-3 text-sm leading-relaxed text-gray-600"
-                >
-                  <span class="mt-0.5 shrink-0 text-teal-500">✓</span>
-                  {{ point }}
-                </li>
-              </ul>
+              Photo
             </div>
-          </article>
+          </div>
+
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+              Mentor Profile
+            </p>
+            <h3 class="mt-2 text-2xl font-bold text-slate-900">
+              {{ facultyMentor.name }}
+            </h3>
+            <p class="mt-1 text-sm font-medium text-slate-500">
+              {{ facultyMentor.designation }}
+            </p>
+
+            <p class="mt-5 max-w-3xl text-[15px] leading-7 text-slate-600">
+              {{ facultyMentor.bio }}
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                v-if="facultyMentor.linkedin"
+                :href="facultyMentor.linkedin"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full border border-teal-200 bg-teal-50 px-5 py-2.5 text-sm font-semibold text-teal-700 transition hover:bg-teal-100"
+              >
+                LinkedIn Profile
+              </a>
+
+              <a
+                v-if="facultyMentor.profileLink"
+                :href="facultyMentor.profileLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+              >
+                View Profile
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Who Can Benefit -->
-    <section class="bg-gray-50 px-6 py-24 md:px-16">
-      <div class="mx-auto max-w-6xl">
-        <div class="mb-16 text-center">
+    <!-- Institutes -->
+    <section id="institutes" class="mx-auto max-w-7xl px-6 py-16 md:px-12">
+      <div class="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div>
           <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-            Beneficiaries
+            Institutes We Support
           </span>
-          <h2 class="mt-2 text-4xl font-bold text-gray-900">
-            Who Can Benefit from NAIN
+          <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
+            PMU Mentoring & Supported Institutes
           </h2>
-          <p class="mx-auto mt-3 max-w-2xl text-gray-500">
-            NAIN is designed for students, innovators, and early-stage entrepreneurial teams who
-            are ready to explore, build, and validate meaningful ideas.
+          <p class="mt-3 max-w-3xl text-[15px] leading-7 text-slate-600">
+            Browse all partner institutes and explore their NAIN projects year-wise with project
+            briefs, faculty guides, student teams, and external links where available.
           </p>
         </div>
 
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <div
-            v-for="group in beneficiaryGroups"
-            :key="group.title"
-            class="rounded-3xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+        <div class="grid gap-3 sm:grid-cols-2 lg:min-w-[420px]">
+          <input
+            v-model="searchQuery"
+            type="text"
+            placeholder="Search institute, project, faculty, student..."
+            class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none ring-0 transition placeholder:text-slate-400 focus:border-teal-400"
+          />
+
+          <select
+            v-model="selectedYear"
+            class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-teal-400"
           >
-            <h3 class="text-xl font-bold text-gray-900">
-              {{ group.title }}
-            </h3>
-            <p class="mt-3 text-sm leading-relaxed text-gray-600">
-              {{ group.description }}
-            </p>
+            <option value="all">All Years</option>
+            <option
+              v-for="year in availableYears"
+              :key="year"
+              :value="year"
+            >
+              {{ year }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <article
+          v-for="institute in filteredInstitutes"
+          :key="institute.id"
+          class="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-sm"
+        >
+          <button
+            type="button"
+            class="flex w-full flex-col gap-4 px-6 py-6 text-left transition hover:bg-slate-50 md:flex-row md:items-center md:justify-between"
+            @click="toggleInstitute(institute.id)"
+          >
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <h3 class="text-2xl font-bold text-slate-900">
+                  {{ institute.name }}
+                </h3>
+                <span class="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
+                  {{ institute.location }}
+                </span>
+              </div>
+              <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+                {{ institute.description }}
+              </p>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="text-right">
+                <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  Projects
+                </p>
+                <p class="text-lg font-bold text-slate-900">
+                  {{ getInstituteProjectCount(institute) }}
+                </p>
+              </div>
+              <div
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-600"
+              >
+                <span class="text-xl leading-none">
+                  {{ expandedInstitutes[institute.id] ? '−' : '+' }}
+                </span>
+              </div>
+            </div>
+          </button>
+
+          <div v-if="expandedInstitutes[institute.id]" class="border-t border-slate-200 bg-slate-50/60 px-6 py-6">
+            <div class="space-y-8">
+              <section
+                v-for="yearBlock in getVisibleYears(institute.years)"
+                :key="yearBlock.year"
+              >
+                <div class="mb-4 flex items-center justify-between">
+                  <h4 class="text-xl font-bold text-slate-900">
+                    {{ yearBlock.year }}
+                  </h4>
+                  <span class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-600 shadow-sm">
+                    {{ yearBlock.projects.length }} Projects
+                  </span>
+                </div>
+
+                <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                  <article
+                    v-for="project in yearBlock.projects"
+                    :key="project.id"
+                    class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
+                  >
+                    <div class="h-48 overflow-hidden bg-slate-100">
+                      <img
+                        v-if="project.image"
+                        :src="project.image"
+                        :alt="project.title"
+                        class="h-full w-full object-cover transition duration-300 hover:scale-[1.03]"
+                      />
+                      <div
+                        v-else
+                        class="flex h-full items-center justify-center text-sm font-semibold text-slate-400"
+                      >
+                        Project Image
+                      </div>
+                    </div>
+
+                    <div class="p-5">
+                      <h5 class="text-lg font-bold leading-6 text-slate-900">
+                        {{ project.title }}
+                      </h5>
+
+                      <p class="mt-3 text-sm leading-6 text-slate-600">
+                        {{ project.brief }}
+                      </p>
+
+                      <div class="mt-4 space-y-3 text-sm text-slate-700">
+                        <div>
+                          <p class="font-semibold text-slate-900">Faculty Guide</p>
+                          <p>{{ project.facultyGuide }}</p>
+                        </div>
+
+                        <div>
+                          <p class="font-semibold text-slate-900">Student Members</p>
+                          <ul class="mt-1 space-y-1 text-slate-600">
+                            <li
+                              v-for="member in project.students"
+                              :key="member"
+                            >
+                              • {{ member }}
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div v-if="project.link || project.linkedin" class="mt-5 flex flex-wrap gap-2">
+                        <a
+                          v-if="project.link"
+                          :href="project.link"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50"
+                        >
+                          Open Link
+                        </a>
+
+                        <a
+                          v-if="project.linkedin"
+                          :href="project.linkedin"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-xs font-semibold text-teal-700 transition hover:bg-teal-100"
+                        >
+                          LinkedIn
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </section>
+            </div>
           </div>
+        </article>
+
+        <div
+          v-if="filteredInstitutes.length === 0"
+          class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 px-6 py-14 text-center"
+        >
+          <h3 class="text-xl font-bold text-slate-900">No matching institutes found</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Try changing the search text or year filter.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="bg-gradient-to-r from-teal-700 to-cyan-600 px-6 py-16 md:px-16">
-      <div
-        class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left"
-      >
+    <section class="bg-gradient-to-r from-teal-700 to-cyan-600">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-14 text-center md:px-12 lg:flex-row lg:text-left">
         <div>
           <h3 class="text-2xl font-bold text-white">
-            Interested in innovation through NAIN?
+            Want to showcase more supported institutes and student innovations?
           </h3>
-          <p class="mt-2 text-teal-100">
-            Connect with IDRP to explore innovation support, ideation pathways, and startup
-            readiness opportunities.
+          <p class="mt-2 max-w-2xl text-sm leading-6 text-teal-100">
+            This section can be continuously expanded with institute-wise and year-wise project
+            records, mentor details, images, and external profiles.
           </p>
         </div>
 
-        <div class="flex shrink-0 gap-4">
-          <RouterLink
-            to="/contact"
-            class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition-colors hover:bg-teal-50"
-          >
-            Talk to Us
-          </RouterLink>
-        </div>
+        <RouterLink
+          to="/contact"
+          class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition hover:bg-teal-50"
+        >
+          Contact IDRP
+        </RouterLink>
       </div>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 
-type FocusArea = {
+type Project = {
+  id: string
   title: string
-  description: string
-  points: string[]
+  brief: string
+  facultyGuide: string
+  students: string[]
+  image?: string
+  link?: string
+  linkedin?: string
 }
 
-type BeneficiaryGroup = {
-  title: string
-  description: string
+type YearGroup = {
+  year: string
+  projects: Project[]
 }
 
-const showHeroImage = ref(true)
-const showIntroImage = ref(true)
-const showValueImage = ref(true)
+type Institute = {
+  id: string
+  name: string
+  location: string
+  description: string
+  years: YearGroup[]
+}
 
-const valueItems: string[] = [
-  'Encourages students to identify real-world problems and develop innovative solutions',
-  'Creates a structured platform for ideation, experimentation, and entrepreneurial thinking',
-  'Connects innovators with mentors, institutional support, and startup ecosystem opportunities',
-  'Supports prototype development and early-stage validation of promising ideas',
-  'Strengthens the innovation pipeline from campus ideas to startup-ready ventures',
-]
+type FacultyMentor = {
+  name: string
+  designation: string
+  bio: string
+  image?: string
+  linkedin?: string
+  profileLink?: string
+}
 
-const focusAreas: FocusArea[] = [
-  {
-    title: 'Innovation & Ideation Support',
-    description:
-      'NAIN helps participants move from raw ideas to more structured innovation concepts by encouraging creative problem-solving and user-centered thinking.',
-    points: [
-      'Idea exploration and refinement',
-      'Problem identification and opportunity discovery',
-      'Early concept validation support',
-    ],
-  },
-  {
-    title: 'Entrepreneurship Development',
-    description:
-      'The initiative promotes entrepreneurial awareness and helps aspiring founders understand how innovative ideas can be shaped into viable ventures.',
-    points: [
-      'Startup mindset development',
-      'Exposure to entrepreneurial pathways',
-      'Guidance toward venture-building readiness',
-    ],
-  },
-  {
-    title: 'Mentorship & Ecosystem Access',
-    description:
-      'Participants can benefit from connections with faculty, experts, mentors, and the wider innovation ecosystem to improve direction and execution.',
-    points: [
-      'Mentor interactions and expert guidance',
-      'Institutional and ecosystem support',
-      'Networking and collaboration opportunities',
-    ],
-  },
-  {
-    title: 'Prototype & Growth Pathways',
-    description:
-      'NAIN can support innovators in moving toward prototypes, proof-of-concept work, and next-stage opportunities such as incubation.',
-    points: [
-      'Prototype-oriented support',
-      'Innovation-to-incubation pipeline',
-      'Readiness for further startup support',
-    ],
-  },
-]
+const searchQuery = ref('')
+const selectedYear = ref('all')
 
-const beneficiaryGroups: BeneficiaryGroup[] = [
+const facultyMentor: FacultyMentor = {
+  name: 'Dr. [Faculty Mentor Name]',
+  designation: 'IIIT Dharwad Faculty Mentor',
+  bio: 'Add a concise profile here describing the mentor’s role in guiding institutes, supporting student innovators, and strengthening the NAIN innovation ecosystem through project mentoring and academic-industry engagement.',
+  image: '',
+  linkedin: '',
+  profileLink: '',
+}
+
+const institutes = ref<Institute[]>([
   {
-    title: 'Students',
+    id: 'inst-1',
+    name: 'Institute Name 1',
+    location: 'Karnataka',
     description:
-      'Students with innovative ideas who want to explore problem-solving, design thinking, and entrepreneurship.',
+      'Brief description about the institute, the nature of support provided, and how it participates in the NAIN ecosystem.',
+    years: [
+      {
+        year: '2025-26',
+        projects: [
+          {
+            id: 'p-1',
+            title: 'AI-enabled Smart Agriculture Monitoring',
+            brief:
+              'A student innovation project focused on real-time crop health monitoring, smart irrigation insights, and actionable analytics for precision farming.',
+            facultyGuide: 'Prof. A. Kumar',
+            students: ['Student 1', 'Student 2', 'Student 3'],
+            image: '',
+            link: '',
+            linkedin: '',
+          },
+          {
+            id: 'p-2',
+            title: 'Low-cost Assistive Navigation Device',
+            brief:
+              'A mobility support solution intended to improve accessibility using embedded sensing and guidance feedback.',
+            facultyGuide: 'Dr. P. Rao',
+            students: ['Student 4', 'Student 5'],
+            image: '',
+            link: '',
+            linkedin: '',
+          },
+        ],
+      },
+      {
+        year: '2024-25',
+        projects: [
+          {
+            id: 'p-3',
+            title: 'Waste Segregation Prototype',
+            brief:
+              'An innovation project aimed at automated waste sorting for cleaner campus and community environments.',
+            facultyGuide: 'Prof. R. Joshi',
+            students: ['Student 6', 'Student 7', 'Student 8'],
+            image: '',
+            link: '',
+            linkedin: '',
+          },
+        ],
+      },
+    ],
   },
   {
-    title: 'Student Teams',
+    id: 'inst-2',
+    name: 'Institute Name 2',
+    location: 'Hubballi-Dharwad',
     description:
-      'Interdisciplinary teams working on early concepts, prototypes, or socially relevant innovation ideas.',
+      'Another supported institute with year-wise projects, mentor engagement, and student innovation participation.',
+    years: [
+      {
+        year: '2025-26',
+        projects: [
+          {
+            id: 'p-4',
+            title: 'IoT-based Campus Energy Tracker',
+            brief:
+              'A monitoring and optimization solution designed to study energy usage patterns and improve operational efficiency.',
+            facultyGuide: 'Dr. S. Patil',
+            students: ['Student 9', 'Student 10'],
+            image: '',
+            link: '',
+            linkedin: '',
+          },
+        ],
+      },
+    ],
   },
-  {
-    title: 'Early Innovators',
-    description:
-      'Individuals or groups at the beginning of their innovation journey who need structured support and guidance.',
-  },
-  {
-    title: 'Aspiring Founders',
-    description:
-      'Entrepreneurially inclined participants looking to convert ideas into startup opportunities over time.',
-  },
-]
+])
+
+const expandedInstitutes = reactive<Record<string, boolean>>(
+  Object.fromEntries(institutes.value.map((item) => [item.id, false])),
+)
+
+const availableYears = computed(() => {
+  const yearSet = new Set<string>()
+  institutes.value.forEach((institute) => {
+    institute.years.forEach((year) => yearSet.add(year.year))
+  })
+  return Array.from(yearSet).sort().reverse()
+})
+
+const totalProjects = computed(() => {
+  return institutes.value.reduce((total, institute) => {
+    return (
+      total +
+      institute.years.reduce((sum, year) => {
+        return sum + year.projects.length
+      }, 0)
+    )
+  }, 0)
+})
+
+const filteredInstitutes = computed(() => {
+  const query = searchQuery.value.trim().toLowerCase()
+
+  return institutes.value
+    .map((institute) => {
+      const visibleYears = institute.years
+        .map((yearGroup) => {
+          const yearMatches =
+            selectedYear.value === 'all' || yearGroup.year === selectedYear.value
+
+          if (!yearMatches) return null
+
+          const filteredProjects = yearGroup.projects.filter((project) => {
+            if (!query) return true
+
+            const searchableText = [
+              institute.name,
+              institute.location,
+              institute.description,
+              yearGroup.year,
+              project.title,
+              project.brief,
+              project.facultyGuide,
+              ...project.students,
+            ]
+              .join(' ')
+              .toLowerCase()
+
+            return searchableText.includes(query)
+          })
+
+          if (filteredProjects.length === 0) return null
+
+          return {
+            ...yearGroup,
+            projects: filteredProjects,
+          }
+        })
+        .filter(Boolean) as YearGroup[]
+
+      return {
+        ...institute,
+        years: visibleYears,
+      }
+    })
+    .filter((institute) => institute.years.length > 0)
+})
+
+function toggleInstitute(id: string) {
+  expandedInstitutes[id] = !expandedInstitutes[id]
+}
+
+function getInstituteProjectCount(institute: Institute) {
+  return institute.years.reduce((sum, year) => sum + year.projects.length, 0)
+}
+
+function getVisibleYears(years: YearGroup[]) {
+  if (selectedYear.value === 'all') return years
+  return years.filter((year) => year.year === selectedYear.value)
+}
 </script>
