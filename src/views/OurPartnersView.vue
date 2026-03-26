@@ -1,11 +1,8 @@
 <template>
   <div class="our-partners-view">
     <PartnersHeroSection :show-hero-image="showHeroImage" @image-error="showHeroImage = false" />
-
     <PartnersIntroSection />
-
     <PartnersGridSection :partner-categories="partnerCategories" />
-
     <PartnerFormSection />
   </div>
 </template>

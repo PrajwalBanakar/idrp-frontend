@@ -136,7 +136,7 @@ export const impactCards: IconCard[] = [
 
 export const programs: Program[] = [
   {
-    title: 'Yuva Udyani Program',
+    title: 'Yuva Udyami Program',
     duration: '6–12 months',
     description:
       'A structured early-stage program for founders at idea, problem-validation, or prototype stage. Designed to help aspiring startups validate the problem, refine the solution, build an MVP roadmap, and prepare for incubation readiness.',
@@ -152,7 +152,7 @@ export const programs: Program[] = [
     ],
   },
   {
-    title: 'Udhyami Resident Incubation',
+    title: 'Udyami Resident Incubation',
     duration: '12–18 months',
     description:
       'Comprehensive support for startups at idea, PoC, or MVP stage. Get access to dedicated workspace, labs, mentorship, and seed funding opportunities.',
@@ -168,7 +168,7 @@ export const programs: Program[] = [
     ],
   },
   {
-    title: 'Udhyami Virtual Incubation',
+    title: 'Udyami Virtual Incubation',
     duration: '6–12 months',
     description:
       'Remote support for startups and entrepreneurs who want to leverage our ecosystem without physical presence. Perfect for early-stage ventures across India.',

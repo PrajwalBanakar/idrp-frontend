@@ -1,31 +1,7 @@
 <template>
   <div class="contact-view">
-    <!-- Hero -->
-    <section class="relative h-[45vh] min-h-[300px] overflow-hidden">
-      <img
-        v-if="showHeroImage"
-        src="/idrp.jfif"
-        alt="Contact IDRP"
-        class="absolute inset-0 h-full w-full object-cover object-center"
-        @error="showHeroImage = false"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/80 to-teal-700/30" />
-      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
+    <ContactHeroSection />
 
-      <div class="relative z-10 flex h-full max-w-2xl flex-col justify-center px-10 md:px-20">
-        <div class="mb-4 flex items-center gap-3">
-          <div class="h-8 w-1 rounded-full bg-teal-400" />
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-300">
-            Get in Touch
-          </span>
-        </div>
-        <h1 class="text-5xl font-extrabold leading-tight text-white md:text-6xl">
-          Contact Us
-        </h1>
-      </div>
-    </section>
-
-    <!-- Main Content -->
     <section class="bg-white px-6 py-24 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-16 text-center">
@@ -42,204 +18,8 @@
         </div>
 
         <div class="flex flex-col items-start gap-14 lg:flex-row">
-          <!-- Left: Form -->
-          <div class="w-full lg:w-1/2">
-            <form
-              class="space-y-6 rounded-3xl border border-gray-100 bg-gray-50 p-8 md:p-10"
-              @submit.prevent="submitForm"
-            >
-              <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                <div>
-                  <label class="mb-2 block text-sm font-semibold text-gray-700">
-                    Your Name <span class="text-red-500">*</span>
-                  </label>
-                  <input
-                    v-model.trim="form.name"
-                    type="text"
-                    placeholder="Full name"
-                    class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label class="mb-2 block text-sm font-semibold text-gray-700">
-                    Phone Number <span class="text-red-500">*</span>
-                  </label>
-                  <input
-                    v-model.trim="form.phone"
-                    type="tel"
-                    placeholder="+91 98765 43210"
-                    class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label class="mb-2 block text-sm font-semibold text-gray-700">
-                  Email ID <span class="text-red-500">*</span>
-                </label>
-                <input
-                  v-model.trim="form.email"
-                  type="email"
-                  placeholder="you@example.com"
-                  class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
-                  required
-                />
-              </div>
-
-              <div>
-                <label class="mb-2 block text-sm font-semibold text-gray-700">
-                  Message <span class="text-red-500">*</span>
-                </label>
-                <textarea
-                  v-model.trim="form.message"
-                  rows="5"
-                  placeholder="Tell us about yourself and how you'd like to collaborate..."
-                  class="w-full resize-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
-                  required
-                />
-              </div>
-
-              <div class="rounded-xl border border-gray-200 bg-white p-5 text-xs leading-relaxed text-gray-500">
-                <p class="mb-2 font-semibold text-gray-700">Disclaimer &amp; Consent</p>
-                <p>
-                  By submitting this form, I/We consent to IDRP collecting and using
-                  the provided information solely for the purpose of evaluating and
-                  delivering incubation, acceleration, funding, mentorship,
-                  networking, and related programs. The information is shared
-                  voluntarily, and I/We acknowledge that no confidential or
-                  proprietary data should be submitted unless we are comfortable
-                  with its use for these purposes. IDRP will maintain reasonable
-                  confidentiality, will not share information with third parties
-                  without consent (except where required by law or for service
-                  delivery), and may contact us using the provided details regarding
-                  this application and relevant opportunities.
-                </p>
-              </div>
-
-              <div class="flex items-start gap-3">
-                <input
-                  id="contactConsent"
-                  v-model="form.consent"
-                  type="checkbox"
-                  class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded accent-teal-600"
-                  required
-                />
-                <label
-                  for="contactConsent"
-                  class="cursor-pointer text-sm leading-relaxed text-gray-600"
-                >
-                  I have read and agree to the disclaimer
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                class="w-full rounded-xl bg-teal-700 py-4 text-sm font-bold tracking-wide text-white transition-colors duration-200 hover:bg-teal-800"
-              >
-                Send Message
-              </button>
-
-              <div
-                v-if="submitted"
-                class="flex items-center gap-3 rounded-xl border border-teal-200 bg-teal-50 px-5 py-4 text-sm font-medium text-teal-700"
-              >
-                <span class="text-xl">✅</span>
-                Thank you! We have received your message and will get back to you shortly.
-              </div>
-            </form>
-          </div>
-
-          <!-- Right: Info -->
-          <div class="flex w-full flex-col gap-8 lg:w-1/2">
-            <div
-              class="h-64 overflow-hidden rounded-3xl shadow-xl"
-              :class="{
-                'bg-gradient-to-br from-teal-100 to-cyan-50': !showCampusImage,
-              }"
-            >
-              <img
-                v-if="showCampusImage"
-                src="/about-intro.jfif"
-                alt="IDRP Campus"
-                class="h-full w-full object-cover"
-                @error="showCampusImage = false"
-              />
-            </div>
-
-            <div class="flex flex-col gap-6 rounded-3xl border border-gray-100 bg-gray-50 p-8">
-              <div>
-                <h3 class="mb-4 text-lg font-bold text-gray-900">Find Us</h3>
-                <div class="flex items-start gap-4">
-                  <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-xl">
-                    📍
-                  </div>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-800">
-                      IIIT Dharwad Research Park
-                    </p>
-                    <p class="mt-1 text-sm leading-relaxed text-gray-500">
-                      Pi Block, IIIT Dharwad<br />
-                      92VG+2F9, IIIT Circle Rd<br />
-                      Dharwad, Karnataka 580009
-                    </p>
-                    <a
-                      href="https://www.google.com/maps/place/IIIT+Dharwad+Research+Park+(IDRP)/@15.3925499,75.0236567,17z"
-                      target="_blank"
-                      rel="noopener"
-                      class="mt-2 inline-block text-xs font-semibold text-teal-600 transition-colors hover:text-teal-800"
-                    >
-                      View on Google Maps ↗
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex flex-col gap-4 border-t border-gray-200 pt-6">
-                <div
-                  v-for="item in contactItems"
-                  :key="item.label"
-                  class="flex items-center gap-4"
-                >
-                  <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-xl">
-                    {{ item.emoji }}
-                  </div>
-                  <div>
-                    <p class="text-xs font-semibold uppercase tracking-wide text-gray-400">
-                      {{ item.label }}
-                    </p>
-                    <a
-                      :href="item.href"
-                      class="text-sm font-semibold text-gray-800 transition-colors hover:text-teal-600"
-                    >
-                      {{ item.value }}
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="border-t border-gray-200 pt-6">
-                <p class="mb-4 text-xs font-semibold uppercase tracking-wide text-gray-400">
-                  Follow Us
-                </p>
-                <div class="flex flex-wrap gap-3">
-                  <a
-                    v-for="social in socials"
-                    :key="social.name"
-                    :href="social.url"
-                    target="_blank"
-                    rel="noopener"
-                    class="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-600 transition-all duration-200 hover:border-teal-400 hover:text-teal-600"
-                  >
-                    <span v-html="social.icon" class="h-4 w-4" />
-                    {{ social.name }}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ContactFormSection />
+          <ContactInfoSection :contact-items="contactItems" :socials="socials" />
         </div>
       </div>
     </section>
@@ -247,15 +27,9 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
-
-type ContactForm = {
-  name: string
-  phone: string
-  email: string
-  message: string
-  consent: boolean
-}
+import ContactFormSection from '@/components/contact/ContactFormSection.vue'
+import ContactHeroSection from '@/components/contact/ContactHeroSection.vue'
+import ContactInfoSection from '@/components/contact/ContactInfoSection.vue'
 
 type ContactItem = {
   label: string
@@ -269,18 +43,6 @@ type SocialLink = {
   url: string
   icon: string
 }
-
-const showHeroImage = ref(true)
-const showCampusImage = ref(true)
-const submitted = ref(false)
-
-const form = reactive<ContactForm>({
-  name: '',
-  phone: '',
-  email: '',
-  message: '',
-  consent: false,
-})
 
 const contactItems: ContactItem[] = [
   {
@@ -324,21 +86,4 @@ const socials: SocialLink[] = [
     icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
   },
 ]
-
-function resetForm() {
-  form.name = ''
-  form.phone = ''
-  form.email = ''
-  form.message = ''
-  form.consent = false
-}
-
-function submitForm() {
-  submitted.value = true
-  resetForm()
-
-  window.setTimeout(() => {
-    submitted.value = false
-  }, 6000)
-}
 </script>

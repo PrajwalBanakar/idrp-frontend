@@ -73,4 +73,5 @@ export type CourseApplyPage = {
   interestOptions: string[]
 }
 
+
 export type CourseOption = string

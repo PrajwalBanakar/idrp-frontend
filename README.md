@@ -3,6 +3,7 @@
 IDRP Application code
 
 
+
 ```
 idrp-frontend
 ├─ .prettierrc.json
@@ -86,8 +87,38 @@ idrp-frontend
 │  ├─ App.vue
 │  ├─ assets
 │  ├─ components
+│  │  ├─ about
+│  │  │  ├─ AboutCTASection.vue
+│  │  │  ├─ AboutHeroSection.vue
+│  │  │  ├─ AboutIntroSection.vue
+│  │  │  ├─ AboutMissionVisionSection.vue
+│  │  │  ├─ AboutOfferingsSection.vue
+│  │  │  ├─ AboutReasonsSection.vue
+│  │  │  ├─ AboutTimelineSection.vue
+│  │  │  └─ AboutVisionSection.vue
+│  │  ├─ academy
+│  │  │  ├─ AcademyAreasSection.vue
+│  │  │  ├─ AcademyCTASection.vue
+│  │  │  ├─ AcademyFormSection.vue
+│  │  │  ├─ AcademyHeroSection.vue
+│  │  │  ├─ AcademyIntroSection.vue
+│  │  │  ├─ AcademyStatsSection.vue
+│  │  │  ├─ CourseCard.vue
+│  │  │  └─ CoursesSection.vue
 │  │  ├─ AppLayout.vue
-│  │  ├─ courses
+│  │  ├─ application
+│  │  │  ├─ ApplicationFormSection.vue
+│  │  │  ├─ ApplicationHeroSection.vue
+│  │  │  └─ ApplicationSidebarSection.vue
+│  │  ├─ cbde
+│  │  ├─ common
+│  │  │  ├─ BeneficiariesSection.vue
+│  │  │  └─ FocusSection.vue
+│  │  ├─ contact
+│  │  │  ├─ ContactFormSection.vue
+│  │  │  ├─ ContactHeroSection.vue
+│  │  │  ├─ ContactInfoSection.vue
+│  │  │  └─ ContactSocialLinks.vue
 │  │  ├─ events
 │  │  │  ├─ EventCard.vue
 │  │  │  └─ EventsSection.vue
@@ -102,25 +133,86 @@ idrp-frontend
 │  │  │  ├─ ProgramsSection.vue
 │  │  │  ├─ ServicesSection.vue
 │  │  │  └─ SuccessStoriesSection.vue
+│  │  ├─ mentors
+│  │  │  ├─ MentorCard.vue
+│  │  │  ├─ MentorsCTASection.vue
+│  │  │  ├─ MentorsGridSection.vue
+│  │  │  ├─ MentorsHeroSection.vue
+│  │  │  ├─ MentorsIntroSection.vue
+│  │  │  └─ MentorsTabs.vue
+│  │  ├─ nain
+│  │  │  ├─ NainFilters.vue
+│  │  │  ├─ NainHeroSection.vue
+│  │  │  ├─ NainInstituteCard.vue
+│  │  │  ├─ NainMentorSection.vue
+│  │  │  └─ NainOverviewSection.vue
 │  │  ├─ partners
 │  │  │  ├─ PartnerCard.vue
 │  │  │  ├─ PartnerFormSection.vue
 │  │  │  ├─ PartnersGridSection.vue
 │  │  │  ├─ PartnersHeroSection.vue
 │  │  │  └─ PartnersIntroSection.vue
-│  │  └─ startups
-│  │     ├─ StartupCard.vue
-│  │     ├─ StartupsCTASection.vue
-│  │     ├─ StartupsHeroSection.vue
-│  │     ├─ StartupsIntroSection.vue
-│  │     └─ StartupsPortfolioSection.vue
+│  │  ├─ program
+│  │  │  ├─ ProgramCard.vue
+│  │  │  ├─ ProgramCTASection.vue
+│  │  │  ├─ ProgramHeroSection.vue
+│  │  │  ├─ ProgramIntroSection.vue
+│  │  │  ├─ ProgramTracksSection.vue
+│  │  │  └─ ProgramValueSection.vue
+│  │  ├─ resources
+│  │  │  ├─ MatchmakingSection.vue
+│  │  │  ├─ NewsletterBookshelfSection.vue
+│  │  │  ├─ ResourceCategoriesSection.vue
+│  │  │  ├─ ResourcesCTASection.vue
+│  │  │  ├─ ResourcesHeroSection.vue
+│  │  │  └─ ResourcesIntroSection.vue
+│  │  ├─ services
+│  │  │  ├─ ServiceCTASection.vue
+│  │  │  ├─ ServiceFormSection.vue
+│  │  │  ├─ ServiceHeroSection.vue
+│  │  │  ├─ ServiceHighlightsSection.vue
+│  │  │  ├─ ServiceIntroSection.vue
+│  │  │  └─ ServiceStatsSection.vue
+│  │  ├─ startups
+│  │  │  ├─ StartupCard.vue
+│  │  │  ├─ StartupsCTASection.vue
+│  │  │  ├─ StartupsHeroSection.vue
+│  │  │  ├─ StartupsIntroSection.vue
+│  │  │  └─ StartupsPortfolioSection.vue
+│  │  └─ team
+│  │     ├─ TeamCTASection.vue
+│  │     ├─ TeamGridSection.vue
+│  │     ├─ TeamHeroSection.vue
+│  │     ├─ TeamIntroSection.vue
+│  │     └─ TeamMemberCard.vue
+│  ├─ composables
+│  │  └─ useNain.ts
 │  ├─ data
+│  │  ├─ about.ts
+│  │  ├─ application.ts
+│  │  ├─ cbde.ts
+│  │  ├─ cbdeExtra.ts
+│  │  ├─ cif.ts
+│  │  ├─ cifExtra.ts
+│  │  ├─ contact.ts
 │  │  ├─ courses.ts
 │  │  ├─ events.ts
 │  │  ├─ home.ts
+│  │  ├─ incubation.ts
+│  │  ├─ industryResearch.ts
+│  │  ├─ investmentCommittee.ts
+│  │  ├─ mentors.ts
+│  │  ├─ nain.ts
 │  │  ├─ newsletters.ts
 │  │  ├─ partners.ts
-│  │  └─ startups.ts
+│  │  ├─ preIncubation.ts
+│  │  ├─ programCatalog.ts
+│  │  ├─ quantumAI.ts
+│  │  ├─ quantumAIExtra.ts
+│  │  ├─ resources.ts
+│  │  ├─ startups.ts
+│  │  ├─ team.ts
+│  │  └─ technicalEducationAcademy.ts
 │  ├─ main.ts
 │  ├─ router
 │  │  └─ index.ts
@@ -129,55 +221,48 @@ idrp-frontend
 │  │  └─ counter.ts
 │  ├─ style.css
 │  ├─ types
+│  │  ├─ about.ts
+│  │  ├─ application.ts
+│  │  ├─ contact.ts
 │  │  ├─ courses.ts
 │  │  ├─ events.ts
-│  │  └─ partners.ts
+│  │  ├─ investmentCommittee.ts
+│  │  ├─ mentors.ts
+│  │  ├─ nain.ts
+│  │  ├─ newsletter.ts
+│  │  ├─ partners.ts
+│  │  ├─ program.ts
+│  │  ├─ resources.ts
+│  │  ├─ service.ts
+│  │  └─ team.ts
 │  └─ views
 │     ├─ AboutView.vue
-│     ├─ AccelerationView.vue
-│     ├─ AccessFundingView.vue
-│     ├─ AdvisoryBoardView.vue
 │     ├─ ApplyView.vue
-│     ├─ BusinessServicesView.vue
 │     ├─ CbdeView.vue
 │     ├─ CifView.vue
-│     ├─ CommunityMembershipApplyView.vue
-│     ├─ ConsultingView.vue
 │     ├─ ContactView.vue
+│     ├─ CourseApplyView.vue
 │     ├─ CourseDetailView.vue
-│     ├─ CoursesView.vue
-│     ├─ CoWorkingView.vue
 │     ├─ EventDetailView.vue
 │     ├─ EventRegistrationView.vue
 │     ├─ EventsView.vue
-│     ├─ FDPApplyView.vue
-│     ├─ FDPView.vue
 │     ├─ HomeView.vue
-│     ├─ IETApplyView.vue
-│     ├─ IETView.vue
 │     ├─ IncubationView.vue
 │     ├─ IndustryResearchView.vue
 │     ├─ InvestmentCommitteeView.vue
 │     ├─ InvestorMatchmakingFormView.vue
-│     ├─ MarketConnectsView.vue
 │     ├─ MatchmakingView.vue
 │     ├─ MentorsView.vue
 │     ├─ NainView.vue
 │     ├─ NewsletterDetailView.vue
-│     ├─ OnlineMTechApplyView.vue
-│     ├─ OnlineMTechView.vue
-│     ├─ OurBoardView.vue
 │     ├─ OurPartnersView.vue
 │     ├─ OurTeamView.vue
 │     ├─ PreIncubationView.vue
-│     ├─ PrototypeDevelopmentView.vue
 │     ├─ QuantumAIView.vue
 │     ├─ ResourcesView.vue
 │     ├─ StartupMatchmakingFormView.vue
 │     ├─ StartupsView.vue
-│     ├─ TechnicalEducationAcademyView.vue
-│     ├─ ThreeDWApplyView.vue
-│     └─ ThreeDWView.vue
+│     └─ TechnicalEducationAcademyView.vue
 ├─ tsconfig.app.json
 ├─ tsconfig.json
 ├─ tsconfig.node.json

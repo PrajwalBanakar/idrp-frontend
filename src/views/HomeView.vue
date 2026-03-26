@@ -2,7 +2,7 @@
   <div class="home-view">
     <HeroSection :hero-slides="heroSlides" />
     <ImpactSection :impact-cards="impactCards" :stats="statsData" />
-    <ProgramsSection :programs="programs" :government-programs="governmentPrograms" />
+    <ProgramsSection :programs="programCatalog" :government-programs="governmentPrograms" />
     <CourseSection :courses="courses" />
     <ServicesSection :services="services" />
     <ApproachSection :approaches="approaches" />
@@ -17,7 +17,6 @@
 import {
   heroSlides,
   impactCards,
-  programs,
   governmentPrograms,
   courses,
   services,
@@ -39,4 +38,5 @@ import HeroSection from '@/components/home/HeroSection.vue'
 import SuccessStoriesSection from '@/components/home/SuccessStoriesSection.vue'
 import AwardsSection from '@/components/home/AwardsSection.vue'
 import CTASection from '@/components/home/CTASection.vue'
+import { programCatalog } from '@/data/programCatalog'
 </script>
