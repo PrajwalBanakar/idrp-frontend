@@ -1,49 +1,42 @@
-export type EventSpeaker = {
-  name: string
-  role: string
-  bio?: string
+import type { EventItem } from '@/types/events'
+
+// ─────────────────────────────────────────────
+// PAGE CONTENT
+// ─────────────────────────────────────────────
+
+export const eventsHero = {
+  eyebrow: 'Community',
+  title: 'Events',
+  image: '/hero3.jfif',
+  imageAlt: 'Events',
 }
 
-export type EventAgendaItem = {
-  time: string
-  title: string
-  description?: string
+export const eventsSections = {
+  upcoming: {
+    eyebrow: "What's Next",
+    title: 'Upcoming Events',
+  },
+  past: {
+    eyebrow: 'Archive',
+    title: 'Past Events',
+  },
 }
 
-export type EventItem = {
-  id: number
-  title: string
-  category: string
-  description: string
-  fullDescription: string
-  date: string
-  time?: string
-  location: string
-  mode?: string
-  audience?: string
-  organiser?: string
-  image: string
-  fallbackBg: string
-  registerUrl?: string
-  isUpcoming: boolean
-  visible?: boolean
-  highlights?: string[]
-  agenda?: EventAgendaItem[]
-  speakers?: EventSpeaker[]
+export const eventsCta = {
+  title: 'Want to host an event at IDRP?',
+  description: 'Reach out to us about our event spaces and auditorium.',
+  buttonLabel: 'Contact Us',
+  buttonTo: '/contact',
 }
 
-export const getEventById = (id: number) =>
-  events.find(e => e.id === id)
-
-export const getUpcomingEvents = () =>
-  events.filter(e => e.isUpcoming)
-
-export const getPastEvents = () =>
-  events.filter(e => !e.isUpcoming)
+// ─────────────────────────────────────────────
+// EVENTS DATA
+// ─────────────────────────────────────────────
 
 export const events: EventItem[] = [
   {
     id: 1,
+    slug: 'deep-tech-demo-day-cohort-12',
     title: 'Deep-Tech Demo Day – Cohort 12',
     category: 'Demo Day',
     description:
@@ -60,7 +53,6 @@ export const events: EventItem[] = [
     fallbackBg: 'from-teal-600 to-cyan-500',
     registerUrl: '#',
     isUpcoming: true,
-    visible: true,
     highlights: [
       'Live startup pitches from Cohort 12 founders',
       'Product demos and innovation showcases',
@@ -104,6 +96,7 @@ export const events: EventItem[] = [
   },
   {
     id: 2,
+    slug: 'startup-masterclass-fundraising-and-valuation',
     title: 'Startup Masterclass: Fundraising & Valuation',
     category: 'Masterclass',
     description:
@@ -120,7 +113,6 @@ export const events: EventItem[] = [
     fallbackBg: 'from-blue-600 to-indigo-500',
     registerUrl: '#',
     isUpcoming: true,
-    visible: true,
     highlights: [
       'Practical overview of fundraising stages',
       'Valuation frameworks for early-stage startups',
@@ -128,10 +120,22 @@ export const events: EventItem[] = [
       'Live Q&A with experts',
     ],
     agenda: [
-      { time: '2:00 PM', title: 'Welcome & Session Context' },
-      { time: '2:20 PM', title: 'Fundraising Readiness for Startups' },
-      { time: '3:00 PM', title: 'Valuation Basics & Equity Structuring' },
-      { time: '4:00 PM', title: 'Case Discussions & Q&A' },
+      {
+        time: '2:00 PM',
+        title: 'Welcome & Session Context',
+      },
+      {
+        time: '2:20 PM',
+        title: 'Fundraising Readiness for Startups',
+      },
+      {
+        time: '3:00 PM',
+        title: 'Valuation Basics & Equity Structuring',
+      },
+      {
+        time: '4:00 PM',
+        title: 'Case Discussions & Q&A',
+      },
     ],
     speakers: [
       {
@@ -143,6 +147,7 @@ export const events: EventItem[] = [
   },
   {
     id: 3,
+    slug: 'founders-mixer-q2-2026',
     title: 'Founders Mixer – Q2 2026',
     category: 'Networking',
     description:
@@ -159,7 +164,6 @@ export const events: EventItem[] = [
     fallbackBg: 'from-violet-600 to-purple-500',
     registerUrl: '#',
     isUpcoming: true,
-    visible: true,
     highlights: [
       'Curated startup networking',
       'Mentor and investor participation',
@@ -167,15 +171,27 @@ export const events: EventItem[] = [
       'Collaboration opportunities',
     ],
     agenda: [
-      { time: '6:00 PM', title: 'Welcome & Check-in' },
-      { time: '6:30 PM', title: 'Founder Introductions' },
-      { time: '7:15 PM', title: 'Networking Session' },
-      { time: '8:15 PM', title: 'Open Conversations & Dinner' },
+      {
+        time: '6:00 PM',
+        title: 'Welcome & Check-in',
+      },
+      {
+        time: '6:30 PM',
+        title: 'Founder Introductions',
+      },
+      {
+        time: '7:15 PM',
+        title: 'Networking Session',
+      },
+      {
+        time: '8:15 PM',
+        title: 'Open Conversations & Dinner',
+      },
     ],
-    speakers: [],
   },
   {
     id: 4,
+    slug: 'ip-and-legal-clinic-for-startups',
     title: 'IP & Legal Clinic for Startups',
     category: 'Workshop',
     description:
@@ -192,7 +208,6 @@ export const events: EventItem[] = [
     fallbackBg: 'from-orange-500 to-amber-400',
     registerUrl: '#',
     isUpcoming: true,
-    visible: true,
     highlights: [
       'Introduction to startup IP strategy',
       'Trademark and patent basics',
@@ -200,15 +215,27 @@ export const events: EventItem[] = [
       'One-to-one expert interactions',
     ],
     agenda: [
-      { time: '10:00 AM', title: 'Opening & Context' },
-      { time: '10:20 AM', title: 'IP Basics for Startups' },
-      { time: '11:00 AM', title: 'Legal Structures & Compliance' },
-      { time: '11:30 AM', title: 'Q&A / Expert Clinic' },
+      {
+        time: '10:00 AM',
+        title: 'Opening & Context',
+      },
+      {
+        time: '10:20 AM',
+        title: 'IP Basics for Startups',
+      },
+      {
+        time: '11:00 AM',
+        title: 'Legal Structures & Compliance',
+      },
+      {
+        time: '11:30 AM',
+        title: 'Q&A / Expert Clinic',
+      },
     ],
-    speakers: [],
   },
   {
     id: 5,
+    slug: 'gtm-strategy-bootcamp',
     title: 'GTM Strategy Bootcamp',
     category: 'Bootcamp',
     description:
@@ -225,7 +252,6 @@ export const events: EventItem[] = [
     fallbackBg: 'from-rose-600 to-pink-500',
     registerUrl: '#',
     isUpcoming: true,
-    visible: true,
     highlights: [
       'Go-to-market strategy fundamentals',
       'Customer segment identification',
@@ -233,15 +259,27 @@ export const events: EventItem[] = [
       'Early traction planning',
     ],
     agenda: [
-      { time: '9:00 AM', title: 'Bootcamp Kickoff' },
-      { time: '10:00 AM', title: 'Customer Segments & Positioning' },
-      { time: '1:00 PM', title: 'GTM Design Workshop' },
-      { time: '3:30 PM', title: 'Traction Planning & Review' },
+      {
+        time: '9:00 AM',
+        title: 'Bootcamp Kickoff',
+      },
+      {
+        time: '10:00 AM',
+        title: 'Customer Segments & Positioning',
+      },
+      {
+        time: '1:00 PM',
+        title: 'GTM Design Workshop',
+      },
+      {
+        time: '3:30 PM',
+        title: 'Traction Planning & Review',
+      },
     ],
-    speakers: [],
   },
   {
     id: 101,
+    slug: 'idrp-annual-startup-showcase-2025',
     title: 'IDRP Annual Startup Showcase 2025',
     category: 'Showcase',
     description:
@@ -257,7 +295,6 @@ export const events: EventItem[] = [
     image: '/event-showcase25.jfif',
     fallbackBg: 'from-gray-400 to-gray-500',
     isUpcoming: false,
-    visible: true,
     highlights: [
       '40+ startup showcases',
       'Strong investor and ecosystem participation',
@@ -265,10 +302,22 @@ export const events: EventItem[] = [
       'Live networking and product displays',
     ],
     agenda: [
-      { time: '10:00 AM', title: 'Opening Ceremony' },
-      { time: '11:00 AM', title: 'Startup Exhibit Walkthrough' },
-      { time: '1:00 PM', title: 'Networking Lunch' },
-      { time: '2:00 PM', title: 'Partner & Investor Interactions' },
+      {
+        time: '10:00 AM',
+        title: 'Opening Ceremony',
+      },
+      {
+        time: '11:00 AM',
+        title: 'Startup Exhibit Walkthrough',
+      },
+      {
+        time: '1:00 PM',
+        title: 'Networking Lunch',
+      },
+      {
+        time: '2:00 PM',
+        title: 'Partner & Investor Interactions',
+      },
     ],
     speakers: [
       {
@@ -279,6 +328,7 @@ export const events: EventItem[] = [
   },
   {
     id: 102,
+    slug: 'women-in-tech-and-entrepreneurship-summit',
     title: 'Women in Tech & Entrepreneurship Summit',
     category: 'Summit',
     description:
@@ -294,17 +344,15 @@ export const events: EventItem[] = [
     image: '/event-womenintech.jfif',
     fallbackBg: 'from-purple-400 to-fuchsia-400',
     isUpcoming: false,
-    visible: true,
     highlights: [
       'Keynotes from women leaders',
       'Founder stories and panels',
       'Networking across Karnataka',
     ],
-    agenda: [],
-    speakers: [],
   },
   {
     id: 103,
+    slug: 'investor-connect-night-q3-2025',
     title: 'Investor Connect Night – Q3 2025',
     category: 'Networking',
     description:
@@ -320,16 +368,14 @@ export const events: EventItem[] = [
     image: '/event-investornight.jfif',
     fallbackBg: 'from-teal-400 to-cyan-400',
     isUpcoming: false,
-    visible: true,
     highlights: [
       'Curated investor-founder interactions',
       'Angel and seed fund participation',
     ],
-    agenda: [],
-    speakers: [],
   },
   {
     id: 104,
+    slug: 'startup-school-graduation-batch-8',
     title: 'Startup School Graduation – Batch 8',
     category: 'Graduation',
     description:
@@ -345,13 +391,15 @@ export const events: EventItem[] = [
     image: '/event-graduation.jfif',
     fallbackBg: 'from-amber-400 to-orange-400',
     isUpcoming: false,
-    visible: true,
-    highlights: ['Graduation ceremony', 'Mentor recognition', 'Startup milestone celebration'],
-    agenda: [],
-    speakers: [],
+    highlights: [
+      'Graduation ceremony',
+      'Mentor recognition',
+      'Startup milestone celebration',
+    ],
   },
   {
     id: 105,
+    slug: 'deep-tech-hackathon-2025',
     title: 'Deep-Tech Hackathon 2025',
     category: 'Hackathon',
     description:
@@ -367,13 +415,14 @@ export const events: EventItem[] = [
     image: '/event-hackathon.jfif',
     fallbackBg: 'from-blue-400 to-indigo-400',
     isUpcoming: false,
-    visible: true,
-    highlights: ['48-hour innovation challenge', 'AI, IoT, and Blockchain tracks'],
-    agenda: [],
-    speakers: [],
+    highlights: [
+      '48-hour innovation challenge',
+      'AI, IoT, and Blockchain tracks',
+    ],
   },
   {
     id: 106,
+    slug: 'kdem-innovation-day-2025',
     title: 'KDEM Innovation Day 2025',
     category: 'Conference',
     description:
@@ -389,9 +438,28 @@ export const events: EventItem[] = [
     image: '/event-kdem.jfif',
     fallbackBg: 'from-green-400 to-teal-400',
     isUpcoming: false,
-    visible: true,
-    highlights: ['State-level startup showcase', 'Deep-tech ecosystem representation'],
-    agenda: [],
-    speakers: [],
+    highlights: [
+      'State-level startup showcase',
+      'Deep-tech ecosystem representation',
+    ],
   },
 ]
+
+// ─────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────
+
+export const getVisibleEvents = () =>
+  events.filter((event) => event.visible !== false)
+
+export const getEventById = (id: number) =>
+  events.find((event) => event.id === id && event.visible !== false)
+
+export const getEventBySlug = (slug: string) =>
+  events.find((event) => event.slug === slug && event.visible !== false)
+
+export const getUpcomingEvents = () =>
+  events.filter((event) => event.isUpcoming && event.visible !== false)
+
+export const getPastEvents = () =>
+  events.filter((event) => !event.isUpcoming && event.visible !== false)

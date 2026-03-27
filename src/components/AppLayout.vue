@@ -327,7 +327,6 @@ const navSections: NavSection[] = [
     items: [
       { label: 'About IDRP', to: '/about' },
       { label: 'Our Team', to: '/about/team' },
-      { label: 'Our Partners', to: '/about/partners' },
       {
         label: 'Mentors',
         children: [

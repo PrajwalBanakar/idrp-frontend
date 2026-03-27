@@ -57,10 +57,6 @@ export const courseApplyPages: CourseApplyPage[] = [
   },
 ]
 
-export function getCourseApplyPageBySlug(slug: string) {
-  return courseApplyPages.find((page) => page.slug === slug)
-}
-
 // ─── Academy Areas ─────────────────────────────────────────
 
 export const academyAreas: AcademyArea[] = [
@@ -580,4 +576,18 @@ export const courseDetailPages: CourseDetailPage[] = [
 
 export function getCourseDetailPageBySlug(slug: string) {
   return courseDetailPages.find((page) => page.slug === slug)
+}
+
+export function getCourseApplyPageBySlug(slug: string) {
+  const applyPage = courseApplyPages.find((page) => page.slug === slug)
+  const course = courses.find((item) => item.slug === slug)
+
+  if (!applyPage || !course) {
+    return null
+  }
+
+  return {
+    ...applyPage,
+    course,
+  }
 }

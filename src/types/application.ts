@@ -5,6 +5,7 @@ export type ProgramKey =
   | 'deep-tech-accelerator'
 
 export type ProgramMeta = {
+  slug: ProgramKey
   title: string
   badge: string
   emoji: string

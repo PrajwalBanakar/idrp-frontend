@@ -2,6 +2,7 @@ import type { ProgramKey, ProgramMeta } from '@/types/application'
 
 export const programs: Record<ProgramKey, ProgramMeta> = {
   'pre-incubation': {
+    slug: 'pre-incubation',
     title: 'Yuva Udyami',
     badge: 'Pre Incubation',
     emoji: '🌱',
@@ -10,6 +11,7 @@ export const programs: Record<ProgramKey, ProgramMeta> = {
     backLabel: 'Home',
   },
   'resident-incubation': {
+    slug: 'resident-incubation',
     title: 'Udyami Resident Incubation',
     badge: 'Incubation',
     emoji: '🏢',
@@ -18,6 +20,7 @@ export const programs: Record<ProgramKey, ProgramMeta> = {
     backLabel: 'Incubation',
   },
   'virtual-incubation': {
+    slug: 'virtual-incubation',
     title: 'Udyami Virtual Incubation',
     badge: 'Incubation',
     emoji: '💻',
@@ -26,6 +29,7 @@ export const programs: Record<ProgramKey, ProgramMeta> = {
     backLabel: 'Incubation',
   },
   'deep-tech-accelerator': {
+    slug: 'deep-tech-accelerator',
     title: 'Deep-Tech Accelerator',
     badge: 'Acceleration',
     emoji: '🚀',
@@ -35,24 +39,24 @@ export const programs: Record<ProgramKey, ProgramMeta> = {
   },
 }
 
-export const supportOptions = [
+export const supportOptions: string[] = [
   'Mentorship',
-  'Problem / Market Validation',
-  'MVP / Prototype Support',
-  'Business Model Development',
-  'Go-to-Market Support',
+  'Product Validation',
+  'Prototype / MVP Support',
   'Funding Readiness',
   'Investor Connect',
-  'Legal / Compliance Guidance',
-  'Branding / Pitch Deck Support',
-  'Industry / Research Connect',
+  'Market Access',
+  'Technical Guidance',
+  'Business Strategy',
+  'IP / Legal Support',
+  'Workspace / Infrastructure',
 ]
 
-export const evaluationPoints = [
-  'Clarity of problem statement',
-  'Solution strength',
-  'Founder commitment',
-  'Market validation',
-  'Innovation depth',
-  'Readiness for program',
+export const evaluationPoints: string[] = [
+  'Problem clarity and relevance',
+  'Innovation and uniqueness of solution',
+  'Feasibility of implementation',
+  'Founder motivation and team strength',
+  'Market potential and scalability',
+  'Readiness for incubation support',
 ]

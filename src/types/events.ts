@@ -1,12 +1,49 @@
-export type EventItem = {
-  id: number | string
+// ─────────────────────────────────────────────
+// SUB TYPES
+// ─────────────────────────────────────────────
+
+export type EventSpeaker = {
+  name: string
+  role: string
+  bio?: string
+}
+
+export type EventAgendaItem = {
+  time: string
   title: string
+  description?: string
+}
+
+// ─────────────────────────────────────────────
+// MAIN EVENT TYPE
+// ─────────────────────────────────────────────
+
+export type EventItem = {
+  id: number
+  slug?: string // 🔥 future-proof (for SEO routes later)
+
+  title: string
+  category: string
+
   description: string
+  fullDescription: string
+
   date: string
   time?: string
-  location?: string
+  location: string
+  mode?: string
+
+  audience?: string
+  organiser?: string
+
   image: string
-  category: string
-  isUpcoming: boolean
   fallbackBg: string
+
+  registerUrl?: string
+  isUpcoming: boolean
+  visible?: boolean
+
+  highlights?: string[]
+  agenda?: EventAgendaItem[]
+  speakers?: EventSpeaker[]
 }

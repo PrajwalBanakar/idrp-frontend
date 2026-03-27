@@ -1,22 +1,26 @@
-export type NewsletterPage = {
-  title: string
-  subtitle?: string
-  body: string[]
-  highlight?: string
+import type { Newsletter } from '@/types/newsletter'
+
+// ─────────────────────────────────────────────
+// PAGE CONTENT
+// ─────────────────────────────────────────────
+
+export const newslettersHero = {
+  eyebrow: 'Resources',
+  title: 'Newsletters',
+  subtitle:
+    'Stay updated with startup activity, ecosystem developments, research highlights, and program milestones across IDRP.',
 }
 
-export type Newsletter = {
-  id: number
-  slug: string
-  title: string
-  issue: string
-  date: string
-  description: string
-  preview: string
-  highlights: string[]
-  coverGradient: string
-  pages: NewsletterPage[]
+export const newslettersIntro = {
+  eyebrow: 'Publications',
+  title: 'Explore Our Newsletters',
+  description:
+    'Browse curated newsletters covering innovation, founder activity, research developments, and ecosystem signals from IDRP.',
 }
+
+// ─────────────────────────────────────────────
+// NEWSLETTER DATA
+// ─────────────────────────────────────────────
 
 export const newsletters: Newsletter[] = [
   {
@@ -35,7 +39,8 @@ export const newsletters: Newsletter[] = [
       'Founder opportunities, calls, and announcements',
       'Featured stories from the innovation community',
     ],
-    coverGradient: 'linear-gradient(180deg, #0f766e 0%, #115e59 45%, #0b3b39 100%)',
+    coverGradient:
+      'linear-gradient(180deg, #0f766e 0%, #115e59 45%, #0b3b39 100%)',
     pages: [
       {
         title: 'Welcome Note',
@@ -89,7 +94,8 @@ export const newsletters: Newsletter[] = [
       'Community announcements and event calendar',
       'Practical notes for early-stage startup teams',
     ],
-    coverGradient: 'linear-gradient(180deg, #1d4ed8 0%, #1e40af 45%, #172554 100%)',
+    coverGradient:
+      'linear-gradient(180deg, #1d4ed8 0%, #1e40af 45%, #172554 100%)',
     pages: [
       {
         title: 'Founder Community Update',
@@ -142,7 +148,8 @@ export const newsletters: Newsletter[] = [
       'Calls for collaboration and translational opportunities',
       'Deep-tech ecosystem notes and research outlook',
     ],
-    coverGradient: 'linear-gradient(180deg, #4338ca 0%, #3730a3 45%, #1e1b4b 100%)',
+    coverGradient:
+      'linear-gradient(180deg, #4338ca 0%, #3730a3 45%, #1e1b4b 100%)',
     pages: [
       {
         title: 'Research Snapshot',
@@ -167,7 +174,8 @@ export const newsletters: Newsletter[] = [
           'Collaboration remains central to deep-tech growth, especially where academia, startups, and industry can jointly shape outcomes.',
           'This issue highlights the value of coordinated research and innovation partnerships.',
         ],
-        highlight: 'Research becomes stronger when it moves toward translation.',
+        highlight:
+          'Research becomes stronger when it moves toward translation.',
       },
       {
         title: 'What to Watch',
@@ -195,7 +203,8 @@ export const newsletters: Newsletter[] = [
       'Institutional and industry collaboration patterns',
       'Strategic notes for founders and innovation teams',
     ],
-    coverGradient: 'linear-gradient(180deg, #0f766e 0%, #0e7490 45%, #164e63 100%)',
+    coverGradient:
+      'linear-gradient(180deg, #0f766e 0%, #0e7490 45%, #164e63 100%)',
     pages: [
       {
         title: 'Reading the Ecosystem',
@@ -248,7 +257,8 @@ export const newsletters: Newsletter[] = [
       'Institutional initiatives',
       'Upcoming ecosystem activities',
     ],
-    coverGradient: 'linear-gradient(180deg, #059669 0%, #047857 45%, #064e3b 100%)',
+    coverGradient:
+      'linear-gradient(180deg, #059669 0%, #047857 45%, #064e3b 100%)',
     pages: [
       {
         title: 'Program Overview',
@@ -281,8 +291,21 @@ export const newsletters: Newsletter[] = [
           'Upcoming activities will focus on deeper participation, stronger outcomes, and better ecosystem connectivity.',
           'The goal is to make each program more engaging, impactful, and future-ready.',
         ],
-        highlight: 'Programs grow stronger when participation and purpose move together.',
+        highlight:
+          'Programs grow stronger when participation and purpose move together.',
       },
     ],
   },
 ]
+
+// ─────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────
+
+export const getVisibleNewsletters = () =>
+  newsletters.filter((newsletter) => newsletter.visible !== false)
+
+export const getNewsletterBySlug = (slug: string) =>
+  newsletters.find(
+    (newsletter) => newsletter.slug === slug && newsletter.visible !== false,
+  )

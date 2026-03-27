@@ -140,7 +140,7 @@ export const programs: Program[] = [
     duration: '6–12 months',
     description:
       'A structured early-stage program for founders at idea, problem-validation, or prototype stage. Designed to help aspiring startups validate the problem, refine the solution, build an MVP roadmap, and prepare for incubation readiness.',
-    detailsTo: '/pre-incubation',
+    detailsTo: '/programs/pre-incubation',
     applyTo: '/apply/pre-incubation',
     features: [
       'Idea validation and customer discovery',
@@ -156,7 +156,7 @@ export const programs: Program[] = [
     duration: '12–18 months',
     description:
       'Comprehensive support for startups at idea, PoC, or MVP stage. Get access to dedicated workspace, labs, mentorship, and seed funding opportunities.',
-    detailsTo: '/incubation',
+    detailsTo: '/programs/incubation',
     applyTo: '/apply/resident-incubation',
     features: [
       'Dedicated workspace at campus',
@@ -172,7 +172,7 @@ export const programs: Program[] = [
     duration: '6–12 months',
     description:
       'Remote support for startups and entrepreneurs who want to leverage our ecosystem without physical presence. Perfect for early-stage ventures across India.',
-    detailsTo: '/incubation',
+    detailsTo: '/programs/incubation',
     applyTo: '/apply/virtual-incubation',
     features: [
       'Remote mentorship sessions',

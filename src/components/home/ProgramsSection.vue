@@ -22,11 +22,11 @@
           </div>
 
           <div class="grid grid-cols-1 gap-6">
-            <RouterLink
+            <article
               v-for="program in programs"
               :key="program.title"
-              :to="program.detailsTo"
-              class="block overflow-hidden rounded-2xl border border-gray-200 transition-all duration-300 hover:border-teal-200 hover:shadow-xl"
+              class="cursor-pointer overflow-hidden rounded-2xl border border-gray-200 transition-all duration-300 hover:border-teal-200 hover:shadow-xl"
+              @click="goToProgram(program.detailsTo)"
             >
               <div class="h-1 bg-gradient-to-r from-teal-500 to-cyan-400" />
 
@@ -81,7 +81,7 @@
                   </div>
                 </div>
               </div>
-            </RouterLink>
+            </article>
           </div>
         </div>
 
@@ -145,11 +145,17 @@
 </template>
 
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 import type { GovernmentProgram, Program } from '@/data/home'
 
 defineProps<{
   programs: Program[]
   governmentPrograms: GovernmentProgram[]
 }>()
+
+const router = useRouter()
+
+function goToProgram(path: string) {
+  router.push(path)
+}
 </script>

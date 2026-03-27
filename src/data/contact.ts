@@ -3,6 +3,20 @@ import type { ContactItem, SocialLink } from '@/types/contact'
 // CONTACT DETAILS
 // ─────────────────────────────────────────────────────────────
 
+export const contactIntro = {
+  eyebrow: 'Reach Out',
+  title: "Let's Collaborate!",
+  description:
+    'We invite entrepreneurs, investors, and partners to connect with us and explore opportunities for collaboration.',
+}
+
+export const contactHero = {
+  eyebrow: 'Get in Touch',
+  title: 'Contact Us',
+  image: '/idrp.jfif',
+  imageAlt: 'Contact IDRP',
+}
+
 export const contactItems: ContactItem[] = [
   {
     label: 'Email',

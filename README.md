@@ -4,6 +4,7 @@ IDRP Application code
 
 
 
+
 ```
 idrp-frontend
 ├─ .prettierrc.json
@@ -103,7 +104,16 @@ idrp-frontend
 │  │  │  ├─ AcademyHeroSection.vue
 │  │  │  ├─ AcademyIntroSection.vue
 │  │  │  ├─ AcademyStatsSection.vue
+│  │  │  ├─ CourseApplyFormSection.vue
+│  │  │  ├─ CourseApplyHeroSection.vue
+│  │  │  ├─ CourseApplyNotFound.vue
+│  │  │  ├─ CourseAudienceSection.vue
 │  │  │  ├─ CourseCard.vue
+│  │  │  ├─ CourseDetailCTASection.vue
+│  │  │  ├─ CourseDetailHeroSection.vue
+│  │  │  ├─ CourseDetailNotFound.vue
+│  │  │  ├─ CourseDetailOverviewSection.vue
+│  │  │  ├─ CourseHighlightsSection.vue
 │  │  │  └─ CoursesSection.vue
 │  │  ├─ AppLayout.vue
 │  │  ├─ application
@@ -120,8 +130,27 @@ idrp-frontend
 │  │  │  ├─ ContactInfoSection.vue
 │  │  │  └─ ContactSocialLinks.vue
 │  │  ├─ events
+│  │  │  ├─ EventAboutSection.vue
+│  │  │  ├─ EventAgendaSection.vue
 │  │  │  ├─ EventCard.vue
+│  │  │  ├─ EventDetailCTASection.vue
+│  │  │  ├─ EventDetailHeroSection.vue
+│  │  │  ├─ EventDetailNotFound.vue
+│  │  │  ├─ EventHighlightsSection.vue
+│  │  │  ├─ EventQuickInfoSection.vue
+│  │  │  ├─ EventRegistrationEventCard.vue
+│  │  │  ├─ EventRegistrationFormSection.vue
+│  │  │  ├─ EventRegistrationHeader.vue
+│  │  │  ├─ EventRegistrationNotFound.vue
+│  │  │  ├─ EventRegistrationSuccess.vue
+│  │  │  ├─ EventsCTASection.vue
+│  │  │  ├─ EventsHeroSection.vue
+│  │  │  ├─ EventSnapshotCard.vue
+│  │  │  ├─ EventSpeakersSection.vue
 │  │  │  └─ EventsSection.vue
+│  │  ├─ forms
+│  │  │  ├─ BaseForm.vue
+│  │  │  └─ GenericFormSection.vue
 │  │  ├─ home
 │  │  │  ├─ ApproachSection.vue
 │  │  │  ├─ AwardsSection.vue
@@ -141,9 +170,11 @@ idrp-frontend
 │  │  │  ├─ MentorsIntroSection.vue
 │  │  │  └─ MentorsTabs.vue
 │  │  ├─ nain
+│  │  │  ├─ NainCTASection.vue
 │  │  │  ├─ NainFilters.vue
 │  │  │  ├─ NainHeroSection.vue
 │  │  │  ├─ NainInstituteCard.vue
+│  │  │  ├─ NainInstitutesSection.vue
 │  │  │  ├─ NainMentorSection.vue
 │  │  │  └─ NainOverviewSection.vue
 │  │  ├─ partners
@@ -162,6 +193,9 @@ idrp-frontend
 │  │  ├─ resources
 │  │  │  ├─ MatchmakingSection.vue
 │  │  │  ├─ NewsletterBookshelfSection.vue
+│  │  │  ├─ NewsletterDetailNotFound.vue
+│  │  │  ├─ NewsletterReaderBook.vue
+│  │  │  ├─ NewsletterReaderHeader.vue
 │  │  │  ├─ ResourceCategoriesSection.vue
 │  │  │  ├─ ResourcesCTASection.vue
 │  │  │  ├─ ResourcesHeroSection.vue
@@ -186,6 +220,7 @@ idrp-frontend
 │  │     ├─ TeamIntroSection.vue
 │  │     └─ TeamMemberCard.vue
 │  ├─ composables
+│  │  ├─ useForm.ts
 │  │  └─ useNain.ts
 │  ├─ data
 │  │  ├─ about.ts
@@ -197,6 +232,15 @@ idrp-frontend
 │  │  ├─ contact.ts
 │  │  ├─ courses.ts
 │  │  ├─ events.ts
+│  │  ├─ forms
+│  │  │  ├─ applicationForm.ts
+│  │  │  ├─ contactForm.ts
+│  │  │  ├─ courseApplyForm.ts
+│  │  │  ├─ eventRegistrationForm.ts
+│  │  │  ├─ investorMatchmakingForm.ts
+│  │  │  ├─ partnerForm.ts
+│  │  │  ├─ serviceForm.ts
+│  │  │  └─ startupMatchmakingForm.ts
 │  │  ├─ home.ts
 │  │  ├─ incubation.ts
 │  │  ├─ industryResearch.ts
@@ -213,10 +257,13 @@ idrp-frontend
 │  │  ├─ startups.ts
 │  │  ├─ team.ts
 │  │  └─ technicalEducationAcademy.ts
+│  ├─ forms
+│  │  └─ registry.ts
 │  ├─ main.ts
 │  ├─ router
 │  │  └─ index.ts
 │  ├─ services
+│  │  └─ formService.ts
 │  ├─ stores
 │  │  └─ counter.ts
 │  ├─ style.css
@@ -226,6 +273,7 @@ idrp-frontend
 │  │  ├─ contact.ts
 │  │  ├─ courses.ts
 │  │  ├─ events.ts
+│  │  ├─ form.ts
 │  │  ├─ investmentCommittee.ts
 │  │  ├─ mentors.ts
 │  │  ├─ nain.ts
