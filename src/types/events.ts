@@ -1,7 +1,3 @@
-// ─────────────────────────────────────────────
-// SUB TYPES
-// ─────────────────────────────────────────────
-
 export type EventSpeaker = {
   name: string
   role: string
@@ -14,13 +10,9 @@ export type EventAgendaItem = {
   description?: string
 }
 
-// ─────────────────────────────────────────────
-// MAIN EVENT TYPE
-// ─────────────────────────────────────────────
-
 export type EventItem = {
   id: number
-  slug?: string // 🔥 future-proof (for SEO routes later)
+  slug?: string
 
   title: string
   category: string

@@ -16,6 +16,5 @@ const formConfig = computed(() =>
 <template>
   <GenericFormSection
     :config="formConfig"
-    success-text="Your registration has been submitted successfully."
   />
 </template>

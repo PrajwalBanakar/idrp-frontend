@@ -8,7 +8,7 @@ export const contactFormConfig: FormConfig = {
   submitLabel: 'Send Message',
   resetOnSuccess: true,
   successMessage: 'Your message has been submitted successfully.',
-  endpoint: '/api/forms/contact',
+  endpoint: 'https://api.web3forms.com/submit',
   meta: {
     sourcePage: '/contact',
   },
@@ -16,6 +16,12 @@ export const contactFormConfig: FormConfig = {
     {
       id: 'contact-main',
       fields: [
+        {
+          name: 'botcheck',
+          label: 'Botcheck',
+          type: 'hidden',
+          defaultValue: '',
+        },
         {
           name: 'name',
           label: 'Full Name',
@@ -29,7 +35,7 @@ export const contactFormConfig: FormConfig = {
           label: 'Phone Number',
           type: 'tel',
           placeholder: 'Enter your phone number',
-          required: true, // ← match your old form
+          required: true,
           width: 'half',
           validation: [{ type: 'phone' }],
         },
@@ -58,8 +64,6 @@ export const contactFormConfig: FormConfig = {
           width: 'full',
           validation: [{ type: 'minLength', value: 10 }],
         },
-
-        // ✅ Consent added here
         {
           name: 'consent',
           label: 'Consent',

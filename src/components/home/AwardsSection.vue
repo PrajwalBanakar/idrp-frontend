@@ -1,40 +1,38 @@
 <template>
-  <section class="bg-gray-50 px-6 py-24 md:px-16">
-    <div class="mx-auto max-w-6xl">
-      <div class="mb-20 flex flex-col items-start gap-16 lg:flex-row">
-        <div class="shrink-0 lg:w-2/5">
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+  <section class="bg-slate-50 px-6 py-20 md:px-12 lg:px-16 lg:py-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-12 grid gap-10 lg:mb-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14">
+        <div>
+          <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">
             Milestones
           </span>
-          <h2 class="mt-2 text-4xl font-bold leading-tight text-gray-900">
-            Awards &<br />Recognition
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            Awards & Recognition
           </h2>
-          <div class="mt-6 h-1 w-12 rounded-full bg-gradient-to-r from-teal-500 to-cyan-400" />
+          <div class="mt-6 h-1 w-14 rounded-full bg-gradient-to-r from-teal-500 to-cyan-400" />
         </div>
 
-        <div class="space-y-4 leading-relaxed text-gray-600 lg:w-3/5">
+        <div class="space-y-4 text-base leading-7 text-slate-600 sm:text-lg">
           <p>
-            The truest measure of our work is visible in the ventures we help build. When a
-            founder scales, files a patent, or closes a funding round, that's recognition we carry
-            with pride. But acknowledgment from institutions and peers has followed too.
+            Recognition reflects the collective effort behind every founder, mentor, partner, and
+            collaborator contributing to the ecosystem.
           </p>
           <p>
-            IDRP's contributions to mentorship, startup growth, and ecosystem development have
-            earned recognition from leading bodies — a reflection of a collective effort involving
-            founders, mentors, partners, and policymakers alike.
+            As ventures grow, secure support, and create impact, the broader work of incubation,
+            mentorship, and ecosystem building is also acknowledged by institutions and peers.
           </p>
           <p class="font-medium text-teal-700">
-            These honours don't define us — they remind us that when startups succeed, the nation
-            moves forward. And that keeps us going.
+            These milestones represent momentum, trust, and the long-term value of building strong
+            innovation pathways.
           </p>
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-        <div
+      <div class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4">
+        <article
           v-for="award in awards"
           :key="award.title"
-          class="group flex flex-col items-center overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:border-teal-200 hover:shadow-xl"
+          class="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-lg"
         >
           <div class="h-40 w-full overflow-hidden bg-gradient-to-br" :class="award.bg">
             <img
@@ -43,9 +41,10 @@
               :alt="award.title"
               class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
+
             <div
               v-else
-              class="flex h-full w-full flex-col items-center justify-center gap-2 px-4"
+              class="flex h-full w-full flex-col items-center justify-center gap-3 px-4 text-center"
             >
               <div class="flex h-14 w-14 items-center justify-center rounded-full bg-white/20">
                 <svg
@@ -63,21 +62,24 @@
                   />
                 </svg>
               </div>
-              <span class="text-center text-xs font-semibold text-white/80">
+
+              <span class="text-xs font-semibold text-white/85">
                 {{ award.issuer }}
               </span>
             </div>
           </div>
 
-          <div class="px-4 py-4 text-center">
+          <div class="px-4 py-4 text-center sm:px-5">
             <p
-              class="text-xs font-bold leading-snug text-gray-800 transition-colors group-hover:text-teal-700"
+              class="text-sm font-semibold leading-6 text-slate-900 transition-colors duration-300 group-hover:text-teal-700"
             >
               {{ award.title }}
             </p>
-            <p class="mt-1 text-xs text-gray-400">{{ award.year }}</p>
+            <p class="mt-1 text-xs text-slate-500">
+              {{ award.year }}
+            </p>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>

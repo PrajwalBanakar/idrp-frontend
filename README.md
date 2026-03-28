@@ -4,7 +4,6 @@ IDRP Application code
 
 
 
-
 ```
 idrp-frontend
 ├─ .prettierrc.json
@@ -86,7 +85,6 @@ idrp-frontend
 ├─ README.md
 ├─ src
 │  ├─ App.vue
-│  ├─ assets
 │  ├─ components
 │  │  ├─ about
 │  │  │  ├─ AboutCTASection.vue
@@ -257,15 +255,12 @@ idrp-frontend
 │  │  ├─ startups.ts
 │  │  ├─ team.ts
 │  │  └─ technicalEducationAcademy.ts
-│  ├─ forms
-│  │  └─ registry.ts
+│  ├─ lib
 │  ├─ main.ts
 │  ├─ router
 │  │  └─ index.ts
 │  ├─ services
 │  │  └─ formService.ts
-│  ├─ stores
-│  │  └─ counter.ts
 │  ├─ style.css
 │  ├─ types
 │  │  ├─ about.ts

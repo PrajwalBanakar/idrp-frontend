@@ -1,58 +1,72 @@
 <template>
-  <section class="bg-gray-50 px-6 py-24 md:px-16">
-    <div class="mx-auto max-w-6xl">
-      <div class="mb-16 text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-          What We Offer
+  <section class="bg-slate-50 px-6 py-20 md:px-12 lg:px-16 lg:py-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="mx-auto mb-14 max-w-3xl text-center lg:mb-16">
+        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">
+          Our Impact
         </span>
-        <h2 class="mt-2 text-4xl font-bold text-gray-900">Our Impact</h2>
-        <p class="mx-auto mt-3 max-w-xl text-gray-500">
-          Building the deep-tech ecosystem that transforms ambitious ideas into globally
-          competitive ventures.
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          Building a stronger innovation ecosystem
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+          From incubation and research support to partnerships and talent development, IDRP is
+          designed to help innovation move forward with clarity, collaboration, and measurable
+          outcomes.
         </p>
       </div>
 
-      <div class="mb-24 grid grid-cols-1 gap-6 md:grid-cols-3">
-        <div
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <article
           v-for="card in impactCards"
           :key="card.title"
-          class="group cursor-default rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
+          class="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
         >
           <div
-            class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600 transition-colors duration-300 group-hover:bg-teal-600 group-hover:text-white"
+            class="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-50 text-teal-700 transition-all duration-300 group-hover:bg-teal-700 group-hover:text-white"
           >
             <span v-html="card.icon" class="h-6 w-6" />
           </div>
 
-          <h3 class="mb-2 text-lg font-bold text-gray-900">
+          <h3 class="text-xl font-semibold text-slate-900">
             {{ card.title }}
           </h3>
 
-          <p class="text-sm leading-relaxed text-gray-500">
+          <p class="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
             {{ card.description }}
           </p>
-        </div>
+        </article>
       </div>
 
-      <div class="rounded-3xl bg-gradient-to-br from-teal-700 to-cyan-600 px-10 py-14">
-        <div class="mb-12 text-center">
-          <h3 class="text-3xl font-bold text-white">By the Numbers</h3>
-          <p class="mt-2 text-teal-100">A decade of impact across India's deep-tech landscape</p>
+      <div class="mt-12 overflow-hidden rounded-[2rem] bg-slate-950 shadow-2xl lg:mt-14">
+        <div class="bg-gradient-to-r from-teal-800 via-teal-700 to-cyan-700 px-6 py-10 sm:px-8 lg:px-12 lg:py-12">
+          <div class="mx-auto max-w-3xl text-center">
+            <h3 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              By the numbers
+            </h3>
+            <p class="mt-3 text-sm leading-6 text-teal-100 sm:text-base">
+              A snapshot of the scale, reach, and momentum of the ecosystem being built.
+            </p>
+          </div>
         </div>
 
-        <div ref="statsSectionRef" class="grid grid-cols-2 gap-8 md:grid-cols-4">
-          <div v-for="stat in animatedStats" :key="stat.label" class="text-center">
-            <div class="mb-1 flex items-center justify-center gap-1">
-              <span class="text-2xl text-teal-200">
-                <span v-html="stat.icon" />
-              </span>
+        <div
+          ref="statsSectionRef"
+          class="grid grid-cols-2 gap-x-6 gap-y-8 px-6 py-10 sm:px-8 lg:grid-cols-4 lg:px-12 lg:py-12"
+        >
+          <div
+            v-for="stat in animatedStats"
+            :key="stat.label"
+            class="text-center"
+          >
+            <div class="mb-3 flex items-center justify-center text-teal-300">
+              <span v-html="stat.icon" class="h-6 w-6" />
             </div>
 
-            <div class="text-3xl font-extrabold text-white md:text-4xl">
+            <div class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
               {{ stat.prefix ?? '' }}{{ stat.displayed }}{{ stat.suffix }}
             </div>
 
-            <p class="mt-1 text-sm leading-snug text-teal-100">
+            <p class="mt-2 text-sm leading-6 text-slate-300">
               {{ stat.label }}
             </p>
           </div>

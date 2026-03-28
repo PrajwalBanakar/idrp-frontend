@@ -1,31 +1,33 @@
 <template>
-  <section class="overflow-hidden bg-gray-50 py-24">
-    <div class="mx-auto max-w-6xl px-6 md:px-16">
-      <div class="mb-14 text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+  <section class="overflow-hidden bg-slate-50 py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
+      <div class="mx-auto mb-12 max-w-3xl text-center lg:mb-14">
+        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">
           Founder Voices
         </span>
-        <h2 class="mt-2 text-4xl font-bold text-gray-900">Success Stories</h2>
-        <p class="mx-auto mt-3 max-w-xl text-gray-500">
-          Real founders, real impact — the stories behind some of India's most exciting deep-tech
-          ventures.
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          Success Stories
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+          Stories from founders and innovators shaped through mentorship, collaboration, and
+          ecosystem support.
         </p>
       </div>
     </div>
 
     <div class="relative">
       <div
-        class="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-24 bg-gradient-to-r from-gray-50 to-transparent"
+        class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-slate-50 to-transparent sm:w-24"
       />
       <div
-        class="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-24 bg-gradient-to-l from-gray-50 to-transparent"
+        class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-slate-50 to-transparent sm:w-24"
       />
 
       <div class="stories-track-left mb-6 flex gap-6">
-        <div
+        <article
           v-for="(story, index) in duplicatedStories"
           :key="`left-${index}`"
-          class="w-80 shrink-0 cursor-default rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:border-teal-200 hover:shadow-lg"
+          class="flex w-[320px] shrink-0 flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-lg sm:w-[360px] sm:p-7"
         >
           <svg class="mb-4 h-8 w-8 text-teal-100" fill="currentColor" viewBox="0 0 24 24">
             <path
@@ -33,28 +35,35 @@
             />
           </svg>
 
-          <p class="mb-6 text-sm leading-relaxed text-gray-700 italic">"{{ story.quote }}"</p>
+          <p class="mb-6 text-sm leading-7 text-slate-600 italic sm:text-base">
+            "{{ story.quote }}"
+          </p>
 
-          <div class="mt-auto flex items-center gap-3">
+          <div class="mt-auto flex items-center gap-3 border-t border-slate-100 pt-4">
             <div
-              class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white"
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white shadow-sm"
               :style="{ background: story.color }"
             >
               {{ story.initials }}
             </div>
-            <div>
-              <p class="text-sm font-bold text-gray-900">{{ story.name }}</p>
-              <p class="text-xs text-gray-500">{{ story.role }} · {{ story.company }}</p>
+
+            <div class="min-w-0">
+              <p class="truncate text-sm font-semibold text-slate-900 sm:text-base">
+                {{ story.name }}
+              </p>
+              <p class="truncate text-xs text-slate-500 sm:text-sm">
+                {{ story.role }} · {{ story.company }}
+              </p>
             </div>
           </div>
-        </div>
+        </article>
       </div>
 
       <div class="stories-track-right flex gap-6">
-        <div
+        <article
           v-for="(story, index) in reversedDuplicatedStories"
           :key="`right-${index}`"
-          class="w-80 shrink-0 cursor-default rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:border-teal-200 hover:shadow-lg"
+          class="flex w-[320px] shrink-0 flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-lg sm:w-[360px] sm:p-7"
         >
           <svg class="mb-4 h-8 w-8 text-teal-100" fill="currentColor" viewBox="0 0 24 24">
             <path
@@ -62,21 +71,28 @@
             />
           </svg>
 
-          <p class="mb-6 text-sm leading-relaxed text-gray-700 italic">"{{ story.quote }}"</p>
+          <p class="mb-6 text-sm leading-7 text-slate-600 italic sm:text-base">
+            "{{ story.quote }}"
+          </p>
 
-          <div class="mt-auto flex items-center gap-3">
+          <div class="mt-auto flex items-center gap-3 border-t border-slate-100 pt-4">
             <div
-              class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white"
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white shadow-sm"
               :style="{ background: story.color }"
             >
               {{ story.initials }}
             </div>
-            <div>
-              <p class="text-sm font-bold text-gray-900">{{ story.name }}</p>
-              <p class="text-xs text-gray-500">{{ story.role }} · {{ story.company }}</p>
+
+            <div class="min-w-0">
+              <p class="truncate text-sm font-semibold text-slate-900 sm:text-base">
+                {{ story.name }}
+              </p>
+              <p class="truncate text-xs text-slate-500 sm:text-sm">
+                {{ story.role }} · {{ story.company }}
+              </p>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -98,6 +114,7 @@ const reversedDuplicatedStories = computed(() => [...duplicatedStories.value].re
 .stories-track-left {
   width: max-content;
   animation: scroll-left 40s linear infinite;
+  will-change: transform;
 }
 
 .stories-track-left:hover {
@@ -107,10 +124,18 @@ const reversedDuplicatedStories = computed(() => [...duplicatedStories.value].re
 .stories-track-right {
   width: max-content;
   animation: scroll-right 40s linear infinite;
+  will-change: transform;
 }
 
 .stories-track-right:hover {
   animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .stories-track-left,
+  .stories-track-right {
+    animation-duration: 28s;
+  }
 }
 
 @keyframes scroll-left {

@@ -9,6 +9,5 @@ const formConfig = computed(() => contactFormConfig)
 <template>
   <GenericFormSection
     :config="formConfig"
-    success-text="Your message has been submitted successfully."
   />
 </template>

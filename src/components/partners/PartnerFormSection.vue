@@ -9,6 +9,5 @@ const formConfig = computed(() => partnerFormConfig)
 <template>
   <GenericFormSection
     :config="formConfig"
-    success-text="Your partnership inquiry has been submitted successfully."
   />
 </template>

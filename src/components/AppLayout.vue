@@ -92,7 +92,7 @@
         <button
           type="button"
           class="mobile-toggle"
-          :aria-expanded="String(isMobileMenuOpen)"
+          :aria-expanded="isMobileMenuOpen"
           aria-label="Toggle navigation menu"
           @click="toggleMobileMenu"
         >
@@ -378,7 +378,9 @@ const navSections: NavSection[] = [
   },
 ]
 
-const aboutFooterLinks = computed(() => navSections.find((section) => section.key === 'about')?.items ?? [])
+const aboutFooterLinks = computed(
+  () => navSections.find((section) => section.key === 'about')?.items ?? [],
+)
 
 const programsFooterLinks = computed(
   () => navSections.find((section) => section.key === 'programs')?.items ?? [],
@@ -443,8 +445,7 @@ function isSectionActive(items: NavItem[]) {
 
     if (item.children) {
       return item.children.some(
-        (child) =>
-          !!child.to && (isExactNavMatch(child.to) || isPathPrefixMatch(child.to)),
+        (child) => !!child.to && (isExactNavMatch(child.to) || isPathPrefixMatch(child.to)),
       )
     }
 
@@ -676,20 +677,18 @@ onBeforeUnmount(() => {
 .nav-button:hover,
 .nav-link--active {
   background: rgba(16, 91, 255, 0.08);
-  color: #105bff;
+  color: #0d9488;
 }
 
 .nav-link--cta {
   color: #ffffff;
-  background: linear-gradient(135deg, #105bff, #0b7adf);
+  background: #0d9488;
 }
 
 .nav-link--cta:hover,
 .nav-link--cta.nav-link--active {
-  color: #ffffff;
-  background: linear-gradient(135deg, #0e52e6, #096ec7);
+  background: #0f766e; /* teal-700 */
 }
-
 .chevron {
   display: inline-block;
   transition: transform 0.2s ease;
@@ -725,7 +724,7 @@ onBeforeUnmount(() => {
 .dropdown-link:hover,
 .dropdown-link--active {
   background: rgba(16, 91, 255, 0.08);
-  color: #105bff;
+  color: #0d9488;
 }
 
 .dropdown-group {
@@ -826,13 +825,13 @@ onBeforeUnmount(() => {
 }
 
 .mobile-link--cta {
-  color: #105bff;
+  color: #0d9488;
 }
 
 .mobile-link--active,
 .mobile-sublink--active,
 .mobile-section-trigger--active {
-  color: #105bff;
+  color: #0d9488;
 }
 
 .mobile-section {
@@ -870,7 +869,7 @@ onBeforeUnmount(() => {
 .site-footer {
   margin-top: auto;
   color: #edf2ff;
-  background: linear-gradient(180deg, #162340 0%, #0f172a 100%);
+  background: #0f172a;
 }
 
 .footer-grid {
@@ -960,7 +959,7 @@ onBeforeUnmount(() => {
   border: 0;
   border-radius: 999px;
   color: #ffffff;
-  background: linear-gradient(135deg, #105bff, #0b7adf);
+  background: #0d9488;
   box-shadow: 0 16px 32px rgba(16, 91, 255, 0.28);
   cursor: pointer;
 }

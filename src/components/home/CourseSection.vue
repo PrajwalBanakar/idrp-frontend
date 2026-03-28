@@ -1,14 +1,16 @@
 <template>
-  <section class="bg-gray-50 px-6 py-24 md:px-16">
-    <div class="mx-auto max-w-6xl">
-      <div class="mb-14 text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+  <section class="bg-slate-50 px-6 py-20 md:px-12 lg:px-16 lg:py-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="mx-auto mb-12 max-w-3xl text-center lg:mb-14">
+        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">
           Learning & Capacity Building
         </span>
-        <h2 class="mt-2 text-4xl font-bold text-gray-900">Courses & Workshops</h2>
-        <p class="mx-auto mt-3 max-w-xl text-gray-500">
-          Industry-aligned programs designed to build deep-tech skills, research capabilities, and
-          entrepreneurial mindset.
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          Courses & Workshops
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+          Structured learning offerings designed to strengthen technical skills, applied research
+          capability, and entrepreneurial thinking.
         </p>
       </div>
 
@@ -17,24 +19,45 @@
           v-for="course in courses"
           :key="course.title"
           :to="course.route"
-          class="group block rounded-2xl border bg-white p-8 transition hover:shadow-lg"
+          class="group block rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-lg sm:p-7"
         >
-          <span class="rounded-full bg-teal-50 px-3 py-1 text-xs text-teal-700">
-            {{ course.duration }}
-          </span>
+          <div class="flex items-start justify-between gap-4">
+            <span class="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
+              {{ course.duration }}
+            </span>
 
-          <h3 class="mt-4 text-xl font-bold transition group-hover:text-teal-700">
+            <span
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-all duration-300 group-hover:bg-teal-50 group-hover:text-teal-700"
+            >
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </span>
+          </div>
+
+          <h3 class="mt-5 text-xl font-semibold text-slate-900 transition-colors duration-300 group-hover:text-teal-700 sm:text-2xl">
             {{ course.title }}
           </h3>
 
-          <p class="mt-3 text-sm text-gray-500">
+          <p class="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
             {{ course.description }}
           </p>
 
-          <div class="mt-6">
-            <span class="text-sm font-semibold text-teal-700 group-hover:underline">
-              Explore →
-            </span>
+          <div class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal-700 transition-all duration-300 group-hover:gap-3">
+            Explore course
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
           </div>
         </RouterLink>
       </div>

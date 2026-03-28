@@ -1,11 +1,24 @@
+export type PartnerKey =
+  | 'academic'
+  | 'technology'
+  | 'ecosystem'
+  | 'investor'
+  | 'corporate'
+  | 'government'
+  | 'media'
+  | 'other'
+
 export type Partner = {
   name: string
   abbr: string
   color: string
+  description?: string
+  logo?: string
+  websiteUrl?: string
 }
 
 export type PartnerCategory = {
-  key: string
+  key: PartnerKey
   title: string
   subtitle: string
   description: string

@@ -1,62 +1,65 @@
 <template>
-  <section
-    class="relative overflow-hidden bg-gradient-to-br from-teal-800 via-teal-700 to-cyan-600 px-6 py-20 md:px-16"
-  >
+  <section class="relative overflow-hidden bg-slate-950 px-6 py-20 text-white md:px-12 lg:px-16 lg:py-24">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-900" />
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(45,212,191,0.18),_transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(34,211,238,0.12),_transparent_28%)]" />
+    </div>
+
     <div class="pointer-events-none absolute inset-0">
-      <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-white/5" />
-      <div class="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-white/5" />
+      <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/5 blur-2xl" />
+      <div class="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-white/5 blur-2xl" />
     </div>
 
     <div class="relative z-10 mx-auto max-w-4xl text-center">
       <span
-        class="mb-6 inline-block rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white"
+        class="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-teal-100 backdrop-blur-sm sm:text-xs"
       >
         Start Your Journey
       </span>
 
-      <h2 class="mb-5 text-4xl font-bold leading-tight text-white md:text-5xl">
+      <h2 class="mt-6 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
         Ready to build the future?
       </h2>
 
-      <p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-teal-100">
-        Whether you're at the idea stage or ready to scale, IDRP has the programs, people, and
-        infrastructure to take you further. Applications are open now.
+      <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
+        Explore programs, connect with the ecosystem, and take the next step with the right
+        support, guidance, and infrastructure behind you.
       </p>
 
-      <div class="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <RouterLink
           to="/apply/resident-incubation"
-          class="rounded-full bg-white px-8 py-4 text-sm font-bold text-teal-800 shadow-xl transition-colors hover:bg-teal-50"
+          class="inline-flex min-w-[220px] items-center justify-center rounded-full bg-teal-600 px-8 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 sm:text-base"
         >
           Apply to a Program
         </RouterLink>
 
         <RouterLink
           to="/contact"
-          class="rounded-full border-2 border-white/60 px-8 py-4 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+          class="inline-flex min-w-[220px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-600 hover:text-slate-950 sm:text-base"
         >
-          Talk to our Team
+          Talk to Our Team
         </RouterLink>
       </div>
 
-      <div class="border-t border-white/20 pt-10">
-        <p class="mb-4 text-sm font-medium text-teal-100">
+      <div class="mx-auto mt-12 max-w-2xl border-t border-white/15 pt-8">
+        <p class="text-sm font-medium text-slate-200">
           Stay updated with the latest from IDRP
         </p>
 
         <form
-          class="mx-auto flex max-w-md flex-col gap-3 sm:flex-row"
+          class="mx-auto mt-4 flex max-w-xl flex-col gap-3 sm:flex-row"
           @submit.prevent="subscribeNewsletter"
         >
           <input
             v-model.trim="newsletterEmail"
             type="email"
             placeholder="Enter your email"
-            class="flex-1 rounded-full bg-white px-5 py-3 text-sm text-gray-800 outline-none placeholder-gray-400 focus:ring-2 focus:ring-white/50"
+            class="w-full flex-1 rounded-full border border-white/10 bg-white px-5 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-white/30"
           />
           <button
             type="submit"
-            class="shrink-0 rounded-full bg-teal-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-950"
+            class="inline-flex shrink-0 items-center justify-center rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-teal-700"
           >
             Subscribe
           </button>

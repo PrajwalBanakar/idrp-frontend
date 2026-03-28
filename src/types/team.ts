@@ -3,6 +3,8 @@ export type TeamMember = {
   role: string
   image: string
   imageAlt: string
+  bio?: string
+  linkedin?: string
 }
 
 export type TeamHeroContent = {
