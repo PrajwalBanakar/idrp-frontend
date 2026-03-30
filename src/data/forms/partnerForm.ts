@@ -9,7 +9,7 @@ export const partnerFormConfig: FormConfig = {
   submitLabel: 'Submit Partnership Request',
   resetOnSuccess: true,
   successMessage: 'Your partnership inquiry has been submitted successfully.',
-  endpoint: '/api/forms/partner',
+  endpoint: 'https://api.web3forms.com/submit',
   meta: {
     sourcePage: '/partners',
   },

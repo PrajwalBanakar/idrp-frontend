@@ -11,6 +11,7 @@ export function createCourseApplicationFormConfig(course: Course): FormConfig {
     successMessage:
       'Thank you for applying. Our team will review your submission and get in touch with you shortly.',
     resetOnSuccess: true,
+    endpoint: 'https://api.web3forms.com/submit',
 
     meta: {
       sourcePage: 'course-application',

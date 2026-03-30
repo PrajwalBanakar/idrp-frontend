@@ -2,23 +2,28 @@
   <div class="contact-view">
     <ContactHeroSection :hero="contactHero" />
 
-    <section class="bg-white px-6 py-24 md:px-16">
+    <section class="bg-white px-6 py-24 md:px-12 lg:px-16">
       <div class="mx-auto max-w-6xl">
-        <div class="mb-16 text-center">
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <div class="mx-auto mb-16 max-w-3xl text-center">
+          <span class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-600">
             {{ contactIntro.eyebrow }}
           </span>
-          <h2 class="mt-2 text-4xl font-bold text-gray-900">
+
+          <h2 class="mt-3 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
             {{ contactIntro.title }}
           </h2>
-          <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-gray-500">
+
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 md:text-lg md:leading-8">
             {{ contactIntro.description }}
           </p>
         </div>
 
-        <div class="flex flex-col items-start gap-14 lg:flex-row">
+        <div class="grid items-start gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <ContactFormSection />
-          <ContactInfoSection :contact-items="contactItems" :socials="socials" />
+          <ContactInfoSection
+            :contact-items="contactItems"
+            :socials="socials"
+          />
         </div>
       </div>
     </section>
@@ -30,6 +35,5 @@ import ContactFormSection from '@/components/contact/ContactFormSection.vue'
 import ContactHeroSection from '@/components/contact/ContactHeroSection.vue'
 import ContactInfoSection from '@/components/contact/ContactInfoSection.vue'
 
-import { contactIntro, contactItems, socials,contactHero } from '@/data/contact'
-
+import { contactIntro, contactItems, socials, contactHero } from '@/data/contact'
 </script>

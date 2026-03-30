@@ -1,75 +1,95 @@
 <template>
-  <div class="flex w-full flex-col gap-8 lg:w-1/2">
+  <aside class="flex w-full flex-col gap-8">
     <div
-      class="h-64 overflow-hidden rounded-3xl shadow-xl"
-      :class="{ 'bg-gradient-to-br from-teal-100 to-cyan-50': !showCampusImage }"
+      class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
     >
-      <img
-        v-if="showCampusImage"
-        src="/about-intro.jfif"
-        alt="IDRP Campus"
-        class="h-full w-full object-cover"
-        @error="showCampusImage = false"
-      />
+      <div
+        class="h-64"
+        :class="{ 'bg-gradient-to-br from-teal-100 to-cyan-50': !showCampusImage }"
+      >
+        <img
+          v-if="showCampusImage"
+          src="/about-intro.jfif"
+          alt="IDRP Campus"
+          class="h-full w-full object-cover"
+          @error="showCampusImage = false"
+        />
+      </div>
     </div>
 
-    <div class="flex flex-col gap-6 rounded-3xl border border-gray-100 bg-gray-50 p-8">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
       <div>
-        <h3 class="mb-4 text-lg font-bold text-gray-900">Find Us</h3>
+        <span
+          class="inline-flex items-center rounded-full bg-teal-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-teal-700"
+        >
+          Find Us
+        </span>
 
-        <div class="flex items-start gap-4">
-          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-xl">
+        <div class="mt-5 flex items-start gap-4">
+          <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-teal-50 text-xl">
             📍
           </div>
 
           <div>
-            <p class="text-sm font-semibold text-gray-800">
+            <p class="text-sm font-semibold text-slate-900">
               IIIT Dharwad Research Park
             </p>
-            <p class="mt-1 text-sm leading-relaxed text-gray-500">
+
+            <p class="mt-2 text-sm leading-7 text-slate-600">
               Pi Block, IIIT Dharwad<br />
               92VG+2F9, IIIT Circle Rd<br />
               Dharwad, Karnataka 580009
             </p>
+
             <a
               href="https://www.google.com/maps/place/IIIT+Dharwad+Research+Park+(IDRP)/@15.3925499,75.0236567,17z"
               target="_blank"
               rel="noopener"
-              class="mt-2 inline-block text-xs font-semibold text-teal-600 transition-colors hover:text-teal-800"
+              class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-teal-600 transition-colors hover:text-teal-800"
             >
-              View on Google Maps ↗
+              View on Google Maps
+              <span>↗</span>
             </a>
           </div>
         </div>
       </div>
 
-      <div class="flex flex-col gap-4 border-t border-gray-200 pt-6">
-        <div
-          v-for="item in contactItems"
-          :key="item.label"
-          class="flex items-center gap-4"
+      <div class="mt-8 border-t border-slate-200 pt-8">
+        <span
+          class="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-cyan-700"
         >
-          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-xl">
-            {{ item.emoji }}
-          </div>
+          Contact Details
+        </span>
 
-          <div>
-            <p class="text-xs font-semibold uppercase tracking-wide text-gray-400">
-              {{ item.label }}
-            </p>
-            <a
-              :href="item.href"
-              class="text-sm font-semibold text-gray-800 transition-colors hover:text-teal-600"
-            >
-              {{ item.value }}
-            </a>
+        <div class="mt-5 space-y-4">
+          <div
+            v-for="item in contactItems"
+            :key="item.label"
+            class="flex items-start gap-4 rounded-2xl bg-slate-50 px-4 py-4"
+          >
+            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-teal-50 text-xl">
+              {{ item.emoji }}
+            </div>
+
+            <div>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                {{ item.label }}
+              </p>
+
+              <a
+                :href="item.href"
+                class="mt-1 inline-block text-sm font-semibold text-slate-800 transition-colors hover:text-teal-600"
+              >
+                {{ item.value }}
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
       <ContactSocialLinks :socials="socials" />
     </div>
-  </div>
+  </aside>
 </template>
 
 <script setup lang="ts">

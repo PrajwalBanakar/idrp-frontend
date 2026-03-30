@@ -13,7 +13,7 @@ export function createServiceFormConfig(
     resetOnSuccess: true,
     successMessage:
       'Thank you! We have received your enquiry and will get in touch shortly.',
-    endpoint: '/api/forms/service',
+    endpoint: 'https://api.web3forms.com/submit',
     meta: {
       sourcePage: '/services',
     },

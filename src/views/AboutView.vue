@@ -2,11 +2,34 @@
   <div class="about-view">
     <AboutHeroSection v-bind="aboutHero" />
     <AboutIntroSection v-bind="aboutIntro" />
-    <AboutMissionVisionSection :mission-vision="missionVision" :pillars="pillars" />
-    <AboutTimelineSection :timeline="timeline" />
-    <AboutOfferingsSection :offerings="offerings" />
-    <AboutReasonsSection :reasons="reasons" />
-    <AboutVisionSection :vision-cards="visionCards" />
+
+    <AboutMissionVisionSection
+      :section="missionVisionSection"
+      :mission-vision="missionVision"
+      :pillars="pillars"
+    />
+
+    <AboutTimelineSection
+      :section="timelineSection"
+      :timeline="timeline"
+    />
+
+    <AboutOfferingsSection
+      :section="offeringsSection"
+      :offerings="offerings"
+      :highlight="offeringsHighlight"
+    />
+
+    <AboutReasonsSection
+      :section="reasonsSection"
+      :reasons="reasons"
+    />
+
+    <AboutVisionSection
+      :section="visionSection"
+      :vision-cards="visionCards"
+    />
+
     <AboutCTASection v-bind="aboutCTA" />
   </div>
 </template>
@@ -20,15 +43,22 @@ import AboutOfferingsSection from '@/components/about/AboutOfferingsSection.vue'
 import AboutReasonsSection from '@/components/about/AboutReasonsSection.vue'
 import AboutVisionSection from '@/components/about/AboutVisionSection.vue'
 import AboutCTASection from '@/components/about/AboutCTASection.vue'
+
 import {
   aboutCTA,
   aboutHero,
   aboutIntro,
+  missionVisionSection,
   missionVision,
-  offerings,
   pillars,
-  reasons,
+  timelineSection,
   timeline,
+  offeringsSection,
+  offerings,
+  offeringsHighlight,
+  reasonsSection,
+  reasons,
+  visionSection,
   visionCards,
 } from '@/data/about'
 </script>

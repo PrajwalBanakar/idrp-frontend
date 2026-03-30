@@ -20,28 +20,39 @@ withDefaults(defineProps<Props>(), {
   <section class="bg-white px-6 pb-24 md:px-16">
     <div class="mx-auto max-w-6xl">
       <div
-        class="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-teal-700 via-teal-600 to-cyan-600 px-8 py-12 text-white shadow-xl md:px-12 md:py-16"
+        class="relative overflow-hidden rounded-[2rem] bg-slate-950 px-8 py-14 text-white shadow-2xl md:px-12 md:py-16 lg:px-16 lg:py-20"
       >
-        <div class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-white/10" />
-        <div class="absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-white/10" />
+        <div class="absolute inset-0">
+          <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-900" />
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(45,212,191,0.18),_transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(34,211,238,0.12),_transparent_28%)]"
+          />
+        </div>
 
-        <div class="relative z-10 mx-auto max-w-3xl text-center">
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-100">
+        <div class="pointer-events-none absolute inset-0">
+          <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/5 blur-2xl" />
+          <div class="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-white/5 blur-2xl" />
+        </div>
+
+        <div class="relative z-10 mx-auto max-w-4xl text-center">
+          <span
+            class="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-teal-100 backdrop-blur-sm sm:text-xs"
+          >
             {{ eyebrow }}
           </span>
 
-          <h2 class="mt-4 text-3xl font-bold leading-tight md:text-4xl">
+          <h2 class="mt-6 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
             {{ title }}
           </h2>
 
-          <p class="mt-4 leading-relaxed text-teal-50">
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
             {{ description }}
           </p>
 
           <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <RouterLink
               :to="primaryActionTo"
-              class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-700 transition-transform duration-200 hover:-translate-y-0.5"
+              class="inline-flex min-w-[220px] items-center justify-center rounded-full bg-teal-600 px-8 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 sm:text-base"
             >
               {{ primaryActionLabel }}
             </RouterLink>
@@ -49,7 +60,7 @@ withDefaults(defineProps<Props>(), {
             <RouterLink
               v-if="secondaryActionLabel && secondaryActionTo"
               :to="secondaryActionTo"
-              class="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-white/10"
+              class="inline-flex min-w-[220px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-600 hover:text-slate-950 sm:text-base"
             >
               {{ secondaryActionLabel }}
             </RouterLink>

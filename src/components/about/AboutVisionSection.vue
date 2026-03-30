@@ -1,20 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { VisionCard } from '@/types/about'
+import type { AboutSectionIntro, VisionCard } from '@/types/about'
 
 type Props = {
-  eyebrow?: string
-  title?: string
-  description?: string
+  section: AboutSectionIntro
   visionCards: VisionCard[]
 }
 
-withDefaults(defineProps<Props>(), {
-  eyebrow: 'Our Philosophy',
-  title: 'What Drives Us',
-  description:
-    'Our work is guided by a set of principles that shape how we support innovation, build ecosystems, and enable founders.',
-})
+defineProps<Props>()
 
 const imageVisibility = ref<Record<string, boolean>>({})
 
@@ -32,23 +25,23 @@ function hideImage(card: VisionCard) {
     <div class="mx-auto max-w-6xl">
       <div class="mx-auto mb-14 max-w-3xl text-center">
         <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-          {{ eyebrow }}
+          {{ section.eyebrow }}
         </span>
 
         <h2 class="mt-3 text-4xl font-bold text-gray-900">
-          {{ title }}
+          {{ section.title }}
         </h2>
 
         <p class="mt-4 leading-relaxed text-gray-600">
-          {{ description }}
+          {{ section.description }}
         </p>
       </div>
 
-      <div class="grid gap-8 md:grid-cols-3">
+      <div class="grid items-stretch gap-8 md:grid-cols-3">
         <article
           v-for="card in visionCards"
           :key="card.title"
-          class="group overflow-hidden rounded-3xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
+          class="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
         >
           <div class="relative h-56 overflow-hidden">
             <img
@@ -67,7 +60,7 @@ function hideImage(card: VisionCard) {
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
           </div>
 
-          <div class="p-6">
+          <div class="flex flex-1 flex-col p-6">
             <h3 class="text-xl font-bold text-gray-900">
               {{ card.title }}
             </h3>

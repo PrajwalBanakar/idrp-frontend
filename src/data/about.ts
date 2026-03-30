@@ -2,8 +2,10 @@ import type {
   AboutCTAContent,
   AboutHeroContent,
   AboutIntroContent,
+  AboutSectionIntro,
   MissionVisionItem,
   Offering,
+  OfferingsHighlight,
   Pillar,
   Reason,
   TimelineItem,
@@ -17,6 +19,7 @@ export const aboutHero: AboutHeroContent = {
     'A pioneering deep-tech incubator at the heart of IIIT Dharwad, built to transform ideas into ventures that matter.',
   image: '/about-hero.jfif',
   imageAlt: 'About IDRP',
+  minHeightClass: 'min-h-[380px]',
 }
 
 export const aboutIntro: AboutIntroContent = {
@@ -36,6 +39,13 @@ export const aboutIntro: AboutIntroContent = {
   image: '/about-intro.jfif',
   imageAlt: 'IDRP Campus',
   badgeText: 'Actively accepting applications',
+}
+
+export const missionVisionSection: AboutSectionIntro = {
+  eyebrow: 'Our Purpose',
+  title: 'Mission, Vision & Core Pillars',
+  description:
+    'Everything we do at IDRP is grounded in a clear purpose: translating innovation into impact through deep-tech entrepreneurship.',
 }
 
 export const missionVision: MissionVisionItem[] = [
@@ -76,6 +86,13 @@ export const pillars: Pillar[] = [
   },
 ]
 
+export const timelineSection: AboutSectionIntro = {
+  eyebrow: 'Our Journey',
+  title: 'Growth Through Milestones',
+  description:
+    'From foundation to ecosystem building, IDRP has evolved step by step into a platform that supports innovation, entrepreneurship, and deep-tech venture creation.',
+}
+
 export const timeline: TimelineItem[] = [
   {
     year: '2020',
@@ -108,6 +125,13 @@ export const timeline: TimelineItem[] = [
       'IDRP evolved into a broader platform for incubation, applied research, startup support, and ecosystem-driven capacity building.',
   },
 ]
+
+export const offeringsSection: AboutSectionIntro = {
+  eyebrow: 'What We Offer',
+  title: 'Support Designed for the Startup Journey',
+  description:
+    'IDRP provides a connected set of services that help founders move from idea to validation, growth, and long-term scale.',
+}
 
 export const offerings: Offering[] = [
   {
@@ -142,6 +166,37 @@ export const offerings: Offering[] = [
   },
 ]
 
+export const offeringsHighlight: OfferingsHighlight = {
+  eyebrow: 'Founder Support Model',
+  title: 'A connected ecosystem, not isolated services',
+  description:
+    'At IDRP, incubation is not treated as a single program. Founders gain access to a layered system of mentoring, research support, infrastructure, market access, and capacity building that evolves with their stage of growth.',
+  stages: [
+    {
+      label: 'Stage 1',
+      description:
+        'Idea validation, research exploration, and early problem discovery.',
+    },
+    {
+      label: 'Stage 2',
+      description:
+        'Product shaping, startup mentoring, and ecosystem support for traction.',
+    },
+    {
+      label: 'Stage 3',
+      description:
+        'Investor readiness, market connects, and long-term venture growth pathways.',
+    },
+  ],
+}
+
+export const reasonsSection: AboutSectionIntro = {
+  eyebrow: 'Why IDRP',
+  title: 'Why Founders Build With Us',
+  description:
+    'IDRP combines academic depth, ecosystem access, and startup-focused support to help ambitious ideas grow into meaningful ventures.',
+}
+
 export const reasons: Reason[] = [
   {
     title: 'Backed by IIIT Dharwad',
@@ -164,6 +219,13 @@ export const reasons: Reason[] = [
       'Our network spans mentors, investors, researchers, institutions, and strategic collaborators.',
   },
 ]
+
+export const visionSection: AboutSectionIntro = {
+  eyebrow: 'Our Philosophy',
+  title: 'What Drives Us',
+  description:
+    'Our work is guided by a set of principles that shape how we support innovation, build ecosystems, and enable founders.',
+}
 
 export const visionCards: VisionCard[] = [
   {
@@ -195,7 +257,7 @@ export const aboutCTA: AboutCTAContent = {
   description:
     'Whether you are a founder, researcher, mentor, partner, or investor, IDRP is designed to help meaningful innovation move forward.',
   primaryActionLabel: 'Apply Now',
-  primaryActionTo: '/apply',
+  primaryActionTo: '/apply/resident-incubation',
   secondaryActionLabel: 'Contact Us',
   secondaryActionTo: '/contact',
 }

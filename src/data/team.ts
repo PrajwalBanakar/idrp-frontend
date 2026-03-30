@@ -72,5 +72,5 @@ export const teamCTA: TeamCTAContent = {
   primaryActionLabel: 'Contact Us',
   primaryActionTo: '/contact',
   secondaryActionLabel: 'Apply Now',
-  secondaryActionTo: '/apply',
+  secondaryActionTo: '/apply/resident-incubation',
 }

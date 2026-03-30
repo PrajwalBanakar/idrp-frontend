@@ -5,7 +5,7 @@ export const preIncubationPage: ProgramPageData = {
     eyebrow: 'Pre-Incubation',
     title: 'Yuva Udyami',
     subtitle:
-      'A structured pre-incubation pathway that helps early innovators validate ideas, build confidence, and take their first steps toward entrepreneurship.',
+      'A structured pre-incubation program that helps early innovators validate ideas, build confidence, and take their first steps toward entrepreneurship.',
     image: '/incubation-hero.jfif',
     imageAlt: 'Pre-Incubation Program',
   },
@@ -14,7 +14,7 @@ export const preIncubationPage: ProgramPageData = {
     eyebrow: 'Our Approach',
     title: 'Helping Ideas Take Shape Before They Become Startups',
     paragraphs: [
-      'Yuva Udyami is designed for students, innovators, and aspiring founders who are still at the earliest stage of their entrepreneurial journey.',
+      'Yuva Udyami is designed for students, innovators, and aspiring founders who are at the earliest stage of their entrepreneurial journey.',
       'The program focuses on helping participants discover meaningful problems, shape ideas into structured opportunities, and gain the exposure needed to think like founders.',
       'Rather than pushing teams too early into venture building, the pre-incubation phase creates a guided environment for exploration, validation, mentorship, and capability building.',
     ],
@@ -52,81 +52,47 @@ export const preIncubationPage: ProgramPageData = {
   },
 
   tracks: {
-    eyebrow: 'Programs',
-    title: 'Choose the Right Starting Point',
+    eyebrow: 'Program',
+    title: 'Yuva Udyami',
     description:
-      'Yuva Udyami includes structured program tracks tailored to different stages of idea discovery, early validation, and innovation readiness.',
+      'A single structured pre-incubation program designed to support idea discovery, early validation, and entrepreneurial readiness.',
   },
 
   programs: [
     {
-      id: 'yuva-udyami-explore',
-      title: 'Yuva Udyami Explore',
-      subtitle: 'For idea discovery and early-stage exploration',
+      id: 'yuva-udyami',
+      title: 'Yuva Udyami',
+      subtitle: 'For idea discovery, early validation, and founder readiness',
       description:
-        'An entry-level track for students and aspiring innovators who want to identify meaningful problems, explore startup opportunities, and begin their entrepreneurial journey.',
-      duration: '6–8 weeks',
+        'Yuva Udyami is a guided pre-incubation program for students, innovators, and aspiring founders who want to explore opportunities, validate early ideas, and build the confidence needed to move toward entrepreneurship.',
+      duration: '6–12 weeks',
       mode: 'Hybrid',
       applyTo: '/apply/pre-incubation',
       sections: [
         {
           title: 'Who It Is For',
           items: [
-            'Students with curiosity about startups and innovation',
-            'Early thinkers who want to work on real-world problems',
-            'Participants who do not yet have a fully formed startup idea',
+            'Students curious about startups, innovation, and entrepreneurship',
+            'Aspiring founders exploring real-world problems and opportunity areas',
+            'Participants with or without an early-stage idea who want structured support',
           ],
         },
         {
           title: 'What Participants Gain',
           items: [
-            'Problem discovery and idea exploration support',
-            'Exposure to startup thinking and innovation frameworks',
-            'Mentorship for narrowing and refining early concepts',
+            'Guidance on problem discovery and idea exploration',
+            'Mentorship for refining early concepts and directions',
+            'Exposure to startup thinking, validation, and innovation frameworks',
+            'Confidence and readiness to take the next step toward venture building',
           ],
         },
         {
           title: 'Program Outcomes',
           items: [
-            'Clearer opportunity areas to work on',
-            'Better understanding of problem-solution fit',
-            'Readiness to move into deeper validation or incubation tracks',
-          ],
-        },
-      ],
-    },
-    {
-      id: 'yuva-udyami-build',
-      title: 'Yuva Udyami Build',
-      subtitle: 'For teams moving toward validation and early structure',
-      description:
-        'A guided track for participants who already have an initial idea and want support to validate, shape, and strengthen it into a more structured startup opportunity.',
-      duration: '8–12 weeks',
-      mode: 'Hybrid',
-      applyTo: '/apply/pre-incubation',
-      sections: [
-        {
-          title: 'Who It Is For',
-          items: [
-            'Students or teams with an early idea or concept',
-            'Innovators looking for guidance on shaping a solution',
-            'Aspiring founders preparing for the next stage of venture support',
-          ],
-        },
-        {
-          title: 'What Participants Gain',
-          items: [
-            'Mentorship on idea refinement and early validation',
-            'Support for articulating value proposition and user need',
-            'Structured exposure to startup fundamentals and ecosystem pathways',
-          ],
-        },
-        {
-          title: 'Program Outcomes',
-          items: [
-            'Improved clarity on the idea and its relevance',
-            'An early-stage venture direction or project framing',
-            'Preparedness for incubation or advanced innovation programs',
+            'Clearer understanding of the problem and opportunity being addressed',
+            'Better articulation of problem-solution fit and founder direction',
+            'Early-stage validation and structured entrepreneurial exposure',
+            'Preparedness for incubation or further innovation support programs',
           ],
         },
       ],
@@ -139,7 +105,7 @@ export const preIncubationPage: ProgramPageData = {
     description:
       'If you are exploring ideas, testing your interests, or preparing to build something meaningful, Yuva Udyami gives you the environment and support to begin with clarity.',
     primaryActionLabel: 'Apply Now',
-    primaryActionTo: '/apply',
+    primaryActionTo: '/apply/pre-incubation',
     secondaryActionLabel: 'Contact Us',
     secondaryActionTo: '/contact',
   },

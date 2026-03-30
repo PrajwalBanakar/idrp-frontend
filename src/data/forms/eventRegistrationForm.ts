@@ -11,6 +11,7 @@ export function createEventRegistrationFormConfig(event: EventItem): FormConfig 
     successMessage:
       'Thank you for registering. Our team will share the confirmation details with you shortly.',
     resetOnSuccess: true,
+    endpoint: 'https://api.web3forms.com/submit',
 
     meta: {
       sourcePage: 'event-registration',

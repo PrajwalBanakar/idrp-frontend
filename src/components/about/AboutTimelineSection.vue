@@ -1,19 +1,12 @@
 <script setup lang="ts">
-import type { TimelineItem } from '@/types/about'
+import type { AboutSectionIntro, TimelineItem } from '@/types/about'
 
 type Props = {
-  eyebrow?: string
-  title?: string
-  description?: string
+  section: AboutSectionIntro
   timeline: TimelineItem[]
 }
 
-withDefaults(defineProps<Props>(), {
-  eyebrow: 'Our Journey',
-  title: 'Growth Through Milestones',
-  description:
-    'From foundation to ecosystem building, IDRP has evolved step by step into a platform that supports innovation, entrepreneurship, and deep-tech venture creation.',
-})
+defineProps<Props>()
 </script>
 
 <template>
@@ -21,15 +14,15 @@ withDefaults(defineProps<Props>(), {
     <div class="mx-auto max-w-6xl">
       <div class="mx-auto mb-16 max-w-3xl text-center">
         <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-          {{ eyebrow }}
+          {{ section.eyebrow }}
         </span>
 
         <h2 class="mt-3 text-4xl font-bold text-gray-900">
-          {{ title }}
+          {{ section.title }}
         </h2>
 
         <p class="mt-4 leading-relaxed text-gray-600">
-          {{ description }}
+          {{ section.description }}
         </p>
       </div>
 

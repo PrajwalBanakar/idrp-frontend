@@ -76,7 +76,7 @@ async function submitToWeb3Forms(
 
   const web3Payload: Record<string, string | number | boolean> = {
     access_key: accessKey,
-    subject: `New ${config.title ?? 'Form'} Submission - IDRP Website`,
+    subject: `[IDRP] ${config.type} - ${config.title ?? 'Form Submission'}`,
     from_name: 'IDRP Website',
     form_id: payload.formId,
     form_type: payload.formType,

@@ -1,20 +1,17 @@
 <script setup lang="ts">
-import type { MissionVisionItem, Pillar } from '@/types/about'
+import type {
+  AboutSectionIntro,
+  MissionVisionItem,
+  Pillar,
+} from '@/types/about'
 
 type Props = {
-  eyebrow?: string
-  title?: string
-  description?: string
+  section: AboutSectionIntro
   missionVision: MissionVisionItem[]
   pillars: Pillar[]
 }
 
-withDefaults(defineProps<Props>(), {
-  eyebrow: 'Our Purpose',
-  title: 'Mission, Vision & Core Pillars',
-  description:
-    'Everything we do at IDRP is grounded in a clear purpose: translating innovation into impact through deep-tech entrepreneurship.',
-})
+defineProps<Props>()
 </script>
 
 <template>
@@ -22,13 +19,15 @@ withDefaults(defineProps<Props>(), {
     <div class="mx-auto max-w-6xl">
       <div class="mx-auto mb-14 max-w-3xl text-center">
         <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-          {{ eyebrow }}
+          {{ section.eyebrow }}
         </span>
+
         <h2 class="mt-3 text-4xl font-bold text-gray-900">
-          {{ title }}
+          {{ section.title }}
         </h2>
+
         <p class="mt-4 leading-relaxed text-gray-600">
-          {{ description }}
+          {{ section.description }}
         </p>
       </div>
 

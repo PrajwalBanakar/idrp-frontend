@@ -144,7 +144,7 @@ export const incubationPage: ProgramPageData = {
     description:
       'If you are ready to build, validate, and scale your startup, the Udyami incubation program provides the support, mentorship, and ecosystem you need.',
     primaryActionLabel: 'Apply Now',
-    primaryActionTo: '/apply',
+    primaryActionTo: '/apply/resident-incubation',
     secondaryActionLabel: 'Contact Us',
     secondaryActionTo: '/contact',
   },

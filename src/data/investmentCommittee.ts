@@ -42,5 +42,5 @@ export const investmentCommitteeCTA: InvestmentCommitteeCTAContent = {
   primaryActionLabel: 'Contact Us',
   primaryActionTo: '/contact',
   secondaryActionLabel: 'Apply Now',
-  secondaryActionTo: '/apply',
+  secondaryActionTo: '/apply/resident-incubation',
 }

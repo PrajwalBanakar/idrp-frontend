@@ -13,7 +13,7 @@ export function createApplicationFormConfig(
     submitLabel: 'Submit Application',
     resetOnSuccess: true,
     successMessage: 'Your application has been submitted successfully.',
-    endpoint: '/api/forms/application',
+    endpoint: 'https://api.web3forms.com/submit',
     meta: {
       sourcePage: `/apply/${program.slug}`,
       programSlug: program.slug,

@@ -1,38 +1,52 @@
 <template>
-  <section class="relative h-[52vh] min-h-[360px] overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-teal-950 via-teal-800 to-cyan-700" />
-    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+  <section
+    class="relative overflow-hidden bg-slate-950 px-6 py-20 text-white md:px-12 lg:px-16 lg:py-24"
+  >
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-900" />
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(45,212,191,0.18),_transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(34,211,238,0.12),_transparent_28%)]"
+      />
+    </div>
 
-    <div class="relative z-10 flex h-full max-w-3xl flex-col justify-center px-10 md:px-20">
-      <div class="mb-4 flex items-center gap-3">
-        <div class="h-8 w-1 rounded-full bg-teal-400" />
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-200">
+    <!-- Glow -->
+    <div class="pointer-events-none absolute inset-0">
+      <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/5 blur-2xl" />
+      <div class="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-white/5 blur-2xl" />
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-6xl">
+      <div class="max-w-4xl">
+        <span
+          class="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-teal-100 backdrop-blur-sm sm:text-xs"
+        >
           {{ eyebrow }}
         </span>
-      </div>
 
-      <h1 class="text-5xl font-extrabold leading-tight text-white md:text-6xl">
-        {{ title }}
-      </h1>
+        <h1 class="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          {{ title }}
+        </h1>
 
-      <p class="mt-5 max-w-2xl text-base leading-relaxed text-teal-100 md:text-lg">
-        {{ description }}
-      </p>
+        <p class="mt-5 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
+          {{ description }}
+        </p>
 
-      <div class="mt-8 flex flex-wrap gap-4">
-        <RouterLink
-          :to="applyRoute"
-          class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition hover:bg-teal-50"
-        >
-          Apply Now
-        </RouterLink>
+        <div class="mt-10 flex flex-col items-start gap-4 sm:flex-row">
+          <RouterLink
+            :to="applyRoute"
+            class="inline-flex min-w-[200px] items-center justify-center rounded-full bg-teal-600 px-8 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 sm:text-base"
+          >
+            Apply Now
+          </RouterLink>
 
-        <RouterLink
-          :to="enquireRoute"
-          class="rounded-full border border-white px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10"
-        >
-          Enquire Now
-        </RouterLink>
+          <RouterLink
+            :to="enquireRoute"
+            class="inline-flex min-w-[200px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-600 hover:text-slate-950 sm:text-base"
+          >
+            Enquire Now
+          </RouterLink>
+        </div>
       </div>
     </div>
   </section>

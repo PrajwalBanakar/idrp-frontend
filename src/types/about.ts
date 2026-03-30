@@ -1,3 +1,11 @@
+import type { RouteLocationRaw } from 'vue-router'
+
+export type AboutSectionIntro = {
+  eyebrow: string
+  title: string
+  description: string
+}
+
 export type AboutStat = {
   label: string
   value: string
@@ -25,6 +33,18 @@ export type Offering = {
   description: string
 }
 
+export type OfferingStage = {
+  label: string
+  description: string
+}
+
+export type OfferingsHighlight = {
+  eyebrow: string
+  title: string
+  description: string
+  stages: OfferingStage[]
+}
+
 export type Reason = {
   title: string
   description: string
@@ -43,6 +63,7 @@ export type AboutHeroContent = {
   subtitle: string
   image: string
   imageAlt: string
+  minHeightClass?: string
 }
 
 export type AboutIntroContent = {
@@ -60,7 +81,7 @@ export type AboutCTAContent = {
   title: string
   description: string
   primaryActionLabel: string
-  primaryActionTo: string
+  primaryActionTo: RouteLocationRaw
   secondaryActionLabel?: string
-  secondaryActionTo?: string
+  secondaryActionTo?: RouteLocationRaw
 }
