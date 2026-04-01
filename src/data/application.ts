@@ -3,13 +3,23 @@ import type { ProgramKey, ProgramMeta } from '@/types/application'
 export const programs: Record<ProgramKey, ProgramMeta> = {
   'pre-incubation': {
     slug: 'pre-incubation',
-    title: 'Yuva Udyami',
+    title: 'Yuva Udyami Pre Incubation Program',
     badge: 'Pre Incubation',
     emoji: '🌱',
     meta: 'Hybrid / Flexible · 6-12 Months · Idea to MVP Readiness',
-    description: 'Apply for Yuva Udyami...',
+    description: 'Apply for the Yuva Udyami Pre Incubation Program to explore ideas, validate early opportunities, and build readiness for venture creation.',
     backLabel: 'Home',
   },
+  'incubation': {
+  slug: 'incubation',
+  title: 'Udyami Incubation Program',
+  badge: 'Incubation',
+  emoji: '🚀',
+  meta: 'Hybrid / Flexible · 6-18 Months · Idea to Growth Support',
+  description:
+    'Apply for the Udyami Incubation Program to access structured incubation support, mentorship, infrastructure, ecosystem connections, and funding readiness support.',
+  backLabel: 'Incubation',
+},
   'resident-incubation': {
     slug: 'resident-incubation',
     title: 'Udyami Resident Incubation',

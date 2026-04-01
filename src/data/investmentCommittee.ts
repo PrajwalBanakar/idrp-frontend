@@ -1,36 +1,34 @@
 import type {
   InvestmentCommitteeCTAContent,
   InvestmentCommitteeHeroContent,
-  InvestmentCommitteeIntroContent,
   InvestmentCommitteeMember,
 } from '@/types/investmentCommittee'
 
 export const investmentCommitteeHero: InvestmentCommitteeHeroContent = {
   eyebrow: 'Investment Committee',
   title: 'Meet the Investment Committee',
+  description:
+    'Meet the people guiding venture evaluation, investment readiness, and strategic growth at IDRP.',
   image: '/investment-committee-hero.jfif',
   imageAlt: 'Investment Committee',
 }
 
-export const investmentCommitteeIntro: InvestmentCommitteeIntroContent = {
-  eyebrow: 'Strategic Guidance',
-  title: 'Experienced Leaders Supporting Venture Growth',
-  description:
-    'Our Investment Committee brings together experienced professionals who help evaluate opportunities, guide strategic decisions, and support the growth of promising startups within the IDRP ecosystem.',
-}
-
 export const investmentCommitteeMembers: InvestmentCommitteeMember[] = [
   {
-    name: 'Deepak',
-    role: 'Investment Committee Member',
+    name: 'Dr. Deepak K T',
+    role: 'CEO, IDRP',
     image: '/board-deepak.jfif',
     imageAlt: 'Deepak',
+    linkedinUrl: 'https://www.linkedin.com/in/deepak-k-t-92270a9/',
+    profileUrl: '/Faculty%20Booklet.pdf#page=25',
   },
   {
-    name: 'Prasanna',
-    role: 'Investment Committee Member',
+    name: 'Prof. S R Mahadeva Prasanna',
+    role: 'Director, IIIT Dharwad',
     image: '/board-prasanna.jfif',
     imageAlt: 'Prasanna',
+    linkedinUrl: 'https://www.linkedin.com/in/prof-mahadeva-prasanna-1b238b1a4/',
+    profileUrl: '/Faculty%20Booklet.pdf#page=47',
   },
 ]
 
@@ -42,5 +40,5 @@ export const investmentCommitteeCTA: InvestmentCommitteeCTAContent = {
   primaryActionLabel: 'Contact Us',
   primaryActionTo: '/contact',
   secondaryActionLabel: 'Apply Now',
-  secondaryActionTo: '/apply/resident-incubation',
+  secondaryActionTo: '/apply/incubation',
 }

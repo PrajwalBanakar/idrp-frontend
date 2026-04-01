@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { TeamMember } from '@/types/team'
 
 type Props = {
@@ -7,25 +7,35 @@ type Props = {
 }
 
 const props = defineProps<Props>()
+const showImage = ref(Boolean(props.member.image))
 
-const showImage = ref(true)
+watch(
+  () => props.member.image,
+  (newImage) => {
+    showImage.value = Boolean(newImage)
+  },
+)
+
+const hasLinkedin = computed(() => Boolean(props.member.linkedinUrl?.trim()))
+const hasProfile = computed(() => Boolean(props.member.profileUrl?.trim()))
+const hasActions = computed(() => hasProfile.value || hasLinkedin.value)
 </script>
 
 <template>
   <article
-    class="group rounded-3xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+    class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
   >
-    <!-- Avatar -->
-    <div class="mx-auto mb-5 h-28 w-28 overflow-hidden rounded-full bg-gray-100">
+    <div
+      class="mx-auto mb-5 h-28 w-28 overflow-hidden rounded-full bg-slate-100 ring-4 ring-slate-50 transition-all duration-300 group-hover:ring-teal-100"
+    >
       <img
         v-if="showImage && props.member.image"
         :src="props.member.image"
-        :alt="props.member.imageAlt"
+        :alt="props.member.imageAlt ?? props.member.name"
         class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
         @error="showImage = false"
       />
 
-      <!-- Fallback -->
       <div
         v-else
         class="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-100 to-cyan-50 text-xl font-bold text-teal-700"
@@ -34,14 +44,51 @@ const showImage = ref(true)
       </div>
     </div>
 
-    <!-- Name -->
-    <h3 class="text-lg font-bold text-gray-900">
+    <h3 class="text-lg font-bold tracking-tight text-slate-900">
       {{ props.member.name }}
     </h3>
 
-    <!-- Role -->
-    <p class="mt-1 text-sm text-gray-500">
+    <p class="mt-1 text-sm font-medium text-slate-500">
       {{ props.member.role }}
     </p>
+
+    <div
+      v-if="hasActions"
+      class="mt-4 flex items-center justify-between gap-3"
+    >
+      <a
+        v-if="hasProfile"
+        :href="props.member.profileUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-teal-700 transition hover:bg-teal-100"
+      >
+        View Profile
+      </a>
+
+      <span
+        v-else
+        class="invisible rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide"
+      >
+        View Profile
+      </span>
+
+      <a
+        v-if="hasLinkedin"
+        :href="props.member.linkedinUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-slate-700 transition hover:border-teal-200 hover:text-teal-700"
+      >
+        View LinkedIn
+      </a>
+
+      <span
+        v-else
+        class="invisible rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide"
+      >
+        View LinkedIn
+      </span>
+    </div>
   </article>
 </template>

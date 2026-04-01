@@ -1,7 +1,7 @@
 <template>
   <div class="home-view">
     <HeroSection :hero-slides="heroSlides" />
-    <ImpactSection :impact-cards="impactCards" :stats="statsData" />
+    <ImpactSection :stats="statsData" />
     <ProgramsSection :programs="programCatalog" :government-programs="governmentPrograms" />
     <CourseSection :courses="courses" />
     <ServicesSection :services="services" />
@@ -16,7 +16,6 @@
 <script setup lang="ts">
 import {
   heroSlides,
-  impactCards,
   governmentPrograms,
   courses,
   services,

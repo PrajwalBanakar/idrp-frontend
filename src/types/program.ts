@@ -12,6 +12,7 @@ export type ProgramId =
   | 'pre-incubation'
   | 'resident-incubation'
   | 'virtual-incubation'
+  | 'incubation'
 
 export type Program = {
   id: ProgramId

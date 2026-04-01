@@ -1,12 +1,5 @@
 <template>
   <section class="relative h-[50vh] min-h-[340px] overflow-hidden">
-    <img
-      v-if="showHeroImage"
-      :src="imageSrc"
-      :alt="imageAlt"
-      class="absolute inset-0 h-full w-full object-cover object-center"
-      @error="showHeroImage = false"
-    />
     <div class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/80 to-teal-700/30" />
     <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
 

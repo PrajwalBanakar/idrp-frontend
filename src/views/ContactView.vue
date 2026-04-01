@@ -18,13 +18,14 @@
           </p>
         </div>
 
-        <div class="grid items-start gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <ContactFormSection />
-          <ContactInfoSection
-            :contact-items="contactItems"
-            :socials="socials"
-          />
-        </div>
+<div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
+  <ContactFormSection class="h-full" />
+  <ContactInfoSection
+    class="h-full"
+    :contact-items="contactItems"
+    :socials="socials"
+  />
+</div>
       </div>
     </section>
   </div>

@@ -1,12 +1,16 @@
 <template>
-  <div v-if="coursePage" class="course-detail-view">
-    <CourseDetailHeroSection
-      :eyebrow="coursePage.eyebrow"
-      :title="coursePage.heroTitle"
-      :description="coursePage.heroDescription"
-      :apply-route="coursePage.applyRoute"
-      :enquire-route="coursePage.enquireRoute"
-    />
+  <div
+    v-if="coursePage"
+    class="course-detail-view"
+  >
+<CourseDetailHeroSection
+  :eyebrow="coursePage.eyebrow"
+  :title="coursePage.heroTitle"
+  :description="coursePage.heroDescription"
+  :apply-route="coursePage.applyRoute"
+  :enquire-route="coursePage.enquireRoute"
+  :brochure-url="course?.brochureUrl"
+/>
 
     <CourseDetailOverviewSection
       :overview-title="coursePage.overviewTitle"
@@ -26,7 +30,7 @@
       :title="coursePage.ctaTitle"
       :description="coursePage.ctaDescription"
       :apply-route="coursePage.applyRoute"
-    /> 
+    />
   </div>
 
   <CourseDetailNotFound v-else />
@@ -43,12 +47,17 @@ import CourseDetailNotFound from '@/components/academy/CourseDetailNotFound.vue'
 import CourseDetailOverviewSection from '@/components/academy/CourseDetailOverviewSection.vue'
 import CourseHighlightsSection from '@/components/academy/CourseHighlightsSection.vue'
 
-import { getCourseDetailPageBySlug } from '@/data/courses'
+import { getCertificationCourseDetailPageBySlug, getCertificationCourseBySlug } from '@/data/academyCatalog'
 
 const route = useRoute()
 
-const coursePage = computed(() => {
-  const slug = String(route.params.slug ?? '')
-  return getCourseDetailPageBySlug(slug)
-})
+const slug = computed(() => String(route.params.slug ?? ''))
+
+const coursePage = computed(() =>
+  getCertificationCourseDetailPageBySlug(slug.value),
+)
+
+const course = computed(() =>
+  getCertificationCourseBySlug(slug.value),
+)
 </script>

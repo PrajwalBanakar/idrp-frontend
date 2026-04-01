@@ -4,6 +4,7 @@ IDRP Application code
 
 
 
+
 ```
 idrp-frontend
 ├─ .prettierrc.json
@@ -97,6 +98,7 @@ idrp-frontend
 │  │  │  └─ AboutVisionSection.vue
 │  │  ├─ academy
 │  │  │  ├─ AcademyAreasSection.vue
+│  │  │  ├─ AcademyCategoriesSection.vue
 │  │  │  ├─ AcademyCTASection.vue
 │  │  │  ├─ AcademyFormSection.vue
 │  │  │  ├─ AcademyHeroSection.vue
@@ -112,13 +114,13 @@ idrp-frontend
 │  │  │  ├─ CourseDetailNotFound.vue
 │  │  │  ├─ CourseDetailOverviewSection.vue
 │  │  │  ├─ CourseHighlightsSection.vue
-│  │  │  └─ CoursesSection.vue
+│  │  │  ├─ WorkshopApplyFormSection.vue
+│  │  │  └─ WorkshopCard.vue
 │  │  ├─ AppLayout.vue
 │  │  ├─ application
 │  │  │  ├─ ApplicationFormSection.vue
 │  │  │  ├─ ApplicationHeroSection.vue
 │  │  │  └─ ApplicationSidebarSection.vue
-│  │  ├─ cbde
 │  │  ├─ common
 │  │  │  ├─ BeneficiariesSection.vue
 │  │  │  └─ FocusSection.vue
@@ -222,13 +224,13 @@ idrp-frontend
 │  │  └─ useNain.ts
 │  ├─ data
 │  │  ├─ about.ts
+│  │  ├─ academyCatalog.ts
 │  │  ├─ application.ts
 │  │  ├─ cbde.ts
 │  │  ├─ cbdeExtra.ts
 │  │  ├─ cif.ts
 │  │  ├─ cifExtra.ts
 │  │  ├─ contact.ts
-│  │  ├─ courses.ts
 │  │  ├─ events.ts
 │  │  ├─ forms
 │  │  │  ├─ applicationForm.ts
@@ -238,7 +240,8 @@ idrp-frontend
 │  │  │  ├─ investorMatchmakingForm.ts
 │  │  │  ├─ partnerForm.ts
 │  │  │  ├─ serviceForm.ts
-│  │  │  └─ startupMatchmakingForm.ts
+│  │  │  ├─ startupMatchmakingForm.ts
+│  │  │  └─ workshopApplyForm.ts
 │  │  ├─ home.ts
 │  │  ├─ incubation.ts
 │  │  ├─ industryResearch.ts
@@ -255,7 +258,6 @@ idrp-frontend
 │  │  ├─ startups.ts
 │  │  ├─ team.ts
 │  │  └─ technicalEducationAcademy.ts
-│  ├─ lib
 │  ├─ main.ts
 │  ├─ router
 │  │  └─ index.ts
@@ -264,6 +266,7 @@ idrp-frontend
 │  ├─ style.css
 │  ├─ types
 │  │  ├─ about.ts
+│  │  ├─ academy.ts
 │  │  ├─ application.ts
 │  │  ├─ contact.ts
 │  │  ├─ courses.ts
@@ -282,6 +285,7 @@ idrp-frontend
 │     ├─ AboutView.vue
 │     ├─ ApplyView.vue
 │     ├─ CbdeView.vue
+│     ├─ CertificationCoursesView.vue
 │     ├─ CifView.vue
 │     ├─ ContactView.vue
 │     ├─ CourseApplyView.vue
@@ -305,7 +309,9 @@ idrp-frontend
 │     ├─ ResourcesView.vue
 │     ├─ StartupMatchmakingFormView.vue
 │     ├─ StartupsView.vue
-│     └─ TechnicalEducationAcademyView.vue
+│     ├─ TechnicalEducationAcademyView.vue
+│     ├─ WorkshopApplyView.vue
+│     └─ WorkshopsView.vue
 ├─ tsconfig.app.json
 ├─ tsconfig.json
 ├─ tsconfig.node.json

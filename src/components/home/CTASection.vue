@@ -45,7 +45,7 @@ import { RouterLink } from 'vue-router'
           <!-- Actions -->
           <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <RouterLink
-              to="/apply/resident-incubation"
+              to="/apply/incubation"
               class="inline-flex min-w-[220px] items-center justify-center rounded-full bg-teal-600 px-8 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 sm:text-base"
             >
               Apply to a Program

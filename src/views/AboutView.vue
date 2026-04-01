@@ -1,5 +1,5 @@
 <template>
-  <div class="about-view">
+  <div class="about-view bg-white">
     <AboutHeroSection v-bind="aboutHero" />
     <AboutIntroSection v-bind="aboutIntro" />
 
@@ -7,11 +7,6 @@
       :section="missionVisionSection"
       :mission-vision="missionVision"
       :pillars="pillars"
-    />
-
-    <AboutTimelineSection
-      :section="timelineSection"
-      :timeline="timeline"
     />
 
     <AboutOfferingsSection
@@ -38,7 +33,6 @@
 import AboutHeroSection from '@/components/about/AboutHeroSection.vue'
 import AboutIntroSection from '@/components/about/AboutIntroSection.vue'
 import AboutMissionVisionSection from '@/components/about/AboutMissionVisionSection.vue'
-import AboutTimelineSection from '@/components/about/AboutTimelineSection.vue'
 import AboutOfferingsSection from '@/components/about/AboutOfferingsSection.vue'
 import AboutReasonsSection from '@/components/about/AboutReasonsSection.vue'
 import AboutVisionSection from '@/components/about/AboutVisionSection.vue'
@@ -51,8 +45,6 @@ import {
   missionVisionSection,
   missionVision,
   pillars,
-  timelineSection,
-  timeline,
   offeringsSection,
   offerings,
   offeringsHighlight,

@@ -25,14 +25,6 @@ const showHeroImage = ref(true)
     class="relative h-[55vh] overflow-hidden"
     :class="props.minHeightClass"
   >
-    <img
-      v-if="showHeroImage && props.image"
-      :src="props.image"
-      :alt="props.imageAlt"
-      class="absolute inset-0 h-full w-full object-cover object-center"
-      @error="showHeroImage = false"
-    />
-
     <div class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/75 to-teal-700/25" />
     <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
 

@@ -71,7 +71,7 @@ withDefaults(
     title: 'Ready to join this community?',
     description: 'Apply to one of our programs and become part of the IDRP story.',
     primaryLabel: 'Apply Now',
-    primaryTo: '/apply/resident-incubation',
+    primaryTo: '/apply/incubation',
     secondaryLabel: 'Contact Us',
     secondaryTo: '/contact',
   },

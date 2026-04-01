@@ -35,13 +35,6 @@ defineEmits(['back'])
         Back to {{ program.backLabel }}
       </button>
 
-      <!-- Badge -->
-      <div
-        class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-teal-100 backdrop-blur-sm"
-      >
-        <span>{{ program.emoji }}</span>
-        <span>{{ program.badge }}</span>
-      </div>
 
       <!-- Title -->
       <h1 class="mt-6 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">

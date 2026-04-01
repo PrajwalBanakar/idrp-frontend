@@ -12,53 +12,65 @@ import type {
   VisionCard,
 } from '@/types/about'
 
+/* ---------------------------------- */
+/* HERO */
+/* ---------------------------------- */
+
 export const aboutHero: AboutHeroContent = {
   eyebrow: 'Who We Are',
   title: 'About IDRP',
   subtitle:
-    'A pioneering deep-tech incubator at the heart of IIIT Dharwad, built to transform ideas into ventures that matter.',
+    'A deep-tech innovation hub at IIIT Dharwad, where bold ideas evolve into ventures that create real-world impact.',
   image: '/about-hero.jfif',
   imageAlt: 'About IDRP',
   minHeightClass: 'min-h-[380px]',
 }
 
+/* ---------------------------------- */
+/* INTRO */
+/* ---------------------------------- */
+
 export const aboutIntro: AboutIntroContent = {
   eyebrow: 'Our Story',
-  title: 'Bridging Research and Real-World Impact',
+  title: 'Where Research Meets Real-World Change',
   paragraphs: [
-    'IIIT Dharwad Research Park (IDRP) was established with a singular purpose — to close the gap between cutting-edge academic research and real-world innovation.',
-    'Situated within the IIIT Dharwad campus, we are more than an incubator; we are a living laboratory where ideas are stress-tested, refined, and scaled.',
-    'Since our inception, IDRP has been home to over 150 startups working across deep-tech domains including Artificial Intelligence, Computer Vision, Extended Reality, Blockchain, Space Tech, and more.',
-    'We serve founders at every stage: from those still in the ideation phase, through teams with proven prototypes, to growth-stage companies preparing to scale nationally and internationally.',
+    'IIIT Dharwad Research Park (IDRP) was built on a powerful idea — that breakthrough research should not remain confined to labs, but evolve into solutions that shape the real world.',
+    'Anchored within the IIIT Dharwad ecosystem, IDRP is not just an incubator. It is a launchpad where curiosity turns into creation, and ideas are transformed into ventures with purpose.',
+    'Our ecosystem brings together founders, researchers, mentors, and industry to co-create across deep-tech domains such as Artificial Intelligence, Computer Vision, Extended Reality, Blockchain, and Space Tech.',
+    'From first-time innovators exploring a problem to startups preparing for scale, we support every stage of the journey — enabling builders to move faster, think deeper, and create lasting impact.',
   ],
   stats: [
-    { value: '150+', label: 'Startups supported' },
+    { value: '150+', label: 'Innovations nurtured' },
     { value: '10+', label: 'Deep-tech domains' },
-    { value: '1', label: 'Integrated innovation ecosystem' },
+    { value: '1', label: 'Unified innovation ecosystem' },
   ],
   image: '/about-intro.jfif',
   imageAlt: 'IDRP Campus',
-  badgeText: 'Actively accepting applications',
+  badgeText: 'Now onboarding the next generation of founders',
 }
+
+/* ---------------------------------- */
+/* MISSION / VISION */
+/* ---------------------------------- */
 
 export const missionVisionSection: AboutSectionIntro = {
   eyebrow: 'Our Purpose',
   title: 'Mission, Vision & Core Pillars',
   description:
-    'Everything we do at IDRP is grounded in a clear purpose: translating innovation into impact through deep-tech entrepreneurship.',
+    'At IDRP, our purpose is simple yet powerful — to turn innovation into measurable impact through deep-tech entrepreneurship.',
 }
 
 export const missionVision: MissionVisionItem[] = [
   {
     title: 'Our Mission',
     description:
-      'To empower innovators, researchers, and founders with the infrastructure, mentorship, and ecosystem needed to transform high-potential ideas into meaningful ventures.',
+      'To enable innovators, researchers, and founders with the right ecosystem, mentorship, and infrastructure to transform high-potential ideas into impactful ventures.',
     icon: '🎯',
   },
   {
     title: 'Our Vision',
     description:
-      'To become a globally respected deep-tech innovation hub that catalyzes research translation, startup growth, and societal impact through technology entrepreneurship.',
+      'To become a globally recognized deep-tech innovation hub that drives research translation, startup growth, and meaningful societal impact.',
     icon: '🚀',
   },
 ]
@@ -67,30 +79,34 @@ export const pillars: Pillar[] = [
   {
     title: 'Research to Venture',
     description:
-      'We help convert academic and technical research into startup-ready solutions with real-world relevance.',
+      'We enable the transition of academic research into market-ready, venture-scale solutions.',
   },
   {
     title: 'Founder-Centric Support',
     description:
-      'From mentoring to market access, every program is designed around the actual journey of a founder.',
+      'Every initiative is designed around real founder journeys, not theoretical frameworks.',
   },
   {
     title: 'Deep-Tech Focus',
     description:
-      'We prioritize innovation in advanced domains where technical depth creates long-term value.',
+      'We focus on advanced technology domains where innovation creates long-term, defensible value.',
   },
   {
     title: 'Collaborative Ecosystem',
     description:
-      'We bring together academia, startups, investors, mentors, corporates, and government support systems.',
+      'We actively connect academia, startups, investors, industry, and government into one cohesive ecosystem.',
   },
 ]
+
+/* ---------------------------------- */
+/* TIMELINE */
+/* ---------------------------------- */
 
 export const timelineSection: AboutSectionIntro = {
   eyebrow: 'Our Journey',
   title: 'Growth Through Milestones',
   description:
-    'From foundation to ecosystem building, IDRP has evolved step by step into a platform that supports innovation, entrepreneurship, and deep-tech venture creation.',
+    'From foundation to ecosystem building, IDRP has evolved into a platform that supports innovation, entrepreneurship, and deep-tech venture creation.',
 }
 
 export const timeline: TimelineItem[] = [
@@ -98,33 +114,37 @@ export const timeline: TimelineItem[] = [
     year: '2020',
     title: 'Foundation of IDRP',
     description:
-      'IDRP was established as a strategic initiative to foster innovation, entrepreneurship, and deep-tech venture creation within the IIIT Dharwad ecosystem.',
+      'IDRP was established as a strategic initiative to foster innovation and entrepreneurship within the IIIT Dharwad ecosystem.',
   },
   {
     year: '2021',
     title: 'Early Ecosystem Building',
     description:
-      'The focus shifted toward building early support structures including founder outreach, startup mentoring, and research-driven innovation engagement.',
+      'Focused on founder outreach, startup mentoring, and enabling research-driven innovation.',
   },
   {
     year: '2022',
     title: 'Program Expansion',
     description:
-      'IDRP expanded its incubation support and strengthened collaborations across innovation, academic, and industry stakeholders.',
+      'Expanded incubation support and strengthened collaborations with academic and industry stakeholders.',
   },
   {
     year: '2023',
     title: 'Deep-Tech Acceleration',
     description:
-      'Programs began to increasingly emphasize deep-tech ventures across AI, computer vision, XR, robotics, and emerging technology domains.',
+      'Strengthened focus on deep-tech ventures across AI, XR, robotics, and emerging technologies.',
   },
   {
     year: '2024',
     title: 'Integrated Innovation Platform',
     description:
-      'IDRP evolved into a broader platform for incubation, applied research, startup support, and ecosystem-driven capacity building.',
+      'Evolved into a comprehensive platform supporting incubation, research, and ecosystem-driven growth.',
   },
 ]
+
+/* ---------------------------------- */
+/* OFFERINGS */
+/* ---------------------------------- */
 
 export const offeringsSection: AboutSectionIntro = {
   eyebrow: 'What We Offer',
@@ -137,127 +157,139 @@ export const offerings: Offering[] = [
   {
     title: 'Incubation & Acceleration',
     description:
-      'Structured support for startups through validation, mentoring, business strategy, and growth readiness.',
+      'End-to-end startup support covering validation, strategy, mentoring, and growth acceleration.',
   },
   {
     title: 'Mentorship Network',
     description:
-      'Access to domain experts, founders, investors, and industry professionals across technology and business.',
+      'A strong network of mentors including founders, investors, and domain experts.',
   },
   {
     title: 'Research & Innovation Support',
     description:
-      'A platform for translating academic and technical ideas into deployable products and ventures.',
+      'Support to transform research and technical ideas into viable products and ventures.',
   },
   {
     title: 'Investor & Market Connect',
     description:
-      'Opportunities to connect with investors, ecosystem enablers, and industry pathways for growth.',
+      'Access to investors, industry leaders, and market opportunities.',
   },
   {
     title: 'Infrastructure & Workspace',
     description:
-      'Access to institutional ecosystem support, innovation facilities, and collaborative work environments.',
+      'Collaborative workspaces and institutional infrastructure.',
   },
   {
     title: 'Programs & Capacity Building',
     description:
-      'Workshops, academies, and thematic programs that build technical, entrepreneurial, and innovation capability.',
+      'Workshops, academies, and curated programs for growth.',
   },
 ]
 
 export const offeringsHighlight: OfferingsHighlight = {
-  eyebrow: 'Founder Support Model',
-  title: 'A connected ecosystem, not isolated services',
+  eyebrow: 'Founder Journey at IDRP',
+  title: 'From Idea to Impact — Built as a Continuous Journey',
   description:
-    'At IDRP, incubation is not treated as a single program. Founders gain access to a layered system of mentoring, research support, infrastructure, market access, and capacity building that evolves with their stage of growth.',
+    'We have designed a stage-wise ecosystem that evolves with founders — ensuring they always have the right support at the right time.',
   stages: [
     {
-      label: 'Stage 1',
+      label: 'Stage 1 · Explore',
       description:
-        'Idea validation, research exploration, and early problem discovery.',
+        'Identify problems, validate ideas, and explore research-backed solutions.',
     },
     {
-      label: 'Stage 2',
+      label: 'Stage 2 · Build',
       description:
-        'Product shaping, startup mentoring, and ecosystem support for traction.',
+        'Develop products, gain traction, and refine value propositions.',
     },
     {
-      label: 'Stage 3',
+      label: 'Stage 3 · Scale',
       description:
-        'Investor readiness, market connects, and long-term venture growth pathways.',
+        'Prepare for investment, expand to markets, and grow sustainably.',
     },
   ],
 }
 
+/* ---------------------------------- */
+/* WHY IDRP */
+/* ---------------------------------- */
+
 export const reasonsSection: AboutSectionIntro = {
   eyebrow: 'Why IDRP',
-  title: 'Why Founders Build With Us',
+  title: 'Why Builders Choose IDRP',
   description:
-    'IDRP combines academic depth, ecosystem access, and startup-focused support to help ambitious ideas grow into meaningful ventures.',
+    'We combine research depth, ecosystem access, and startup-focused support to help ideas grow into impactful ventures.',
 }
 
 export const reasons: Reason[] = [
   {
-    title: 'Backed by IIIT Dharwad',
+    title: 'Rooted in Academic Excellence',
     description:
-      'Strong academic roots and an innovation-focused institutional environment give founders a meaningful launchpad.',
+      'Access to IIIT Dharwad’s research, expertise, and innovation culture.',
   },
   {
-    title: 'Built for Deep-Tech',
+    title: 'Designed for Deep-Tech',
     description:
-      'We are designed for technically ambitious ideas that need patient development, expert guidance, and ecosystem support.',
+      'Built for technically ambitious ideas requiring long-term development.',
   },
   {
-    title: 'End-to-End Journey Support',
+    title: 'End-to-End Support',
     description:
-      'From idea validation to venture growth, we support startups across multiple stages of maturity.',
+      'From idea validation to scaling, we support the entire journey.',
   },
   {
-    title: 'Connected Ecosystem',
+    title: 'Strong Ecosystem Access',
     description:
-      'Our network spans mentors, investors, researchers, institutions, and strategic collaborators.',
+      'Connections to mentors, investors, institutions, and industry leaders.',
   },
 ]
 
+/* ---------------------------------- */
+/* PHILOSOPHY */
+/* ---------------------------------- */
+
 export const visionSection: AboutSectionIntro = {
   eyebrow: 'Our Philosophy',
-  title: 'What Drives Us',
+  title: 'The Principles That Shape Our Ecosystem',
   description:
-    'Our work is guided by a set of principles that shape how we support innovation, build ecosystems, and enable founders.',
+    'We are guided by a set of beliefs that influence how we build, support, and grow innovation.',
 }
 
 export const visionCards: VisionCard[] = [
   {
-    title: 'Innovation',
+    title: 'Think Bold, Build Meaningfully',
     description:
-      'We cultivate a mindset of experimentation, creativity, and problem-solving that turns bold ideas into meaningful innovation.',
+      'We encourage ambitious thinking and real-world impact through innovation.',
     image: '/vision-innovation.jfif',
     imageAlt: 'Innovation at IDRP',
   },
   {
-    title: 'Community',
+    title: 'Grow Together',
     description:
-      'We believe strong ecosystems are built through collaboration among founders, researchers, mentors, and institutions.',
+      'We believe in collaborative ecosystems that accelerate progress.',
     image: '/vision-community.jfif',
     imageAlt: 'Community at IDRP',
   },
   {
-    title: 'Resources',
+    title: 'Enable, Don’t Limit',
     description:
-      'We provide founders and innovators with access to the knowledge, networks, and support systems needed to grow.',
+      'We remove barriers and provide support so founders can focus on building.',
     image: '/vision-resources.jfif',
     imageAlt: 'Resources at IDRP',
   },
 ]
 
+/* ---------------------------------- */
+/* CTA */
+/* ---------------------------------- */
+
 export const aboutCTA: AboutCTAContent = {
-  eyebrow: 'Join the Ecosystem',
-  title: 'Build with IDRP',
+  eyebrow: 'Be Part of the Journey',
+  title: 'Start Building with IDRP',
   description:
-    'Whether you are a founder, researcher, mentor, partner, or investor, IDRP is designed to help meaningful innovation move forward.',
+    'If you are driven to solve real problems and build something meaningful, IDRP provides the ecosystem to help you move forward.',
   primaryActionLabel: 'Apply Now',
-  primaryActionTo: '/apply/resident-incubation',
-  secondaryActionLabel: 'Contact Us',
+  primaryActionTo: '/apply/incubation',
+  secondaryActionLabel: 'Connect With Us',
   secondaryActionTo: '/contact',
 }

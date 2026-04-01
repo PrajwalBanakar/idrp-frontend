@@ -18,23 +18,10 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <section class="bg-gray-50 px-6 py-24 md:px-16">
-    <div class="mx-auto max-w-6xl">
-      <div class="mx-auto mb-14 max-w-3xl text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-          {{ eyebrow }}
-        </span>
+  <section class="bg-slate-50 px-6 py-16 md:px-12 lg:px-16 lg:py-20">
+    <div class="mx-auto max-w-7xl">
 
-        <h2 class="mt-3 text-4xl font-bold text-gray-900">
-          {{ title }}
-        </h2>
-
-        <p class="mt-4 leading-relaxed text-gray-600">
-          {{ description }}
-        </p>
-      </div>
-
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <TeamMemberCard
           v-for="member in members"
           :key="member.name"

@@ -17,8 +17,8 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <section class="bg-white px-6 pb-24 md:px-16">
-    <div class="mx-auto max-w-6xl">
+  <section class="bg-white px-6 pb-16 md:px-12 lg:px-16 lg:pb-20">
+    <div class="mx-auto max-w-7xl">
       <div
         class="relative overflow-hidden rounded-[2rem] bg-slate-950 px-8 py-14 text-white shadow-2xl md:px-12 md:py-16 lg:px-16 lg:py-20"
       >
@@ -52,7 +52,7 @@ withDefaults(defineProps<Props>(), {
           <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <RouterLink
               :to="primaryActionTo"
-              class="inline-flex min-w-[220px] items-center justify-center rounded-full bg-teal-600 px-8 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 sm:text-base"
+              class="inline-flex min-w-[220px] items-center justify-center rounded-full bg-teal-500 px-8 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-400 sm:text-base"
             >
               {{ primaryActionLabel }}
             </RouterLink>

@@ -14,24 +14,58 @@
         </p>
       </div>
 
-      <div class="mb-10 flex flex-wrap justify-center gap-3 lg:mb-12">
-        <button
-          v-for="cat in partnerCategories"
-          :key="cat.key"
-          type="button"
-          class="rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200"
-          :class="
-            activePartnerTab === cat.key
-              ? 'bg-teal-700 text-white shadow-md'
-              : 'bg-slate-100 text-slate-600 hover:bg-teal-50 hover:text-teal-700'
-          "
-          @click="activePartnerTab = cat.key"
-        >
-          {{ cat.label }}
-        </button>
+      <div
+        class="mb-10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between lg:mb-12"
+      >
+        <!-- Tabs (LEFT) -->
+        <div class="flex flex-wrap gap-3">
+          <button
+            v-for="cat in partnerCategories"
+            :key="cat.key"
+            type="button"
+            class="rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200"
+            :class="
+              activePartnerTab === cat.key
+                ? 'bg-teal-700 text-white shadow-md'
+                : 'bg-slate-100 text-slate-600 hover:bg-teal-50 hover:text-teal-700'
+            "
+            @click="activePartnerTab = cat.key"
+          >
+            {{ cat.label }}
+          </button>
+        </div>
+
+        <!-- Search (RIGHT) -->
+        <div class="w-full max-w-xs">
+          <label for="partner-search" class="sr-only">Search partners</label>
+          <div class="relative">
+            <span
+              class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-slate-400"
+            >
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
+                />
+              </svg>
+            </span>
+            <input
+              id="partner-search"
+              v-model.trim="searchQuery"
+              type="text"
+              placeholder="Search"
+              class="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-3 text-sm text-slate-700 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100"
+            />
+          </div>
+        </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div
+        v-if="filteredPartners.length"
+        class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+      >
         <article
           v-for="partner in filteredPartners"
           :key="partner.name"
@@ -44,10 +78,19 @@
             {{ partner.abbr }}
           </div>
 
-          <p class="text-xs font-semibold leading-5 text-slate-600 transition-colors duration-300 group-hover:text-teal-700 sm:text-sm">
+          <p
+            class="text-xs font-semibold leading-5 text-slate-600 transition-colors duration-300 group-hover:text-teal-700 sm:text-sm"
+          >
             {{ partner.name }}
           </p>
         </article>
+      </div>
+
+      <div
+        v-else
+        class="rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-10 text-center text-slate-500"
+      >
+        No partners found for “{{ searchQuery }}”.
       </div>
     </div>
   </section>
@@ -63,12 +106,20 @@ const props = defineProps<{
 }>()
 
 const activePartnerTab = ref('all')
+const searchQuery = ref('')
 
 const filteredPartners = computed(() => {
-  if (activePartnerTab.value === 'all') {
-    return props.allPartners
+  const byCategory =
+    activePartnerTab.value === 'all'
+      ? props.allPartners
+      : props.allPartners.filter((partner) => partner.category === activePartnerTab.value)
+
+  if (!searchQuery.value) {
+    return byCategory
   }
 
-  return props.allPartners.filter((partner) => partner.category === activePartnerTab.value)
+  const query = searchQuery.value.toLowerCase()
+
+  return byCategory.filter((partner) => partner.name.toLowerCase().includes(query))
 })
 </script>

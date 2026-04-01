@@ -1,14 +1,5 @@
 <template>
   <section class="relative h-[52vh] min-h-[360px] overflow-hidden">
-    <!-- Background Image -->
-    <img
-      v-if="showImage && hero.image"
-      :src="hero.image"
-      :alt="hero.title"
-      class="absolute inset-0 h-full w-full object-cover object-center"
-      @error="showImage = false"
-    />
-
     <!-- Gradient Overlay -->
     <div
       class="absolute inset-0 bg-gradient-to-r from-teal-950/90 via-teal-900/75 to-cyan-800/45"

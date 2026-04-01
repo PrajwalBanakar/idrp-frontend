@@ -10,7 +10,7 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="cardClass || 'rounded-3xl bg-white p-8 shadow-xl'">
+  <div :class="cardClass || 'h-full rounded-3xl bg-white p-8 shadow-xl'">
     <BaseForm :config="config" />
   </div>
 </template>

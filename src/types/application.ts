@@ -1,5 +1,6 @@
 export type ProgramKey =
   | 'pre-incubation'
+  | 'incubation'
   | 'resident-incubation'
   | 'virtual-incubation'
   | 'deep-tech-accelerator'

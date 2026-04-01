@@ -1,12 +1,5 @@
 <template>
   <section class="relative h-[50vh] min-h-[340px] overflow-hidden">
-    <img
-      v-if="showHeroImage"
-      src="/resources-hero.jfif"
-      alt="Resources"
-      class="absolute inset-0 h-full w-full object-cover object-center"
-      @error="showHeroImage = false"
-    />
     <div
       class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/80 to-teal-700/30"
     />

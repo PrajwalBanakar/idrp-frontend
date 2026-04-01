@@ -2,10 +2,10 @@
 import { computed } from 'vue'
 import GenericFormSection from '@/components/forms/GenericFormSection.vue'
 import { createCourseApplicationFormConfig } from '@/data/forms/courseApplyForm'
-import type { Course } from '@/types/courses'
+import type { CertificationCourse } from '@/types/academy'
 
 const props = defineProps<{
-  course: Course
+  course: CertificationCourse
 }>()
 
 const formConfig = computed(() =>
@@ -14,7 +14,5 @@ const formConfig = computed(() =>
 </script>
 
 <template>
-  <GenericFormSection
-    :config="formConfig"
-  />
+  <GenericFormSection :config="formConfig" />
 </template>

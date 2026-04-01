@@ -1,16 +1,19 @@
 <template>
-  <section class="bg-white px-6 pb-24 md:px-16">
-    <div class="mx-auto max-w-6xl">
-      <div class="mb-12 text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
-          {{ title }}
-        </span>
-        <h3 class="mt-3 text-3xl font-bold text-gray-900">
-          Meet our {{ title.toLowerCase() }}
-        </h3>
+  <section class="bg-white px-6 pb-16 md:px-12 lg:px-16 lg:pb-20">
+    <div class="mx-auto max-w-7xl">
+      <div
+        v-if="mentors.length === 0"
+        class="rounded-3xl border border-slate-200 bg-slate-50 px-6 py-14 text-center"
+      >
+        <p class="text-base font-medium text-slate-600">
+          No mentors found.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 sm:gap-16">
+      <div
+        v-else
+        class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
         <MentorCard
           v-for="mentor in mentors"
           :key="mentor.name"
@@ -26,7 +29,6 @@ import MentorCard from '@/components/mentors/MentorCard.vue'
 import type { Mentor } from '@/types/mentors'
 
 defineProps<{
-  title: string
   mentors: Mentor[]
 }>()
 </script>

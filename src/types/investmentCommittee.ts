@@ -3,19 +3,16 @@ export type InvestmentCommitteeMember = {
   role: string
   image: string
   imageAlt: string
+  linkedinUrl?: string
+  profileUrl?: string
 }
 
 export type InvestmentCommitteeHeroContent = {
   eyebrow: string
   title: string
+  description: string
   image: string
   imageAlt: string
-}
-
-export type InvestmentCommitteeIntroContent = {
-  eyebrow: string
-  title: string
-  description: string
 }
 
 export type InvestmentCommitteeCTAContent = {

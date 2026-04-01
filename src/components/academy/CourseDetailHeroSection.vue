@@ -2,7 +2,6 @@
   <section
     class="relative overflow-hidden bg-slate-950 px-6 py-20 text-white md:px-12 lg:px-16 lg:py-24"
   >
-    <!-- Background -->
     <div class="absolute inset-0">
       <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-900" />
       <div
@@ -10,7 +9,6 @@
       />
     </div>
 
-    <!-- Glow -->
     <div class="pointer-events-none absolute inset-0">
       <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/5 blur-2xl" />
       <div class="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-white/5 blur-2xl" />
@@ -32,7 +30,7 @@
           {{ description }}
         </p>
 
-        <div class="mt-10 flex flex-col items-start gap-4 sm:flex-row">
+        <div class="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap">
           <RouterLink
             :to="applyRoute"
             class="inline-flex min-w-[200px] items-center justify-center rounded-full bg-teal-600 px-8 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 sm:text-base"
@@ -46,6 +44,16 @@
           >
             Enquire Now
           </RouterLink>
+
+          <a
+            v-if="brochureUrl"
+            :href="brochureUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-w-[200px] items-center justify-center rounded-full border border-teal-300/30 bg-teal-400/10 px-8 py-3.5 text-sm font-semibold text-teal-100 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-500 hover:text-slate-950 sm:text-base"
+          >
+            View Brochure
+          </a>
         </div>
       </div>
     </div>
@@ -61,5 +69,6 @@ defineProps<{
   description: string
   applyRoute: string
   enquireRoute: string
+  brochureUrl?: string
 }>()
 </script>

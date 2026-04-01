@@ -1,3 +1,6 @@
+import type { AcademyCategory } from '@/types/academy'
+import { academyCategories } from '@/data/academyCatalog'
+
 export type HeroSlide = {
   heading: string
   subtext: string
@@ -69,12 +72,7 @@ export type Stat = {
   icon: string
 }
 
-export type CourseOffering = {
-  title: string
-  duration: string
-  description: string
-  route: string
-}
+
 
 export const heroSlides: HeroSlide[] = [
   {
@@ -95,48 +93,9 @@ export const heroSlides: HeroSlide[] = [
   },
 ]
 
-export const impactCards: IconCard[] = [
-  {
-    title: 'Deep-Tech Domains',
-    description:
-      'Specializing in Computer Vision, Extended Reality, Generative AI, Speech & NLP, Blockchain, Cyber Security, Space Tech, and IoT innovations.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714a2.25 2.25 0 0 0 .659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21a48.309 48.309 0 0 1-8.135-1.587c-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>`,
-  },
-  {
-    title: 'Sector Expertise',
-    description:
-      'Serving Industry 4.0, Healthcare, Financial Services, Semiconductor, Agriculture, Mobility, and Digital Commerce sectors.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>`,
-  },
-  {
-    title: 'World-Class Infrastructure',
-    description:
-      'State-of-the-art labs, prototyping facilities, and testing environments to accelerate product development from concept to market.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" /></svg>`,
-  },
-  {
-    title: 'Mentorship Network',
-    description:
-      'Access to industry experts, successful entrepreneurs, and academic leaders who guide startups through their growth journey.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /></svg>`,
-  },
-  {
-    title: 'Funding Support',
-    description:
-      'Seed funding, grant facilitation, and investor connections to fuel startup growth at every stage from ideation to scale.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`,
-  },
-  {
-    title: 'Startup School Programs',
-    description:
-      'Comprehensive training programs covering business strategy, product development, GTM execution, and leadership skills.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg>`,
-  },
-]
-
 export const programs: Program[] = [
   {
-    title: 'Yuva Udyami Program',
+    title: 'Yuva Udyami Pre IncubationProgram',
     duration: '6–12 months',
     description:
       'A structured early-stage program for founders at idea, problem-validation, or prototype stage. Designed to help aspiring startups validate the problem, refine the solution, build an MVP roadmap, and prepare for incubation readiness.',
@@ -151,36 +110,20 @@ export const programs: Program[] = [
       'Pathway to incubation and funding opportunities',
     ],
   },
-  {
-    title: 'Udyami Resident Incubation',
+    {
+    title: 'Udyami Incubation Program',
     duration: '12–18 months',
     description:
       'Comprehensive support for startups at idea, PoC, or MVP stage. Get access to dedicated workspace, labs, mentorship, and seed funding opportunities.',
     detailsTo: '/programs/incubation',
-    applyTo: '/apply/resident-incubation',
+    applyTo: '/apply/incubation',
     features: [
       'Dedicated workspace at campus',
       'Access to research labs and equipment',
       'Technical mentorship from faculty',
       'Business development support',
-      'Seed funding up to ₹50 lakhs',
+      'Seed funding opportunities',
       'Industry networking events',
-    ],
-  },
-  {
-    title: 'Udyami Virtual Incubation',
-    duration: '6–12 months',
-    description:
-      'Remote support for startups and entrepreneurs who want to leverage our ecosystem without physical presence. Perfect for early-stage ventures across India.',
-    detailsTo: '/programs/incubation',
-    applyTo: '/apply/virtual-incubation',
-    features: [
-      'Remote mentorship sessions',
-      'Access to digital resources',
-      'Investor connect programs',
-      'Online Startup School',
-      'Alumni network access',
-      'Grant application support',
     ],
   },
 ]
@@ -212,40 +155,11 @@ export const governmentPrograms: GovernmentProgram[] = [
   },
 ]
 
-export const courses: CourseOffering[] = [
-  {
-    title: 'Online M.Tech Program',
-    duration: '2 Years',
-    description:
-      'A comprehensive online postgraduate program focused on deep-tech domains, applied AI, and industry-driven research aligned with real-world problems.',
-    route: '/courses/online-mtech',
-  },
-  {
-    title: 'Industry Exposure Track (IET)',
-    duration: '3 Months',
-    description:
-      'A short-term intensive program connecting students and professionals with real industry problems, tools, and workflows.',
-    route: '/courses/iet',
-  },
-  {
-    title: 'Faculty Development Program (FDP)',
-    duration: '2 Days',
-    description:
-      'Designed for faculty to upgrade teaching methodologies, research alignment, and industry-relevant skills in emerging technologies.',
-    route: '/courses/fdp',
-  },
-  {
-    title: '3-Day Workshops (3DW)',
-    duration: '2–3 Days',
-    description:
-      'Hands-on technical workshops focused on specific tools, domains, and emerging technologies for rapid skill development.',
-    route: '/courses/3dw',
-  },
-]
+export const courses: AcademyCategory[] = academyCategories
 
 export const services: Service[] = [
   {
-    title: 'Industry Research and Advisory',
+    title: 'Industry Research and Consulting',
     description:
       'Collaborative research, consulting, and strategic advisory support aligned with real industry challenges and innovation goals.',
     route: '/industry-research',

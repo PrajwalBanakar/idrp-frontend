@@ -1,27 +1,27 @@
 <template>
   <article
-    class="group flex h-full flex-col items-center rounded-3xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+    class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
   >
     <div
-      class="mb-5 h-60 w-60 overflow-hidden rounded-full shadow-lg ring-4 ring-gray-100 transition-all duration-300 group-hover:ring-teal-300"
+      class="mx-auto mb-5 h-40 w-40 overflow-hidden rounded-full bg-slate-100 shadow-md ring-4 ring-slate-100 transition-all duration-300 group-hover:ring-teal-200"
     >
       <img
-        v-if="showImage"
+        v-if="showImage && mentor.image"
         :src="mentor.image"
         :alt="mentor.imageAlt ?? mentor.name"
-        class="h-full w-full object-cover object-top"
+        class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
         @error="showImage = false"
       />
 
       <div
         v-else
-        class="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-100 to-cyan-50 text-5xl"
+        class="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-100 to-cyan-50 text-4xl font-bold text-teal-700"
       >
-        👤
+        {{ mentor.name.charAt(0) }}
       </div>
     </div>
 
-    <h3 class="text-lg font-bold text-gray-900">
+    <h3 class="text-lg font-bold tracking-tight text-slate-900">
       {{ mentor.name }}
     </h3>
 
@@ -31,37 +31,60 @@
 
     <p
       v-if="mentor.organization"
-      class="mt-2 text-sm text-gray-600"
+      class="mt-2 text-sm text-slate-500"
     >
       {{ mentor.organization }}
     </p>
 
-    <p
-      v-if="mentor.bio"
-      class="mt-4 line-clamp-4 text-sm leading-6 text-gray-600"
+    <div
+      v-if="hasActions"
+      class="mt-4 flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-wide"
     >
-      {{ mentor.bio }}
-    </p>
+      <a
+        v-if="hasProfile"
+        :href="mentor.profileUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-teal-600 transition hover:text-teal-700"
+      >
+        View Profile
+      </a>
 
-    <a
-      v-if="mentor.linkedin"
-      :href="mentor.linkedin"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="mt-5 inline-flex items-center gap-2 rounded-full border border-teal-200 px-4 py-2 text-sm font-medium text-teal-700 transition hover:border-teal-300 hover:bg-teal-50"
-    >
-      View LinkedIn
-    </a>
+      <span v-else class="invisible">View Profile</span>
+
+      <a
+        v-if="hasLinkedin"
+        :href="mentor.linkedin"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-teal-600 transition hover:text-teal-700"
+      >
+        View LinkedIn
+      </a>
+
+      <span v-else class="invisible">View LinkedIn</span>
+    </div>
   </article>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { Mentor } from '@/types/mentors'
 
-defineProps<{
+const props = defineProps<{
   mentor: Mentor
 }>()
 
-const showImage = ref(true)
+const showImage = ref(Boolean(props.mentor.image))
+
+watch(
+  () => props.mentor.image,
+  (newImage) => {
+    showImage.value = Boolean(newImage)
+  },
+)
+
+const hasLinkedin = computed(() => Boolean(props.mentor.linkedin?.trim()))
+const hasProfile = computed(() => Boolean(props.mentor.profileUrl?.trim()))
+const hasActions = computed(() => hasProfile.value || hasLinkedin.value)
 </script>

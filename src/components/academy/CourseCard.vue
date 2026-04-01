@@ -46,21 +46,33 @@
         </ul>
       </div>
 
-      <RouterLink
-        :to="course.route"
-        class="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700"
-      >
-        Explore Course
-      </RouterLink>
+      <div class="mt-8 flex items-center gap-4">
+        <a
+          v-if="course.brochureUrl"
+          :href="course.brochureUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-semibold text-slate-600 hover:text-teal-700"
+        >
+          View Brochure
+        </a>
+
+        <RouterLink
+          :to="course.route"
+          class="ml-auto inline-flex items-center justify-center rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700"
+        >
+          Explore Course
+        </RouterLink>
+      </div>
     </div>
   </article>
 </template>
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-import type { Course } from '@/types/courses'
+import type { CertificationCourse } from '@/types/academy'
 
 defineProps<{
-  course: Course
+  course: CertificationCourse
 }>()
 </script>

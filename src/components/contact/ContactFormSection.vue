@@ -7,7 +7,7 @@ const formConfig = computed(() => contactFormConfig)
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="h-full w-full">
     <GenericFormSection :config="formConfig" />
   </div>
 </template>

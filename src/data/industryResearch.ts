@@ -4,16 +4,16 @@ export const industryResearchPage: ServicePage = {
   slug: 'industry-research',
   hero: {
     eyebrow: 'Services',
-    title: 'Industry Research & Advisory',
+    title: 'Industry Research & Consulting',
     description:
       'Applied research, consulting, and innovation support for industries, startups, institutions, and technology teams.',
     image: '/industry-research-hero.jfif',
   },
   intro: {
     eyebrow: 'Research, Consulting & Collaboration',
-    title: 'Solving Real Industry Problems Through Applied Research and Advisory',
+    title: 'Solving Real Industry Problems Through Applied Research and Consulting',
     paragraphs: [
-      'At IDRP, Industry Research & Advisory connects technical depth, academic capability, and practical problem-solving to address real-world challenges.',
+      'At IDRP, Industry Research & Consulting connects technical depth, academic capability, and practical problem-solving to address real-world challenges.',
       'We work with industries, startups, institutions, and innovation teams to define problem statements, validate approaches, improve systems, and create scalable outcomes.',
     ],
   },
@@ -55,21 +55,21 @@ export const industryResearchPage: ServicePage = {
     },
   ],
   stats: [
-    { value: '40+', label: 'Industry Research & Advisory Engagements' },
+    { value: '40+', label: 'Industry Research & Consulting Engagements' },
     { value: '25+', label: 'Collaboration & Consulting Themes' },
     { value: '15+', label: 'Emerging Technology Focus Areas' },
     { value: '100+', label: 'Experts, Mentors & Innovation Enablers' },
   ],
   cta: {
     eyebrow: 'Collaborate With IDRP',
-    title: 'Start a Research or Advisory Discussion',
+    title: 'Start a Research or Consulting Discussion',
     description:
       'Share your challenge, research need, or collaboration idea and our team will connect with you.',
   },
   formOptions: [
     { label: 'Applied Technology Research', value: 'Applied Technology Research' },
     { label: 'Industry Problem Solving & Validation', value: 'Industry Problem Solving & Validation' },
-    { label: 'Strategy & Advisory Support', value: 'Strategy & Advisory Support' },
+    { label: 'Strategy & Consulting Support', value: 'Strategy & Consulting Support' },
     { label: 'Process Improvement & Performance Study', value: 'Process Improvement & Performance Study' },
     { label: 'Innovation / Product / Feasibility Support', value: 'Innovation / Product / Feasibility Support' },
     { label: 'AI / Data / Digital Transformation', value: 'AI / Data / Digital Transformation' },

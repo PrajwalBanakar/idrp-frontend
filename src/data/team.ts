@@ -1,7 +1,6 @@
 import type {
   TeamCTAContent,
   TeamHeroContent,
-  TeamIntroContent,
   TeamMember,
 } from '@/types/team'
 
@@ -12,55 +11,64 @@ export const teamHero: TeamHeroContent = {
   imageAlt: 'Our Team',
 }
 
-export const teamIntro: TeamIntroContent = {
-  eyebrow: 'The People Powering Innovation',
-  title: 'A Team Built to Support Founders, Research, and Ecosystem Growth',
-  description:
-    'Our team brings together academic leadership, operational strength, ecosystem building, and founder-focused support to help ideas move from research and experimentation to meaningful innovation and venture creation.',
-}
 
 export const teamMembers: TeamMember[] = [
   {
-    name: 'Darshana',
-    role: 'Team Member',
+    name: 'Dr. Deepak K T',
+    role: 'CEO, IDRP',
+    image: '/board-deepak.jfif',
+    imageAlt: 'Deepak',
+    linkedinUrl: 'https://www.linkedin.com/in/deepak-k-t-92270a9/',
+    profileUrl: '/Faculty%20Booklet.pdf#page=25',
+  },
+  {
+    name: 'Ms. Darshana Kasar',
+    role: 'Program Associate',
     image: '/team-darshana.jpeg',
     imageAlt: 'Darshana',
+    linkedinUrl: 'https://www.linkedin.com/in/ms-darshana-kasar-1a774b3ab/',
   },
   {
-    name: 'Lokesh',
-    role: 'Team Member',
+    name: 'Mr. Lokesh B N',
+    role: 'Program Associate',
     image: '/team-lokesh.jpeg',
     imageAlt: 'Lokesh',
+    linkedinUrl: 'https://www.linkedin.com/in/lokesh-b-n-4920b93ab/',
   },
   {
-    name: 'Neha',
-    role: 'Team Member',
+    name: 'Ms. Neha Revankar',
+    role: 'Program Associate',
     image: '/team-neha.jpeg',
     imageAlt: 'Neha',
+    linkedinUrl: 'http://linkedin.com/in/neha-revankar-6540062a1/',
   },
   {
-    name: 'Rakshata',
-    role: 'Team Member',
+    name: 'Ms. Rakshata Athani',
+    role: 'Incubation Manager',
     image: '/team-rakshata.jpeg',
     imageAlt: 'Rakshata',
+    linkedinUrl: 'https://www.linkedin.com/in/rakshata-athani-3595a1203/',
   },
   {
-    name: 'Ravi',
-    role: 'Team Member',
+    name: 'Mr. Ravi Dalavayi',
+    role: 'Technician',
     image: '/team-ravi.jpeg',
     imageAlt: 'Ravi',
+    linkedinUrl: 'https://www.linkedin.com/',
   },
   {
-    name: 'Reshma',
-    role: 'Team Member',
+    name: 'Ms. Reshma P',
+    role: 'Program Associate',
     image: '/team-reshma.jpeg',
     imageAlt: 'Reshma',
+    linkedinUrl: 'https://www.linkedin.com/',
   },
   {
-    name: 'Sunita',
-    role: 'Team Member',
+    name: 'Ms. Sunita Hebli',
+    role: 'Program Associate',
     image: '/team-sunita.jpeg',
     imageAlt: 'Sunita',
+    linkedinUrl: 'https://www.linkedin.com/',
   },
 ]
 
@@ -72,5 +80,5 @@ export const teamCTA: TeamCTAContent = {
   primaryActionLabel: 'Contact Us',
   primaryActionTo: '/contact',
   secondaryActionLabel: 'Apply Now',
-  secondaryActionTo: '/apply/resident-incubation',
+  secondaryActionTo: '/apply/incubation',
 }

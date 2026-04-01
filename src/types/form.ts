@@ -8,6 +8,7 @@ export type FormType =
   | 'startup-matchmaking'
   | 'investor-matchmaking'
   | 'custom'
+  | 'workshop-application'
 
 export type FormFieldType =
   | 'text'

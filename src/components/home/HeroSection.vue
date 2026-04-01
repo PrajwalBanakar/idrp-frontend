@@ -15,13 +15,6 @@
       >
         <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div class="max-w-3xl">
-            <div
-              class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-100 backdrop-blur-sm sm:text-xs"
-            >
-              <span class="h-2 w-2 rounded-full bg-emerald-300" />
-              IIIT Dharwad Research Park
-            </div>
-
             <h1 class="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
               {{ slide.heading }}
             </h1>

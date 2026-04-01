@@ -1,12 +1,12 @@
 import type { FormConfig } from '@/types/form'
-import type { Course } from '@/types/courses'
+import type { CertificationCourse } from '@/types/academy'
 
-export function createCourseApplicationFormConfig(course: Course): FormConfig {
+export function createCourseApplicationFormConfig(course: CertificationCourse): FormConfig {
   return {
     id: 'course-application-form',
     type: 'course-application',
     title: `Apply for ${course.title}`,
-    description: 'Fill in your details to apply for this course.',
+    description: 'Fill in your details to apply for this certification course.',
     submitLabel: 'Submit Application',
     successMessage:
       'Thank you for applying. Our team will review your submission and get in touch with you shortly.',
@@ -96,7 +96,7 @@ export function createCourseApplicationFormConfig(course: Course): FormConfig {
         fields: [
           {
             name: 'motivation',
-            label: 'Why do you want to join this course?',
+            label: 'Why do you want to join this certification course?',
             type: 'textarea',
             placeholder: 'Tell us briefly why you are interested in this course',
             required: true,

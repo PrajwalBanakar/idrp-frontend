@@ -1,5 +1,5 @@
 <template>
-  <aside class="flex w-full flex-col gap-8">
+  <aside class="flex h-full w-full flex-col gap-8">
     <div
       class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
     >

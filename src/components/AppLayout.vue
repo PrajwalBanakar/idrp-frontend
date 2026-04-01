@@ -247,9 +247,9 @@
           <h4 class="footer-title">Quick Actions</h4>
           <nav class="footer-links">
             <RouterLink
-              to="/apply/resident-incubation"
+              to="/apply/incubation"
               class="footer-link"
-              :class="{ 'footer-link--active': isExactNavMatch('/apply/resident-incubation') }"
+              :class="{ 'footer-link--active': isExactNavMatch('/apply/incubation') }"
             >
               Apply Now
             </RouterLink>
@@ -327,14 +327,7 @@ const navSections: NavSection[] = [
     items: [
       { label: 'About IDRP', to: '/about' },
       { label: 'Our Team', to: '/about/team' },
-      {
-        label: 'Mentors',
-        children: [
-          { label: 'Business Mentors', to: '/about/mentors?tab=business' },
-          { label: 'Technology Mentors', to: '/about/mentors?tab=technology' },
-          { label: 'Faculty Mentors', to: '/about/mentors?tab=faculty' },
-        ],
-      },
+{ label: 'Mentors', to: '/about/mentors' },
       { label: 'Investment Committee', to: '/about/investment-committee' },
     ],
   },
@@ -342,13 +335,13 @@ const navSections: NavSection[] = [
     key: 'programs',
     label: 'Programs',
     items: [
-      {
-        label: 'Incubation Programs',
-        children: [
-          { label: 'Pre Incubation', to: '/programs/pre-incubation' },
-          { label: 'Incubation', to: '/programs/incubation' },
-        ],
-      },
+{
+  label: 'Incubation Programs',
+  children: [
+    { label: 'Yuva Udyami Pre Incubation Program', to: '/programs/pre-incubation' },
+    { label: 'Udyami Incubation Program', to: '/programs/incubation' },
+  ],
+},
       {
         label: 'Government Initiatives',
         children: [
@@ -361,7 +354,7 @@ const navSections: NavSection[] = [
       {
         label: 'Services',
         children: [
-          { label: 'Industry Research', to: '/ecosystem/industry-research' },
+          { label: 'Industry Research and Consulting', to: '/ecosystem/industry-research' },
           { label: 'Technical Education Academy', to: '/ecosystem/technical-education-academy' },
         ],
       },

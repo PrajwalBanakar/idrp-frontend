@@ -50,6 +50,9 @@ export const ROUTE_NAMES = {
   NEWSLETTER_DETAIL: 'newsletter-detail',
   COURSE_DETAIL: 'course-detail',
   COURSE_APPLY: 'course-apply',
+  CERTIFICATION_COURSES: 'certification-courses',
+  WORKSHOPS: 'workshops',
+  WORKSHOP_APPLY: 'workshop-apply',
 } as const
 
 type AppRouteName = (typeof ROUTE_NAMES)[keyof typeof ROUTE_NAMES]
@@ -176,18 +179,39 @@ const courseRoutes: RouteRecordRaw[] = [
   ),
 
   createPageRoute(
-    '/courses/:slug',
+    '/courses/certification',
+    ROUTE_NAMES.CERTIFICATION_COURSES,
+    'CertificationCoursesView',
+    'Certification Courses',
+  ),
+
+  createPageRoute(
+    '/courses/certification/:slug',
     ROUTE_NAMES.COURSE_DETAIL,
     'CourseDetailView',
     'Course Detail',
   ),
 
   createPageRoute(
-  '/courses/:slug/apply',
-  ROUTE_NAMES.COURSE_APPLY,
-  'CourseApplyView',
-  'Apply',
-),
+    '/courses/certification/:slug/apply',
+    ROUTE_NAMES.COURSE_APPLY,
+    'CourseApplyView',
+    'Apply for Certification Course',
+  ),
+
+  createPageRoute(
+    '/courses/workshops',
+    ROUTE_NAMES.WORKSHOPS,
+    'WorkshopsView',
+    'Workshops',
+  ),
+
+  createPageRoute(
+    '/courses/workshops/:slug/apply',
+    ROUTE_NAMES.WORKSHOP_APPLY,
+    'WorkshopApplyView',
+    'Apply for Workshop',
+  ),
 ]
 
 const ecosystemRoutes: RouteRecordRaw[] = [
@@ -327,6 +351,25 @@ const legacyRedirects: RouteRecordRaw[] = [
   createRedirectByName('/matchmaking/investor', ROUTE_NAMES.INVESTOR_MATCHMAKING),
 
   createRedirectByName('/careers', ROUTE_NAMES.HOME),
+
+  createRedirectByName('/courses/online-mtech', ROUTE_NAMES.CERTIFICATION_COURSES),
+  createRedirectByName('/courses/fdp', ROUTE_NAMES.WORKSHOPS),
+  createRedirectByName('/courses/3dw', ROUTE_NAMES.WORKSHOPS),
+    {
+    path: '/courses/iet',
+    redirect: {
+      name: ROUTE_NAMES.COURSE_DETAIL,
+      params: { slug: 'iet' },
+    },
+  },
+
+  {
+    path: '/courses/iet/apply',
+    redirect: {
+      name: ROUTE_NAMES.COURSE_APPLY,
+      params: { slug: 'iet' },
+    },
+  },
 ]
 
 const routes: RouteRecordRaw[] = [

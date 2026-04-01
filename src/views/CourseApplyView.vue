@@ -23,11 +23,11 @@ import CourseApplyFormSection from '@/components/academy/CourseApplyFormSection.
 import CourseApplyHeroSection from '@/components/academy/CourseApplyHeroSection.vue'
 import CourseApplyNotFound from '@/components/academy/CourseApplyNotFound.vue'
 
-import { getCourseApplyPageBySlug } from '@/data/courses'
+import { getCertificationCourseApplyPageBySlug } from '@/data/academyCatalog'
 
 const route = useRoute()
 
 const applyPage = computed(() =>
-  getCourseApplyPageBySlug(String(route.params.slug ?? '')),
+  getCertificationCourseApplyPageBySlug(String(route.params.slug ?? '')),
 )
 </script>

@@ -3,7 +3,7 @@ import type { ProgramPageData } from '@/types/program'
 export const preIncubationPage: ProgramPageData = {
   hero: {
     eyebrow: 'Pre-Incubation',
-    title: 'Yuva Udyami',
+    title: 'Yuva Udyami Pre Incubation Program',
     subtitle:
       'A structured pre-incubation program that helps early innovators validate ideas, build confidence, and take their first steps toward entrepreneurship.',
     image: '/incubation-hero.jfif',
@@ -14,7 +14,7 @@ export const preIncubationPage: ProgramPageData = {
     eyebrow: 'Our Approach',
     title: 'Helping Ideas Take Shape Before They Become Startups',
     paragraphs: [
-      'Yuva Udyami is designed for students, innovators, and aspiring founders who are at the earliest stage of their entrepreneurial journey.',
+      'The Yuva Udyami Pre Incubation Program is designed for students, innovators, and aspiring founders who are at the earliest stage of their entrepreneurial journey.',
       'The program focuses on helping participants discover meaningful problems, shape ideas into structured opportunities, and gain the exposure needed to think like founders.',
       'Rather than pushing teams too early into venture building, the pre-incubation phase creates a guided environment for exploration, validation, mentorship, and capability building.',
     ],
@@ -23,7 +23,7 @@ export const preIncubationPage: ProgramPageData = {
   },
 
   value: {
-    eyebrow: 'Why Yuva Udyami',
+    eyebrow: 'Why Yuva Udyami Pre Incubation Program',
     title: 'A Strong Foundation for First-Time Founders',
     items: [
       {
@@ -53,7 +53,7 @@ export const preIncubationPage: ProgramPageData = {
 
   tracks: {
     eyebrow: 'Program',
-    title: 'Yuva Udyami',
+    title: 'Yuva Udyami Pre Incubation Program',
     description:
       'A single structured pre-incubation program designed to support idea discovery, early validation, and entrepreneurial readiness.',
   },
@@ -61,10 +61,10 @@ export const preIncubationPage: ProgramPageData = {
   programs: [
     {
       id: 'yuva-udyami',
-      title: 'Yuva Udyami',
+      title: 'Yuva Udyami Pre Incubation Program',
       subtitle: 'For idea discovery, early validation, and founder readiness',
       description:
-        'Yuva Udyami is a guided pre-incubation program for students, innovators, and aspiring founders who want to explore opportunities, validate early ideas, and build the confidence needed to move toward entrepreneurship.',
+        'The Yuva Udyami Pre Incubation Program is a guided pre-incubation program for students, innovators, and aspiring founders who want to explore opportunities, validate early ideas, and build the confidence needed to move toward entrepreneurship.',
       duration: '6–12 weeks',
       mode: 'Hybrid',
       applyTo: '/apply/pre-incubation',
