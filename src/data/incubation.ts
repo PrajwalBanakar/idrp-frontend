@@ -18,7 +18,7 @@ export const incubationPage: ProgramPageData = {
       'We work closely with founders to refine their product, validate their market, and build a sustainable business model.',
       'The program combines mentorship, ecosystem access, and institutional support to help startups navigate early-stage challenges and prepare for growth.',
     ],
-    image: '/incubation-intro.jfif',
+    image: '/udyami/udyami-intro.jpeg',
     imageAlt: 'Incubation Program',
   },
 
@@ -47,7 +47,7 @@ export const incubationPage: ProgramPageData = {
           'Guidance for scaling, fundraising, and long-term venture strategy.',
       },
     ],
-    image: '/incubation-value.jfif',
+    image: '/udyami/udyami-value.jpeg',
     imageAlt: 'Incubation Value',
   },
 

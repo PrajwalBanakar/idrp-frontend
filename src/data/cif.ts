@@ -18,7 +18,7 @@ export const cifPage = {
       'By creating a common platform for equipment usage and experimentation, CIF improves efficiency in product development and research.',
       'It serves as a strong institutional enabler for deep-tech work, interdisciplinary projects, and startup validation.',
     ],
-    image: '/cif-intro.jfif',
+    image: '/cif/cif-intro.jpeg',
     imageAlt: 'CIF Overview',
   },
 
@@ -47,7 +47,7 @@ export const cifPage = {
           'Enables collaboration across startups, academia, and research teams.',
       },
     ],
-    image: '/cif-value.jfif',
+    image: '/cif/cif-value.jpeg',
     imageAlt: 'CIF Value',
   },
 

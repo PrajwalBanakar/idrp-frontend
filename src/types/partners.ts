@@ -12,6 +12,7 @@ export type Partner = {
   name: string
   abbr: string
   color: string
+  category: PartnerKey
   description?: string
   logo?: string
   websiteUrl?: string

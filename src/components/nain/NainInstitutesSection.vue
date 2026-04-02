@@ -20,10 +20,7 @@
 
       <NainFilters
         :search-query="searchQuery"
-        :selected-year="selectedYear"
-        :available-years="availableYears"
         @update:search-query="$emit('update:searchQuery', $event)"
-        @update:selected-year="$emit('update:selectedYear', $event)"
       />
     </div>
 
@@ -33,7 +30,6 @@
         :key="institute.id"
         :institute="institute"
         :expanded="expandedInstituteId === institute.id"
-        :selected-year="selectedYear"
         @toggle="$emit('toggleInstitute', $event)"
       />
 
@@ -42,7 +38,7 @@
         class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 px-6 py-14 text-center"
       >
         <h3 class="text-xl font-bold text-slate-900">No matching institutes found</h3>
-        <p class="mt-2 text-sm text-slate-600">Try changing the search text or year filter.</p>
+        <p class="mt-2 text-sm text-slate-600">Try changing the search text.</p>
       </div>
     </div>
   </section>
@@ -58,14 +54,11 @@ defineProps<{
   section: NAINSectionIntro
   institutes: NAINInstitute[]
   searchQuery: string
-  selectedYear: string
-  availableYears: string[]
   expandedInstituteId: string | null
 }>()
 
 defineEmits<{
   (e: 'update:searchQuery', value: string): void
-  (e: 'update:selectedYear', value: string): void
   (e: 'toggleInstitute', id: string): void
 }>()
 </script>

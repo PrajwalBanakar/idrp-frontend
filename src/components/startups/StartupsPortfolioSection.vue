@@ -1,45 +1,72 @@
 <template>
-  <section class="bg-gray-50 px-6 py-16 md:px-16">
+  <section class="bg-slate-50 px-6 py-16 md:px-12 lg:px-16 lg:py-20">
     <div class="mx-auto max-w-7xl">
-      <div class="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-        <div class="flex flex-wrap gap-3">
-          <button
-            v-for="tab in startupTabs"
-            :key="tab.key"
-            type="button"
-            class="rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200"
-            :class="
-              activeTab === tab.key
-                ? 'bg-teal-700 text-white shadow-md'
-                : 'border border-gray-200 bg-white text-gray-600 hover:border-teal-400 hover:text-teal-700'
-            "
-            @click="activeTab = tab.key"
-          >
-            {{ tab.label }}
-            <span class="ml-1.5 text-xs font-bold opacity-70">
-              ({{ getTabCount(tab.key) }})
-            </span>
-          </button>
+      <div class="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-2xl">
+          <span class="text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
+            Portfolio Directory
+          </span>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Explore Our Startup Portfolio
+          </h2>
+          <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
+            Browse ventures across incubation stages, search by startup or founder, and explore
+            investor-facing profiles from the IDRP ecosystem.
+          </p>
         </div>
 
-        <div class="flex flex-col gap-3 sm:flex-row">
-          <div class="relative">
-            <input
-              v-model.trim="searchQuery"
-              type="text"
-              placeholder="Search startups, sector, founder..."
-              class="w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-700 outline-none transition focus:border-teal-400 focus:ring-2 focus:ring-teal-100 sm:w-80"
-            />
+        <div class="rounded-3xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
+          <p class="text-sm font-medium text-slate-500">Showing</p>
+          <p class="mt-1 text-2xl font-bold text-slate-900">
+            {{ visibleStartups.length }}
+          </p>
+          <p class="text-sm text-slate-500">
+            startup{{ visibleStartups.length !== 1 ? 's' : '' }}
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-8 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+        <div class="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+          <div class="flex flex-wrap gap-3">
+            <button
+              v-for="tab in startupTabs"
+              :key="tab.key"
+              type="button"
+              class="rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200"
+              :class="
+                activeTab === tab.key
+                  ? 'bg-teal-700 text-white shadow-md'
+                  : 'border border-slate-200 bg-white text-slate-600 hover:border-teal-400 hover:text-teal-700'
+              "
+              @click="activeTab = tab.key"
+            >
+              {{ tab.label }}
+              <span class="ml-1.5 text-xs font-bold opacity-75">
+                ({{ getTabCount(tab.key) }})
+              </span>
+            </button>
           </div>
 
-          <select
-            v-model="sortBy"
-            class="rounded-2xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-700 outline-none transition focus:border-teal-400 focus:ring-2 focus:ring-teal-100"
-          >
-            <option value="name-asc">Sort: A–Z</option>
-            <option value="name-desc">Sort: Z–A</option>
-            <option value="category">Sort: Category</option>
-          </select>
+          <div class="flex w-full flex-col gap-3 sm:flex-row xl:w-auto">
+            <div class="relative">
+              <input
+                v-model.trim="searchQuery"
+                type="text"
+                placeholder="Search startup, sector, founder..."
+                class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-teal-400 focus:ring-2 focus:ring-teal-100 sm:w-80"
+              />
+            </div>
+
+            <select
+              v-model="sortBy"
+              class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-teal-400 focus:ring-2 focus:ring-teal-100 sm:min-w-[180px]"
+            >
+              <option value="name-asc">Sort: A–Z</option>
+              <option value="name-desc">Sort: Z–A</option>
+              <option value="category">Sort: Category</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -53,22 +80,37 @@
         />
       </div>
 
-      <div v-else class="py-16 text-center text-gray-400">
-        <p class="mb-4 text-4xl">🚀</p>
-        <p class="font-semibold text-gray-500">No startups match your filters.</p>
+      <div
+        v-else
+        class="rounded-3xl border border-dashed border-slate-300 bg-white px-6 py-16 text-center shadow-sm"
+      >
+        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-slate-100 text-3xl">
+          🚀
+        </div>
+        <h3 class="mt-5 text-xl font-semibold text-slate-900">
+          No startups match your filters
+        </h3>
+        <p class="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-500 sm:text-base">
+          Try changing the search term, selecting another category, or switching the sort option to
+          discover more startups from the portfolio.
+        </p>
+        <button
+          type="button"
+          class="mt-6 inline-flex rounded-full bg-teal-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-800"
+          @click="resetFilters"
+        >
+          Reset Filters
+        </button>
       </div>
-
-      <p class="mt-8 text-center text-sm text-gray-400">
-        Showing {{ visibleStartups.length }} startup{{ visibleStartups.length !== 1 ? 's' : '' }}
-      </p>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import StartupCard from '@/components/startups/StartupCard.vue'
-import { startupTabs, type Startup, type TabKey } from '@/data/startups'
+import { startupTabs } from '@/data/startups'
+import type { Startup, TabKey } from '@/types/startups'
 
 type SortOption = 'name-asc' | 'name-desc' | 'category'
 
@@ -93,14 +135,27 @@ const filteredStartups = computed(() => {
 
   return base.filter((startup) => {
     const founderText = startup.founders
-      .map((founder) => `${founder.name} ${founder.role}`)
+      .map((founder) => `${founder.name} ${founder.role} ${founder.email} ${founder.phone}`)
       .join(' ')
       .toLowerCase()
+
+    const mentorText = startup.techFacultyMentors
+      ?.map((mentor) => `${mentor.name} ${mentor.email}`)
+      .join(' ')
+      .toLowerCase() ?? ''
+
+    const teamText = startup.teamMembers
+      ?.map((member) => `${member.name} ${member.email ?? ''} ${member.phone ?? ''}`)
+      .join(' ')
+      .toLowerCase() ?? ''
 
     return (
       startup.name.toLowerCase().includes(query) ||
       startup.sector.toLowerCase().includes(query) ||
-      founderText.includes(query)
+      startup.brief.toLowerCase().includes(query) ||
+      founderText.includes(query) ||
+      mentorText.includes(query) ||
+      teamText.includes(query)
     )
   })
 })
@@ -120,6 +175,7 @@ const visibleStartups = computed(() => {
     if (a.category === b.category) {
       return a.name.localeCompare(b.name)
     }
+
     return a.category.localeCompare(b.category)
   })
 })
@@ -132,4 +188,15 @@ function getTabCount(key: TabKey) {
   if (key === 'all') return props.startups.length
   return props.startups.filter((startup) => startup.category === key).length
 }
+
+function resetFilters() {
+  activeTab.value = 'all'
+  searchQuery.value = ''
+  sortBy.value = 'name-asc'
+  expandedStartupId.value = null
+}
+
+watch([activeTab, searchQuery, sortBy], () => {
+  expandedStartupId.value = null
+})
 </script>

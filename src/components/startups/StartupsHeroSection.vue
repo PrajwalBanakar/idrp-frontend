@@ -1,23 +1,32 @@
 <template>
-  <section class="relative h-[50vh] min-h-[340px] overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/80 to-teal-700/30" />
-    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+  <section class="relative overflow-hidden">
+    <div class="relative h-[52vh] min-h-[360px]">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-teal-950/80 to-cyan-900/35"
+      />
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(45,212,191,0.16),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(34,211,238,0.12),_transparent_24%)]"
+      />
+      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
 
-    <div class="relative z-10 flex h-full max-w-3xl flex-col justify-center px-10 md:px-20">
-      <div class="mb-4 flex items-center gap-3">
-        <div class="h-8 w-1 rounded-full bg-teal-400" />
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-300">
-          {{ eyebrow }}
-        </span>
+      <div class="relative z-10 flex h-full items-center px-6 md:px-12 lg:px-16">
+        <div class="max-w-3xl">
+          <div class="mb-5 flex items-center gap-3">
+            <div class="h-8 w-1 rounded-full bg-teal-400" />
+            <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-300">
+              {{ eyebrow }}
+            </span>
+          </div>
+
+          <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            {{ title }}
+          </h1>
+
+          <p class="mt-5 max-w-2xl text-sm leading-7 text-slate-100 sm:text-base md:text-lg">
+            {{ description }}
+          </p>
+        </div>
       </div>
-
-      <h1 class="mb-4 text-5xl font-extrabold leading-tight text-white md:text-6xl">
-        {{ title }}
-      </h1>
-
-      <p class="max-w-2xl text-sm leading-relaxed text-teal-50 md:text-base">
-        {{ description }}
-      </p>
     </div>
   </section>
 </template>
@@ -44,4 +53,8 @@ withDefaults(
 )
 
 const showHeroImage = ref(true)
+
+function handleImageError() {
+  showHeroImage.value = false
+}
 </script>

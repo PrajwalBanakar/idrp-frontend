@@ -39,7 +39,7 @@ const showImage = ref(true)
 
       <div class="lg:w-1/2">
         <div
-          class="relative h-[420px] overflow-hidden rounded-3xl shadow-2xl"
+          class="relative flex h-[420px] items-center justify-center overflow-hidden rounded-3xl bg-slate-50 shadow-2xl"
           :class="{
             'bg-gradient-to-br from-teal-100 via-cyan-50 to-white': !showImage,
           }"
@@ -48,13 +48,11 @@ const showImage = ref(true)
             v-if="showImage && props.image"
             :src="props.image"
             :alt="props.imageAlt"
-            class="h-full w-full object-cover"
+            class="h-full w-full object-contain"
             @error="showImage = false"
           />
 
-          <div
-            class="pointer-events-none absolute bottom-0 right-0 h-32 w-32 rounded-tl-3xl bg-teal-600/20"
-          />
+
         </div>
       </div>
     </div>

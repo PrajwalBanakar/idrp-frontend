@@ -1,38 +1,36 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { NAINInstitute, NAINYearGroup } from '@/types/nain'
+import { ref, watch } from 'vue'
+import type { NAINInstitute } from '@/types/nain'
 
 type Props = {
   institute: NAINInstitute
   expanded: boolean
-  selectedYear?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  selectedYear: 'all',
-})
+const props = defineProps<Props>()
 
-const emit = defineEmits<{
+defineEmits<{
   (e: 'toggle', instituteId: string): void
 }>()
 
-const projectImageVisibility = ref<Record<string, boolean>>({})
+const expandedYear = ref<string | null>(null)
+const showInstituteLogo = ref(true)
 
-function hideProjectImage(projectId: string) {
-  projectImageVisibility.value[projectId] = false
+watch(
+  () => props.expanded,
+  (isExpanded) => {
+    if (!isExpanded) {
+      expandedYear.value = null
+    }
+  },
+)
+
+function toggleYear(year: string) {
+  expandedYear.value = expandedYear.value === year ? null : year
 }
 
-function isProjectImageVisible(projectId: string) {
-  return projectImageVisibility.value[projectId] ?? true
-}
-
-function getVisibleYears(years: NAINYearGroup[]) {
-  if (props.selectedYear === 'all') return years
-  return years.filter((year) => year.year === props.selectedYear)
-}
-
-function getInstituteProjectCount() {
-  return props.institute.years.reduce((sum, year) => sum + year.projects.length, 0)
+function getInstituteProjectCount(institute: NAINInstitute) {
+  return institute.years.reduce((sum, year) => sum + year.projects.length, 0)
 }
 </script>
 
@@ -40,22 +38,42 @@ function getInstituteProjectCount() {
   <article class="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-sm">
     <button
       type="button"
-      class="flex w-full flex-col gap-4 px-6 py-6 text-left transition hover:bg-slate-50 md:flex-row md:items-center md:justify-between"
+      class="flex w-full flex-col gap-5 px-6 py-6 text-left transition hover:bg-slate-50 md:flex-row md:items-center md:justify-between"
       @click="$emit('toggle', institute.id)"
     >
-      <div>
-        <div class="flex flex-wrap items-center gap-3">
+      <div class="flex items-start gap-4">
+        <div
+          class="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white"
+        >
+          <img
+            v-if="institute.logo && showInstituteLogo"
+            :src="institute.logo"
+            :alt="institute.name"
+            class="h-full w-full object-contain p-2"
+            @error="showInstituteLogo = false"
+          />
+
+          <div
+            v-else
+            class="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-50 to-cyan-50 text-lg font-bold text-teal-700"
+          >
+            {{ institute.name.charAt(0) }}
+          </div>
+        </div>
+
+        <div>
           <h3 class="text-2xl font-bold text-slate-900">
             {{ institute.name }}
           </h3>
-          <span class="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
-            {{ institute.location }}
-          </span>
-        </div>
 
-        <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-          {{ institute.description }}
-        </p>
+          <p class="mt-1 text-sm font-medium text-slate-500">
+            {{ institute.city }}, {{ institute.state }}
+          </p>
+
+          <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+            {{ institute.description }}
+          </p>
+        </div>
       </div>
 
       <div class="flex items-center gap-4">
@@ -64,7 +82,7 @@ function getInstituteProjectCount() {
             Projects
           </p>
           <p class="text-lg font-bold text-slate-900">
-            {{ getInstituteProjectCount() }}
+            {{ getInstituteProjectCount(institute) }}
           </p>
         </div>
 
@@ -78,47 +96,71 @@ function getInstituteProjectCount() {
 
     <div
       v-if="expanded"
-      class="border-t border-slate-200 bg-slate-50/60 px-6 py-6"
+      class="border-t border-slate-200 bg-slate-50/70 px-6 py-6"
     >
-      <div class="space-y-8">
-        <section
-          v-for="yearBlock in getVisibleYears(institute.years)"
+      <div class="space-y-5">
+        <article
+          v-for="yearBlock in institute.years"
           :key="yearBlock.year"
+          class="overflow-hidden rounded-3xl border border-slate-200 bg-white"
         >
-          <div class="mb-4 flex items-center justify-between">
-            <h4 class="text-xl font-bold text-slate-900">
-              {{ yearBlock.year }}
-            </h4>
+          <button
+            type="button"
+            class="flex w-full items-center justify-between px-5 py-4 text-left transition hover:bg-slate-50"
+            @click="toggleYear(yearBlock.year)"
+          >
+            <div>
+              <h4 class="text-lg font-bold text-slate-900">
+                {{ yearBlock.year }}
+              </h4>
+              <p class="mt-1 text-sm text-slate-500">
+                {{ yearBlock.projects.length }} project{{ yearBlock.projects.length > 1 ? 's' : '' }}
+              </p>
+            </div>
 
-            <span class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-600 shadow-sm">
-              {{ yearBlock.projects.length }} Projects
-            </span>
-          </div>
+            <div class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600">
+              <span class="text-lg leading-none">
+                {{ expandedYear === yearBlock.year ? '−' : '+' }}
+              </span>
+            </div>
+          </button>
 
-          <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            <article
-              v-for="project in yearBlock.projects"
-              :key="project.id"
-              class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
-            >
-              <div class="h-48 overflow-hidden bg-slate-100">
-                <img
-                  v-if="project.image && isProjectImageVisible(project.id)"
-                  :src="project.image"
-                  :alt="project.title"
-                  class="h-full w-full object-cover transition duration-300 hover:scale-[1.03]"
-                  @error="hideProjectImage(project.id)"
-                />
+          <div
+            v-if="expandedYear === yearBlock.year"
+            class="border-t border-slate-200 px-5 py-5"
+          >
+            <div class="mb-5 rounded-3xl border border-teal-100 bg-teal-50 p-5">
+              <h5 class="text-base font-bold text-slate-900">
+                Investigator Details
+              </h5>
 
-                <div
-                  v-else
-                  class="flex h-full items-center justify-center text-sm font-semibold text-slate-400"
-                >
-                  Project Image
+              <div class="mt-4 grid gap-4 md:grid-cols-2">
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+                    Principal Investigator
+                  </p>
+                  <p class="mt-1 text-sm font-medium text-slate-800">
+                    {{ yearBlock.principalInvestigator }}
+                  </p>
+                </div>
+
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+                    Co-Principal Investigator
+                  </p>
+                  <p class="mt-1 text-sm font-medium text-slate-800">
+                    {{ yearBlock.coPrincipalInvestigator }}
+                  </p>
                 </div>
               </div>
+            </div>
 
-              <div class="p-5">
+            <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              <article
+                v-for="project in yearBlock.projects"
+                :key="project.id"
+                class="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm"
+              >
                 <h5 class="text-lg font-bold leading-6 text-slate-900">
                   {{ project.title }}
                 </h5>
@@ -129,15 +171,47 @@ function getInstituteProjectCount() {
 
                 <div class="mt-4 space-y-3 text-sm text-slate-700">
                   <div>
-                    <p class="font-semibold text-slate-900">Faculty Guide</p>
-                    <p>{{ project.facultyGuide }}</p>
+                    <p class="font-semibold text-slate-900">IIIT Faculty Guide</p>
+                    <p>{{ project.iiitFacultyGuide }}</p>
+                  </div>
+
+                  <div>
+                    <p class="font-semibold text-slate-900">NAIN Co-ordinator</p>
+                    <p>{{ project.nainCoordinator }}</p>
+                  </div>
+
+                  <div>
+                    <p class="font-semibold text-slate-900">DIA</p>
+                    <p>{{ project.dia }}</p>
+                  </div>
+
+                  <div>
+                    <p class="font-semibold text-slate-900">MIS Executive</p>
+                    <ul class="mt-1 space-y-1 text-slate-600">
+                      <li
+                        v-for="member in project.misExecutives"
+                        :key="member"
+                      >
+                        • {{ member }}
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p class="font-semibold text-slate-900">Tech Mentor</p>
+                    <p>{{ project.techMentor }}</p>
+                  </div>
+
+                  <div>
+                    <p class="font-semibold text-slate-900">Program Associate</p>
+                    <p>{{ project.programAssociate }}</p>
                   </div>
 
                   <div>
                     <p class="font-semibold text-slate-900">Student Members</p>
                     <ul class="mt-1 space-y-1 text-slate-600">
                       <li
-                        v-for="member in project.students"
+                        v-for="member in project.studentMembers"
                         :key="member"
                       >
                         • {{ member }}
@@ -146,34 +220,20 @@ function getInstituteProjectCount() {
                   </div>
                 </div>
 
-                <div
-                  v-if="project.link || project.linkedin"
-                  class="mt-5 flex flex-wrap gap-2"
-                >
+                <div v-if="project.projectLink" class="mt-5">
                   <a
-                    v-if="project.link"
-                    :href="project.link"
+                    :href="project.projectLink"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50"
+                    class="inline-flex rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-xs font-semibold text-teal-700 transition hover:bg-teal-100"
                   >
-                    Open Link
-                  </a>
-
-                  <a
-                    v-if="project.linkedin"
-                    :href="project.linkedin"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-xs font-semibold text-teal-700 transition hover:bg-teal-100"
-                  >
-                    LinkedIn
+                    View Project
                   </a>
                 </div>
-              </div>
-            </article>
+              </article>
+            </div>
           </div>
-        </section>
+        </article>
       </div>
     </div>
   </article>

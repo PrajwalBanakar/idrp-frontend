@@ -3,14 +3,14 @@
     <div class="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
       <div class="mx-auto mb-12 max-w-3xl text-center lg:mb-14">
         <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">
-          Founder Voices
+          Startup Voices
         </span>
         <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
           Success Stories
         </h2>
         <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-          Stories from founders and innovators shaped through mentorship, collaboration, and
-          ecosystem support.
+          Stories from startups supported through mentorship, validation, technical guidance, and
+          ecosystem access at IDRP.
         </p>
       </div>
     </div>
@@ -49,10 +49,13 @@
 
             <div class="min-w-0">
               <p class="truncate text-sm font-semibold text-slate-900 sm:text-base">
-                {{ story.name }}
+                {{ story.company }}
               </p>
-              <p class="truncate text-xs text-slate-500 sm:text-sm">
-                {{ story.role }} · {{ story.company }}
+              <p
+                v-if="story.tagline"
+                class="truncate text-xs text-slate-500 sm:text-sm"
+              >
+                {{ story.tagline }}
               </p>
             </div>
           </div>
@@ -85,10 +88,13 @@
 
             <div class="min-w-0">
               <p class="truncate text-sm font-semibold text-slate-900 sm:text-base">
-                {{ story.name }}
+                {{ story.company }}
               </p>
-              <p class="truncate text-xs text-slate-500 sm:text-sm">
-                {{ story.role }} · {{ story.company }}
+              <p
+                v-if="story.tagline"
+                class="truncate text-xs text-slate-500 sm:text-sm"
+              >
+                {{ story.tagline }}
               </p>
             </div>
           </div>
@@ -106,8 +112,14 @@ const props = defineProps<{
   successStories: Story[]
 }>()
 
-const duplicatedStories = computed(() => [...props.successStories, ...props.successStories])
-const reversedDuplicatedStories = computed(() => [...duplicatedStories.value].reverse())
+const duplicatedStories = computed(() => [
+  ...props.successStories,
+  ...props.successStories,
+])
+
+const reversedDuplicatedStories = computed(() => [
+  ...duplicatedStories.value,
+].reverse())
 </script>
 
 <style scoped>

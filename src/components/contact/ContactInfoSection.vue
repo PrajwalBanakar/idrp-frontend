@@ -9,7 +9,7 @@
       >
         <img
           v-if="showCampusImage"
-          src="/about-intro.jfif"
+          src="/public/campus/idrp_building.jpg"
           alt="IDRP Campus"
           class="h-full w-full object-cover"
           @error="showCampusImage = false"

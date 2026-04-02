@@ -1,5 +1,22 @@
 import type { AcademyCategory } from '@/types/academy'
 import { academyCategories } from '@/data/academyCatalog'
+import { allPartners } from '@/data/partners'
+
+export { allPartners }
+
+export const partnerCategories: Array<{
+  key: 'all' | Partner['category']
+  label: string
+}> = [
+  { key: 'all', label: 'All' },
+  { key: 'academic', label: 'Academic' },
+  { key: 'technology', label: 'Technology' },
+  { key: 'ecosystem', label: 'Ecosystem' },
+  { key: 'investor', label: 'Investor' },
+  { key: 'corporate', label: 'Corporate' },
+  { key: 'government', label: 'Government' },
+]
+
 
 export type HeroSlide = {
   heading: string
@@ -37,9 +54,8 @@ export type Service = {
 
 export type Story = {
   quote: string
-  name: string
-  role: string
   company: string
+  tagline?: string
   initials: string
   color: string
 }
@@ -79,17 +95,17 @@ export const heroSlides: HeroSlide[] = [
     heading: "Empowering Deep-Tech Innovation for Tomorrow's Solutions",
     subtext:
       'IIIT Dharwad Research Park is at the forefront of nurturing breakthrough innovations that address complex technological and societal challenges.',
-    image: '/hero1.jfif',
+    image: '/campus/idrp_drone.jpeg',
   },
   {
     heading: 'Where ideas transform into impactful ventures',
     subtext: 'Providing the ecosystem, guidance, and capital to help you scale.',
-    image: '/hero2.jfif',
+    image: '/campus/idrp_building.jpg',
   },
   {
     heading: 'Build, connect, and grow in a space designed for founders',
     subtext: 'More than just desks, IDRP is a hub for innovation and meaningful collaboration.',
-    image: '/hero3.jfif',
+    image: '/campus/idrp_auditorium.JPG',
   },
 ]
 
@@ -195,232 +211,80 @@ export const approaches: IconCard[] = [
 export const successStories: Story[] = [
   {
     quote:
-      'IDRP gave us more than infrastructure — they gave us belief. From a lab prototype to a funded product, the journey was made possible by their ecosystem.',
-    name: 'Arjun Mehta',
-    role: 'Co-founder & CEO',
-    company: 'NeuroSense AI',
-    initials: 'AM',
+      'The mentorship at IDRP helped us turn a critical safety problem into a working prototype with confidence and clarity.',
+    company: 'Friend In Fog',
+    tagline: 'Safety innovation',
+    initials: 'FI',
     color: 'linear-gradient(135deg, #0d9488, #06b6d4)',
   },
   {
     quote:
-      'The mentorship at IDRP is unparalleled. We had access to domain experts who helped us pivot at exactly the right moment and scale faster than we imagined.',
-    name: 'Priya Nair',
-    role: 'Founder',
-    company: 'AgriVision Labs',
-    initials: 'PN',
+      'With the right guidance and ecosystem support, we were able to make complex machine learning concepts more accessible and practical.',
+    company: 'MLera',
+    tagline: 'Making ML accessible',
+    initials: 'ML',
     color: 'linear-gradient(135deg, #7c3aed, #a78bfa)',
   },
   {
     quote:
-      "Graduating from the Deep-Tech Accelerator opened doors we didn't even know existed. Three investor meetings in the first week post-demo day.",
-    name: 'Rohan Desai',
-    role: 'CEO',
-    company: 'SecureChain Systems',
-    initials: 'RD',
+      'IDRP helped us refine our product direction, understand our market better, and move forward with a stronger business foundation.',
+    company: 'Cre8Hub',
+    tagline: 'Product and market clarity',
+    initials: 'CH',
     color: 'linear-gradient(135deg, #ea580c, #fbbf24)',
   },
   {
     quote:
-      'The co-working space and research lab access meant we could run real experiments without burning our runway. IDRP de-risked our early stage completely.',
-    name: 'Sneha Kulkarni',
-    role: 'Founder & CTO',
-    company: 'XR Dynamics',
-    initials: 'SK',
+      'We built with confidence knowing we had strong technical backing, practical mentorship, and access to a supportive innovation ecosystem.',
+    company: 'SmartNest',
+    tagline: 'Built on strong technical backing',
+    initials: 'SN',
     color: 'linear-gradient(135deg, #0891b2, #22d3ee)',
   },
   {
     quote:
-      "IDRP's network of corporate partners led directly to our first enterprise pilot. That pilot became our anchor customer and changed everything.",
-    name: 'Vikram Rao',
-    role: 'Co-founder',
-    company: 'IoTForge',
-    initials: 'VR',
-    color: 'linear-gradient(135deg, #be185d, #f472b6)',
-  },
-  {
-    quote:
-      'From grant writing support to investor introductions, IDRP covered every gap a first-time founder faces. We raised our seed round within 8 months.',
-    name: 'Ananya Sharma',
-    role: 'Founder',
-    company: 'MediScan Health',
-    initials: 'AS',
+      'IDRP enabled us to shape a healthcare solution that addresses urgent and meaningful needs with purpose-driven innovation.',
+    company: 'MediRaksha',
+    tagline: 'Healthcare with impact',
+    initials: 'MR',
     color: 'linear-gradient(135deg, #15803d, #4ade80)',
   },
   {
     quote:
-      'The Startup School curriculum was practical and rigorous. It shaped how we think about GTM, pricing, and building a team — lessons that still guide us.',
-    name: 'Karan Joshi',
-    role: 'CEO',
-    company: 'SpaceSense Tech',
-    initials: 'KJ',
+      'Through the support and encouragement at IDRP, we are redefining how mental health support can be delivered through technology.',
+    company: 'NeXR',
+    tagline: 'Mental health through technology',
+    initials: 'NX',
+    color: 'linear-gradient(135deg, #be185d, #f472b6)',
+  },
+  {
+    quote:
+      'We transform complex data into actionable insights, and IDRP helped us strengthen that vision into a meaningful solution.',
+    company: 'Neuraforesight',
+    tagline: 'Smarter decisions from data',
+    initials: 'NF',
     color: 'linear-gradient(135deg, #1d4ed8, #60a5fa)',
   },
   {
     quote:
-      "Being part of the IDRP community meant we were never building alone. The peer network of founders is something you can't put a price on.",
-    name: 'Divya Menon',
-    role: 'Co-founder',
-    company: 'NLP Nexus',
-    initials: 'DM',
+      'Our work on next-generation encryption solutions grew stronger with IDRP’s ecosystem, helping us focus on secure and compliant data systems.',
+    company: 'Cipherion',
+    tagline: 'Next-generation encryption',
+    initials: 'CP',
     color: 'linear-gradient(135deg, #b45309, #fcd34d)',
   },
+  {
+    quote:
+      'We developed an affordable automated CPR device for emergency response, and IDRP gave us the environment to push that mission forward.',
+    company: 'SphuraNex',
+    tagline: 'Affordable life-saving innovation',
+    initials: 'SP',
+    color: 'linear-gradient(135deg, #0f766e, #2dd4bf)',
+  },
 ]
 
-export const partnerCategories: PartnerCategory[] = [
-  { key: 'all', label: 'All' },
-  { key: 'technology', label: 'Technology' },
-  { key: 'academic', label: 'Academic' },
-  { key: 'ecosystem', label: 'Ecosystem' },
-  { key: 'investor', label: 'Investor' },
-]
 
-export const allPartners: Partner[] = [
-  {
-    name: 'KEONICS',
-    abbr: 'KEO',
-    color: 'linear-gradient(135deg,#0f766e,#2dd4bf)',
-    category: 'ecosystem',
-  },
-  {
-    name: 'STPI',
-    abbr: 'STPI',
-    color: 'linear-gradient(135deg,#2563eb,#60a5fa)',
-    category: 'ecosystem',
-  },
-  {
-    name: 'CII',
-    abbr: 'CII',
-    color: 'linear-gradient(135deg,#0f766e,#2dd4bf)',
-    category: 'ecosystem',
-  },
-  {
-    name: 'Deshpande Foundation',
-    abbr: 'DF',
-    color: 'linear-gradient(135deg,#16a34a,#4ade80)',
-    category: 'ecosystem',
-  },
-  {
-    name: 'EkStep Foundation',
-    abbr: 'EK',
-    color: 'linear-gradient(135deg,#0ea5e9,#38bdf8)',
-    category: 'ecosystem',
-  },
-  {
-    name: 'Culkey Foundation',
-    abbr: 'CF',
-    color: 'linear-gradient(135deg,#b45309,#f59e0b)',
-    category: 'ecosystem',
-  },
-  {
-    name: '100X.VC',
-    abbr: '100X',
-    color: 'linear-gradient(135deg,#1e1b4b,#4338ca)',
-    category: 'investor',
-  },
-  {
-    name: 'Seafund',
-    abbr: 'SEA',
-    color: 'linear-gradient(135deg,#0f766e,#5eead4)',
-    category: 'investor',
-  },
-  {
-    name: 'Campus Fund',
-    abbr: 'CF',
-    color: 'linear-gradient(135deg,#7c3aed,#c084fc)',
-    category: 'investor',
-  },
-  {
-    name: 'TiE',
-    abbr: 'TiE',
-    color: 'linear-gradient(135deg,#dc2626,#fb7185)',
-    category: 'investor',
-  },
-  {
-    name: 'Infosys',
-    abbr: 'INF',
-    color: 'linear-gradient(135deg,#2563eb,#60a5fa)',
-    category: 'technology',
-  },
-  {
-    name: 'iMerit',
-    abbr: 'IM',
-    color: 'linear-gradient(135deg,#dc2626,#f87171)',
-    category: 'technology',
-  },
-  {
-    name: 'Nanopix',
-    abbr: 'NP',
-    color: 'linear-gradient(135deg,#0ea5e9,#67e8f9)',
-    category: 'technology',
-  },
-  {
-    name: 'Maven Silicon',
-    abbr: 'MS',
-    color: 'linear-gradient(135deg,#16a34a,#86efac)',
-    category: 'technology',
-  },
-  {
-    name: 'Sankalp Semiconductor',
-    abbr: 'SS',
-    color: 'linear-gradient(135deg,#2563eb,#93c5fd)',
-    category: 'technology',
-  },
-  {
-    name: 'Tessolve',
-    abbr: 'TES',
-    color: 'linear-gradient(135deg,#ea580c,#fb923c)',
-    category: 'technology',
-  },
-  {
-    name: 'FutureWiz',
-    abbr: 'FW',
-    color: 'linear-gradient(135deg,#f97316,#fdba74)',
-    category: 'technology',
-  },
-  {
-    name: 'Sandeepani (SESD)',
-    abbr: 'SES',
-    color: 'linear-gradient(135deg,#7c3aed,#a78bfa)',
-    category: 'academic',
-  },
-  {
-    name: 'FAS Silicon Academy',
-    abbr: 'FAS',
-    color: 'linear-gradient(135deg,#059669,#34d399)',
-    category: 'academic',
-  },
-  {
-    name: 'Fuel',
-    abbr: 'FUEL',
-    color: 'linear-gradient(135deg,#f59e0b,#fde68a)',
-    category: 'academic',
-  },
-  {
-    name: 'Xcel Corp',
-    abbr: 'XC',
-    color: 'linear-gradient(135deg,#6b7280,#9ca3af)',
-    category: 'academic',
-  },
-  {
-    name: 'Create (Spin-off | Pivot)',
-    abbr: 'CRT',
-    color: 'linear-gradient(135deg,#374151,#9ca3af)',
-    category: 'ecosystem',
-  },
-  {
-    name: 'GX',
-    abbr: 'GX',
-    color: 'linear-gradient(135deg,#111827,#4b5563)',
-    category: 'ecosystem',
-  },
-  {
-    name: 'RV-VLSI Design Center',
-    abbr: 'RV',
-    color: 'linear-gradient(135deg,#0f766e,#99f6e4)',
-    category: 'academic',
-  },
-]
+
 
 export const awards: Award[] = [
   {

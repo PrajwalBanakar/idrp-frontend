@@ -10,8 +10,85 @@ import type {
   Reason,
   TimelineItem,
   VisionCard,
+  AboutCampusGalleryImage,
 } from '@/types/about'
 
+
+export const campusGallerySection: AboutSectionIntro = {
+  eyebrow: 'Inside IDRP',
+  title: 'Campus & Ecosystem',
+  description:
+    'A glimpse into the environment, infrastructure, and spaces that support innovation, collaboration, and entrepreneurship at IDRP.',
+}
+
+export const campusImages: AboutCampusGalleryImage[] = [
+  {
+    id: 'campus-1',
+    src: '/campus/idrp_aerial.jpg',
+    alt: 'Aerial view of IDRP campus',
+    title: 'IDRP Campus',
+  },
+  {
+    id: 'campus-2',
+    src: '/campus/idrp_entrance.jpeg',
+    alt: 'Entrance of IDRP',
+    title: 'Main Entrance',
+  },
+  {
+    id: 'campus-3',
+    src: '/campus/idrp_common.jpeg',
+    alt: 'Common area at IDRP',
+    title: 'Common Spaces',
+  },
+  {
+    id: 'campus-4',
+    src: '/campus/idrp_workspace.jpeg',
+    alt: 'Workspace at IDRP',
+    title: 'Workspaces',
+  },
+  {
+    id: 'campus-5',
+    src: '/campus/idrp_workspace_2.jpeg',
+    alt: 'Collaborative workspace',
+    title: 'Collaboration Zones',
+  },
+  {
+    id: 'campus-6',
+    src: '/campus/idrp_meeting.jpeg',
+    alt: 'Meeting room at IDRP',
+    title: 'Meeting Rooms',
+  },
+  {
+    id: 'campus-7',
+    src: '/campus/idrp_presentation.jpeg',
+    alt: 'Presentation session at IDRP',
+    title: 'Presentations & Sessions',
+  },
+  {
+    id: 'campus-8',
+    src: '/campus/idrp_5g_lab.jpeg',
+    alt: '5G lab at IDRP',
+    title: '5G Lab',
+  },
+  {
+    id: 'campus-9',
+    src: '/campus/idrp_drone_lab.jpeg',
+    alt: 'Drone lab at IDRP',
+    title: 'Drone Lab',
+  },
+  {
+    id: 'campus-10',
+    src: '/campus/idrp_nlp.jpeg',
+    alt: 'NLP lab at IDRP',
+    title: 'NLP Lab',
+  },
+  {
+    id: 'campus-11',
+    src: '/campus/idrp_speech_lab.jpeg',
+    alt: 'Speech lab at IDRP',
+    title: 'Speech Lab',
+  },
+]
 /* ---------------------------------- */
 /* HERO */
 /* ---------------------------------- */

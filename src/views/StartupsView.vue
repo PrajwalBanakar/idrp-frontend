@@ -1,28 +1,25 @@
 <template>
   <div class="startups-view">
-   <StartupsHeroSection
-  image-src="/vision-community.jfif"
-  image-alt="Startups"
-  eyebrow="Portfolio"
-  title="Startups"
-  description="Explore startups from the IDRP ecosystem with their profiles, founders, and investor-facing information."
-/>
+    <StartupsHeroSection
+      :image-src="startupsHero.imageSrc"
+      :image-alt="startupsHero.imageAlt"
+      :eyebrow="startupsHero.eyebrow"
+      :title="startupsHero.title"
+      :description="startupsHero.description"
+    />
 
-<StartupsIntroSection
-  :stats="startupStats"
-  eyebrow="Our Community"
-  title="Meet the Innovators Driving Our Ecosystem"
-  :paragraphs="[
-    'At IDRP, we support startups through incubation, mentoring, funding access, and ecosystem connections. This portfolio gives a quick but useful view of each venture.',
-    'Open any card to see the startup brief, founders, LinkedIn profiles, website, investor one-pager, and contact details.',
-  ]"
-  image-src="/vision-innovation.jfif"
-  image-alt="IDRP Startups"
-/>
+    <StartupsIntroSection
+      :stats="startupStats"
+      :eyebrow="startupsIntro.eyebrow"
+      :title="startupsIntro.title"
+      :paragraphs="startupsIntro.paragraphs"
+      :image-src="startupsIntro.imageSrc"
+      :image-alt="startupsIntro.imageAlt"
+    />
 
-<StartupsPortfolioSection :startups="startups" />
+    <StartupsPortfolioSection :startups="startups" />
 
- <StartupsCTASection />
+    <StartupsCTASection />
   </div>
 </template>
 
@@ -30,6 +27,8 @@
 import {
   startupStats,
   startups,
+  startupsHero,
+  startupsIntro,
 } from '@/data/startups'
 
 import StartupsPortfolioSection from '@/components/startups/StartupsPortfolioSection.vue'

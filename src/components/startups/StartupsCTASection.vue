@@ -1,10 +1,9 @@
 <template>
-  <section class="bg-white px-6 pb-24 md:px-16">
+  <section class="bg-white px-6 pb-24 md:px-12 lg:px-16">
     <div class="mx-auto max-w-6xl">
       <div
-        class="relative overflow-hidden rounded-[2rem] bg-slate-950 px-8 py-10 text-white shadow-2xl md:px-12 md:py-12"
+        class="relative overflow-hidden rounded-[2rem] bg-slate-950 px-8 py-12 text-white shadow-2xl md:px-12 md:py-14"
       >
-        <!-- Background -->
         <div class="absolute inset-0">
           <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-900" />
           <div
@@ -12,39 +11,42 @@
           />
         </div>
 
-        <!-- Glow -->
         <div class="pointer-events-none absolute inset-0">
           <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/5 blur-2xl" />
           <div class="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-white/5 blur-2xl" />
         </div>
 
-        <!-- Content -->
         <div
-          class="relative z-10 mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left"
+          class="relative z-10 mx-auto flex max-w-5xl flex-col items-center justify-between gap-8 text-center md:flex-row md:items-center md:text-left"
         >
-          <!-- Left -->
           <div class="max-w-2xl">
-            <h3 class="text-2xl font-bold tracking-tight text-white md:text-3xl">
+            <span
+              v-if="eyebrow"
+              class="inline-block text-sm font-semibold uppercase tracking-[0.22em] text-teal-300"
+            >
+              {{ eyebrow }}
+            </span>
+
+            <h3 class="mt-3 text-2xl font-bold tracking-tight text-white md:text-3xl">
               {{ title }}
             </h3>
 
-            <p class="mt-3 text-sm leading-relaxed text-slate-200 md:text-base">
+            <p class="mt-4 text-sm leading-7 text-slate-200 md:text-base">
               {{ description }}
             </p>
           </div>
 
-          <!-- Right -->
-          <div class="flex shrink-0 flex-col gap-4 sm:flex-row">
+          <div class="flex w-full shrink-0 flex-col gap-4 sm:w-auto sm:flex-row">
             <RouterLink
               :to="primaryTo"
-              class="inline-flex min-w-[200px] items-center justify-center rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700"
+              class="inline-flex min-w-[200px] items-center justify-center rounded-full bg-teal-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-400"
             >
               {{ primaryLabel }}
             </RouterLink>
 
             <RouterLink
               :to="secondaryTo"
-              class="inline-flex min-w-[200px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-600 hover:text-slate-950"
+              class="inline-flex min-w-[200px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-300 hover:bg-white/15"
             >
               {{ secondaryLabel }}
             </RouterLink>
@@ -60,6 +62,7 @@ import { RouterLink } from 'vue-router'
 
 withDefaults(
   defineProps<{
+    eyebrow?: string
     title?: string
     description?: string
     primaryLabel?: string
@@ -68,6 +71,7 @@ withDefaults(
     secondaryTo?: string
   }>(),
   {
+    eyebrow: 'Join the Ecosystem',
     title: 'Ready to join this community?',
     description: 'Apply to one of our programs and become part of the IDRP story.',
     primaryLabel: 'Apply Now',

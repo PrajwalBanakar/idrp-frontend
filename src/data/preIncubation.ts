@@ -18,7 +18,7 @@ export const preIncubationPage: ProgramPageData = {
       'The program focuses on helping participants discover meaningful problems, shape ideas into structured opportunities, and gain the exposure needed to think like founders.',
       'Rather than pushing teams too early into venture building, the pre-incubation phase creates a guided environment for exploration, validation, mentorship, and capability building.',
     ],
-    image: '/incubation-intro.jfif',
+    image: '/yuva-udyami/yuva-udyami-intro.jpeg',
     imageAlt: 'Yuva Udyami Program',
   },
 
@@ -47,7 +47,7 @@ export const preIncubationPage: ProgramPageData = {
           'Participants begin building the mindset, confidence, and communication skills needed for future venture creation.',
       },
     ],
-    image: '/incubation-value.jfif',
+    image: '/yuva-udyami/yuva-udyami-value.jpeg',
     imageAlt: 'Pre-Incubation Value',
   },
 

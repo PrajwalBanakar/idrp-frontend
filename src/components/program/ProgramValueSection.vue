@@ -20,14 +20,14 @@ const showImage = ref(true)
 </script>
 
 <template>
-  <section class="bg-gray-50 px-6 py-24 md:px-16">
-    <div class="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+  <section class="bg-slate-50 px-6 py-20 md:px-12 lg:px-16 lg:py-24">
+    <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
       <div>
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">
           {{ props.eyebrow }}
         </span>
 
-        <h2 class="mt-3 text-4xl font-bold leading-tight text-gray-900">
+        <h2 class="mt-3 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
           {{ props.title }}
         </h2>
 
@@ -35,13 +35,15 @@ const showImage = ref(true)
           <article
             v-for="item in props.items"
             :key="item.title"
-            class="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm transition-transform duration-200 hover:-translate-y-1"
+            class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
           >
             <div class="mb-4 h-1.5 w-14 rounded-full bg-teal-500" />
-            <h3 class="text-lg font-bold text-gray-900">
+
+            <h3 class="text-lg font-semibold text-slate-900">
               {{ item.title }}
             </h3>
-            <p class="mt-3 text-sm leading-relaxed text-gray-600">
+
+            <p class="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
               {{ item.description }}
             </p>
           </article>
@@ -50,22 +52,24 @@ const showImage = ref(true)
 
       <div>
         <div
-          class="relative h-[460px] overflow-hidden rounded-[2rem] shadow-2xl"
+          class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl"
           :class="{
             'bg-gradient-to-br from-teal-100 via-cyan-50 to-white': !showImage,
           }"
         >
-          <img
-            v-if="showImage && props.image"
-            :src="props.image"
-            :alt="props.imageAlt"
-            class="h-full w-full object-cover"
-            @error="showImage = false"
-          />
+          <div class="flex h-[420px] items-center justify-center lg:h-[460px]">
+            <img
+              v-if="showImage && props.image"
+              :src="props.image"
+              :alt="props.imageAlt"
+              class="h-full w-full object-cover"
+              @error="showImage = false"
+            />
+          </div>
 
-          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-teal-900/10 via-transparent to-transparent" />
-          <div class="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/20" />
-          <div class="pointer-events-none absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-teal-200/30" />
+          <div
+            class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-900/10 to-transparent"
+          />
         </div>
       </div>
     </div>

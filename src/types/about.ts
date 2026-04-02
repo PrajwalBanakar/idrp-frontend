@@ -11,6 +11,14 @@ export type AboutStat = {
   value: string
 }
 
+export type AboutCampusGalleryImage = {
+  id: string
+  src: string
+  alt: string
+  title: string
+  description?: string
+}
+
 export type MissionVisionItem = {
   title: string
   description: string

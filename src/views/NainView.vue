@@ -7,23 +7,20 @@
       :stats="overviewStats"
     />
 
-    <NainMentorSection :mentor="nainPage.facultyMentor" />
+    <NainGallerySection :images="nainImages" />
 
     <NainInstitutesSection
       :section="nainPage.institutesSection"
       :institutes="filteredInstitutes"
       :search-query="searchQuery"
-      :selected-year="selectedYear"
-      :available-years="availableYears"
       :expanded-institute-id="expandedInstituteId"
       @update:searchQuery="searchQuery = $event"
-      @update:selectedYear="selectedYear = $event"
       @toggleInstitute="toggleInstitute"
     />
 
     <NainCTASection
       title="Want to showcase more supported institutes and student innovations?"
-      description="This section can be continuously expanded with institute-wise and year-wise project records, mentor details, images, and external profiles."
+      description="This section can be continuously expanded with institute-wise and year-wise project records, investigator details, project teams, and external project links."
       button-label="Contact IDRP"
       button-to="/contact"
     />
@@ -36,30 +33,17 @@ import { computed, ref } from 'vue'
 import NainCTASection from '@/components/nain/NainCTASection.vue'
 import NainHeroSection from '@/components/nain/NainHeroSection.vue'
 import NainInstitutesSection from '@/components/nain/NainInstitutesSection.vue'
-import NainMentorSection from '@/components/nain/NainMentorSection.vue'
 import NainOverviewSection from '@/components/nain/NainOverviewSection.vue'
+import NainGallerySection from '@/components/nain/NainGallerySection.vue'
 
-import { nainPage } from '@/data/nain'
+import { nainPage, nainImages } from '@/data/nain'
 
 const searchQuery = ref('')
-const selectedYear = ref('all')
 const expandedInstituteId = ref<string | null>(null)
 
 function toggleInstitute(id: string) {
   expandedInstituteId.value = expandedInstituteId.value === id ? null : id
 }
-
-const availableYears = computed(() => {
-  const yearSet = new Set<string>()
-
-  nainPage.institutes.forEach((institute) => {
-    institute.years.forEach((yearGroup) => {
-      yearSet.add(yearGroup.year)
-    })
-  })
-
-  return Array.from(yearSet).sort().reverse()
-})
 
 const totalProjects = computed(() => {
   return nainPage.institutes.reduce((total, institute) => {
@@ -82,48 +66,73 @@ const overviewStats = computed(() =>
 const filteredInstitutes = computed<typeof nainPage.institutes>(() => {
   const query = searchQuery.value.trim().toLowerCase()
 
+  if (!query) return nainPage.institutes
+
   return nainPage.institutes
     .map((institute) => {
-      const visibleYears = institute.years.flatMap((yearGroup) => {
-        const yearMatches =
-          selectedYear.value === 'all' || yearGroup.year === selectedYear.value
+      const instituteMatches = [
+        institute.name,
+        institute.city,
+        institute.state,
+        institute.description,
+      ]
+        .join(' ')
+        .toLowerCase()
+        .includes(query)
 
-        if (!yearMatches) return []
-
-        const filteredProjects = yearGroup.projects.filter((project) => {
-          if (!query) return true
-
-          const searchableText = [
-            institute.name,
-            institute.location,
-            institute.description,
+      const visibleYears = institute.years
+        .map((yearGroup) => {
+          const yearMatches = [
             yearGroup.year,
-            project.title,
-            project.brief,
-            project.facultyGuide,
-            ...project.students,
+            yearGroup.principalInvestigator,
+            yearGroup.coPrincipalInvestigator,
           ]
             .join(' ')
             .toLowerCase()
+            .includes(query)
 
-          return searchableText.includes(query)
+          const filteredProjects = yearGroup.projects.filter((project) => {
+            const searchableText = [
+              project.title,
+              project.brief,
+              project.iiitFacultyGuide,
+              project.nainCoordinator,
+              project.dia,
+              project.techMentor,
+              project.programAssociate,
+              ...project.misExecutives,
+              ...project.studentMembers,
+            ]
+              .join(' ')
+              .toLowerCase()
+
+            return searchableText.includes(query)
+          })
+
+          if (instituteMatches || yearMatches) {
+            return yearGroup
+          }
+
+          if (filteredProjects.length > 0) {
+            return {
+              ...yearGroup,
+              projects: filteredProjects,
+            }
+          }
+
+          return null
         })
+        .filter(Boolean) as typeof institute.years
 
-        if (filteredProjects.length === 0) return []
-
-        return [
-          {
-            ...yearGroup,
-            projects: filteredProjects,
-          },
-        ]
-      })
-
-      return {
-        ...institute,
-        years: visibleYears,
+      if (instituteMatches || visibleYears.length > 0) {
+        return {
+          ...institute,
+          years: visibleYears.length > 0 ? visibleYears : institute.years,
+        }
       }
+
+      return null
     })
-    .filter((institute) => institute.years.length > 0)
+    .filter(Boolean) as typeof nainPage.institutes
 })
 </script>

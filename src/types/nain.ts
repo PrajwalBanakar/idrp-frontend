@@ -2,23 +2,31 @@ export type NAINProject = {
   id: string
   title: string
   brief: string
-  facultyGuide: string
-  students: string[]
+  iiitFacultyGuide: string
+  nainCoordinator: string
+  dia: string
+  misExecutives: string[]
+  techMentor: string
+  programAssociate: string
+  studentMembers: string[]
   image?: string
-  link?: string
-  linkedin?: string
+  projectLink?: string
 }
 
 export type NAINYearGroup = {
   year: string
+  principalInvestigator: string
+  coPrincipalInvestigator: string
   projects: NAINProject[]
 }
 
 export type NAINInstitute = {
   id: string
   name: string
-  location: string
+  city: string
+  state: string
   description: string
+  logo?: string
   years: NAINYearGroup[]
 }
 
@@ -45,15 +53,6 @@ export type NAINOverviewContent = {
   stats: NAINOverviewStat[]
 }
 
-export type NAINFacultyMentor = {
-  name: string
-  designation: string
-  bio: string
-  image?: string
-  linkedin?: string
-  profileLink?: string
-}
-
 export type NAINSectionIntro = {
   eyebrow?: string
   title: string
@@ -63,7 +62,6 @@ export type NAINSectionIntro = {
 export type NAINPageData = {
   hero: NAINHeroContent
   overview: NAINOverviewContent
-  facultyMentor: NAINFacultyMentor
   institutesSection: NAINSectionIntro
   institutes: NAINInstitute[]
 }

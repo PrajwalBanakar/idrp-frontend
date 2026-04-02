@@ -18,7 +18,7 @@ export const quantumAIPage = {
       'It integrates artificial intelligence, quantum thinking, and interdisciplinary problem-solving.',
       'The initiative enables talent development, research-led innovation, and strategic technology advancement.',
     ],
-    image: '/quantum-ai-intro.jfif',
+    image: '/quantum-ai/quantum-ai-intro.jpeg',
     imageAlt: 'Quantum AI Overview',
   },
 
@@ -47,7 +47,7 @@ export const quantumAIPage = {
           'Enables collaboration and ecosystem engagement in advanced computing.',
       },
     ],
-    image: '/quantum-ai-value.jfif',
+    image: '/quantum-ai/quantum-ai-value.jpeg',
     imageAlt: 'Quantum AI Value',
   },
 

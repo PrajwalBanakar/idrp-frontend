@@ -18,7 +18,7 @@ export const cbdePage = {
       'The initiative encourages a structured approach to creativity, user understanding, problem-solving, product thinking, and venture exploration.',
       'Through this initiative, IDRP nurtures innovators and aspiring founders prepared for real-world execution.',
     ],
-    image: '/cbde-intro.jfif',
+    image: '/cbde/cbde-intro.jpeg',
     imageAlt: 'CBDE Overview',
   },
 
@@ -47,7 +47,7 @@ export const cbdePage = {
           'Develops entrepreneurial thinking and venture awareness.',
       },
     ],
-    image: '/cbde-value.jfif',
+    image: '/cbde/cbde-value.jpeg',
     imageAlt: 'CBDE Value',
   },
 

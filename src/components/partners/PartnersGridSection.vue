@@ -1,8 +1,6 @@
 <template>
   <section class="bg-slate-50 px-6 py-14 md:px-12 lg:px-16 lg:py-16">
     <div class="mx-auto max-w-7xl">
-
-      <!-- Top Row: Title + Search -->
       <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
           <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-600">
@@ -13,7 +11,6 @@
           </h2>
         </div>
 
-        <!-- Search -->
         <div class="w-full md:w-72">
           <input
             v-model="searchQuery"
@@ -24,16 +21,12 @@
         </div>
       </div>
 
-      <!-- Categories -->
       <div
         v-for="category in filteredCategories"
         :key="category.key"
         class="mb-14 last:mb-0"
       >
-        <!-- Category Header -->
-        <div
-          class="mb-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7"
-        >
+        <div class="mb-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
           <div class="flex items-start gap-4">
             <div
               class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-lg text-white shadow-sm"
@@ -58,7 +51,6 @@
           </div>
         </div>
 
-        <!-- Partner Grid -->
         <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
           <PartnerCard
             v-for="partner in category.partners"
@@ -69,20 +61,18 @@
         </div>
       </div>
 
-      <!-- Empty State -->
       <div
         v-if="filteredCategories.length === 0"
         class="py-16 text-center text-slate-500"
       >
         No partners found.
       </div>
-
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 import PartnerCard from '@/components/partners/PartnerCard.vue'
 import type { PartnerCategory } from '@/types/partners'
 
@@ -93,21 +83,19 @@ const props = defineProps<{
 const searchQuery = ref('')
 
 const filteredCategories = computed(() => {
-  if (!searchQuery.value.trim()) return props.partnerCategories
+  const query = searchQuery.value.trim().toLowerCase()
 
-  const query = searchQuery.value.toLowerCase()
+  if (!query) {
+    return props.partnerCategories
+  }
 
   return props.partnerCategories
-    .map((category) => {
-      const filteredPartners = category.partners.filter((partner) =>
+    .map((category) => ({
+      ...category,
+      partners: category.partners.filter((partner) =>
         partner.name.toLowerCase().includes(query),
-      )
-
-      return {
-        ...category,
-        partners: filteredPartners,
-      }
-    })
+      ),
+    }))
     .filter((category) => category.partners.length > 0)
 })
 </script>
