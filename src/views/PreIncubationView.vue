@@ -3,10 +3,11 @@
 <ProgramIntroSection v-bind="preIncubationPage.intro" />
 <ProgramValueSection v-bind="preIncubationPage.value" />
     
-    <ProgramTracksSection
-    v-bind="preIncubationPage.tracks"
-    :programs="preIncubationPage.programs"
-  />
+<ProgramTracksSection
+  v-if="preIncubationPage.tracks"
+  v-bind="preIncubationPage.tracks"
+  :programs="preIncubationPage.programs"
+/>
 
   <ProgramCTASection v-bind="preIncubationPage.cta" />
 </template>

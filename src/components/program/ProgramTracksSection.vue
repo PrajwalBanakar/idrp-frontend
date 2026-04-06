@@ -6,11 +6,12 @@ type Props = {
   eyebrow?: string
   title: string
   description: string
-  programs: ProgramCardData[]
+  programs?: ProgramCardData[]
 }
 
 withDefaults(defineProps<Props>(), {
   eyebrow: 'Programs',
+  programs: () => [],
 })
 </script>
 
