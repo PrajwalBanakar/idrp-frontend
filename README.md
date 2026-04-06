@@ -4,7 +4,6 @@ IDRP Application code
 
 
 
-
 ```
 idrp-frontend
 ├─ .prettierrc.json
@@ -97,6 +96,15 @@ idrp-frontend
 │  ├─ investment-committee-hero.jfif
 │  ├─ investor-matchmaking-hero.jfif
 │  ├─ matchmaking-hero.jfif
+│  ├─ mentors
+│  │  ├─ business-ambarish.jpg
+│  │  ├─ business-ram.jpg
+│  │  ├─ business-ravi.jpg
+│  │  ├─ business-ravishankar.jpg
+│  │  ├─ business-rk.jpeg
+│  │  ├─ business-santosh.jpeg
+│  │  ├─ business-shashi.jpeg
+│  │  └─ business-subhas.jpeg
 │  ├─ mentors-hero.jfif
 │  ├─ nain
 │  │  ├─ img1.jpeg
@@ -127,11 +135,13 @@ idrp-frontend
 │  │  ├─ fuel.png
 │  │  ├─ futurewiz.png
 │  │  ├─ gmu.png
+│  │  ├─ hal.jpeg
 │  │  ├─ hhh.png
 │  │  ├─ ideck.png
 │  │  ├─ imerit.png
 │  │  ├─ infosys.png
 │  │  ├─ jcer.png
+│  │  ├─ jsw.png
 │  │  ├─ keonics.png
 │  │  ├─ kleit.png
 │  │  ├─ klepharm.png
@@ -196,6 +206,7 @@ idrp-frontend
 │  ├─ team-hero.jfif
 │  ├─ team-lokesh.jpeg
 │  ├─ team-neha.jpeg
+│  ├─ team-prajwal.jpeg
 │  ├─ team-rakshata.jpeg
 │  ├─ team-ravi.jpeg
 │  ├─ team-reshma.jpeg
@@ -253,15 +264,7 @@ idrp-frontend
 │  │  │  ├─ ContactInfoSection.vue
 │  │  │  └─ ContactSocialLinks.vue
 │  │  ├─ events
-│  │  │  ├─ EventAboutSection.vue
-│  │  │  ├─ EventAgendaSection.vue
 │  │  │  ├─ EventCard.vue
-│  │  │  ├─ EventDetailCTASection.vue
-│  │  │  ├─ EventDetailHeroSection.vue
-│  │  │  ├─ EventDetailNotFound.vue
-│  │  │  ├─ EventHighlightsSection.vue
-│  │  │  ├─ EventQuickInfoSection.vue
-│  │  │  ├─ EventRegistrationEventCard.vue
 │  │  │  ├─ EventRegistrationFormSection.vue
 │  │  │  ├─ EventRegistrationHeader.vue
 │  │  │  ├─ EventRegistrationNotFound.vue
@@ -269,7 +272,6 @@ idrp-frontend
 │  │  │  ├─ EventsCTASection.vue
 │  │  │  ├─ EventsHeroSection.vue
 │  │  │  ├─ EventSnapshotCard.vue
-│  │  │  ├─ EventSpeakersSection.vue
 │  │  │  └─ EventsSection.vue
 │  │  ├─ forms
 │  │  │  ├─ BaseForm.vue
@@ -291,7 +293,7 @@ idrp-frontend
 │  │  │  ├─ MentorsGridSection.vue
 │  │  │  ├─ MentorsHeroSection.vue
 │  │  │  ├─ MentorsIntroSection.vue
-│  │  │  └─ MentorsTabs.vue
+│  │  │  └─ MentorsSearchSection.vue
 │  │  ├─ nain
 │  │  │  ├─ NainCTASection.vue
 │  │  │  ├─ NainFilters.vue
@@ -414,7 +416,6 @@ idrp-frontend
 │     ├─ ContactView.vue
 │     ├─ CourseApplyView.vue
 │     ├─ CourseDetailView.vue
-│     ├─ EventDetailView.vue
 │     ├─ EventRegistrationView.vue
 │     ├─ EventsView.vue
 │     ├─ HomeView.vue
@@ -439,6 +440,7 @@ idrp-frontend
 ├─ tsconfig.app.json
 ├─ tsconfig.json
 ├─ tsconfig.node.json
+├─ vercel.json
 └─ vite.config.ts
 
 ```

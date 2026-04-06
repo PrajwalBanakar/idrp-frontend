@@ -19,4 +19,5 @@ export type Newsletter = {
   pdfUrl?: string
   totalPages?: number
   visible?: boolean
+  previewImage?: string
 }

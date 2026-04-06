@@ -23,68 +23,65 @@
 
       <div
         v-if="images.length"
-        class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg"
+        class="relative"
         @mouseenter="pauseAutoSlide"
         @mouseleave="startAutoSlide"
+        @touchstart.passive="handleTouchStart"
+        @touchend.passive="handleTouchEnd"
       >
-        <div
-          class="relative h-[260px] overflow-hidden bg-slate-100 sm:h-[320px] lg:h-[400px]"
-          @touchstart.passive="handleTouchStart"
-          @touchend.passive="handleTouchEnd"
-        >
-          <Transition name="fade" mode="out-in">
-            <div :key="currentImage.id" class="relative h-full w-full">
-              <!-- Soft blurred background fill -->
-              <img
-                :src="currentImage.src"
-                :alt="currentImage.alt"
-                class="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl opacity-25"
-                loading="lazy"
-                aria-hidden="true"
-              />
-
-              <div class="absolute inset-0 bg-gradient-to-b from-white/10 via-white/5 to-black/10" />
-
-              <!-- Main full image -->
-              <img
-                :src="currentImage.src"
-                :alt="currentImage.alt"
-                class="relative z-10 h-full w-full object-contain px-3 py-3 sm:px-4 sm:py-4"
-                loading="lazy"
-              />
-            </div>
-          </Transition>
-
-          <!-- Title overlay -->
-          <div class="pointer-events-none absolute inset-x-0 bottom-0 z-20 p-4 sm:p-5">
-            <div class="inline-flex max-w-[85%] rounded-2xl bg-white/78 px-4 py-2.5 shadow-md backdrop-blur-md">
-              <h3 class="text-sm font-semibold text-slate-900 sm:text-base">
-                {{ currentImage.title }}
-              </h3>
-            </div>
-          </div>
-
-          <!-- Controls -->
+        <div class="relative mx-auto flex h-[260px] items-center justify-center sm:h-[320px] lg:h-[380px]">
           <button
             type="button"
             aria-label="Previous slide"
-            class="absolute left-3 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/70 bg-white/85 text-slate-800 shadow-md backdrop-blur transition hover:bg-white md:flex"
+            class="absolute left-0 top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-lg text-slate-800 shadow-md transition hover:border-teal-200 hover:text-teal-700 md:flex"
             @click="goToPrevious"
           >
             ‹
           </button>
 
+          <div class="relative h-full w-full overflow-hidden">
+            <div
+              v-for="(image, index) in visibleSlides"
+              :key="`${image.id}-${index}`"
+              class="absolute left-1/2 top-1/2 transition-all duration-500 ease-out"
+              :class="getSlideClass(index)"
+              :style="getSlideStyle(index)"
+            >
+              <div
+                class="group relative overflow-hidden rounded-[28px] bg-white shadow-xl ring-1 ring-slate-200"
+              >
+                <img
+                  :src="image.src"
+                  :alt="image.alt"
+                  class="h-[180px] w-[240px] object-cover sm:h-[220px] sm:w-[320px] lg:h-[280px] lg:w-[420px]"
+                  loading="lazy"
+                />
+
+                <div
+                  v-if="index === centerSlideIndex"
+                  class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent p-4"
+                >
+                  <div class="inline-flex rounded-2xl bg-white/92 px-4 py-2 shadow-md backdrop-blur">
+                    <h3 class="text-sm font-semibold text-slate-900 sm:text-base">
+                      {{ image.title }}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <button
             type="button"
             aria-label="Next slide"
-            class="absolute right-3 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/70 bg-white/85 text-slate-800 shadow-md backdrop-blur transition hover:bg-white md:flex"
+            class="absolute right-0 top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-lg text-slate-800 shadow-md transition hover:border-teal-200 hover:text-teal-700 md:flex"
             @click="goToNext"
           >
             ›
           </button>
         </div>
 
-        <div class="flex items-center justify-between px-5 py-4">
+        <div class="mt-6 flex items-center justify-between">
           <div class="flex items-center gap-2">
             <button
               v-for="(image, index) in images"
@@ -124,17 +121,63 @@ const touchStartX = ref(0)
 const touchEndX = ref(0)
 const autoSlideInterval = ref<number | null>(null)
 
-const currentImage = computed<AboutCampusGalleryImage>(() => {
-  return (
-    props.images[currentIndex.value] ??
-    props.images[0] ?? {
-      id: 'fallback',
-      src: '',
-      alt: '',
-      title: '',
-    }
-  )
+const centerSlideIndex = 1
+
+const fallbackImage: AboutCampusGalleryImage = {
+  id: 'fallback',
+  src: '',
+  alt: '',
+  title: '',
+}
+
+function normalizeIndex(index: number) {
+  const length = props.images.length
+  if (!length) return 0
+  return (index + length) % length
+}
+
+function getImageAt(index: number): AboutCampusGalleryImage {
+  return props.images[normalizeIndex(index)] ?? fallbackImage
+}
+
+const visibleSlides = computed<AboutCampusGalleryImage[]>(() => {
+  if (!props.images.length) return []
+
+  return [
+    getImageAt(currentIndex.value - 1),
+    getImageAt(currentIndex.value),
+    getImageAt(currentIndex.value + 1),
+  ]
 })
+
+function getSlideClass(index: number) {
+  if (index === centerSlideIndex) {
+    return 'z-20'
+  }
+
+  return 'z-10 hidden sm:block'
+}
+
+function getSlideStyle(index: number) {
+  if (index === centerSlideIndex) {
+    return {
+      transform: 'translate(-50%, -50%) scale(1)',
+      opacity: '1',
+    }
+  }
+
+  if (index === 0) {
+    return {
+      transform: 'translate(calc(-50% - 220px), -50%) scale(0.88)',
+      opacity: '0.55',
+    }
+  }
+
+  return {
+    transform: 'translate(calc(-50% + 220px), -50%) scale(0.88)',
+    opacity: '0.55',
+  }
+}
 
 function goToSlide(index: number) {
   currentIndex.value = index
@@ -143,27 +186,19 @@ function goToSlide(index: number) {
 
 function goToPrevious() {
   if (!props.images.length) return
-
-  currentIndex.value =
-    currentIndex.value === 0 ? props.images.length - 1 : currentIndex.value - 1
-
+  currentIndex.value = normalizeIndex(currentIndex.value - 1)
   restartAutoSlide()
 }
 
 function goToNext() {
   if (!props.images.length) return
-
-  currentIndex.value =
-    currentIndex.value === props.images.length - 1 ? 0 : currentIndex.value + 1
-
+  currentIndex.value = normalizeIndex(currentIndex.value + 1)
   restartAutoSlide()
 }
 
 function goToNextWithoutRestart() {
   if (!props.images.length) return
-
-  currentIndex.value =
-    currentIndex.value === props.images.length - 1 ? 0 : currentIndex.value + 1
+  currentIndex.value = normalizeIndex(currentIndex.value + 1)
 }
 
 function startAutoSlide() {
@@ -216,15 +251,3 @@ onBeforeUnmount(() => {
   pauseAutoSlide()
 })
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.4s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>

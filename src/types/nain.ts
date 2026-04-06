@@ -40,10 +40,12 @@ export type NAINHeroContent = {
   secondaryActionTo?: string
 }
 
+export type NAINOverviewStatTone = 'teal' | 'cyan' | 'slate'
+
 export type NAINOverviewStat = {
   id: string
   label: string
-  tone?: 'teal' | 'cyan' | 'slate'
+  tone?: NAINOverviewStatTone
 }
 
 export type NAINOverviewContent = {
@@ -64,6 +66,11 @@ export type NAINPMUDetails = {
   principalInvestigator: string
   coPrincipalInvestigator: string
   programAssociate: string
+}
+
+export type NAINImage = {
+  src: string
+  alt: string
 }
 
 export type NAINPageData = {

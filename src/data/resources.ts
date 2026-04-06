@@ -79,83 +79,83 @@ export const resourceCategories: ResourceCategory[] = [
     ],
   },
 
-  {
-    key: 'reports',
-    title: 'Reports',
-    subtitle: 'Ecosystem insights and analysis.',
-    description:
-      'Detailed reports covering startup ecosystems, innovation trends, program outcomes, and sector-level insights.',
-    icon: '📊',
-    iconBgClass: 'bg-emerald-600',
-    textClass: 'text-emerald-600',
-    hoverBorderClass: 'hover:border-emerald-200',
-    badgeClass: 'bg-emerald-50 text-emerald-700',
-    items: [
-      {
-        title: 'IDRP Ecosystem Report 2024',
-        description:
-          'An overview of startups, programs, and ecosystem growth driven by IDRP initiatives.',
-        type: 'Report',
-        meta: '2024 Edition',
-        tag: 'Ecosystem',
-      },
-      {
-        title: 'Startup Trends in Deep-Tech India',
-        description:
-          'Analysis of emerging sectors, funding patterns, and innovation trends in the Indian deep-tech landscape.',
-        type: 'Report',
-        meta: '2023 Edition',
-        tag: 'Trends',
-      },
-      {
-        title: 'Program Impact Assessment',
-        description:
-          'Evaluation of incubation, mentoring, and capacity-building initiatives and their outcomes.',
-        type: 'Report',
-        meta: 'Internal Study',
-        tag: 'Impact',
-      },
-    ],
-  },
+  // {
+  //   key: 'reports',
+  //   title: 'Reports',
+  //   subtitle: 'Ecosystem insights and analysis.',
+  //   description:
+  //     'Detailed reports covering startup ecosystems, innovation trends, program outcomes, and sector-level insights.',
+  //   icon: '📊',
+  //   iconBgClass: 'bg-emerald-600',
+  //   textClass: 'text-emerald-600',
+  //   hoverBorderClass: 'hover:border-emerald-200',
+  //   badgeClass: 'bg-emerald-50 text-emerald-700',
+  //   items: [
+  //     {
+  //       title: 'IDRP Ecosystem Report 2024',
+  //       description:
+  //         'An overview of startups, programs, and ecosystem growth driven by IDRP initiatives.',
+  //       type: 'Report',
+  //       meta: '2024 Edition',
+  //       tag: 'Ecosystem',
+  //     },
+  //     {
+  //       title: 'Startup Trends in Deep-Tech India',
+  //       description:
+  //         'Analysis of emerging sectors, funding patterns, and innovation trends in the Indian deep-tech landscape.',
+  //       type: 'Report',
+  //       meta: '2023 Edition',
+  //       tag: 'Trends',
+  //     },
+  //     {
+  //       title: 'Program Impact Assessment',
+  //       description:
+  //         'Evaluation of incubation, mentoring, and capacity-building initiatives and their outcomes.',
+  //       type: 'Report',
+  //       meta: 'Internal Study',
+  //       tag: 'Impact',
+  //     },
+  //   ],
+  // },
 
-  {
-    key: 'whitepapers',
-    title: 'Whitepapers',
-    subtitle: 'Strategic perspectives and frameworks.',
-    description:
-      'In-depth documents presenting frameworks, methodologies, and strategic thinking across innovation and entrepreneurship.',
-    icon: '📘',
-    iconBgClass: 'bg-amber-600',
-    textClass: 'text-amber-600',
-    hoverBorderClass: 'hover:border-amber-200',
-    badgeClass: 'bg-amber-50 text-amber-700',
-    items: [
-      {
-        title: 'Building a Sustainable Innovation Ecosystem',
-        description:
-          'A framework for creating long-term, self-sustaining innovation and startup ecosystems.',
-        type: 'Whitepaper',
-        meta: 'Strategy',
-        tag: 'Ecosystem',
-      },
-      {
-        title: 'University-Driven Startup Models',
-        description:
-          'Exploring how academic institutions can effectively support entrepreneurship and venture creation.',
-        type: 'Whitepaper',
-        meta: 'Academic',
-        tag: 'Institutions',
-      },
-      {
-        title: 'Investor–Startup Matchmaking Framework',
-        description:
-          'A structured approach to improving alignment and success rates in startup funding relationships.',
-        type: 'Whitepaper',
-        meta: 'Framework',
-        tag: 'Funding',
-      },
-    ],
-  },
+  // {
+  //   key: 'whitepapers',
+  //   title: 'Whitepapers',
+  //   subtitle: 'Strategic perspectives and frameworks.',
+  //   description:
+  //     'In-depth documents presenting frameworks, methodologies, and strategic thinking across innovation and entrepreneurship.',
+  //   icon: '📘',
+  //   iconBgClass: 'bg-amber-600',
+  //   textClass: 'text-amber-600',
+  //   hoverBorderClass: 'hover:border-amber-200',
+  //   badgeClass: 'bg-amber-50 text-amber-700',
+  //   items: [
+  //     {
+  //       title: 'Building a Sustainable Innovation Ecosystem',
+  //       description:
+  //         'A framework for creating long-term, self-sustaining innovation and startup ecosystems.',
+  //       type: 'Whitepaper',
+  //       meta: 'Strategy',
+  //       tag: 'Ecosystem',
+  //     },
+  //     {
+  //       title: 'University-Driven Startup Models',
+  //       description:
+  //         'Exploring how academic institutions can effectively support entrepreneurship and venture creation.',
+  //       type: 'Whitepaper',
+  //       meta: 'Academic',
+  //       tag: 'Institutions',
+  //     },
+  //     {
+  //       title: 'Investor–Startup Matchmaking Framework',
+  //       description:
+  //         'A structured approach to improving alignment and success rates in startup funding relationships.',
+  //       type: 'Whitepaper',
+  //       meta: 'Framework',
+  //       tag: 'Funding',
+  //     },
+  //   ],
+  // },
 ]
 
 export const matchmakingSteps: MatchmakingStep[] = [

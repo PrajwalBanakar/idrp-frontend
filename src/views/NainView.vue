@@ -21,19 +21,19 @@
       @toggleInstitute="toggleInstitute"
     />
 
-    <NainCTASection
+    <!-- <NainCTASection
       title="Want to showcase more supported institutes and student innovations?"
       description="This section can be continuously expanded with year-wise institute records, support team details, and project teams."
       button-label="Contact IDRP"
       button-to="/contact"
-    />
+    /> -->
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
-import NainCTASection from '@/components/nain/NainCTASection.vue'
+// import NainCTASection from '@/components/nain/NainCTASection.vue'
 import NainHeroSection from '@/components/nain/NainHeroSection.vue'
 import NainInstitutesSection from '@/components/nain/NainInstitutesSection.vue'
 import NainOverviewSection from '@/components/nain/NainOverviewSection.vue'

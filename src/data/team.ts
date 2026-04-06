@@ -43,6 +43,13 @@ export const teamMembers: TeamMember[] = [
     linkedinUrl: 'http://linkedin.com/in/neha-revankar-6540062a1/',
   },
   {
+    name: 'Mr. Prajwal Banakar',
+    role: 'Software Engineer',
+    image: '/team-prajwal.jpeg',
+    imageAlt: 'Prajwal',
+    linkedinUrl: 'https://www.linkedin.com/in/prajwal-banakar-167130193/',
+  },
+  {
     name: 'Ms. Rakshata Athani',
     role: 'Incubation Manager',
     image: '/team-rakshata.jpeg',

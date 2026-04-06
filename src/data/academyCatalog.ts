@@ -17,9 +17,9 @@ export const academyCategories: AcademyCategory[] = [
     ctaLabel: 'Explore certification courses',
     badge: '3 Programs',
     items: [
-      'Innovation Entrepreneurship Technology (IET)',
-      'VLSI Design Course',
-      'Agentic AI Course',
+      'Innovation Entrepreneurship & Technology (IET)',
+      'VLSI Design',
+      'Agentic AI',
     ],
   },
   {
@@ -41,7 +41,7 @@ export const academyCategories: AcademyCategory[] = [
 export const certificationCourses: CertificationCourse[] = [
   {
     slug: 'iet',
-    title: 'Innovation Entrepreneurship Technology (IET)',
+    title: 'Innovation Entrepreneurship & Technology (IET)',
     duration: '3 Months',
     type: 'Certification Course',
     description:
@@ -57,7 +57,7 @@ export const certificationCourses: CertificationCourse[] = [
   },
   {
     slug: 'vlsi-design',
-    title: 'VLSI Design Course',
+    title: 'VLSI Design',
     duration: '3 Months',
     type: 'Certification Course',
     description:
@@ -72,7 +72,7 @@ export const certificationCourses: CertificationCourse[] = [
   },
   {
     slug: 'agentic-ai',
-    title: 'Agentic AI Course',
+    title: 'Agentic AI',
     duration: '3 Months',
     type: 'Certification Course',
     description:
@@ -141,7 +141,7 @@ export const certificationCourseDetailPages: CertificationCourseDetailPage[] = [
   {
     slug: 'iet',
     eyebrow: 'Certification Course',
-    heroTitle: 'Innovation Entrepreneurship Technology (IET)',
+    heroTitle: 'Innovation Entrepreneurship & Technology (IET)',
     heroDescription:
       'A 3-month certification course designed to nurture innovation, entrepreneurial thinking, and practical industry-aligned capability through structured learning.',
     overviewTitle: 'Structured Learning for Future Innovators and Entrepreneurs',
@@ -223,7 +223,7 @@ export const certificationCourseDetailPages: CertificationCourseDetailPage[] = [
   {
     slug: 'vlsi-design',
     eyebrow: 'Certification Course',
-    heroTitle: 'VLSI Design Course',
+    heroTitle: 'VLSI Design',
     heroDescription:
       'A 3-month certification course designed to build foundational and applied capability in VLSI design and semiconductor-oriented learning.',
     overviewTitle: 'Applied Learning in VLSI and Semiconductor Design',
@@ -298,14 +298,14 @@ export const certificationCourseDetailPages: CertificationCourseDetailPage[] = [
     ],
     applyRoute: '/courses/certification/vlsi-design/apply',
     enquireRoute: '/contact',
-    ctaTitle: 'Interested in the VLSI Design Course?',
+    ctaTitle: 'Interested in the VLSI Design?',
     ctaDescription:
       'Apply now to register your interest and receive updates on course schedules and participation details.',
   },
   {
     slug: 'agentic-ai',
     eyebrow: 'Certification Course',
-    heroTitle: 'Agentic AI Course',
+    heroTitle: 'Agentic AI',
     heroDescription:
       'A 3-month certification course introducing agentic AI systems, practical workflows, and emerging AI-driven problem solving.',
     overviewTitle: 'Learning Emerging AI Workflows and Agentic Systems',
@@ -380,7 +380,7 @@ export const certificationCourseDetailPages: CertificationCourseDetailPage[] = [
     ],
     applyRoute: '/courses/certification/agentic-ai/apply',
     enquireRoute: '/contact',
-    ctaTitle: 'Ready to explore the Agentic AI Course?',
+    ctaTitle: 'Ready to explore the Agentic AI?',
     ctaDescription:
       'Apply now to express interest and stay informed about upcoming course availability.',
   },

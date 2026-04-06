@@ -222,6 +222,22 @@ export const partnerCategories: PartnerCategory[] = [
         logo: '/partners/sankalp.png',
       },
       {
+        name: 'HAL',
+        abbr: 'HAL',
+        color: 'linear-gradient(135deg,#2563eb,#93c5fd)',
+        category: 'technology',
+        websiteUrl: 'https://hal-india.co.in/',
+        logo: '/partners/hal.jpeg',
+      },
+        {
+        name: 'JSW',
+        abbr: 'JSW',
+        color: 'linear-gradient(135deg,#2563eb,#93c5fd)',
+        category: 'technology',
+        websiteUrl: 'https://www.jswsteel.in/vijayanagar-works',
+        logo: '/partners/jsw.png',
+      },
+      {
         name: 'Tessolve',
         abbr: 'TES',
         color: 'linear-gradient(135deg,#ea580c,#fb923c)',

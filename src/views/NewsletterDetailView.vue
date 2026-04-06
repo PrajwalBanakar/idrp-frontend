@@ -1,5 +1,5 @@
 <template>
-  <div v-if="newsletter" class="bg-[#f6f3ed] px-6 py-10 md:px-12 lg:px-16 lg:py-14">
+  <div v-if="newsletter" class="bg-[#f6f3ed] px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 lg:px-16 lg:py-14">
     <div class="mx-auto max-w-7xl">
       <NewsletterReaderHeader
         :title="newsletter.title"
@@ -12,8 +12,8 @@
     </div>
   </div>
 
-  <section v-else class="bg-[#f6f3ed] px-6 py-24 md:px-12 lg:px-16">
-    <div class="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-10 text-center shadow-sm">
+  <section v-else class="bg-[#f6f3ed] px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-24 lg:px-16">
+    <div class="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm sm:p-10">
       <p class="text-sm font-semibold uppercase tracking-[0.2em] text-teal-600">
         Newsletter
       </p>

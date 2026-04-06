@@ -35,6 +35,7 @@ export const newsletters: Newsletter[] = [
       'linear-gradient(180deg, #0f3d6e 0%, #0b2f57 45%, #08213c 100%)',
     pdfUrl: '/newsletters/01-jan-mar-2025-edition.pdf',
     totalPages: 9,
+    previewImage: '/newsletters/jan-mar-2025-cover.jpg',
   },
   {
     id: 2,
@@ -55,6 +56,7 @@ export const newsletters: Newsletter[] = [
     coverGradient:
       'linear-gradient(180deg, #0f766e 0%, #115e59 45%, #0b3b39 100%)',
     pdfUrl: '/newsletters/02-apr-jun-2025-edition.pdf',
+    previewImage: '/newsletters/apr-jun-2025-cover.jpg',
   },
   {
     id: 3,
@@ -75,6 +77,7 @@ export const newsletters: Newsletter[] = [
     coverGradient:
       'linear-gradient(180deg, #1d4ed8 0%, #1e40af 45%, #172554 100%)',
     pdfUrl: '/newsletters/03-jul-sep-2025-edition.pdf',
+    previewImage: '/newsletters/jul-sep-2025-cover.jpg',
   },
   {
     id: 4,
@@ -95,6 +98,7 @@ export const newsletters: Newsletter[] = [
     coverGradient:
       'linear-gradient(180deg, #4338ca 0%, #3730a3 45%, #1e1b4b 100%)',
     pdfUrl: '/newsletters/04-oct-dec-2025-edition.pdf',
+    previewImage: '/newsletters/oct-dec-2025-cover.jpg',
   },
 ]
 

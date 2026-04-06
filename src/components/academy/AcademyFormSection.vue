@@ -10,15 +10,15 @@ const academyProgramOptions: ServiceFormOption[] = [
     value: 'certification-courses',
   },
   {
-    label: 'Innovation Entrepreneurship Technology (IET)',
+    label: 'Innovation Entrepreneurship & Technology (IET)',
     value: 'iet',
   },
   {
-    label: 'VLSI Design Course',
+    label: 'VLSI Design',
     value: 'vlsi-design',
   },
   {
-    label: 'Agentic AI Course',
+    label: 'Agentic AI',
     value: 'agentic-ai',
   },
   {

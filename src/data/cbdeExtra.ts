@@ -54,6 +54,11 @@ export const focusAreas: CBDEFocusArea[] = [
 
 export const beneficiaryGroups: CBDEBeneficiaryGroup[] = [
   {
+    title: 'Faculty',
+    description:
+      'Faculty members aiming to integrate innovation, design thinking, and entrepreneurship into teaching, research, and academic initiatives.',
+  },
+  {
     title: 'Students',
     description:
       'Students who want to build stronger innovation, design, and entrepreneurial capabilities beyond classroom learning.',
@@ -64,13 +69,8 @@ export const beneficiaryGroups: CBDEBeneficiaryGroup[] = [
       'Individuals exploring startup ideas and seeking stronger foundations in problem-solving and venture thinking.',
   },
   {
-    title: 'Innovation Teams',
+    title: 'Ecosystem Educational Institutions',
     description:
-      'Student or interdisciplinary teams working on ideas, prototypes, or early-stage solutions.',
-  },
-  {
-    title: 'Early Entrepreneurs',
-    description:
-      'Participants beginning their entrepreneurial journey who need structured support in design and execution thinking.',
+      'Academic institutions looking to strengthen their innovation ecosystem through structured programs, collaborations, and capacity-building initiatives.',
   },
 ]

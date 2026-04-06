@@ -1,22 +1,22 @@
-import type { ProgramPageData } from '@/types/program'
+import type { InitiativePageData } from '@/types/program'
 
-export const cifPage = {
+export const cifPage: InitiativePageData = {
   hero: {
     eyebrow: 'Government Initiatives',
     title: 'Common Instrumentation Facility',
     subtitle:
-      'A shared infrastructure initiative enabling access to advanced equipment, testing tools, and prototyping facilities.',
+      'Access advanced equipment and lab infrastructure to accelerate testing, prototyping, and innovation.',
     image: '/cif-hero.jfif',
-    imageAlt: 'CIF Program',
+    imageAlt: 'Common Instrumentation Facility',
   },
 
   intro: {
     eyebrow: 'Overview',
-    title: 'Shared access to critical tools and innovation infrastructure',
+    title: 'Enabling innovation through shared infrastructure',
     paragraphs: [
-      'The Common Instrumentation Facility (CIF) provides innovators, researchers, startups, and academic teams with access to shared instrumentation and advanced infrastructure.',
-      'By creating a common platform for equipment usage and experimentation, CIF improves efficiency in product development and research.',
-      'It serves as a strong institutional enabler for deep-tech work, interdisciplinary projects, and startup validation.',
+      'The Common Instrumentation Facility (CIF) enables startups, researchers, and academic teams to access specialized equipment and lab infrastructure without the need for individual ownership.',
+      'It supports faster product development by providing the tools required for testing, validation, and experimentation in one integrated environment.',
+      'By bridging infrastructure gaps, CIF strengthens deep-tech innovation, interdisciplinary research, and early-stage prototyping.',
     ],
     image: '/cif/cif-intro.jpeg',
     imageAlt: 'CIF Overview',
@@ -24,27 +24,27 @@ export const cifPage = {
 
   value: {
     eyebrow: 'Why CIF?',
-    title: 'The Value of the Common Instrumentation Facility',
+    title: 'What CIF enables',
     items: [
       {
-        title: 'Shared Infrastructure Access',
+        title: 'Advanced equipment access',
         description:
-          'Provides access to advanced tools and equipment through a shared model.',
+          'Utilize high-end tools and facilities without setting up independent infrastructure.',
       },
       {
-        title: 'Reduced Cost Barriers',
+        title: 'Cost efficiency',
         description:
-          'Makes high-end infrastructure accessible without individual investment.',
+          'Minimize capital investment while gaining access to essential resources.',
       },
       {
-        title: 'Hands-on Innovation',
+        title: 'Faster prototyping',
         description:
-          'Supports experimentation, testing, and validation.',
+          'Accelerate testing, iteration, and validation cycles.',
       },
       {
-        title: 'Ecosystem Strengthening',
+        title: 'Collaborative ecosystem',
         description:
-          'Enables collaboration across startups, academia, and research teams.',
+          'Work alongside startups, faculty, and research teams in a shared innovation environment.',
       },
     ],
     image: '/cif/cif-value.jpeg',
@@ -52,10 +52,10 @@ export const cifPage = {
   },
 
   cta: {
-    eyebrow: 'Access Infrastructure',
-    title: 'Leverage Shared Innovation Facilities',
+    eyebrow: 'Get Started',
+    title: 'Access CIF through IDRP',
     description:
-      'Connect with IDRP to explore access to instrumentation, testing, and prototyping infrastructure.',
+      'Reach out to explore how CIF can support your research, testing, and product development needs.',
     primaryActionLabel: 'Contact Us',
     primaryActionTo: '/contact',
   },
