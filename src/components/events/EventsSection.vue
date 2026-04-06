@@ -1,23 +1,34 @@
 <template>
   <section :class="sectionClass">
-    <div class="mx-auto max-w-5xl">
-      <div class="mb-10 flex items-center justify-between">
-        <div>
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div class="max-w-3xl">
           <span
-            class="text-sm font-semibold uppercase tracking-widest"
-            :class="variant === 'upcoming' ? 'text-teal-600' : 'text-gray-400'"
+            class="text-sm font-semibold uppercase tracking-[0.18em]"
+            :class="variant === 'upcoming' ? 'text-teal-600' : 'text-slate-500'"
           >
             {{ eyebrow }}
           </span>
-          <h2 class="mt-1 text-3xl font-bold text-gray-900">{{ title }}</h2>
+
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            {{ title }}
+          </h2>
+
+          <p class="mt-3 text-base leading-7 text-slate-600">
+            {{
+              variant === 'upcoming'
+                ? 'Browse current opportunities to participate in workshops, showcases, networking sessions, and startup-focused programs.'
+                : 'Explore previously hosted events, ecosystem engagements, and milestone programs from IDRP.'
+            }}
+          </p>
         </div>
 
         <span
-          class="rounded-full px-4 py-2 text-xs font-bold"
+          class="w-fit rounded-full px-4 py-2 text-xs font-bold"
           :class="
             variant === 'upcoming'
               ? 'bg-teal-50 text-teal-700'
-              : 'bg-gray-100 text-gray-600'
+              : 'bg-slate-100 text-slate-600'
           "
         >
           {{ items.length }} Events
@@ -33,16 +44,16 @@
         />
       </div>
 
-      <div v-else class="py-16 text-center text-gray-400">
+      <div v-else class="rounded-3xl border border-dashed border-slate-200 bg-white py-16 text-center">
         <p class="mb-4 text-4xl">{{ emptyIcon }}</p>
-        <p class="font-semibold text-gray-500">{{ emptyText }}</p>
+        <p class="font-semibold text-slate-500">{{ emptyText }}</p>
       </div>
 
-      <div v-if="totalPages > 1" class="mt-8 flex justify-center gap-2">
+      <div v-if="totalPages > 1" class="mt-10 flex justify-center gap-2">
         <button
           type="button"
           :disabled="currentPage === 1"
-          class="rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-600 transition-colors hover:border-teal-400 hover:text-teal-600 disabled:opacity-30"
+          class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-teal-400 hover:text-teal-600 disabled:cursor-not-allowed disabled:opacity-30"
           @click="$emit('update:currentPage', currentPage - 1)"
         >
           Previous
@@ -52,7 +63,7 @@
           v-for="pageNumber in totalPages"
           :key="pageNumber"
           type="button"
-          class="h-10 w-10 rounded-xl border text-sm font-bold transition-colors"
+          class="h-10 w-10 rounded-xl border text-sm font-bold transition"
           :class="pageButtonClass(pageNumber)"
           @click="$emit('update:currentPage', pageNumber)"
         >
@@ -62,7 +73,7 @@
         <button
           type="button"
           :disabled="currentPage === totalPages"
-          class="rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-600 transition-colors hover:border-teal-400 hover:text-teal-600 disabled:opacity-30"
+          class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-teal-400 hover:text-teal-600 disabled:cursor-not-allowed disabled:opacity-30"
           @click="$emit('update:currentPage', currentPage + 1)"
         >
           Next
@@ -95,19 +106,17 @@ defineEmits<{
 
 const sectionClass = computed(() =>
   props.variant === 'upcoming'
-    ? 'bg-white px-6 py-16 md:px-16'
-    : 'bg-gray-50 px-6 py-16 md:px-16',
+    ? 'bg-white px-6 py-16 md:px-12 lg:px-16 lg:py-20'
+    : 'bg-slate-50 px-6 py-16 md:px-12 lg:px-16 lg:py-20',
 )
 
-const listGapClass = computed(() =>
-  props.variant === 'upcoming' ? 'gap-6' : 'gap-5',
-)
+const listGapClass = computed(() => 'gap-8')
 
 const emptyIcon = computed(() => (props.variant === 'upcoming' ? '📅' : '🗂️'))
 
 const emptyText = computed(() =>
   props.variant === 'upcoming'
-    ? 'No upcoming events right now. Check back soon!'
+    ? 'No upcoming events right now. Check back soon.'
     : 'No past events available yet.',
 )
 
@@ -115,11 +124,11 @@ function pageButtonClass(pageNumber: number) {
   if (props.variant === 'upcoming') {
     return props.currentPage === pageNumber
       ? 'border-teal-700 bg-teal-700 text-white'
-      : 'border-gray-200 text-gray-600 hover:border-teal-400 hover:text-teal-600'
+      : 'border-slate-200 text-slate-600 hover:border-teal-400 hover:text-teal-600'
   }
 
   return props.currentPage === pageNumber
-    ? 'border-gray-700 bg-gray-700 text-white'
-    : 'border-gray-200 text-gray-600 hover:border-gray-400'
+    ? 'border-slate-700 bg-slate-700 text-white'
+    : 'border-slate-200 text-slate-600 hover:border-slate-400'
 }
 </script>

@@ -19,7 +19,7 @@
           </p>
         </div>
 
-        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <!-- <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div
             v-for="stat in stats"
             :key="stat.label"
@@ -32,7 +32,7 @@
               {{ stat.label }}
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div>

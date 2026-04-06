@@ -4,7 +4,7 @@
   >
     <div class="p-6 sm:p-7">
       <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-        <div class="flex items-start gap-4 sm:gap-5">
+        <div class="flex min-w-0 items-start gap-4 sm:gap-5">
           <div
             class="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm"
           >
@@ -40,12 +40,12 @@
 
             <p
               v-if="startup.brief"
-              class="mt-4 max-w-3xl text-sm leading-7 text-slate-600"
+              class="mt-3 max-w-3xl text-sm leading-6 text-slate-600 line-clamp-2"
             >
               {{ startup.brief }}
             </p>
 
-            <div class="mt-5 flex flex-wrap gap-3">
+            <div class="mt-4 flex flex-wrap gap-2.5">
               <a
                 v-if="startup.website"
                 :href="startup.website"
@@ -87,31 +87,32 @@
     <transition
       enter-active-class="transition-all duration-300 ease-out"
       enter-from-class="max-h-0 opacity-0"
-      enter-to-class="max-h-[1800px] opacity-100"
+      enter-to-class="max-h-[1400px] opacity-100"
       leave-active-class="transition-all duration-200 ease-in"
-      leave-from-class="max-h-[1800px] opacity-100"
+      leave-from-class="max-h-[1400px] opacity-100"
       leave-to-class="max-h-0 opacity-0"
     >
       <div v-if="expanded" class="border-t border-slate-200 bg-slate-50 px-6 py-6 sm:px-7">
-        <div class="grid grid-cols-1 gap-8 xl:grid-cols-[1.45fr_1fr]">
-          <div class="space-y-8">
-            <div>
+        <div class="grid gap-6 xl:grid-cols-[1.35fr_0.95fr]">
+          <!-- Left -->
+          <div class="space-y-6">
+            <section>
               <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
                 Founders
               </h4>
 
-              <div class="mt-4 space-y-4">
+              <div class="mt-3 space-y-3">
                 <div
                   v-for="founder in startup.founders"
                   :key="`${startup.id}-founder-${founder.name}`"
-                  class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+                  class="rounded-2xl border border-slate-200 bg-white px-4 py-3"
                 >
-                  <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <p class="text-sm font-semibold text-slate-900">
                         {{ founder.name }}
                       </p>
-                      <p class="mt-1 text-xs text-slate-500">
+                      <p class="mt-0.5 text-xs text-slate-500">
                         {{ founder.role }}
                       </p>
                     </div>
@@ -121,17 +122,17 @@
                       :href="founder.linkedin"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-sm font-semibold text-teal-700 transition hover:text-teal-800"
+                      class="text-xs font-semibold text-teal-700 transition hover:text-teal-800"
                     >
-                      View LinkedIn
+                      LinkedIn
                     </a>
                   </div>
 
-                  <div class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  <div class="mt-3 flex flex-wrap gap-2">
                     <a
                       v-if="founder.email"
                       :href="`mailto:${founder.email}`"
-                      class="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
+                      class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
                     >
                       {{ founder.email }}
                     </a>
@@ -139,61 +140,65 @@
                     <a
                       v-if="founder.phone"
                       :href="`tel:${founder.phone}`"
-                      class="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
+                      class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
                     >
                       {{ founder.phone }}
                     </a>
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
-            <div v-if="startup.techFacultyMentors?.length">
+            <section v-if="startup.techFacultyMentors?.length">
               <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
                 Tech Faculty Mentors
               </h4>
 
-              <div class="mt-4 space-y-4">
+              <div class="mt-3 flex flex-wrap gap-3">
                 <div
                   v-for="mentor in startup.techFacultyMentors"
                   :key="`${startup.id}-mentor-${mentor.name}`"
-                  class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+                  class="rounded-2xl border border-slate-200 bg-white px-4 py-3"
                 >
                   <p class="text-sm font-semibold text-slate-900">
                     {{ mentor.name }}
                   </p>
-
                   <a
                     v-if="mentor.email"
                     :href="`mailto:${mentor.email}`"
-                    class="mt-3 inline-block rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
+                    class="mt-1 inline-block text-xs text-slate-600 transition hover:text-teal-700"
                   >
                     {{ mentor.email }}
                   </a>
                 </div>
               </div>
-            </div>
+            </section>
 
-            <div v-if="startup.teamMembers?.length">
-              <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
-                Team Members
-              </h4>
+            <section v-if="startup.teamMembers?.length">
+              <div class="flex items-center justify-between gap-3">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                  Team Members
+                </h4>
+                <span class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500 ring-1 ring-slate-200">
+                  {{ startup.teamMembers.length }}
+                </span>
+              </div>
 
-              <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div class="mt-3 grid gap-3 sm:grid-cols-2">
                 <div
                   v-for="member in startup.teamMembers"
                   :key="`${startup.id}-member-${member.name}`"
-                  class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+                  class="rounded-2xl border border-slate-200 bg-white px-4 py-3"
                 >
                   <p class="text-sm font-semibold text-slate-900">
                     {{ member.name }}
                   </p>
 
-                  <div class="mt-3 space-y-2">
+                  <div class="mt-2 space-y-1.5">
                     <a
                       v-if="member.email"
                       :href="`mailto:${member.email}`"
-                      class="block rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
+                      class="block text-xs text-slate-600 transition hover:text-teal-700"
                     >
                       {{ member.email }}
                     </a>
@@ -201,76 +206,124 @@
                     <a
                       v-if="member.phone"
                       :href="`tel:${member.phone}`"
-                      class="block rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
+                      class="block text-xs text-slate-600 transition hover:text-teal-700"
                     >
                       {{ member.phone }}
                     </a>
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
 
-          <div>
-            <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
-              Startup Contact
-            </h4>
+          <!-- Right -->
+          <div class="space-y-6">
+            <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                Startup Contact
+              </h4>
 
-            <div class="mt-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-              <div class="space-y-5 text-sm text-slate-600">
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                    Contact Email
+              <div class="mt-4 space-y-4">
+                <div v-if="startup.contactEmail">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    Email
                   </p>
                   <a
                     :href="`mailto:${startup.contactEmail}`"
-                    class="mt-1 inline-block font-medium text-slate-800 transition hover:text-teal-700"
+                    class="mt-1 inline-block text-sm font-medium text-slate-800 transition hover:text-teal-700"
                   >
                     {{ startup.contactEmail }}
                   </a>
                 </div>
 
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                    Contact Number
+                <div v-if="startup.contactPhone">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    Phone
                   </p>
                   <a
                     :href="`tel:${startup.contactPhone}`"
-                    class="mt-1 inline-block font-medium text-slate-800 transition hover:text-teal-700"
+                    class="mt-1 inline-block text-sm font-medium text-slate-800 transition hover:text-teal-700"
                   >
                     {{ startup.contactPhone }}
                   </a>
                 </div>
 
                 <div v-if="startup.website">
-                  <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
                     Website
                   </p>
                   <a
                     :href="startup.website"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="mt-1 inline-block break-all font-medium text-slate-800 transition hover:text-teal-700"
+                    class="mt-1 inline-block break-all text-sm font-medium text-slate-800 transition hover:text-teal-700"
                   >
                     {{ websiteLabel }}
                   </a>
                 </div>
 
                 <div v-if="startup.onePager">
-                  <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
                     Investor Material
                   </p>
                   <a
                     :href="startup.onePager"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="mt-1 inline-block font-semibold text-teal-700 transition hover:text-teal-800"
+                    class="mt-1 inline-block text-sm font-semibold text-teal-700 transition hover:text-teal-800"
                   >
                     View / Download One-Pager
                   </a>
                 </div>
               </div>
-            </div>
+            </section>
+
+            <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                Quick Snapshot
+              </h4>
+
+              <div class="mt-4 grid gap-3">
+                <div class="rounded-xl bg-slate-50 px-4 py-3">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    Category
+                  </p>
+                  <p class="mt-1 text-sm font-semibold text-slate-800">
+                    {{ categoryLabel }}
+                  </p>
+                </div>
+
+                <div class="rounded-xl bg-slate-50 px-4 py-3">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    Sector
+                  </p>
+                  <p class="mt-1 text-sm font-semibold text-slate-800">
+                    {{ startup.sector || 'To be updated' }}
+                  </p>
+                </div>
+
+                <div class="rounded-xl bg-slate-50 px-4 py-3">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    Founders
+                  </p>
+                  <p class="mt-1 text-sm font-semibold text-slate-800">
+                    {{ startup.founders.length }}
+                  </p>
+                </div>
+
+                <div
+                  v-if="startup.teamMembers?.length"
+                  class="rounded-xl bg-slate-50 px-4 py-3"
+                >
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    Team Members
+                  </p>
+                  <p class="mt-1 text-sm font-semibold text-slate-800">
+                    {{ startup.teamMembers.length }}
+                  </p>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>

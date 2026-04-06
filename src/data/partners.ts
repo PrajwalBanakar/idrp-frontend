@@ -47,14 +47,14 @@ export const partnerCategories: PartnerCategory[] = [
         websiteUrl: 'https://www.maven-silicon.com/',
         logo: '/partners/maven.png',
       },
-      {
-        name: 'Xcel Corp',
-        abbr: 'XC',
-        color: 'linear-gradient(135deg,#6b7280,#9ca3af)',
-        category: 'academic',
-        websiteUrl: 'https://xcelcorp.com/',
-        logo: '/partners/xcel.png',
-      },
+      // {
+      //   name: 'Xcel Corp',
+      //   abbr: 'XC',
+      //   color: 'linear-gradient(135deg,#6b7280,#9ca3af)',
+      //   category: 'academic',
+      //   websiteUrl: 'https://xcelcorp.com/',
+      //   logo: '/partners/xcel.png',
+      // },
       {
         name: 'RV-VLSI Design Center',
         abbr: 'RV',

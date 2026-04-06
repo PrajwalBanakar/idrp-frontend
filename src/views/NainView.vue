@@ -5,6 +5,7 @@
     <NainOverviewSection
       :overview="nainPage.overview"
       :stats="overviewStats"
+      :pmu="nainPage.pmu"
     />
 
     <NainGallerySection :images="nainImages" />
@@ -13,14 +14,16 @@
       :section="nainPage.institutesSection"
       :institutes="filteredInstitutes"
       :search-query="searchQuery"
+      :expanded-year="expandedYear"
       :expanded-institute-id="expandedInstituteId"
       @update:searchQuery="searchQuery = $event"
+      @toggleYear="toggleYear"
       @toggleInstitute="toggleInstitute"
     />
 
     <NainCTASection
       title="Want to showcase more supported institutes and student innovations?"
-      description="This section can be continuously expanded with institute-wise and year-wise project records, investigator details, project teams, and external project links."
+      description="This section can be continuously expanded with year-wise institute records, support team details, and project teams."
       button-label="Contact IDRP"
       button-to="/contact"
     />
@@ -37,9 +40,22 @@ import NainOverviewSection from '@/components/nain/NainOverviewSection.vue'
 import NainGallerySection from '@/components/nain/NainGallerySection.vue'
 
 import { nainPage, nainImages } from '@/data/nain'
+import type { NAINInstitute } from '@/types/nain'
 
 const searchQuery = ref('')
+const expandedYear = ref<string | null>(null)
 const expandedInstituteId = ref<string | null>(null)
+
+function toggleYear(year: string) {
+  if (expandedYear.value === year) {
+    expandedYear.value = null
+    expandedInstituteId.value = null
+    return
+  }
+
+  expandedYear.value = year
+  expandedInstituteId.value = null
+}
 
 function toggleInstitute(id: string) {
   expandedInstituteId.value = expandedInstituteId.value === id ? null : id
@@ -63,7 +79,7 @@ const overviewStats = computed(() =>
   })),
 )
 
-const filteredInstitutes = computed<typeof nainPage.institutes>(() => {
+const filteredInstitutes = computed<NAINInstitute[]>(() => {
   const query = searchQuery.value.trim().toLowerCase()
 
   if (!query) return nainPage.institutes
@@ -82,10 +98,13 @@ const filteredInstitutes = computed<typeof nainPage.institutes>(() => {
 
       const visibleYears = institute.years
         .map((yearGroup) => {
-          const yearMatches = [
-            yearGroup.year,
-            yearGroup.principalInvestigator,
-            yearGroup.coPrincipalInvestigator,
+          const yearMatches = yearGroup.year.toLowerCase().includes(query)
+
+          const supportMatches = [
+            yearGroup.support.pmuTechMentor,
+            yearGroup.support.dia,
+            yearGroup.support.nainCoordinator,
+            ...yearGroup.support.misExecutives,
           ]
             .join(' ')
             .toLowerCase()
@@ -94,14 +113,9 @@ const filteredInstitutes = computed<typeof nainPage.institutes>(() => {
           const filteredProjects = yearGroup.projects.filter((project) => {
             const searchableText = [
               project.title,
-              project.brief,
-              project.iiitFacultyGuide,
-              project.nainCoordinator,
-              project.dia,
-              project.techMentor,
-              project.programAssociate,
-              ...project.misExecutives,
-              ...project.studentMembers,
+              project.facultyGuideName,
+              project.teamLeaderName,
+              ...project.teamMembers,
             ]
               .join(' ')
               .toLowerCase()
@@ -109,7 +123,7 @@ const filteredInstitutes = computed<typeof nainPage.institutes>(() => {
             return searchableText.includes(query)
           })
 
-          if (instituteMatches || yearMatches) {
+          if (instituteMatches || yearMatches || supportMatches) {
             return yearGroup
           }
 
@@ -127,12 +141,13 @@ const filteredInstitutes = computed<typeof nainPage.institutes>(() => {
       if (instituteMatches || visibleYears.length > 0) {
         return {
           ...institute,
-          years: visibleYears.length > 0 ? visibleYears : institute.years,
+          years: visibleYears,
         }
       }
 
       return null
     })
-    .filter(Boolean) as typeof nainPage.institutes
+    .filter(Boolean) as NAINInstitute[]
 })
+
 </script>

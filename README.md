@@ -19,31 +19,70 @@ idrp-frontend
 │  ├─ advisory-karthik.jfif
 │  ├─ advisory-poyni.jfif
 │  ├─ apply-hero.jfif
+│  ├─ awards
+│  │  └─ coe.jpeg
 │  ├─ board-deepak.jfif
 │  ├─ board-hero.jfif
 │  ├─ board-prasanna.jfif
+│  ├─ brochures
+│  │  ├─ FDP-Brochure.pdf
+│  │  ├─ IET-Brochure.pdf
+│  │  └─ SDW-Brochure.pdf
 │  ├─ business-anand.jfif
 │  ├─ business-mallikarjun.jfif
+│  ├─ campus
+│  │  ├─ idrp_5g_lab.jpeg
+│  │  ├─ idrp_aerial.jpg
+│  │  ├─ idrp_auditorium.JPG
+│  │  ├─ idrp_award.jpeg
+│  │  ├─ idrp_award_2.jpeg
+│  │  ├─ idrp_award_3.jpeg
+│  │  ├─ idrp_building.jpg
+│  │  ├─ idrp_common.jpeg
+│  │  ├─ idrp_drone.jpeg
+│  │  ├─ idrp_drone_lab.jpeg
+│  │  ├─ idrp_entrance.jpeg
+│  │  ├─ idrp_hero.jpeg
+│  │  ├─ idrp_meeting.jpeg
+│  │  ├─ idrp_nlp.jpeg
+│  │  ├─ idrp_presentation.jpeg
+│  │  ├─ idrp_Sidarud_Team.JPG
+│  │  ├─ idrp_speech_lab.jpeg
+│  │  ├─ idrp_workspace.jpeg
+│  │  └─ idrp_workspace_2.jpeg
+│  ├─ cbde
+│  │  ├─ cbde-intro.jpeg
+│  │  └─ cbde-value.jpeg
 │  ├─ cbde-hero.jfif
 │  ├─ cbde-intro.jfif
 │  ├─ cbde-value.jfif
+│  ├─ cif
+│  │  ├─ cif-intro.jpeg
+│  │  └─ cif-value.jpeg
 │  ├─ cif-hero.jfif
 │  ├─ cif-intro.jfif
 │  ├─ cif-value.jfif
 │  ├─ consulting-hero.jfif
+│  ├─ Faculty Booklet.pdf
 │  ├─ faculty-abdul.jfif
 │  ├─ faculty-anushree.jfif
 │  ├─ faculty-girish.jfif
 │  ├─ faculty-jagadish.jfif
 │  ├─ faculty-krishnendu.jfif
+│  ├─ faculty-malay.jfif
 │  ├─ faculty-manjunath.jfif
 │  ├─ faculty-nataraj.jfif
+│  ├─ faculty-pankaj.jfif
+│  ├─ faculty-prabhu.jfif
 │  ├─ faculty-prakash.jfif
 │  ├─ faculty-rajesh.jfif
 │  ├─ faculty-sandesh.jfif
 │  ├─ faculty-shirshendu.jfif
 │  ├─ faculty-sibasankar.jfif
+│  ├─ faculty-siddharth.jfif
 │  ├─ faculty-sunil.jfif
+│  ├─ faculty-sunilck.jfif
+│  ├─ faculty-sunilkumar.jfif
 │  ├─ faculty-suvadip.jfif
 │  ├─ faculty-vivekraj.jfif
 │  ├─ hero1.jfif
@@ -59,17 +98,100 @@ idrp-frontend
 │  ├─ investor-matchmaking-hero.jfif
 │  ├─ matchmaking-hero.jfif
 │  ├─ mentors-hero.jfif
+│  ├─ nain
+│  │  ├─ img1.jpeg
+│  │  ├─ img2.jpeg
+│  │  └─ img3.jpeg
 │  ├─ nain-hero.jfif
 │  ├─ nain-intro.jfif
 │  ├─ nain-value.jfif
+│  ├─ newsletters
+│  │  ├─ 01-jan-mar-2025-edition.pdf
+│  │  ├─ 02-apr-jun-2025-edition.pdf
+│  │  ├─ 03-jul-sep-2025-edition.pdf
+│  │  └─ 04-oct-dec-2025-edition.pdf
+│  ├─ partners
+│  │  ├─ 100x.png
+│  │  ├─ bldeacet.png
+│  │  ├─ campusfund.png
+│  │  ├─ cii.png
+│  │  ├─ cocreate.png
+│  │  ├─ culkey.png
+│  │  ├─ cxfirst.png
+│  │  ├─ cyseck.png
+│  │  ├─ deshpande.png
+│  │  ├─ dimhans.png
+│  │  ├─ dkte.png
+│  │  ├─ ekstep.png
+│  │  ├─ faso.png
+│  │  ├─ fuel.png
+│  │  ├─ futurewiz.png
+│  │  ├─ gmu.png
+│  │  ├─ hhh.png
+│  │  ├─ ideck.png
+│  │  ├─ imerit.png
+│  │  ├─ infosys.png
+│  │  ├─ jcer.png
+│  │  ├─ keonics.png
+│  │  ├─ kleit.png
+│  │  ├─ klepharm.png
+│  │  ├─ maven.png
+│  │  ├─ nanopix.png
+│  │  ├─ pda.png
+│  │  ├─ qpiai.png
+│  │  ├─ rcu.png
+│  │  ├─ rnsit.png
+│  │  ├─ rvvlsi.png
+│  │  ├─ sandeepani.png
+│  │  ├─ sankalp.png
+│  │  ├─ sbi.png
+│  │  ├─ seafund.png
+│  │  ├─ sgbit.png
+│  │  ├─ shridevi.png
+│  │  ├─ stpi.png
+│  │  ├─ talkinglands.png
+│  │  ├─ teamlease-edtech.png
+│  │  ├─ tessolve.png
+│  │  ├─ tie.png
+│  │  ├─ vakil.png
+│  │  ├─ vidya.png
+│  │  ├─ vsm.png
+│  │  ├─ vtu.png
+│  │  ├─ xcel.png
+│  │  └─ zoho.png
 │  ├─ partners-hero.jfif
 │  ├─ prototype-development-hero.jfif
+│  ├─ quantum-ai
+│  │  ├─ quantum-ai-intro.jpeg
+│  │  └─ quantum-ai-value.jpeg
 │  ├─ quantum-ai-hero.jfif
 │  ├─ quantum-ai-intro.jfif
 │  ├─ quantum-ai-value.jfif
 │  ├─ resources-hero.jfif
 │  ├─ services.jpg
 │  ├─ startup-matchmaking-hero.jfif
+│  ├─ startups
+│  │  └─ logo
+│  │     ├─ bookmyturf.png
+│  │     ├─ cipherion.png
+│  │     ├─ cre8hub.png
+│  │     ├─ c_3.jpg
+│  │     ├─ deep_traits.PNG
+│  │     ├─ evento.png
+│  │     ├─ Friend In Fog.png
+│  │     ├─ Jnanasetu.png
+│  │     ├─ Kisan_Voice.png
+│  │     ├─ MediRaksha.png
+│  │     ├─ MLera.png
+│  │     ├─ Natanasvara.jpg
+│  │     ├─ Neuraforesight.jpeg
+│  │     ├─ NeXR.jpeg
+│  │     ├─ Smart Nest.png
+│  │     ├─ Sparkle Studio.jpeg
+│  │     ├─ Step-In.jpg
+│  │     ├─ Vayucharge.jpeg
+│  │     ├─ VGyan.png
+│  │     └─ Vocal Drone.jpeg
 │  ├─ team-darshana.jpeg
 │  ├─ team-hero.jfif
 │  ├─ team-lokesh.jpeg
@@ -80,14 +202,21 @@ idrp-frontend
 │  ├─ team-sunita.jpeg
 │  ├─ technical-education-academy-hero.jfif
 │  ├─ technology-preetham.jfif
+│  ├─ udyami
+│  │  ├─ udyami-intro.jpeg
+│  │  └─ udyami-value.jpeg
 │  ├─ vision-community.jfif
 │  ├─ vision-innovation.jfif
-│  └─ vision-resources.jfif
+│  ├─ vision-resources.jfif
+│  └─ yuva-udyami
+│     ├─ yuva-udyami-intro.jpeg
+│     └─ yuva-udyami-value.jpeg
 ├─ README.md
 ├─ src
 │  ├─ App.vue
 │  ├─ components
 │  │  ├─ about
+│  │  │  ├─ AboutCampusGallerySection.vue
 │  │  │  ├─ AboutCTASection.vue
 │  │  │  ├─ AboutHeroSection.vue
 │  │  │  ├─ AboutIntroSection.vue
@@ -97,13 +226,8 @@ idrp-frontend
 │  │  │  ├─ AboutTimelineSection.vue
 │  │  │  └─ AboutVisionSection.vue
 │  │  ├─ academy
-│  │  │  ├─ AcademyAreasSection.vue
 │  │  │  ├─ AcademyCategoriesSection.vue
-│  │  │  ├─ AcademyCTASection.vue
 │  │  │  ├─ AcademyFormSection.vue
-│  │  │  ├─ AcademyHeroSection.vue
-│  │  │  ├─ AcademyIntroSection.vue
-│  │  │  ├─ AcademyStatsSection.vue
 │  │  │  ├─ CourseApplyFormSection.vue
 │  │  │  ├─ CourseApplyHeroSection.vue
 │  │  │  ├─ CourseApplyNotFound.vue
@@ -114,8 +238,7 @@ idrp-frontend
 │  │  │  ├─ CourseDetailNotFound.vue
 │  │  │  ├─ CourseDetailOverviewSection.vue
 │  │  │  ├─ CourseHighlightsSection.vue
-│  │  │  ├─ WorkshopApplyFormSection.vue
-│  │  │  └─ WorkshopCard.vue
+│  │  │  └─ WorkshopApplyFormSection.vue
 │  │  ├─ AppLayout.vue
 │  │  ├─ application
 │  │  │  ├─ ApplicationFormSection.vue
@@ -172,10 +295,10 @@ idrp-frontend
 │  │  ├─ nain
 │  │  │  ├─ NainCTASection.vue
 │  │  │  ├─ NainFilters.vue
+│  │  │  ├─ NainGallerySection.vue
 │  │  │  ├─ NainHeroSection.vue
 │  │  │  ├─ NainInstituteCard.vue
 │  │  │  ├─ NainInstitutesSection.vue
-│  │  │  ├─ NainMentorSection.vue
 │  │  │  └─ NainOverviewSection.vue
 │  │  ├─ partners
 │  │  │  ├─ PartnerCard.vue
@@ -196,6 +319,7 @@ idrp-frontend
 │  │  │  ├─ NewsletterDetailNotFound.vue
 │  │  │  ├─ NewsletterReaderBook.vue
 │  │  │  ├─ NewsletterReaderHeader.vue
+│  │  │  ├─ PdfPageCanvas.vue
 │  │  │  ├─ ResourceCategoriesSection.vue
 │  │  │  ├─ ResourcesCTASection.vue
 │  │  │  ├─ ResourcesHeroSection.vue
@@ -269,7 +393,6 @@ idrp-frontend
 │  │  ├─ academy.ts
 │  │  ├─ application.ts
 │  │  ├─ contact.ts
-│  │  ├─ courses.ts
 │  │  ├─ events.ts
 │  │  ├─ form.ts
 │  │  ├─ investmentCommittee.ts
@@ -280,6 +403,7 @@ idrp-frontend
 │  │  ├─ program.ts
 │  │  ├─ resources.ts
 │  │  ├─ service.ts
+│  │  ├─ startups.ts
 │  │  └─ team.ts
 │  └─ views
 │     ├─ AboutView.vue

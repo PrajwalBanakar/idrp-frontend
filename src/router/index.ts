@@ -279,12 +279,6 @@ const communityRoutes: RouteRecordRaw[] = [
 
 const eventRoutes: RouteRecordRaw[] = [
   createPageRoute(
-    '/community/events/:id',
-    ROUTE_NAMES.EVENT_DETAIL,
-    'EventDetailView',
-    'Event Detail',
-  ),
-  createPageRoute(
     '/community/events/:id/register',
     ROUTE_NAMES.EVENT_REGISTER,
     'EventRegistrationView',

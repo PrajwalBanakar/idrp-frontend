@@ -3,7 +3,7 @@
     <ServiceHeroSection :hero="industryResearchPage.hero" />
     <ServiceIntroSection :intro="industryResearchPage.intro" />
     <ServiceHighlightsSection :items="industryResearchPage.highlights ?? []" />
-    <ServiceStatsSection :stats="industryResearchPage.stats ?? []" />
+    <!-- <ServiceStatsSection :stats="industryResearchPage.stats ?? []" /> -->
     <ServiceCTASection v-if="industryResearchPage.cta" :cta="industryResearchPage.cta" />
     <ServiceFormSection
       v-if="industryResearchPage.formOptions"

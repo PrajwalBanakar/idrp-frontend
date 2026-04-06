@@ -31,6 +31,7 @@ export type EventItem = {
   image: string
   fallbackBg: string
 
+  brochureUrl?: string
   registerUrl?: string
   isUpcoming: boolean
   visible?: boolean

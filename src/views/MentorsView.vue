@@ -39,7 +39,7 @@ const router = useRouter()
 const searchQuery = ref('')
 
 function getValidTab(tab: unknown): MentorCategory {
-  if (tab === 'business' || tab === 'technology' || tab === 'faculty' || tab === 'all') {
+  if (tab === 'business' || tab === 'technology' || tab === 'all') {
     return tab
   }
   return 'all'

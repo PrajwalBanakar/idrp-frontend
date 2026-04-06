@@ -21,7 +21,7 @@ export const focusAreas: QuantumFocusArea[] = [
     ],
   },
   {
-    title: 'AI & Computational Innovation',
+    title: 'Quantum AI & Computational Innovation',
     description:
       'Supports AI-driven innovation and advanced algorithmic thinking.',
     points: [

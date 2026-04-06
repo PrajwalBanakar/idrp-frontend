@@ -51,6 +51,7 @@ export const events: EventItem[] = [
     organiser: 'IDRP',
     image: '/event-demoday.jfif',
     fallbackBg: 'from-teal-600 to-cyan-500',
+    brochureUrl: '/event-demoday.jfif',
     registerUrl: '#',
     isUpcoming: true,
     highlights: [
@@ -111,6 +112,7 @@ export const events: EventItem[] = [
     organiser: 'IDRP',
     image: '/event-masterclass.jfif',
     fallbackBg: 'from-blue-600 to-indigo-500',
+    brochureUrl: '/event-masterclass.jfif',
     registerUrl: '#',
     isUpcoming: true,
     highlights: [
@@ -162,6 +164,7 @@ export const events: EventItem[] = [
     organiser: 'IDRP',
     image: '/event-mixer.jfif',
     fallbackBg: 'from-violet-600 to-purple-500',
+    brochureUrl: '/event-mixer.jfif',
     registerUrl: '#',
     isUpcoming: true,
     highlights: [
@@ -206,6 +209,7 @@ export const events: EventItem[] = [
     organiser: 'IDRP',
     image: '/event-ipclinic.jfif',
     fallbackBg: 'from-orange-500 to-amber-400',
+    brochureUrl: '/event-ipclinic.jfif',
     registerUrl: '#',
     isUpcoming: true,
     highlights: [
@@ -250,6 +254,7 @@ export const events: EventItem[] = [
     organiser: 'IDRP',
     image: '/event-gtm.jfif',
     fallbackBg: 'from-rose-600 to-pink-500',
+    brochureUrl: '/event-gtm.jfif',
     registerUrl: '#',
     isUpcoming: true,
     highlights: [
@@ -294,6 +299,7 @@ export const events: EventItem[] = [
     organiser: 'IDRP',
     image: '/event-showcase25.jfif',
     fallbackBg: 'from-gray-400 to-gray-500',
+    brochureUrl: '/event-showcase25.jfif',
     isUpcoming: false,
     highlights: [
       '40+ startup showcases',
@@ -343,6 +349,7 @@ export const events: EventItem[] = [
     organiser: 'IDRP',
     image: '/event-womenintech.jfif',
     fallbackBg: 'from-purple-400 to-fuchsia-400',
+    brochureUrl: '/event-womenintech.jfif',
     isUpcoming: false,
     highlights: [
       'Keynotes from women leaders',
@@ -367,6 +374,7 @@ export const events: EventItem[] = [
     organiser: 'IDRP',
     image: '/event-investornight.jfif',
     fallbackBg: 'from-teal-400 to-cyan-400',
+    brochureUrl: '/event-investornight.jfif',
     isUpcoming: false,
     highlights: [
       'Curated investor-founder interactions',
@@ -390,6 +398,7 @@ export const events: EventItem[] = [
     organiser: 'IDRP',
     image: '/event-graduation.jfif',
     fallbackBg: 'from-amber-400 to-orange-400',
+    brochureUrl: '/event-graduation.jfif',
     isUpcoming: false,
     highlights: [
       'Graduation ceremony',
@@ -414,6 +423,7 @@ export const events: EventItem[] = [
     organiser: 'IDRP',
     image: '/event-hackathon.jfif',
     fallbackBg: 'from-blue-400 to-indigo-400',
+    brochureUrl: '/event-hackathon.jfif',
     isUpcoming: false,
     highlights: [
       '48-hour innovation challenge',
@@ -437,6 +447,7 @@ export const events: EventItem[] = [
     organiser: 'IDRP',
     image: '/event-kdem.jfif',
     fallbackBg: 'from-green-400 to-teal-400',
+    brochureUrl: '/event-kdem.jfif',
     isUpcoming: false,
     highlights: [
       'State-level startup showcase',

@@ -132,23 +132,23 @@ export const aboutIntro: AboutIntroContent = {
 
 export const missionVisionSection: AboutSectionIntro = {
   eyebrow: 'Our Purpose',
-  title: 'Mission, Vision & Core Pillars',
+  title: 'Vision, Mission & Core Pillars',
   description:
     'At IDRP, our purpose is simple yet powerful — to turn innovation into measurable impact through deep-tech entrepreneurship.',
 }
 
 export const missionVision: MissionVisionItem[] = [
+    {
+    title: 'Our Vision',
+    description:
+      'To become a globally recognized deep-tech innovation hub that drives research translation, startup growth, and meaningful societal impact.',
+    icon: '🚀',
+  },
   {
     title: 'Our Mission',
     description:
       'To enable innovators, researchers, and founders with the right ecosystem, mentorship, and infrastructure to transform high-potential ideas into impactful ventures.',
     icon: '🎯',
-  },
-  {
-    title: 'Our Vision',
-    description:
-      'To become a globally recognized deep-tech innovation hub that drives research translation, startup growth, and meaningful societal impact.',
-    icon: '🚀',
   },
 ]
 

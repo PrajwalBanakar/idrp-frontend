@@ -22,9 +22,6 @@
             {{ title }}
           </h1>
 
-          <p class="mt-5 max-w-2xl text-sm leading-7 text-slate-100 sm:text-base md:text-lg">
-            {{ description }}
-          </p>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-export type MentorCategory = 'all' | 'business' | 'technology' | 'faculty'
+export type MentorCategory = 'all' | 'business' | 'technology' 
 
 export type Mentor = {
   name: string

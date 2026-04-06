@@ -11,11 +11,11 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="w-full lg:min-w-[360px]">
+  <div class="w-full lg:w-[360px]">
     <input
       :value="props.searchQuery"
       type="text"
-      placeholder="Search institute, year, project, faculty, student..."
+      placeholder="Search year, institute, mentor, project, team..."
       class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none ring-0 transition placeholder:text-slate-400 focus:border-teal-400"
       @input="emit('update:searchQuery', ($event.target as HTMLInputElement).value)"
     />

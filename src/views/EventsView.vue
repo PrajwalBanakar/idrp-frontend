@@ -1,5 +1,5 @@
 <template>
-  <div class="events-view">
+  <div class="events-view bg-white">
     <EventsHeroSection :hero="eventsHero" />
 
     <EventsSection
@@ -49,7 +49,7 @@ import {
 
 import type { EventItem } from '@/types/events'
 
-const PER_PAGE = 4
+const PER_PAGE = 3
 
 function createPagination(items: Ref<EventItem[]>, page: Ref<number>) {
   const totalPages = computed(() => Math.max(1, Math.ceil(items.value.length / PER_PAGE)))
@@ -66,8 +66,9 @@ function createPagination(items: Ref<EventItem[]>, page: Ref<number>) {
   }
 }
 
-const upcomingEvents = computed(() => events.filter((event) => event.isUpcoming))
-const pastEvents = computed(() => events.filter((event) => !event.isUpcoming))
+const visibleEvents = computed(() => events.filter((event) => event.visible !== false))
+const upcomingEvents = computed(() => visibleEvents.value.filter((event) => event.isUpcoming))
+const pastEvents = computed(() => visibleEvents.value.filter((event) => !event.isUpcoming))
 
 const upcomingPage = ref(1)
 const pastPage = ref(1)

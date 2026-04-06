@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NAINOverviewContent } from '@/types/nain'
+import type { NAINOverviewContent, NAINPMUDetails } from '@/types/nain'
 
 type OverviewStatItem = {
   id: string
@@ -11,6 +11,7 @@ type OverviewStatItem = {
 type Props = {
   overview: NAINOverviewContent
   stats: OverviewStatItem[]
+  pmu: NAINPMUDetails
 }
 
 defineProps<Props>()
@@ -41,43 +42,84 @@ function getLabelClasses(tone?: 'teal' | 'cyan' | 'slate') {
 </script>
 
 <template>
-  <section class="mx-auto max-w-7xl px-6 py-16 md:px-12">
-    <div class="grid gap-10 lg:grid-cols-[1.25fr_0.75fr]">
+  <section class="mx-auto max-w-7xl px-6 py-14 md:px-12 lg:py-16">
+    <div class="grid items-start gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:gap-10">
       <div>
         <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
           {{ overview.eyebrow }}
         </span>
 
-        <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
+        <h2 class="mt-3 max-w-4xl text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
           {{ overview.title }}
         </h2>
 
-        <div class="mt-6 space-y-4 text-[15px] leading-7 text-slate-600">
+        <div class="mt-5 space-y-4 text-[15px] leading-7 text-slate-600">
           <p v-for="paragraph in overview.paragraphs" :key="paragraph">
             {{ paragraph }}
           </p>
         </div>
+
+        <div class="mt-8 rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
+
+          <div class="mt-5 grid gap-5 md:grid-cols-2">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+                Project Monitoring Unit (PMU)
+              </p>
+              <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
+                {{ pmu.name }}
+              </p>
+            </div>
+
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+                Principal Investigator
+              </p>
+              <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
+                {{ pmu.principalInvestigator }}
+              </p>
+            </div>
+
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+                Co Principal Investigator
+              </p>
+              <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
+                {{ pmu.coPrincipalInvestigator }}
+              </p>
+            </div>
+
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+                NAIN Program Associate
+              </p>
+              <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
+                {{ pmu.programAssociate }}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+      <div class="grid content-start gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
         <div
           v-for="stat in stats"
           :key="stat.id"
           :class="[
-            'rounded-3xl border p-6',
+            'flex min-h-[160px] flex-col justify-between rounded-3xl border p-5',
             getCardClasses(stat.tone),
           ]"
         >
           <p
             :class="[
-              'text-sm font-semibold uppercase tracking-wider',
+              'text-sm font-semibold uppercase tracking-[0.18em]',
               getLabelClasses(stat.tone),
             ]"
           >
             {{ stat.label }}
           </p>
 
-          <p class="mt-2 text-4xl font-extrabold text-slate-900">
+          <p class="mt-4 text-4xl font-extrabold leading-none text-slate-900">
             {{ stat.value }}
           </p>
         </div>

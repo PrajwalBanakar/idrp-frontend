@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 import type { NAINInstitute } from '@/types/nain'
 
 type Props = {
   institute: NAINInstitute
+  year: string
   expanded: boolean
 }
 
@@ -13,21 +14,11 @@ defineEmits<{
   (e: 'toggle', instituteId: string): void
 }>()
 
-const expandedYear = ref<string | null>(null)
 const showInstituteLogo = ref(true)
 
-watch(
-  () => props.expanded,
-  (isExpanded) => {
-    if (!isExpanded) {
-      expandedYear.value = null
-    }
-  },
+const selectedYearBlock = computed(() =>
+  props.institute.years.find((yearBlock) => yearBlock.year === props.year),
 )
-
-function toggleYear(year: string) {
-  expandedYear.value = expandedYear.value === year ? null : year
-}
 
 function getInstituteProjectCount(institute: NAINInstitute) {
   return institute.years.reduce((sum, year) => sum + year.projects.length, 0)
@@ -35,7 +26,7 @@ function getInstituteProjectCount(institute: NAINInstitute) {
 </script>
 
 <template>
-  <article class="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-sm">
+  <article class="overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-sm">
     <button
       type="button"
       class="flex w-full flex-col gap-5 px-6 py-6 text-left transition hover:bg-slate-50 md:flex-row md:items-center md:justify-between"
@@ -95,142 +86,91 @@ function getInstituteProjectCount(institute: NAINInstitute) {
     </button>
 
     <div
-      v-if="expanded"
+      v-if="expanded && selectedYearBlock"
       class="border-t border-slate-200 bg-slate-50/70 px-6 py-6"
     >
-      <div class="space-y-5">
+      <div class="rounded-2xl border border-teal-100 bg-teal-50 px-5 py-5">
+        <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900">
+          Support Team Details
+        </h4>
+
+        <div class="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+              PMU Tech Mentor
+            </p>
+            <p class="mt-1 text-sm font-medium text-slate-800">
+              {{ selectedYearBlock.support.pmuTechMentor }}
+            </p>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+              DIA
+            </p>
+            <p class="mt-1 text-sm font-medium text-slate-800">
+              {{ selectedYearBlock.support.dia }}
+            </p>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+              MIS Executive
+            </p>
+            <p class="mt-1 text-sm font-medium text-slate-800">
+              {{ selectedYearBlock.support.misExecutives.join(', ') }}
+            </p>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+              NAIN Coordinator
+            </p>
+            <p class="mt-1 text-sm font-medium text-slate-800">
+              {{ selectedYearBlock.support.nainCoordinator }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-2">
         <article
-          v-for="yearBlock in institute.years"
-          :key="yearBlock.year"
-          class="overflow-hidden rounded-3xl border border-slate-200 bg-white"
+          v-for="project in selectedYearBlock.projects"
+          :key="project.id"
+          class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md"
         >
-          <button
-            type="button"
-            class="flex w-full items-center justify-between px-5 py-4 text-left transition hover:bg-slate-50"
-            @click="toggleYear(yearBlock.year)"
-          >
+          <div class="flex items-start justify-between gap-3">
+            <h4 class="text-xl font-bold leading-7 text-slate-900">
+              {{ project.title }}
+            </h4>
+
+            <a
+              v-if="project.projectLink"
+              :href="project.projectLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="shrink-0 rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-semibold text-teal-700 transition hover:bg-teal-100"
+            >
+              View
+            </a>
+          </div>
+
+          <div class="mt-5 space-y-4 text-sm">
             <div>
-              <h4 class="text-lg font-bold text-slate-900">
-                {{ yearBlock.year }}
-              </h4>
-              <p class="mt-1 text-sm text-slate-500">
-                {{ yearBlock.projects.length }} project{{ yearBlock.projects.length > 1 ? 's' : '' }}
+              <p class="font-semibold text-slate-900">Faculty Guide Name</p>
+              <p class="mt-1 text-slate-600">{{ project.facultyGuideName }}</p>
+            </div>
+
+            <div>
+              <p class="font-semibold text-slate-900">Team Leader Name</p>
+              <p class="mt-1 text-slate-600">{{ project.teamLeaderName }}</p>
+            </div>
+
+            <div>
+              <p class="font-semibold text-slate-900">Team Members Name</p>
+              <p class="mt-1 text-slate-600">
+                {{ project.teamMembers.join(', ') }}
               </p>
-            </div>
-
-            <div class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600">
-              <span class="text-lg leading-none">
-                {{ expandedYear === yearBlock.year ? '−' : '+' }}
-              </span>
-            </div>
-          </button>
-
-          <div
-            v-if="expandedYear === yearBlock.year"
-            class="border-t border-slate-200 px-5 py-5"
-          >
-            <div class="mb-5 rounded-3xl border border-teal-100 bg-teal-50 p-5">
-              <h5 class="text-base font-bold text-slate-900">
-                Investigator Details
-              </h5>
-
-              <div class="mt-4 grid gap-4 md:grid-cols-2">
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
-                    Principal Investigator
-                  </p>
-                  <p class="mt-1 text-sm font-medium text-slate-800">
-                    {{ yearBlock.principalInvestigator }}
-                  </p>
-                </div>
-
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
-                    Co-Principal Investigator
-                  </p>
-                  <p class="mt-1 text-sm font-medium text-slate-800">
-                    {{ yearBlock.coPrincipalInvestigator }}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              <article
-                v-for="project in yearBlock.projects"
-                :key="project.id"
-                class="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm"
-              >
-                <h5 class="text-lg font-bold leading-6 text-slate-900">
-                  {{ project.title }}
-                </h5>
-
-                <p class="mt-3 text-sm leading-6 text-slate-600">
-                  {{ project.brief }}
-                </p>
-
-                <div class="mt-4 space-y-3 text-sm text-slate-700">
-                  <div>
-                    <p class="font-semibold text-slate-900">IIIT Faculty Guide</p>
-                    <p>{{ project.iiitFacultyGuide }}</p>
-                  </div>
-
-                  <div>
-                    <p class="font-semibold text-slate-900">NAIN Co-ordinator</p>
-                    <p>{{ project.nainCoordinator }}</p>
-                  </div>
-
-                  <div>
-                    <p class="font-semibold text-slate-900">DIA</p>
-                    <p>{{ project.dia }}</p>
-                  </div>
-
-                  <div>
-                    <p class="font-semibold text-slate-900">MIS Executive</p>
-                    <ul class="mt-1 space-y-1 text-slate-600">
-                      <li
-                        v-for="member in project.misExecutives"
-                        :key="member"
-                      >
-                        • {{ member }}
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <p class="font-semibold text-slate-900">Tech Mentor</p>
-                    <p>{{ project.techMentor }}</p>
-                  </div>
-
-                  <div>
-                    <p class="font-semibold text-slate-900">Program Associate</p>
-                    <p>{{ project.programAssociate }}</p>
-                  </div>
-
-                  <div>
-                    <p class="font-semibold text-slate-900">Student Members</p>
-                    <ul class="mt-1 space-y-1 text-slate-600">
-                      <li
-                        v-for="member in project.studentMembers"
-                        :key="member"
-                      >
-                        • {{ member }}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div v-if="project.projectLink" class="mt-5">
-                  <a
-                    :href="project.projectLink"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-xs font-semibold text-teal-700 transition hover:bg-teal-100"
-                  >
-                    View Project
-                  </a>
-                </div>
-              </article>
             </div>
           </div>
         </article>

@@ -28,18 +28,18 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4">
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
         <article
           v-for="award in awards"
           :key="award.title"
-          class="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-lg"
+          class="group overflow-hidden rounded-3xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-lg"
         >
-          <div class="h-40 w-full overflow-hidden bg-gradient-to-br" :class="award.bg">
+          <div class="h-64 w-full overflow-hidden bg-gradient-to-br sm:h-72 lg:h-80" :class="award.bg">
             <img
               v-if="award.image"
               :src="award.image"
               :alt="award.title"
-              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              class="h-full w-full object-contain bg-white p-3 transition-transform duration-500 group-hover:scale-[1.02]"
             />
 
             <div
@@ -69,13 +69,13 @@
             </div>
           </div>
 
-          <div class="px-4 py-4 text-center sm:px-5">
+          <div class="px-5 py-5 text-center">
             <p
-              class="text-sm font-semibold leading-6 text-slate-900 transition-colors duration-300 group-hover:text-teal-700"
+              class="text-base font-semibold leading-7 text-slate-900 transition-colors duration-300 group-hover:text-teal-700"
             >
               {{ award.title }}
             </p>
-            <p class="mt-1 text-xs text-slate-500">
+            <p class="mt-1 text-sm text-slate-500">
               {{ award.year }}
             </p>
           </div>

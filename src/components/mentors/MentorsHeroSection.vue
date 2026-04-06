@@ -21,10 +21,10 @@
           Mentors
         </h1>
 
-        <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-200 sm:text-base">
-          Experienced mentors across business, technology, and academia helping founders,
-          innovators, and research-driven teams move forward with clarity and confidence.
-        </p>
+<p class="mt-4 max-w-2xl text-sm leading-7 text-slate-200 sm:text-base">
+  Experienced mentors across business and technology helping founders,
+  innovators, and research-driven teams move forward with clarity and confidence.
+</p>
       </div>
     </div>
   </section>

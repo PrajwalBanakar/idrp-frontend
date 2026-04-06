@@ -9,12 +9,11 @@
         Experts who empower ideas, technology, and growth
       </h2>
 
-      <p class="text-lg leading-relaxed text-gray-600">
-        Our mentor network supports innovators, startups, and teams at different stages
-        of their journey. From business strategy and market validation to technology
-        development and academic guidance, our mentors help transform promising ideas
-        into impactful outcomes.
-      </p>
+<p class="text-lg leading-relaxed text-gray-600">
+  Our mentor network supports innovators, startups, and teams at different stages
+  of their journey. From business strategy and market validation to technology
+  development, our mentors help transform promising ideas into impactful outcomes.
+</p>
 
       <div class="mx-auto mt-8 h-1 w-16 rounded-full bg-gradient-to-r from-teal-500 to-cyan-400" />
     </div>

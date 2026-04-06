@@ -3,7 +3,7 @@
     <ServiceHeroSection :hero="technicalEducationAcademyPage.hero" />
     <ServiceIntroSection :intro="technicalEducationAcademyPage.intro" />
     <ServiceHighlightsSection :items="technicalEducationAcademyPage.highlights ?? []" />
-    <ServiceStatsSection :stats="technicalEducationAcademyPage.stats ?? []" />
+    <!-- <ServiceStatsSection :stats="technicalEducationAcademyPage.stats ?? []" /> -->
 
     <AcademyCategoriesSection
       :categories="technicalEducationAcademyPage.academyCategories"

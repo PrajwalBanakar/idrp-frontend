@@ -1,11 +1,11 @@
 <template>
   <div class="resources-view">
     <ResourcesHeroSection />
-    <ResourcesIntroSection />
+    <!-- <ResourcesIntroSection /> -->
     <NewsletterBookshelfSection :newsletters="newsletters" />
-    <ResourceCategoriesSection :categories="resourceCategories" />
-    <MatchmakingSection :steps="matchmakingSteps" />
-    <ResourcesCTASection />
+    <!-- <ResourceCategoriesSection :categories="resourceCategories" /> -->
+    <!-- <MatchmakingSection :steps="matchmakingSteps" /> -->
+    <!-- <ResourcesCTASection /> -->
   </div>
 </template>
 

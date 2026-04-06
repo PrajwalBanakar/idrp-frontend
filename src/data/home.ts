@@ -1,11 +1,13 @@
 import type { AcademyCategory } from '@/types/academy'
+import type { PartnerKey } from '@/types/partners'
+
 import { academyCategories } from '@/data/academyCatalog'
 import { allPartners } from '@/data/partners'
 
 export { allPartners }
 
 export const partnerCategories: Array<{
-  key: 'all' | Partner['category']
+  key: 'all' | PartnerKey
   label: string
 }> = [
   { key: 'all', label: 'All' },
@@ -16,7 +18,6 @@ export const partnerCategories: Array<{
   { key: 'corporate', label: 'Corporate' },
   { key: 'government', label: 'Government' },
 ]
-
 
 export type HeroSlide = {
   heading: string
@@ -60,18 +61,6 @@ export type Story = {
   color: string
 }
 
-export type PartnerCategory = {
-  key: string
-  label: string
-}
-
-export type Partner = {
-  name: string
-  abbr: string
-  color: string
-  category: string
-}
-
 export type Award = {
   title: string
   issuer: string
@@ -87,8 +76,6 @@ export type Stat = {
   suffix: string
   icon: string
 }
-
-
 
 export const heroSlides: HeroSlide[] = [
   {
@@ -126,7 +113,7 @@ export const programs: Program[] = [
       'Pathway to incubation and funding opportunities',
     ],
   },
-    {
+  {
     title: 'Udyami Incubation Program',
     duration: '12–18 months',
     description:
@@ -146,7 +133,7 @@ export const programs: Program[] = [
 
 export const governmentPrograms: GovernmentProgram[] = [
   {
-    title: 'New Age Innovation Network',
+    title: 'New Age Innovation Network (NAIN)',
     description:
       'A government-supported initiative focused on innovation, entrepreneurship development, and startup ecosystem strengthening for student and early-stage founders.',
     route: '/programs/nain',
@@ -283,115 +270,87 @@ export const successStories: Story[] = [
   },
 ]
 
-
-
-
 export const awards: Award[] = [
   {
-    title: 'Best Technology Business Incubator',
-    issuer: 'NITI Aayog',
-    year: '2023',
-    image: '',
+    title: 'Centre of Excellence in Quantum Ai and Quantum Computing',
+    issuer: 'Government of Karnataka',
+    year: '2025',
+    image: '/awards/coe.jpeg',
     bg: 'from-teal-600 to-cyan-500',
-  },
-  {
-    title: 'Outstanding Startup Ecosystem Award',
-    issuer: 'MeitY',
-    year: '2023',
-    image: '',
-    bg: 'from-blue-600 to-indigo-500',
-  },
-  {
-    title: 'Top Deep-Tech Incubator of India',
-    issuer: 'NASSCOM',
-    year: '2022',
-    image: '',
-    bg: 'from-violet-600 to-purple-500',
-  },
-  {
-    title: 'National Innovation Award',
-    issuer: 'DST India',
-    year: '2022',
-    image: '',
-    bg: 'from-orange-500 to-amber-400',
-  },
-  {
-    title: 'Best Incubator — Karnataka',
-    issuer: 'Karnataka Govt.',
-    year: '2022',
-    image: '',
-    bg: 'from-rose-600 to-pink-500',
-  },
-  {
-    title: 'Emerging Incubator Excellence',
-    issuer: 'TiE Global',
-    year: '2021',
-    image: '',
-    bg: 'from-emerald-600 to-teal-400',
-  },
-  {
-    title: 'Women in Tech Enabler Award',
-    issuer: 'CII',
-    year: '2021',
-    image: '',
-    bg: 'from-fuchsia-600 to-pink-400',
-  },
-  {
-    title: 'Atal Innovation Mission Recognition',
-    issuer: 'AIM — NITI Aayog',
-    year: '2021',
-    image: '',
-    bg: 'from-sky-600 to-blue-400',
   },
 ]
 
 export const stats: Stat[] = [
-  {
-    label: 'Startups scaled up by over 200%',
-    target: 70,
-    suffix: '+',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" /></svg>`,
-  },
-  {
-    label: 'Mentors and Industry Experts',
-    target: 80,
-    suffix: '+',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>`,
-  },
-  {
-    label: 'Facilitated in Funding',
-    target: 50,
-    suffix: 'Mn+',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`,
-  },
-  {
-    label: 'Vibrant startup community',
-    target: 150,
+  // {
+  //   label: 'Programs offered',
+  //   target: 8,
+  //   suffix: '+',
+  //   icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5h16.5M3.75 9h16.5M3.75 13.5h16.5M3.75 18h16.5" /></svg>`,
+  // },
+  // {
+  //   label: 'Learners engaged',
+  //   target: 500,
+  //   suffix: '+',
+  //   icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14.25 4.5 9.75 12 5.25l7.5 4.5-7.5 4.5Zm0 0v6.75m0-6.75 6.16-3.696a.75.75 0 0 1 1.09.665v4.431a.75.75 0 0 1-.384.654L12 21m0-6.75L5.134 10.554a.75.75 0 0 0-1.134.651v4.446a.75.75 0 0 0 .384.654L12 21" /></svg>`,
+  // },
+  // {
+  //   label: 'Hands-on sessions',
+  //   target: 20,
+  //   suffix: '+',
+  //   icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5M3.75 7.5h16.5m-16.5 9h16.5" /></svg>`,
+  // },
+    {
+    label: 'Number of Startups',
+    target: 60,
     suffix: '+',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /></svg>`,
   },
   {
-    label: 'Startup networking events',
-    target: 1000,
+    label: 'Founders supported',
+    target: 120,
+    suffix: '+',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /></svg>`,
+  },
+  {
+    label: 'Funding enabled',
+    target: 1.3,
+    suffix: ' Cr+',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`,
+  },
+  {
+    label: 'Startup networking events per year',
+    target: 30,
     suffix: '+',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>`,
   },
   {
-    label: 'Jobs created by startups',
-    target: 10,
-    suffix: 'K+',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" /></svg>`,
-  },
-  {
-    label: 'Patents filed by our startups',
-    target: 60,
+    label: 'Patents filed by TTO',
+    target: 30,
     suffix: '+',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>`,
   },
   {
-    label: 'Investors and strategic partners',
+    label: 'Investors and strategic industry partners',
     target: 50,
     suffix: '+',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg>`,
+  },
+  // {
+  //   label: 'Mentors',
+  //   target: 15,
+  //   suffix: '',
+  //   icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>`,
+  // },
+  {
+    label: 'Mentoring sessions',
+    target: 100,
+    suffix: '+',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a3.375 3.375 0 1 1 6.75 0c0 1.875-1.5 3-3.375 4.125-1.875-1.125-3.375-2.25-3.375-4.125Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a8.25 8.25 0 1 0 0-16.5A8.25 8.25 0 0 0 12 21Z" /></svg>`,
+  },
+  {
+    label: 'Knowledge sessions',
+    target: 60,
+    suffix: '+',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75v6m0 0 3-3m-3 3-3-3M6.75 19.5h10.5A2.25 2.25 0 0 0 19.5 17.25V6.75A2.25 2.25 0 0 0 17.25 4.5H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5A2.25 2.25 0 0 0 6.75 19.5Z" /></svg>`,
   },
 ]

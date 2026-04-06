@@ -65,7 +65,7 @@ export const preIncubationPage: ProgramPageData = {
       subtitle: 'For idea discovery, early validation, and founder readiness',
       description:
         'The Yuva Udyami Pre Incubation Program is a guided pre-incubation program for students, innovators, and aspiring founders who want to explore opportunities, validate early ideas, and build the confidence needed to move toward entrepreneurship.',
-      duration: '6–12 weeks',
+      duration: '24 Months',
       mode: 'Hybrid',
       applyTo: '/apply/pre-incubation',
       sections: [

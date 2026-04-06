@@ -65,7 +65,7 @@ programs: [
     subtitle: 'Flexible incubation support for startups across stages',
     description:
       'A comprehensive incubation program supporting startups at idea, PoC, or MVP stage with access to mentorship, infrastructure, ecosystem connections, and funding opportunities.',
-    duration: '6–18 months',
+    duration: '18 months',
     mode: 'Hybrid / Flexible',
     applyTo: '/apply/incubation',
     sections: [
