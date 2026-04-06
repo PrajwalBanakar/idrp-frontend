@@ -349,6 +349,7 @@ const navSections: NavSection[] = [
           { label: 'CIF', to: '/programs/cif' },
           { label: 'Quantum AI', to: '/programs/coe-quantum-ai' },
           { label: 'CBDE', to: '/programs/cbde' },
+          { label: 'RGEP', to: '/programs/rgep' },
         ],
       },
       {

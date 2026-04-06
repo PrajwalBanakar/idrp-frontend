@@ -56,11 +56,11 @@ export const nainPage: NAINPageData = {
       name: 'KLE Institute of Technology',
       city: 'Hubballi',
       state: 'Karnataka',
-      description: 'NAIN host institute supported by the PMU under the 2024-25 cycle.',
+      description: 'NAIN host institute supported by the PMU under the 2025-26 cycle.',
       logo: '/partners/kleit.png',
       years: [
         {
-          year: '2024-25',
+          year: '2025-26',
           support: {
             pmuTechMentor: 'Dr. Krishnendu Ghosh',
             dia: 'Mr. Manjunath Prasad',
@@ -185,11 +185,11 @@ export const nainPage: NAINPageData = {
       name: 'Dharwad Institute of Mental Health and Neurosciences',
       city: 'Dharwad',
       state: 'Karnataka',
-      description: 'NAIN host institute supported by the PMU under the 2024-25 cycle.',
+      description: 'NAIN host institute supported by the PMU under the 2025-26 cycle.',
       logo: '/partners/dimhans.png',
       years: [
         {
-          year: '2024-25',
+          year: '2025-26',
           support: {
             pmuTechMentor: 'Dr. Chinmayananda A',
             dia: 'Dr. Shivarudrappa Bhairappanavar',
@@ -321,11 +321,11 @@ export const nainPage: NAINPageData = {
       name: 'KLE College of Pharmacy',
       city: 'Belagavi',
       state: 'Karnataka',
-      description: 'NAIN host institute supported by the PMU under the 2024-25 cycle.',
+      description: 'NAIN host institute supported by the PMU under the 2025-26 cycle.',
       logo: '/partners/klepharm.png',
       years: [
         {
-          year: '2024-25',
+          year: '2025-26',
           support: {
             pmuTechMentor: 'Dr. Sunilkumar P V',
             dia: 'Dr. Bhaskar K. Kurangi',
@@ -442,11 +442,11 @@ export const nainPage: NAINPageData = {
       name: 'S. G. Balekundri Institute of Technology',
       city: 'Belagavi',
       state: 'Karnataka',
-      description: 'NAIN host institute supported by the PMU under the 2024-25 cycle.',
+      description: 'NAIN host institute supported by the PMU under the 2025-26 cycle.',
       logo: '/partners/sgbit.png',
       years: [
         {
-          year: '2024-25',
+          year: '2025-26',
           support: {
             pmuTechMentor: 'Dr. Sunil C K',
             dia: 'Dr. Suresh Akkole',
@@ -585,11 +585,11 @@ export const nainPage: NAINPageData = {
       name: "BLDEA's V P Dr. P.G. Halakatti College of Engineering and Technology",
       city: 'Vijayapura',
       state: 'Karnataka',
-      description: 'NAIN host institute supported by the PMU under the 2024-25 cycle.',
+      description: 'NAIN host institute supported by the PMU under the 2025-26 cycle.',
       logo: '/partners/bldeacet.png',
       years: [
         {
-          year: '2024-25',
+          year: '2025-26',
           support: {
             pmuTechMentor: 'Dr. Prakash Pawar',
             dia: 'Mr. Bheemesh K. Gudur',

@@ -81,7 +81,7 @@ export function createServiceFormConfig(
             name: 'consent',
             label: 'Consent',
             type: 'checkbox',
-            checkboxLabel: 'I have read and agree to the disclaimer',
+            checkboxLabel: 'I consent to IDRP collecting and using the information submitted in this form to respond to my enquiry.',
             required: true,
             width: 'full',
           },

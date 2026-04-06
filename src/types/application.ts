@@ -4,6 +4,7 @@ export type ProgramKey =
   | 'resident-incubation'
   | 'virtual-incubation'
   | 'deep-tech-accelerator'
+  | 'rgep'
 
 export type ProgramMeta = {
   slug: ProgramKey

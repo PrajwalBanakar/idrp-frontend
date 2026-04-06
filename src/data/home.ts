@@ -156,6 +156,12 @@ export const governmentPrograms: GovernmentProgram[] = [
       'A structured program to build innovation capability, product thinking, design mindset, and entrepreneurial readiness among students, researchers, and aspiring founders.',
     route: '/programs/cbde',
   },
+  {
+    title: 'Rajiv Gandhi Entrepreneurship Program (RGEP)',
+    description:
+      'An early-stage funding initiative that supports innovators with monthly subsistence grants, structured monitoring, and guidance toward prototype, MVP, or proof-of-concept outcomes with business potential.',
+    route: '/programs/rgep',
+  },
 ]
 
 export const courses: AcademyCategory[] = academyCategories

@@ -45,6 +45,7 @@ export const ROUTE_NAMES = {
   NAIN: 'nain',
   CIF: 'cif',
   COE_QUANTUM_AI: 'coe-quantum-ai',
+  RGEP: 'rgep',
   EVENT_DETAIL: 'event-detail',
   EVENT_REGISTER: 'event-register',
   NEWSLETTER_DETAIL: 'newsletter-detail',
@@ -167,6 +168,12 @@ const programRoutes: RouteRecordRaw[] = [
     ROUTE_NAMES.CBDE,
     'CbdeView',
     'Capacity Building for Design and Entrepreneurship',
+  ),
+    createPageRoute(
+    '/programs/rgep',
+    ROUTE_NAMES.RGEP,
+    'RgepView',
+    'Rajiv Gandhi Entrepreneurship Program',
   ),
 ]
 

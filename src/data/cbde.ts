@@ -5,7 +5,7 @@ export const cbdePage = {
     eyebrow: 'Government Initiatives',
     title: 'Capacity Building for Design and Entrepreneurship',
     subtitle:
-      'A focused initiative to strengthen innovation capability, design thinking, entrepreneurial mindset, and venture readiness.',
+      '',
     image: '/cbde-hero.jfif',
     imageAlt: 'CBDE Program',
   },

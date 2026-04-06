@@ -7,19 +7,20 @@ export const programs: Record<ProgramKey, ProgramMeta> = {
     badge: 'Pre Incubation',
     emoji: '🌱',
     meta: 'Hybrid / Flexible · 6-12 Months · Idea to MVP Readiness',
-    description: 'Apply for the Yuva Udyami Pre Incubation Program to explore ideas, validate early opportunities, and build readiness for venture creation.',
+    description:
+      'Apply for the Yuva Udyami Pre Incubation Program to explore ideas, validate early opportunities, and build readiness for venture creation.',
     backLabel: 'Home',
   },
-  'incubation': {
-  slug: 'incubation',
-  title: 'Udyami Incubation Program',
-  badge: 'Incubation',
-  emoji: '🚀',
-  meta: 'Hybrid / Flexible · 6-18 Months · Idea to Growth Support',
-  description:
-    'Apply for the Udyami Incubation Program to access structured incubation support, mentorship, infrastructure, ecosystem connections, and funding readiness support.',
-  backLabel: 'Incubation',
-},
+  incubation: {
+    slug: 'incubation',
+    title: 'Udyami Incubation Program',
+    badge: 'Incubation',
+    emoji: '🚀',
+    meta: 'Hybrid / Flexible · 6-18 Months · Idea to Growth Support',
+    description:
+      'Apply for the Udyami Incubation Program to access structured incubation support, mentorship, infrastructure, ecosystem connections, and funding readiness support.',
+    backLabel: 'Incubation',
+  },
   'resident-incubation': {
     slug: 'resident-incubation',
     title: 'Udyami Resident Incubation',
@@ -46,6 +47,16 @@ export const programs: Record<ProgramKey, ProgramMeta> = {
     meta: 'On-Site · 6 Months',
     description: 'Apply for Deep-Tech...',
     backLabel: 'Acceleration',
+  },
+  rgep: {
+    slug: 'rgep',
+    title: 'Rajiv Gandhi Entrepreneurship Program',
+    badge: 'Government Initiative',
+    emoji: '💡',
+    meta: '12 Months · Rs.25,000 / Month · Idea to Prototype / MVP / PoC',
+    description:
+      'Apply for the Rajiv Gandhi Entrepreneurship Program to receive early-stage support, subsistence funding, structured guidance, and innovation hub monitoring as you progress from idea stage toward a prototype, MVP, or proof of concept with business potential.',
+    backLabel: 'RGEP',
   },
 }
 

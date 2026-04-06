@@ -3,7 +3,6 @@
 IDRP Application code
 
 
-
 ```
 idrp-frontend
 ├─ .prettierrc.json

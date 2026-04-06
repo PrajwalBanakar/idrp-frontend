@@ -5,7 +5,7 @@ export const cifPage: InitiativePageData = {
     eyebrow: 'Government Initiatives',
     title: 'Common Instrumentation Facility',
     subtitle:
-      'Access advanced equipment and lab infrastructure to accelerate testing, prototyping, and innovation.',
+      '',
     image: '/cif-hero.jfif',
     imageAlt: 'Common Instrumentation Facility',
   },

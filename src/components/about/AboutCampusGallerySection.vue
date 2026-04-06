@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white px-6 py-14 md:px-12 lg:px-16 lg:py-16">
+  <section class="bg-white px-4 py-14 sm:px-6 md:px-12 lg:px-16 lg:py-16">
     <div class="mx-auto max-w-7xl">
       <div class="mx-auto mb-10 max-w-3xl text-center lg:mb-12">
         <span
@@ -29,7 +29,7 @@
         @touchstart.passive="handleTouchStart"
         @touchend.passive="handleTouchEnd"
       >
-        <div class="relative mx-auto flex h-[260px] items-center justify-center sm:h-[320px] lg:h-[380px]">
+        <div class="relative mx-auto h-[320px] sm:h-[360px] lg:h-[420px]">
           <button
             type="button"
             aria-label="Previous slide"
@@ -53,15 +53,15 @@
                 <img
                   :src="image.src"
                   :alt="image.alt"
-                  class="h-[180px] w-[240px] object-cover sm:h-[220px] sm:w-[320px] lg:h-[280px] lg:w-[420px]"
+                  class="h-[260px] w-[88vw] max-w-[360px] object-cover sm:h-[250px] sm:w-[320px] lg:h-[300px] lg:w-[430px]"
                   loading="lazy"
                 />
 
                 <div
                   v-if="index === centerSlideIndex"
-                  class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent p-4"
+                  class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent p-4"
                 >
-                  <div class="inline-flex rounded-2xl bg-white/92 px-4 py-2 shadow-md backdrop-blur">
+                  <div class="inline-flex max-w-[92%] rounded-2xl bg-white/92 px-4 py-2 shadow-md backdrop-blur">
                     <h3 class="text-sm font-semibold text-slate-900 sm:text-base">
                       {{ image.title }}
                     </h3>
@@ -81,26 +81,24 @@
           </button>
         </div>
 
-        <div class="mt-6 flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <button
-              v-for="(image, index) in images"
-              :key="image.id"
-              type="button"
-              :aria-label="`Go to slide ${index + 1}`"
-              class="rounded-full transition-all duration-300"
-              :class="
-                index === currentIndex
-                  ? 'h-2.5 w-8 bg-teal-600'
-                  : 'h-2.5 w-2.5 bg-slate-300 hover:bg-slate-400'
-              "
-              @click="goToSlide(index)"
-            />
-          </div>
+        <div class="mt-6 flex items-center justify-center gap-2">
+          <button
+            v-for="(image, index) in images"
+            :key="image.id"
+            type="button"
+            :aria-label="`Go to slide ${index + 1}`"
+            class="rounded-full transition-all duration-300"
+            :class="
+              index === currentIndex
+                ? 'h-2.5 w-8 bg-teal-600'
+                : 'h-2.5 w-2.5 bg-slate-300 hover:bg-slate-400'
+            "
+            @click="goToSlide(index)"
+          />
+        </div>
 
-          <div class="hidden text-sm text-slate-500 sm:block">
-            {{ currentIndex + 1 }} / {{ images.length }}
-          </div>
+        <div class="mt-3 hidden text-center text-sm text-slate-500 sm:block">
+          {{ currentIndex + 1 }} / {{ images.length }}
         </div>
       </div>
     </div>
@@ -168,14 +166,14 @@ function getSlideStyle(index: number) {
 
   if (index === 0) {
     return {
-      transform: 'translate(calc(-50% - 220px), -50%) scale(0.88)',
-      opacity: '0.55',
+      transform: 'translate(-135%, -50%) scale(0.88)',
+      opacity: '0.5',
     }
   }
 
   return {
-    transform: 'translate(calc(-50% + 220px), -50%) scale(0.88)',
-    opacity: '0.55',
+    transform: 'translate(35%, -50%) scale(0.88)',
+    opacity: '0.5',
   }
 }
 

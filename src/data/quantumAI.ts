@@ -5,7 +5,7 @@ export const quantumAIPage = {
     eyebrow: 'Government Initiatives',
     title: 'Centre of Excellence in Quantum AI and Computing',
     subtitle:
-      'A strategic initiative focused on advancing frontier research, capability building, and innovation in quantum technologies and AI.',
+      '',
     image: '/quantum-ai-hero.jfif',
     imageAlt: 'Quantum AI Centre',
   },
