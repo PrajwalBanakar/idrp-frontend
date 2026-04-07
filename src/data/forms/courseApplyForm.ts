@@ -9,7 +9,7 @@ export function createCourseApplicationFormConfig(course: CertificationCourse): 
     description: 'Fill in your details to apply for this certification course.',
     submitLabel: 'Submit Application',
     successMessage:
-      'Thank you for applying. Our team will review your submission and get in touch with you shortly.',
+      'Application received successfully. Our team will review your course application and contact you with the next steps.',
     resetOnSuccess: true,
     endpoint: 'https://api.web3forms.com/submit',
 
@@ -17,6 +17,8 @@ export function createCourseApplicationFormConfig(course: CertificationCourse): 
       sourcePage: 'course-application',
       sourceSlug: course.slug,
       courseSlug: course.slug,
+      courseTitle: course.title,
+      category: 'course-application',
     },
 
     sections: [

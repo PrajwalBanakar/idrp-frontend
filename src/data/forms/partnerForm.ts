@@ -8,10 +8,12 @@ export const partnerFormConfig: FormConfig = {
     'Share your organization details and collaboration interest. Our team will review your submission and connect with you.',
   submitLabel: 'Submit Partnership Request',
   resetOnSuccess: true,
-  successMessage: 'Your partnership inquiry has been submitted successfully.',
+  successMessage:
+    'Partnership enquiry received successfully. Our team will review your submission and connect with you shortly.',
   endpoint: 'https://api.web3forms.com/submit',
   meta: {
     sourcePage: '/partners',
+    category: 'partner-enquiry',
   },
   sections: [
     {
@@ -114,7 +116,8 @@ export const partnerFormConfig: FormConfig = {
           name: 'consent',
           label: 'Consent',
           type: 'checkbox',
-          checkboxLabel: 'I confirm that the submitted information is accurate and I agree to be contacted regarding this partnership inquiry.',
+          checkboxLabel:
+            'I confirm that the submitted information is accurate and I agree to be contacted regarding this partnership inquiry.',
           required: true,
           width: 'full',
         },

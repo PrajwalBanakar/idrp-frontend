@@ -41,6 +41,7 @@
 
           <template v-else>
             <label
+              v-if="field.type !== 'checkbox'"
               :for="field.name"
               class="mb-2 block text-sm font-semibold text-slate-800"
             >
@@ -61,8 +62,9 @@
               :name="field.name"
               :type="field.type"
               :placeholder="field.placeholder"
-              :disabled="field.disabled"
+              :disabled="field.disabled || status === 'submitting'"
               :readonly="field.readonly"
+              :autocomplete="field.autocomplete"
               :value="stringValue(values[field.name])"
               class="w-full rounded-2xl border bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:ring-4"
               :class="getFieldClass(field.name)"
@@ -75,7 +77,7 @@
               :id="field.name"
               :name="field.name"
               :placeholder="field.placeholder"
-              :disabled="field.disabled"
+              :disabled="field.disabled || status === 'submitting'"
               :readonly="field.readonly"
               :value="stringValue(values[field.name])"
               :rows="field.rows ?? 5"
@@ -89,7 +91,7 @@
               v-else-if="field.type === 'select'"
               :id="field.name"
               :name="field.name"
-              :disabled="field.disabled"
+              :disabled="field.disabled || status === 'submitting'"
               class="w-full rounded-2xl border bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:ring-4"
               :class="getFieldClass(field.name)"
               :value="stringValue(values[field.name])"
@@ -112,6 +114,7 @@
             <div
               v-else-if="field.type === 'radio'"
               class="space-y-3 rounded-2xl border border-slate-200 bg-white p-4"
+              :class="errors[field.name] ? 'border-rose-300' : ''"
             >
               <label
                 v-for="option in field.options"
@@ -124,7 +127,7 @@
                   class="mt-1 h-4 w-4"
                   :value="String(option.value)"
                   :checked="values[field.name] === option.value"
-                  :disabled="field.disabled || option.disabled"
+                  :disabled="field.disabled || option.disabled || status === 'submitting'"
                   @change="setValue(field.name, option.value)"
                   @blur="touchField(field.name)"
                 />
@@ -141,14 +144,15 @@
               <label
                 v-for="option in field.options"
                 :key="String(option.value)"
-                class="flex items-center gap-3 rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700"
+                class="flex items-center gap-3 rounded-xl border px-4 py-3 text-sm text-slate-700"
+                :class="errors[field.name] ? 'border-rose-300' : 'border-slate-200'"
               >
                 <input
                   type="checkbox"
                   class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
                   :value="String(option.value)"
                   :checked="isChecked(field.name, option.value)"
-                  :disabled="field.disabled || option.disabled"
+                  :disabled="field.disabled || option.disabled || status === 'submitting'"
                   @change="onCheckboxGroup(field.name, option.value, $event)"
                   @blur="touchField(field.name)"
                 />
@@ -158,7 +162,8 @@
 
             <label
               v-else-if="field.type === 'checkbox'"
-              class="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-4"
+              class="flex items-start gap-3 rounded-2xl border bg-white p-4"
+              :class="errors[field.name] ? 'border-rose-300' : 'border-slate-200'"
             >
               <input
                 :id="field.name"
@@ -166,12 +171,13 @@
                 type="checkbox"
                 class="mt-1 h-4 w-4"
                 :checked="Boolean(values[field.name])"
-                :disabled="field.disabled"
+                :disabled="field.disabled || status === 'submitting'"
                 @change="onCheckbox(field.name, $event)"
                 @blur="touchField(field.name)"
               />
               <span class="text-sm leading-6 text-slate-700">
                 {{ field.checkboxLabel || field.label }}
+                <span v-if="field.required" class="text-rose-500">*</span>
               </span>
             </label>
 
@@ -188,16 +194,28 @@
 
     <div
       v-if="submitMessage"
-      class="rounded-2xl border px-4 py-3 text-sm"
+      class="rounded-2xl border px-5 py-4 text-sm"
       :class="
         status === 'success'
-          ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
+          ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
           : status === 'error'
             ? 'border-rose-200 bg-rose-50 text-rose-700'
             : 'border-slate-200 bg-slate-50 text-slate-600'
       "
     >
-      {{ submitMessage }}
+      <div v-if="status === 'success'" class="space-y-1">
+        <p class="font-semibold">Submission received</p>
+        <p class="leading-6">{{ submitMessage }}</p>
+      </div>
+
+      <div v-else-if="status === 'error'" class="space-y-1">
+        <p class="font-semibold">Unable to submit form</p>
+        <p class="leading-6">{{ submitMessage }}</p>
+      </div>
+
+      <p v-else class="leading-6">
+        {{ submitMessage }}
+      </p>
     </div>
 
     <div class="flex flex-wrap items-center gap-3">
@@ -210,6 +228,7 @@
       </button>
 
       <button
+        v-if="status !== 'success'"
         type="button"
         :disabled="status === 'submitting'"
         class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"

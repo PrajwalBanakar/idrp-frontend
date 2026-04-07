@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white px-6 py-20 md:px-12 lg:px-16 lg:py-24">
+  <section id="programs" class="bg-white px-6 py-20 md:px-12 lg:px-16 lg:py-24">
     <div class="mx-auto max-w-7xl">
       <div class="mx-auto mb-12 max-w-3xl text-center lg:mb-14">
         <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">

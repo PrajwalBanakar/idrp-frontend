@@ -24,13 +24,12 @@
             </p>
 
             <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <RouterLink
-                to="/incubation"
-                class="inline-flex min-w-[220px] items-center justify-center rounded-full bg-teal-500 px-7 py-3.5 text-base font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:bg-teal-400"
-              >
-                Explore Programs
-              </RouterLink>
-
+              <button
+  @click="scrollToPrograms"
+  class="inline-flex min-w-[220px] items-center justify-center rounded-full bg-teal-500 px-7 py-3.5 text-base font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:bg-teal-400"
+>
+  Explore Programs
+</button>
               <RouterLink
                 to="/contact"
                 class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-teal-500 hover:text-slate-950 sm:text-base"
@@ -84,6 +83,19 @@ let slideTimer: number | undefined
 function goToSlide(index: number) {
   currentSlide.value = index
   restartSlideTimer()
+}
+
+function scrollToPrograms() {
+  const section = document.getElementById('programs')
+  if (section) {
+    const yOffset = -80 // adjust based on navbar height
+    const y =
+      section.getBoundingClientRect().top +
+      window.pageYOffset +
+      yOffset
+
+    window.scrollTo({ top: y, behavior: 'smooth' })
+  }
 }
 
 function nextSlide() {

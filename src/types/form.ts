@@ -108,9 +108,15 @@ export type FormMeta = {
   sourcePage?: string
   sourceSlug?: string
   eventId?: string | number
+  eventTitle?: string
   courseSlug?: string
+  courseTitle?: string
+  workshopSlug?: string
+  workshopTitle?: string
   programSlug?: string
+  programTitle?: string
   serviceSlug?: string
+  category?: string
   submittedAt?: string
   [key: string]: string | number | boolean | undefined
 }
@@ -137,9 +143,7 @@ export type FormConfig = {
   resetOnSuccess?: boolean
   successMessage?: string
   endpoint?: string
-
-  sections: FormSection[]   // ✅ ONLY THIS (no fields)
-
+  sections: FormSection[]
   meta?: Omit<FormMeta, 'formType' | 'submittedAt'>
   transformPayload?: (values: FormValues, meta: FormMeta) => FormSubmitEnvelope
 }

@@ -12,12 +12,15 @@ export function createApplicationFormConfig(
     description: `Please complete the application below. This helps the IDRP team understand your startup, stage of progress, and the kind of support you are looking for through the ${program.title}.`,
     submitLabel: 'Submit Application',
     resetOnSuccess: true,
-    successMessage: 'Your application has been submitted successfully.',
+    successMessage:
+      'Application received successfully. Our team will review your submission and contact you regarding the next steps.',
     endpoint: 'https://api.web3forms.com/submit',
     meta: {
       sourcePage: `/apply/${program.slug}`,
       programSlug: program.slug,
+      programTitle: program.title,
       sourceSlug: program.slug,
+      category: 'program-application',
     },
     sections: [
       {

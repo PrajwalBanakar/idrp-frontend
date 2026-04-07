@@ -9,7 +9,7 @@ export function createWorkshopApplicationFormConfig(workshop: Workshop): FormCon
     description: 'Fill in your details to apply for this workshop.',
     submitLabel: 'Submit Application',
     successMessage:
-      'Thank you for applying. Our team will review your submission and get in touch with you shortly.',
+      'Application received successfully. Our team will review your workshop application and contact you with the next steps.',
     resetOnSuccess: true,
     endpoint: 'https://api.web3forms.com/submit',
 
@@ -17,6 +17,8 @@ export function createWorkshopApplicationFormConfig(workshop: Workshop): FormCon
       sourcePage: 'workshop-application',
       sourceSlug: workshop.slug,
       workshopSlug: workshop.slug,
+      workshopTitle: workshop.title,
+      category: 'workshop-application',
     },
 
     sections: [

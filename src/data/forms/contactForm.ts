@@ -7,10 +7,12 @@ export const contactFormConfig: FormConfig = {
   description: 'Reach out to the IDRP team for partnerships, programs, and general queries.',
   submitLabel: 'Send Message',
   resetOnSuccess: true,
-  successMessage: 'Your message has been submitted successfully.',
+  successMessage:
+    'Message received successfully. Our team will review your enquiry and get back to you soon.',
   endpoint: 'https://api.web3forms.com/submit',
   meta: {
     sourcePage: '/contact',
+    category: 'contact-enquiry',
   },
   sections: [
     {
@@ -23,7 +25,7 @@ export const contactFormConfig: FormConfig = {
           defaultValue: '',
         },
         {
-          name: 'name',
+          name: 'fullName',
           label: 'Full Name',
           type: 'text',
           placeholder: 'Enter your full name',
@@ -68,7 +70,8 @@ export const contactFormConfig: FormConfig = {
           name: 'consent',
           label: 'Consent',
           type: 'checkbox',
-          checkboxLabel: 'I consent to IDRP collecting and using the information submitted in this form to respond to my enquiry.',
+          checkboxLabel:
+            'I consent to IDRP collecting and using the information submitted in this form to respond to my enquiry.',
           required: true,
           width: 'full',
         },

@@ -178,7 +178,7 @@ export function useForm(config: FormConfig) {
     return isValid
   }
 
-  function reset() {
+  function clearFormState(options?: { preserveStatus?: boolean; preserveMessage?: boolean }) {
     const initialValues = getInitialValues(config)
 
     for (const key of Object.keys(initialValues)) {
@@ -187,8 +187,17 @@ export function useForm(config: FormConfig) {
       touched[key] = false
     }
 
-    status.value = 'idle'
-    submitMessage.value = ''
+    if (!options?.preserveStatus) {
+      status.value = 'idle'
+    }
+
+    if (!options?.preserveMessage) {
+      submitMessage.value = ''
+    }
+  }
+
+  function reset() {
+    clearFormState()
   }
 
   async function handleSubmit(): Promise<FormSubmitResult> {
@@ -212,9 +221,10 @@ export function useForm(config: FormConfig) {
     submitMessage.value = result.message
 
     if (result.success && config.resetOnSuccess) {
-      reset()
-      status.value = 'success'
-      submitMessage.value = result.message
+      clearFormState({
+        preserveStatus: true,
+        preserveMessage: true,
+      })
     }
 
     return result

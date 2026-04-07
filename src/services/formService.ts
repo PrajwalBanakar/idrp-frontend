@@ -16,7 +16,7 @@ function mapValuesToPayload(
   return fields.reduce<Record<string, string | number | boolean | string[] | null>>(
     (acc, field) => {
       const key = field.backendKey ?? field.name
-      acc[key] = values[field.name] ?? null
+      acc[key] = values[field.name] ?? field.defaultValue ?? null
       return acc
     },
     {},
@@ -61,6 +61,32 @@ function isWeb3FormsEndpoint(endpoint?: string): boolean {
   return endpoint === 'https://api.web3forms.com/submit'
 }
 
+function buildWeb3FormsPayload(
+  config: FormConfig,
+  payload: FormSubmitEnvelope,
+  accessKey: string,
+): Record<string, string | number | boolean> {
+  const web3Payload: Record<string, string | number | boolean> = {
+    access_key: accessKey,
+    subject: `[IDRP] ${config.type} - ${config.title ?? 'Form Submission'}`,
+    from_name: 'IDRP Website',
+    form_id: payload.formId,
+    form_type: payload.formType,
+  }
+
+  for (const [key, value] of Object.entries(payload.meta)) {
+    if (value !== undefined) {
+      web3Payload[key] = String(value)
+    }
+  }
+
+  for (const [key, value] of Object.entries(payload.data)) {
+    web3Payload[key] = normalizeWeb3FormsValue(value)
+  }
+
+  return web3Payload
+}
+
 async function submitToWeb3Forms(
   config: FormConfig,
   payload: FormSubmitEnvelope,
@@ -74,19 +100,7 @@ async function submitToWeb3Forms(
     }
   }
 
-  const web3Payload: Record<string, string | number | boolean> = {
-    access_key: accessKey,
-    subject: `[IDRP] ${config.type} - ${config.title ?? 'Form Submission'}`,
-    from_name: 'IDRP Website',
-    form_id: payload.formId,
-    form_type: payload.formType,
-    submitted_at: payload.meta.submittedAt ?? '',
-    source_page: String(payload.meta.sourcePage ?? ''),
-  }
-
-  for (const [key, value] of Object.entries(payload.data)) {
-    web3Payload[key] = normalizeWeb3FormsValue(value)
-  }
+  const web3Payload = buildWeb3FormsPayload(config, payload, accessKey)
 
   const response = await fetch('https://api.web3forms.com/submit', {
     method: 'POST',

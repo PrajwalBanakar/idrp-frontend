@@ -12,17 +12,18 @@ export function createServiceFormConfig(
     submitLabel: 'Submit Enquiry',
     resetOnSuccess: true,
     successMessage:
-      'Thank you! We have received your enquiry and will get in touch shortly.',
+      'Enquiry received successfully. Our team will review your requirement and get in touch with you shortly.',
     endpoint: 'https://api.web3forms.com/submit',
     meta: {
       sourcePage: '/services',
+      category: 'service-enquiry',
     },
     sections: [
       {
         id: 'service-main',
         fields: [
           {
-            name: 'name',
+            name: 'fullName',
             label: 'Your Name',
             type: 'text',
             placeholder: 'Full name',
@@ -81,7 +82,8 @@ export function createServiceFormConfig(
             name: 'consent',
             label: 'Consent',
             type: 'checkbox',
-            checkboxLabel: 'I consent to IDRP collecting and using the information submitted in this form to respond to my enquiry.',
+            checkboxLabel:
+              'I consent to IDRP collecting and using the information submitted in this form to respond to my enquiry.',
             required: true,
             width: 'full',
           },

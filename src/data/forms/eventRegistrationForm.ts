@@ -9,7 +9,7 @@ export function createEventRegistrationFormConfig(event: EventItem): FormConfig 
     description: 'Fill in your details to register for this event.',
     submitLabel: 'Complete Registration',
     successMessage:
-      'Thank you for registering. Our team will share the confirmation details with you shortly.',
+      'Registration received successfully. Our team will review your submission and share confirmation details with you by email.',
     resetOnSuccess: true,
     endpoint: 'https://api.web3forms.com/submit',
 
@@ -17,6 +17,8 @@ export function createEventRegistrationFormConfig(event: EventItem): FormConfig 
       sourcePage: 'event-registration',
       sourceSlug: String(event.id),
       eventId: event.id,
+      eventTitle: event.title,
+      category: 'event-registration',
     },
 
     sections: [
