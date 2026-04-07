@@ -278,52 +278,6 @@
               </div>
             </section>
 
-            <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-              <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
-                Quick Snapshot
-              </h4>
-
-              <div class="mt-4 grid gap-3">
-                <div class="rounded-xl bg-slate-50 px-4 py-3">
-                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                    Category
-                  </p>
-                  <p class="mt-1 text-sm font-semibold text-slate-800">
-                    {{ categoryLabel }}
-                  </p>
-                </div>
-
-                <div class="rounded-xl bg-slate-50 px-4 py-3">
-                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                    Sector
-                  </p>
-                  <p class="mt-1 text-sm font-semibold text-slate-800">
-                    {{ startup.sector || 'To be updated' }}
-                  </p>
-                </div>
-
-                <div class="rounded-xl bg-slate-50 px-4 py-3">
-                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                    Founders
-                  </p>
-                  <p class="mt-1 text-sm font-semibold text-slate-800">
-                    {{ startup.founders.length }}
-                  </p>
-                </div>
-
-                <div
-                  v-if="startup.teamMembers?.length"
-                  class="rounded-xl bg-slate-50 px-4 py-3"
-                >
-                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                    Team Members
-                  </p>
-                  <p class="mt-1 text-sm font-semibold text-slate-800">
-                    {{ startup.teamMembers.length }}
-                  </p>
-                </div>
-              </div>
-            </section>
           </div>
         </div>
       </div>

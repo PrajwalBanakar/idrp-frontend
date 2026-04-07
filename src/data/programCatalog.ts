@@ -9,6 +9,8 @@ export const programCatalog: Program[] = [
       'A structured early-stage program for founders at idea, problem-validation, or prototype stage. Designed to help aspiring startups validate the problem, refine the solution, build an MVP roadmap, and prepare for incubation readiness.',
     detailsTo: '/pre-incubation',
     applyTo: '/apply/pre-incubation',
+    brochureTo: '/yuva-udyami/yuva_udyami_brochure.pdf',
+    brochureLabel: 'View Brochure',
     features: [
       'Idea validation and customer discovery',
       'Mentorship on problem-solution fit',
@@ -25,7 +27,9 @@ export const programCatalog: Program[] = [
     description:
       'A comprehensive incubation program supporting startups from idea, PoC, or MVP stage with mentorship, infrastructure, ecosystem access, and funding opportunities.',
     detailsTo: '/incubation',
-    applyTo: '/apply/incubation', // unified entry point
+    applyTo: '/apply/incubation',
+    brochureTo: '/udyami/udyami_brochure.pdf',
+    brochureLabel: 'View Brochure',
     features: [
       'Dedicated workspace and infrastructure',
       'Access to research labs and equipment',

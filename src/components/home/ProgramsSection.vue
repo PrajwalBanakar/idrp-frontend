@@ -43,7 +43,18 @@
                   </h3>
                 </div>
 
-                <div class="sm:pr-2">
+                <div class="flex flex-wrap gap-3 sm:pr-2">
+                  <a
+                    v-if="program.brochureTo"
+                    :href="program.brochureTo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="relative z-10 inline-flex min-w-[140px] items-center justify-center rounded-xl border border-teal-200 bg-white px-6 py-3 text-sm font-semibold text-teal-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-300 hover:bg-teal-50"
+                    @click.stop
+                  >
+                    {{ program.brochureLabel || 'View Brochure' }}
+                  </a>
+
                   <RouterLink
                     :to="program.applyTo"
                     class="relative z-10 inline-flex min-w-[120px] items-center justify-center rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 hover:shadow-lg"

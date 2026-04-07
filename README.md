@@ -1,7 +1,3 @@
-# IIIT Dharwad
-
-IDRP Application code
-
 
 ```
 idrp-frontend
@@ -83,6 +79,11 @@ idrp-frontend
 │  ├─ faculty-sunilkumar.jfif
 │  ├─ faculty-suvadip.jfif
 │  ├─ faculty-vivekraj.jfif
+│  ├─ hack2future
+│  │  ├─ 1.JPG
+│  │  ├─ 2.JPG
+│  │  ├─ 3.JPG
+│  │  └─ 4.JPG
 │  ├─ hero1.jfif
 │  ├─ hero2.jfif
 │  ├─ hero3.jfif
@@ -177,6 +178,9 @@ idrp-frontend
 │  ├─ quantum-ai-intro.jfif
 │  ├─ quantum-ai-value.jfif
 │  ├─ resources-hero.jfif
+│  ├─ rgep
+│  │  ├─ rgep-intro.jpeg
+│  │  └─ rgep-value.jfif
 │  ├─ services.jpg
 │  ├─ startup-matchmaking-hero.jfif
 │  ├─ startups
@@ -193,7 +197,7 @@ idrp-frontend
 │  │     ├─ MediRaksha.png
 │  │     ├─ MLera.png
 │  │     ├─ Natanasvara.jpg
-│  │     ├─ Neuraforesight.jpeg
+│  │     ├─ neuraforesight.jpeg
 │  │     ├─ NeXR.jpeg
 │  │     ├─ Smart Nest.png
 │  │     ├─ Sparkle Studio.jpeg
@@ -214,13 +218,15 @@ idrp-frontend
 │  ├─ technology-preetham.jfif
 │  ├─ udyami
 │  │  ├─ udyami-intro.jpeg
-│  │  └─ udyami-value.jpeg
+│  │  ├─ udyami-value.jpeg
+│  │  └─ udyami_brochure.pdf
 │  ├─ vision-community.jfif
 │  ├─ vision-innovation.jfif
 │  ├─ vision-resources.jfif
 │  └─ yuva-udyami
 │     ├─ yuva-udyami-intro.jpeg
-│     └─ yuva-udyami-value.jpeg
+│     ├─ yuva-udyami-value.jpeg
+│     └─ yuva_udyami_brochure.pdf
 ├─ README.md
 ├─ src
 │  ├─ App.vue
@@ -264,6 +270,7 @@ idrp-frontend
 │  │  │  └─ ContactSocialLinks.vue
 │  │  ├─ events
 │  │  │  ├─ EventCard.vue
+│  │  │  ├─ EventGallerySection.vue
 │  │  │  ├─ EventRegistrationFormSection.vue
 │  │  │  ├─ EventRegistrationHeader.vue
 │  │  │  ├─ EventRegistrationNotFound.vue
@@ -380,6 +387,8 @@ idrp-frontend
 │  │  ├─ quantumAI.ts
 │  │  ├─ quantumAIExtra.ts
 │  │  ├─ resources.ts
+│  │  ├─ rgep.ts
+│  │  ├─ rgepExtra.ts
 │  │  ├─ startups.ts
 │  │  ├─ team.ts
 │  │  └─ technicalEducationAcademy.ts
@@ -403,6 +412,7 @@ idrp-frontend
 │  │  ├─ partners.ts
 │  │  ├─ program.ts
 │  │  ├─ resources.ts
+│  │  ├─ rgep.ts
 │  │  ├─ service.ts
 │  │  ├─ startups.ts
 │  │  └─ team.ts
@@ -431,6 +441,7 @@ idrp-frontend
 │     ├─ PreIncubationView.vue
 │     ├─ QuantumAIView.vue
 │     ├─ ResourcesView.vue
+│     ├─ RgepView.vue
 │     ├─ StartupMatchmakingFormView.vue
 │     ├─ StartupsView.vue
 │     ├─ TechnicalEducationAcademyView.vue

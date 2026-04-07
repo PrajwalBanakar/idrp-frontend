@@ -1,14 +1,16 @@
 import type { ProgramPageData } from '@/types/program'
 
 export const incubationPage: ProgramPageData = {
-  hero: {
-    eyebrow: 'Incubation',
-    title: 'Udyami Incubation Program',
-    subtitle:
-      'A structured incubation program designed to support startups in building, validating, and scaling their ventures with strong ecosystem backing.',
-    image: '/incubation-hero.jfif',
-    imageAlt: 'Incubation Program',
-  },
+hero: {
+  eyebrow: 'Incubation',
+  title: 'Udyami Incubation Program',
+  subtitle:
+    'A structured incubation program designed to support startups in building, validating, and scaling their ventures with strong ecosystem backing.',
+  image: '/incubation-hero.jfif',
+  imageAlt: 'Incubation Program',
+  brochureTo: '/udyami/udyami_brochure.pdf',
+  brochureLabel: 'View Brochure',
+},
 
   intro: {
     eyebrow: 'Our Approach',

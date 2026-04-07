@@ -37,6 +37,8 @@ export type Program = {
   description: string
   detailsTo: string
   applyTo: string
+  brochureTo?: string
+  brochureLabel?: string
   features: string[]
 }
 
@@ -98,12 +100,14 @@ export const heroSlides: HeroSlide[] = [
 
 export const programs: Program[] = [
   {
-    title: 'Yuva Udyami Pre IncubationProgram',
+    title: 'Yuva Udyami Pre Incubation Program',
     duration: '6–12 months',
     description:
       'A structured early-stage program for founders at idea, problem-validation, or prototype stage. Designed to help aspiring startups validate the problem, refine the solution, build an MVP roadmap, and prepare for incubation readiness.',
-    detailsTo: '/programs/pre-incubation',
+    detailsTo: '/pre-incubation',
     applyTo: '/apply/pre-incubation',
+    brochureTo: '/yuva-udyami/yuva_udyami_brochure.pdf',
+    brochureLabel: 'View Brochure',
     features: [
       'Idea validation and customer discovery',
       'Mentorship on problem-solution fit',
@@ -118,8 +122,10 @@ export const programs: Program[] = [
     duration: '12–18 months',
     description:
       'Comprehensive support for startups at idea, PoC, or MVP stage. Get access to dedicated workspace, labs, mentorship, and seed funding opportunities.',
-    detailsTo: '/programs/incubation',
+    detailsTo: '/incubation',
     applyTo: '/apply/incubation',
+    brochureTo: '/udyami/udyami_brochure.pdf',
+    brochureLabel: 'View Brochure',
     features: [
       'Dedicated workspace at campus',
       'Access to research labs and equipment',
@@ -139,19 +145,19 @@ export const governmentPrograms: GovernmentProgram[] = [
     route: '/programs/nain',
   },
   {
-    title: 'Common Instrumentation Facility',
+    title: 'Common Instrumentation Facility (CIF)',
     description:
       'Shared access to advanced instrumentation, lab facilities, and prototyping infrastructure that supports research, product development, and deep-tech experimentation.',
     route: '/programs/cif',
   },
   {
-    title: 'Centre of Excellence in Quantum AI and Computing',
+    title: 'Centre of Excellence in Quantum AI and Computing (COE)',
     description:
       'A focused initiative to advance research, talent development, and innovation in quantum technologies, artificial intelligence, and next-generation computing systems.',
     route: '/programs/coe-quantum-ai',
   },
   {
-    title: 'Capacity Building for Design and Entrepreneurship',
+    title: 'Capacity Building for Design and Entrepreneurship (CBDE)',
     description:
       'A structured program to build innovation capability, product thinking, design mindset, and entrepreneurial readiness among students, researchers, and aspiring founders.',
     route: '/programs/cbde',

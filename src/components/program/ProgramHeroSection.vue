@@ -8,6 +8,8 @@ type Props = {
   image?: string
   imageAlt?: string
   minHeightClass?: string
+  brochureTo?: string
+  brochureLabel?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -15,6 +17,8 @@ const props = withDefaults(defineProps<Props>(), {
   image: '',
   imageAlt: 'Program hero image',
   minHeightClass: 'min-h-[360px]',
+  brochureTo: '',
+  brochureLabel: 'View Brochure',
 })
 
 const showHeroImage = ref(true)
@@ -44,6 +48,17 @@ const showHeroImage = ref(true)
         <p class="mt-5 max-w-2xl text-lg leading-relaxed text-teal-100 md:text-xl">
           {{ props.subtitle }}
         </p>
+
+        <div v-if="props.brochureTo" class="mt-8">
+          <a
+            :href="props.brochureTo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20"
+          >
+            {{ props.brochureLabel }}
+          </a>
+        </div>
       </div>
     </div>
   </section>

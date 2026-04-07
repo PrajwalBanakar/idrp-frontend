@@ -33,16 +33,38 @@
         </p>
         <p class="mt-1 text-sm font-bold text-gray-800">{{ event.organiser }}</p>
       </div>
+
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">
+          Mode
+        </p>
+        <p class="mt-1 text-sm font-bold text-gray-800">{{ event.mode }}</p>
+      </div>
+
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">
+          Date
+        </p>
+        <p class="mt-1 text-sm font-bold text-gray-800">{{ event.date }}</p>
+      </div>
     </div>
 
     <div class="mt-8 space-y-3">
       <RouterLink
         v-if="event.isUpcoming"
-        :to="`/events/${event.id}/register`"
+        :to="`/events/${event.slug}/register`"
         class="inline-flex w-full items-center justify-center rounded-xl bg-teal-700 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-teal-800"
       >
         Register for Event
       </RouterLink>
+
+      <a
+        v-else-if="hasGallery"
+        href="#event-gallery"
+        class="inline-flex w-full items-center justify-center rounded-xl bg-teal-700 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-teal-800"
+      >
+        View Event Gallery
+      </a>
 
       <RouterLink
         to="/contact"
@@ -55,10 +77,13 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import type { EventItem } from '@/types/events'
 
-defineProps<{
+const props = defineProps<{
   event: EventItem
 }>()
+
+const hasGallery = computed(() => Array.isArray(props.event.gallery) && props.event.gallery.length > 0)
 </script>

@@ -28,7 +28,7 @@ export const startupsIntro: StartupsIntro = {
 }
 
 export const startupStats: StartupStat[] = [
-  { value: '20+', label: 'Startups listed' },
+  { value: '23+', label: 'Startups listed' },
   { value: '2', label: 'Cohorts mapped' },
   { value: '150+', label: 'Active community' },
 ]
@@ -186,7 +186,7 @@ export const startups: Startup[] = [
   {
     id: 'evento',
     name: 'Evento',
-    sector: '',
+    sector: 'SOCIAL TECH',
     category: 'pre-incubated',
     logo: '/startups/logo/evento.png',
     website: '',
@@ -690,11 +690,131 @@ export const startups: Startup[] = [
       },
     ],
   },
+
+  {
+    id: 'cipherion',
+    name: 'Cipherion',
+    sector: 'CYBERSECURITY',
+    category: 'incubated',
+    logo: '/startups/logo/cipherion.png',
+    website: '',
+    onePager: '',
+    brief: '',
+    contactEmail: '',
+    contactPhone: '+918105188413',
+    techFacultyMentors: [
+      {
+        name: 'Dr. Girish Revadigar',
+        email: '',
+      },
+    ],
+    founders: [
+      {
+        name: 'Kunaal Shindagi',
+        role: 'Founder',
+        linkedin: '',
+        email: '',
+        phone: '+918105188413',
+      },
+      {
+        name: 'Pooja Ekbote',
+        role: 'Founder',
+        linkedin: '',
+        email: '',
+        phone: '',
+      },
+      {
+        name: 'Nagaraj Bhandare',
+        role: 'Founder',
+        linkedin: '',
+        email: '',
+        phone: '',
+      },
+    ],
+    teamMembers: [],
+  },
+  {
+    id: 'nexr',
+    name: 'NeXR Technology Private Limited',
+    sector: 'HEALTH TECH',
+    category: 'incubated',
+    logo: '/startups/logo/NeXR.jpeg',
+    website: '',
+    onePager: '',
+    brief: '',
+    contactEmail: 'vinay.oswald@gmail.com',
+    contactPhone: '+919538246925',
+    techFacultyMentors: [
+      {
+        name: 'Dr. Sunil Saumya',
+        email: '',
+      },
+    ],
+    founders: [
+      {
+        name: 'Vinay',
+        role: 'Founder',
+        linkedin: '',
+        email: 'vinay.oswald@gmail.com',
+        phone: '+919538246925',
+      },
+      {
+        name: 'Shyam Sundar',
+        role: 'Founder',
+        linkedin: '',
+        email: 'yadavshyam686@gmail.com',
+        phone: '+919739277227',
+      },
+    ],
+    teamMembers: [],
+  },
+  {
+    id: 'neuraforesight',
+    name: 'Neuraforesight Pvt Ltd',
+    sector: 'HEALTH TECH',
+    category: 'incubated',
+    logo: '/startups/logo/neuraforesight.jpeg',
+    website: '',
+    onePager: '',
+    brief: '',
+    contactEmail: 'sachin.marihal@saspinjara.com',
+    contactPhone: '+919538033363',
+    techFacultyMentors: [
+      {
+        name: 'Dr. Manjunath Vanahalli',
+        email: '',
+      },
+    ],
+    founders: [
+      {
+        name: 'Sachin Marihal',
+        role: 'Founder',
+        linkedin: '',
+        email: 'sachin.marihal@saspinjara.com',
+        phone: '+919538033363',
+      },
+      {
+        name: 'Aravind Puttakkalavar',
+        role: 'Founder',
+        linkedin: '',
+        email: 'aravind.p@saspinjara.com',
+        phone: '',
+      },
+      {
+        name: 'Anil Ranadev',
+        role: 'Founder',
+        linkedin: '',
+        email: 'anil_ranadev@saspinjara.com',
+        phone: '',
+      },
+    ],
+    teamMembers: [],
+  },
   {
     id: 'sphuranex',
     name: 'SphuraNex',
     sector: 'HEALTH TECH',
-    category: 'pre-incubated',
+    category: 'incubated',
     logo: '',
     website: '',
     onePager: '',

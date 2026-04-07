@@ -8,6 +8,8 @@ export type PageHeroContent = {
   subtitle: string
   image: string
   imageAlt: string
+  brochureTo?: string
+  brochureLabel?: string
 }
 
 export type PageIntroContent = {
@@ -58,6 +60,8 @@ export type Program = {
   description: string
   detailsTo: string
   applyTo: string
+  brochureTo?: string
+  brochureLabel?: string
   features: string[]
 }
 

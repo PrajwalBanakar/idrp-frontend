@@ -46,7 +46,6 @@ export const ROUTE_NAMES = {
   CIF: 'cif',
   COE_QUANTUM_AI: 'coe-quantum-ai',
   RGEP: 'rgep',
-  EVENT_DETAIL: 'event-detail',
   EVENT_REGISTER: 'event-register',
   NEWSLETTER_DETAIL: 'newsletter-detail',
   COURSE_DETAIL: 'course-detail',
@@ -344,7 +343,6 @@ const legacyRedirects: RouteRecordRaw[] = [
   createRedirectByName('/consulting', ROUTE_NAMES.CONSULTING),
 
   createRedirectByName('/events', ROUTE_NAMES.EVENTS),
-  createParamRedirect('/events/:id', ROUTE_NAMES.EVENT_DETAIL, ['id']),
   createParamRedirect('/events/:id/register', ROUTE_NAMES.EVENT_REGISTER, ['id']),
   createRedirectByName('/startups', ROUTE_NAMES.STARTUPS),
   createRedirectByName('/matchmaking', ROUTE_NAMES.MATCHMAKING),

@@ -1,24 +1,10 @@
-export type EventSpeaker = {
-  name: string
-  role: string
-  bio?: string
-}
-
-export type EventAgendaItem = {
-  time: string
-  title: string
-  description?: string
-}
-
 export type EventItem = {
   id: number
-  slug?: string
+  slug: string
 
   title: string
   category: string
-
   description: string
-  fullDescription: string
 
   date: string
   time?: string
@@ -31,12 +17,11 @@ export type EventItem = {
   image: string
   fallbackBg: string
 
-  brochureUrl?: string
   registerUrl?: string
   isUpcoming: boolean
   visible?: boolean
+  brochureUrl?: string
 
   highlights?: string[]
-  agenda?: EventAgendaItem[]
-  speakers?: EventSpeaker[]
+  gallery?: string[]
 }
