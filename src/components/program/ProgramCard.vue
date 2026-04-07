@@ -58,7 +58,7 @@ function isSectionOpen(title: string) {
             {{ program.description }}
           </p>
         </div>
-
+        
         <RouterLink
           v-if="program.applyTo"
           :to="program.applyTo"

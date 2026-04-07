@@ -59,6 +59,7 @@ const showHeroImage = ref(true)
             {{ props.brochureLabel }}
           </a>
         </div>
+        
       </div>
     </div>
   </section>

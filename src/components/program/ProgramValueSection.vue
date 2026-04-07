@@ -74,4 +74,6 @@ const showImage = ref(true)
       </div>
     </div>
   </section>
+
+  
 </template>

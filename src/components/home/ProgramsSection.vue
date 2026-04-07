@@ -149,6 +149,91 @@
             </RouterLink>
           </div>
         </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-8 lg:p-10">
+          <div class="mx-auto max-w-3xl text-center">
+            <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">
+              Choose the right path
+            </span>
+            <h3 class="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              Which program is right for you?
+            </h3>
+            <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
+              Whether you are validating an idea or building on an MVP, compare the two core
+              startup pathways at IDRP and choose the one that fits your current stage.
+            </p>
+          </div>
+
+          <div class="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+            <div class="grid grid-cols-[1.1fr_1fr_1fr] border-b border-slate-200 bg-slate-100">
+              <div class="px-4 py-4 text-sm font-semibold text-slate-700 sm:px-6">
+                Feature
+              </div>
+              <div class="border-l border-slate-200 px-4 py-4 text-sm font-semibold text-slate-900 sm:px-6">
+                Yuva Udyami
+              </div>
+              <div class="border-l border-slate-200 px-4 py-4 text-sm font-semibold text-slate-900 sm:px-6">
+                Udyami
+              </div>
+            </div>
+
+            <div class="grid grid-cols-[1.1fr_1fr_1fr] border-b border-slate-200">
+              <div class="px-4 py-4 text-sm font-semibold text-slate-700 sm:px-6">Stage</div>
+              <div class="border-l border-slate-200 px-4 py-4 text-sm text-slate-600 sm:px-6">
+                Idea / Early validation
+              </div>
+              <div class="border-l border-slate-200 px-4 py-4 text-sm text-slate-600 sm:px-6">
+                MVP / Early traction
+              </div>
+            </div>
+
+            <div class="grid grid-cols-[1.1fr_1fr_1fr] border-b border-slate-200">
+              <div class="px-4 py-4 text-sm font-semibold text-slate-700 sm:px-6">Focus</div>
+              <div class="border-l border-slate-200 px-4 py-4 text-sm text-slate-600 sm:px-6">
+                Problem-solution fit
+              </div>
+              <div class="border-l border-slate-200 px-4 py-4 text-sm text-slate-600 sm:px-6">
+                Growth and scaling
+              </div>
+            </div>
+
+            <div class="grid grid-cols-[1.1fr_1fr_1fr] border-b border-slate-200">
+              <div class="px-4 py-4 text-sm font-semibold text-slate-700 sm:px-6">Funding</div>
+              <div class="border-l border-slate-200 px-4 py-4 text-sm text-slate-600 sm:px-6">
+                No
+              </div>
+              <div class="border-l border-slate-200 px-4 py-4 text-sm text-slate-600 sm:px-6">
+                Yes
+              </div>
+            </div>
+
+            <div class="grid grid-cols-[1.1fr_1fr_1fr]">
+              <div class="px-4 py-4 text-sm font-semibold text-slate-700 sm:px-6">Duration</div>
+              <div class="border-l border-slate-200 px-4 py-4 text-sm text-slate-600 sm:px-6">
+                6–12 months
+              </div>
+              <div class="border-l border-slate-200 px-4 py-4 text-sm text-slate-600 sm:px-6">
+                6–18 months
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <RouterLink
+              to="/pre-incubation"
+              class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-all duration-300 hover:border-slate-400 hover:bg-slate-100"
+            >
+              Explore Yuva Udyami
+            </RouterLink>
+
+            <RouterLink
+              to="/incubation"
+              class="inline-flex items-center justify-center rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-teal-700"
+            >
+              Explore Udyami
+            </RouterLink>
+          </div>
+        </div>
       </div>
     </div>
   </section>

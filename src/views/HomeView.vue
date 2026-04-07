@@ -38,4 +38,29 @@ import SuccessStoriesSection from '@/components/home/SuccessStoriesSection.vue'
 import AwardsSection from '@/components/home/AwardsSection.vue'
 import CTASection from '@/components/home/CTASection.vue'
 import { programCatalog } from '@/data/programCatalog'
+import { useHead } from '@vueuse/head'
+
+useHead({
+  title: 'Home | IDRP',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'IIIT Dharwad Research Park supports startups from idea to scale through incubation, mentorship, research infrastructure, and innovation ecosystem programs.',
+    },
+    {
+      property: 'og:title',
+      content: 'IDRP – IIIT Dharwad Research Park',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Supporting startups from idea to scale with incubation, mentorship, and innovation ecosystem.',
+    },
+    {
+      property: 'og:image',
+      content: '/campus/idrp_building.jpg',
+    },
+  ],
+})
 </script>
