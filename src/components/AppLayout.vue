@@ -328,7 +328,7 @@ const navSections: NavSection[] = [
       { label: 'About IDRP', to: '/about' },
       { label: 'Our Team', to: '/about/team' },
 { label: 'Mentors', to: '/about/mentors' },
-      { label: 'Investment Committee', to: '/about/investment-committee' },
+      { label: 'Our Board', to: '/about/investment-committee' },
     ],
   },
   {

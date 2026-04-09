@@ -14,6 +14,9 @@ idrp-frontend
 │  ├─ advisory-poyni.jfif
 │  ├─ apply-hero.jfif
 │  ├─ awards
+│  │  ├─ cipherion_doordarshan.png
+│  │  ├─ cipherion_hdb_blue.jpg
+│  │  ├─ cipherion_onecr.jpg
 │  │  └─ coe.jpeg
 │  ├─ board-deepak.jfif
 │  ├─ board-hero.jfif
@@ -42,6 +45,7 @@ idrp-frontend
 │  │  ├─ idrp_presentation.jpeg
 │  │  ├─ idrp_Sidarud_Team.JPG
 │  │  ├─ idrp_speech_lab.jpeg
+│  │  ├─ idrp_vlsi_lab.jpg
 │  │  ├─ idrp_workspace.jpeg
 │  │  └─ idrp_workspace_2.jpeg
 │  ├─ cbde
@@ -193,6 +197,7 @@ idrp-frontend
 │  │     ├─ deep_traits.PNG
 │  │     ├─ evento.png
 │  │     ├─ Friend In Fog.png
+│  │     ├─ heyattrangi.jpeg
 │  │     ├─ Jnanasetu.png
 │  │     ├─ Kisan_Voice.png
 │  │     ├─ MediRaksha.png
@@ -202,6 +207,7 @@ idrp-frontend
 │  │     ├─ NeXR.jpeg
 │  │     ├─ Smart Nest.png
 │  │     ├─ Sparkle Studio.jpeg
+│  │     ├─ sphuranex.jpeg
 │  │     ├─ Step-In.jpg
 │  │     ├─ Vayucharge.jpeg
 │  │     ├─ VGyan.png
@@ -262,6 +268,7 @@ idrp-frontend
 │  │  │  ├─ ApplicationHeroSection.vue
 │  │  │  └─ ApplicationSidebarSection.vue
 │  │  ├─ common
+│  │  │  ├─ BaseHeroSection.vue
 │  │  │  ├─ BeneficiariesSection.vue
 │  │  │  └─ FocusSection.vue
 │  │  ├─ contact
@@ -352,6 +359,7 @@ idrp-frontend
 │  │     ├─ TeamHeroSection.vue
 │  │     ├─ TeamIntroSection.vue
 │  │     └─ TeamMemberCard.vue
+│  ├─ components.zip
 │  ├─ composables
 │  │  ├─ useForm.ts
 │  │  └─ useNain.ts

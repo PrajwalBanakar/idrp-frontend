@@ -6,7 +6,9 @@
           <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
             Milestones
           </span>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl">
+          <h2
+            class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl"
+          >
             Awards & Recognition
           </h2>
           <div
@@ -34,14 +36,17 @@
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
         <article
           v-for="award in awards"
-          :key="award.title"
+          :key="`${award.entity ?? 'award'}-${award.title}-${award.year}`"
           class="group overflow-hidden rounded-3xl border border-[var(--color-border)] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]/20 hover:shadow-lg"
         >
-          <div class="h-64 w-full overflow-hidden bg-gradient-to-br sm:h-72 lg:h-80" :class="award.bg">
+          <div
+            class="h-64 w-full overflow-hidden bg-gradient-to-br sm:h-72 lg:h-80"
+            :class="award.bg"
+          >
             <img
               v-if="award.image"
               :src="award.image"
-              :alt="award.title"
+              :alt="award.entity ? `${award.entity} - ${award.title}` : award.title"
               class="h-full w-full object-contain bg-white p-3 transition-transform duration-500 group-hover:scale-[1.02]"
             />
 
@@ -66,7 +71,7 @@
                 </svg>
               </div>
 
-              <span class="text-xs font-semibold text-white/85">
+              <span class="text-xs font-semibold uppercase tracking-[0.18em] text-white/85">
                 {{ award.issuer }}
               </span>
             </div>
@@ -74,12 +79,21 @@
 
           <div class="px-5 py-5 text-center">
             <p
+              v-if="award.entity"
+              class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-primary)]"
+            >
+              {{ award.entity }}
+            </p>
+
+            <p
               class="text-base font-semibold leading-7 text-[var(--color-text-primary)] transition-colors duration-300 group-hover:text-[var(--color-primary)]"
+              :class="award.entity ? 'mt-2' : ''"
             >
               {{ award.title }}
             </p>
-            <p class="mt-1 text-sm text-slate-500">
-              {{ award.year }}
+
+            <p class="mt-2 text-sm text-slate-500">
+              {{ award.issuer }} · {{ award.year }}
             </p>
           </div>
         </article>

@@ -82,6 +82,12 @@ export const campusImages: AboutCampusGalleryImage[] = [
     alt: 'Speech laboratory at IDRP',
     title: 'Speech Lab',
   },
+    {
+    id: 'campus-11',
+    src: '/campus/idrp_vlsi_lab.jpg',
+    alt: 'VLSI laboratory at IDRP',
+    title: 'VLSI Lab',
+  },
 ]
 /* ---------------------------------- */
 /* HERO */

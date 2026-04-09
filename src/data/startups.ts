@@ -275,6 +275,60 @@ export const startups: Startup[] = [
       },
     ],
   },
+
+  {
+    id: 'hey-attrangi',
+    name: 'Hey Attrangi',
+    sector: 'HEALTH TECH',
+    category: 'incubated',
+    logo: '/startups/logo/heyattrangi.jpeg',
+    website: '',
+    onePager: '',
+    brief: '',
+    contactEmail: '22bcs068@iiitdwd.ac.in',
+    contactPhone: '+917995736278',
+
+    // No tech mentor
+    techFacultyMentors: [],
+
+    founders: [
+      {
+        name: 'Dr. Sandesh Sanjeev Phalke',
+        role: 'Founder',
+        linkedin: '',
+        email: 's.phalke@iiitdwd.ac.in',
+        phone: '',
+      },
+    ],
+
+    teamMembers: [
+      {
+        name: 'Dusary Charan',
+        phone: '',
+        email: '23bcs047@iiitdwd.ac.in',
+      },
+      {
+        name: 'Medasani Bharath Reddy',
+        phone: '',
+        email: '22bcs068@iiitdwd.ac.in',
+      },
+      {
+        name: 'Jakkoju Kalyan',
+        phone: '',
+        email: '23bec022@iiitdwd.ac.in',
+      },
+      {
+        name: 'Doddi VenkataLakshmi Prasad',
+        phone: '',
+        email: '23bec018@iiitdwd.ac.in',
+      },
+      {
+        name: 'Daraboina Harshith',
+        phone: '',
+        email: '23bcs037@iiitdwd.ac.in',
+      },
+    ],
+  },
   {
     id: 'mlera',
     name: 'MLera',
@@ -815,7 +869,7 @@ export const startups: Startup[] = [
     name: 'SphuraNex',
     sector: 'HEALTH TECH',
     category: 'incubated',
-    logo: '',
+    logo: '/startups/logo/sphuranex.jpeg',
     website: '',
     onePager: '',
     brief: '',
@@ -950,45 +1004,19 @@ export const startups: Startup[] = [
     website: '',
     onePager: '',
     brief: '',
-    contactEmail: '22bec047@iiitdwd.ac.in',
-    contactPhone: '+918977779523',
-    techFacultyMentors: [
-      {
-        name: 'Dr. Rajesh Kumar',
-        email: 'rajeshk@iiitdwd.ac.in',
-      },
-    ],
+    contactEmail: 'rajeshk@iiitdwd.ac.in',
+    contactPhone: '',
+    techFacultyMentors: [],
     founders: [
       {
-        name: 'TN Sameera',
+        name: 'Dr. Rajesh Kumar',
         role: 'Founder',
         linkedin: '',
-        email: '22bec047@iiitdwd.ac.in',
-        phone: '+918977779523',
-      },
-    ],
-    teamMembers: [
-      {
-        name: 'A.S.Mithil',
-        phone: '+917989256313',
-        email: '22bec001@iiitdwd.ac.in',
-      },
-      {
-        name: 'TN Sameera',
-        phone: '+918977779523',
-        email: '22bec047@iiitdwd.ac.in',
-      },
-      {
-        name: 'Shiva Shankar B',
-        phone: '+918217506727',
-        email: '22bec043@iiitdwd.ac.in',
-      },
-      {
-        name: 'Dr. Rajesh Kumar',
-        phone: '+918506007086',
         email: 'rajeshk@iiitdwd.ac.in',
+        phone: '',
       },
     ],
+    teamMembers: [],
   },
   {
     id: 'vocal-drone',

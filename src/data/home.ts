@@ -65,6 +65,7 @@ export type Story = {
 }
 
 export type Award = {
+  entity?: string
   title: string
   issuer: string
   year: string
@@ -290,10 +291,34 @@ export const successStories: Story[] = [
 
 export const awards: Award[] = [
   {
-    title: 'Centre of Excellence in Quantum Ai and Quantum Computing',
+    title: 'Centre of Excellence in Quantum AI and Quantum Computing',
     issuer: 'Government of Karnataka',
     year: '2025',
     image: '/awards/coe.jpeg',
+    bg: 'from-teal-600 to-cyan-500',
+  },
+  {
+    entity: 'Cipherion',
+    title: 'Recognized among the Top 3 fund-ready startups at HDB Blue 2025',
+    issuer: 'HDB Techceleration',
+    year: '2025',
+    image: '/awards/cipherion_hdb_blue.jpg',
+    bg: 'from-teal-600 to-cyan-500',
+  },
+  {
+    entity: 'Cipherion',
+    title: 'Featured on Doordarshan’s “Karnataka Startup Champion – Navabharatada Shilpigalu”',
+    issuer: 'Doordarshan Karnataka',
+    year: '2025',
+    image: '/awards/cipherion_doordarshan.png',
+    bg: 'from-teal-600 to-cyan-500',
+  },
+  {
+    entity: 'Cipherion',
+    title: 'Selected for ₹1 Crore funding under AVINYA Cohort 1',
+    issuer: 'ACSEL Technology Forum',
+    year: '2025',
+    image: '/awards/cipherion_onecr.jpg',
     bg: 'from-teal-600 to-cyan-500',
   },
 ]

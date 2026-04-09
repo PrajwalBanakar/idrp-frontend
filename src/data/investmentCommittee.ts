@@ -5,8 +5,8 @@ import type {
 } from '@/types/investmentCommittee'
 
 export const investmentCommitteeHero: InvestmentCommitteeHeroContent = {
-  eyebrow: 'Investment Committee',
-  title: 'Meet the Investment Committee',
+  eyebrow: '',
+  title: 'Board Members',
   description:
     'Meet the people guiding venture evaluation, investment readiness, and strategic growth at IDRP.',
   image: '/investment-committee-hero.jfif',
