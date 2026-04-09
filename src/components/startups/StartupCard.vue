@@ -17,7 +17,7 @@
             />
             <span
               v-else
-              class="text-2xl font-extrabold uppercase tracking-wide text-teal-600"
+              class="text-2xl font-extrabold uppercase tracking-wide text-[var(--color-primary)]"
             >
               {{ initial }}
             </span>
@@ -34,7 +34,7 @@
               </span>
             </div>
 
-            <p class="mt-1 text-sm font-medium text-teal-700">
+            <p class="mt-1 text-sm font-medium text-[var(--color-primary)]">
               {{ startup.sector || 'Sector to be updated' }}
             </p>
 
@@ -51,7 +51,7 @@
                 :href="startup.website"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center rounded-full bg-teal-700 px-4 py-2 text-xs font-semibold text-white transition hover:bg-teal-800"
+                class="inline-flex items-center rounded-full bg-[var(--color-primary)] px-4 py-2 text-xs font-semibold text-white transition hover:bg-teal-800"
               >
                 Visit Website
               </a>
@@ -61,7 +61,7 @@
                 :href="startup.onePager"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition hover:border-teal-300 hover:text-teal-700"
+                class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition hover:border-teal-300 hover:text-[var(--color-primary)]"
               >
                 View One-Pager
               </a>
@@ -71,7 +71,7 @@
 
         <button
           type="button"
-          class="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-teal-300 hover:text-teal-700"
+          class="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-teal-300 hover:text-[var(--color-primary)]"
           @click="$emit('toggle', startup.id)"
         >
           <span>{{ expanded ? 'Hide Details' : 'View Details' }}</span>
@@ -97,9 +97,7 @@
           <!-- Left -->
           <div class="space-y-6">
             <section>
-              <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
-                Founders
-              </h4>
+              <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Founders</h4>
 
               <div class="mt-3 space-y-3">
                 <div
@@ -122,7 +120,7 @@
                       :href="founder.linkedin"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-xs font-semibold text-teal-700 transition hover:text-teal-800"
+                      class="text-xs font-semibold text-[var(--color-primary)] transition hover:text-teal-800"
                     >
                       LinkedIn
                     </a>
@@ -132,7 +130,7 @@
                     <a
                       v-if="founder.email"
                       :href="`mailto:${founder.email}`"
-                      class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
+                      class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-600 transition hover:border-teal-300 hover:text-[var(--color-primary)]"
                     >
                       {{ founder.email }}
                     </a>
@@ -140,7 +138,7 @@
                     <a
                       v-if="founder.phone"
                       :href="`tel:${founder.phone}`"
-                      class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
+                      class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-600 transition hover:border-teal-300 hover:text-[var(--color-primary)]"
                     >
                       {{ founder.phone }}
                     </a>
@@ -166,7 +164,7 @@
                   <a
                     v-if="mentor.email"
                     :href="`mailto:${mentor.email}`"
-                    class="mt-1 inline-block text-xs text-slate-600 transition hover:text-teal-700"
+                    class="mt-1 inline-block text-xs text-slate-600 transition hover:text-[var(--color-primary)]"
                   >
                     {{ mentor.email }}
                   </a>
@@ -179,7 +177,9 @@
                 <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
                   Team Members
                 </h4>
-                <span class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500 ring-1 ring-slate-200">
+                <span
+                  class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500 ring-1 ring-slate-200"
+                >
                   {{ startup.teamMembers.length }}
                 </span>
               </div>
@@ -198,7 +198,7 @@
                     <a
                       v-if="member.email"
                       :href="`mailto:${member.email}`"
-                      class="block text-xs text-slate-600 transition hover:text-teal-700"
+                      class="block text-xs text-slate-600 transition hover:text-[var(--color-primary)]"
                     >
                       {{ member.email }}
                     </a>
@@ -206,7 +206,7 @@
                     <a
                       v-if="member.phone"
                       :href="`tel:${member.phone}`"
-                      class="block text-xs text-slate-600 transition hover:text-teal-700"
+                      class="block text-xs text-slate-600 transition hover:text-[var(--color-primary)]"
                     >
                       {{ member.phone }}
                     </a>
@@ -230,7 +230,7 @@
                   </p>
                   <a
                     :href="`mailto:${startup.contactEmail}`"
-                    class="mt-1 inline-block text-sm font-medium text-slate-800 transition hover:text-teal-700"
+                    class="mt-1 inline-block text-sm font-medium text-slate-800 transition hover:text-[var(--color-primary)]"
                   >
                     {{ startup.contactEmail }}
                   </a>
@@ -242,7 +242,7 @@
                   </p>
                   <a
                     :href="`tel:${startup.contactPhone}`"
-                    class="mt-1 inline-block text-sm font-medium text-slate-800 transition hover:text-teal-700"
+                    class="mt-1 inline-block text-sm font-medium text-slate-800 transition hover:text-[var(--color-primary)]"
                   >
                     {{ startup.contactPhone }}
                   </a>
@@ -256,7 +256,7 @@
                     :href="startup.website"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="mt-1 inline-block break-all text-sm font-medium text-slate-800 transition hover:text-teal-700"
+                    class="mt-1 inline-block break-all text-sm font-medium text-slate-800 transition hover:text-[var(--color-primary)]"
                   >
                     {{ websiteLabel }}
                   </a>
@@ -270,14 +270,13 @@
                     :href="startup.onePager"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="mt-1 inline-block text-sm font-semibold text-teal-700 transition hover:text-teal-800"
+                    class="mt-1 inline-block text-sm font-semibold text-[var(--color-primary)] transition hover:text-teal-800"
                   >
                     View / Download One-Pager
                   </a>
                 </div>
               </div>
             </section>
-
           </div>
         </div>
       </div>
@@ -313,7 +312,7 @@ const websiteLabel = computed(() =>
 const badgeClass = computed(() => {
   const badgeMap: Record<StartupCategory, string> = {
     'pre-incubated': 'bg-cyan-50 text-cyan-700',
-    incubated: 'bg-teal-50 text-teal-700',
+    incubated: 'bg-[var(--color-primary-soft)] text-[var(--color-primary)]',
     funded: 'bg-emerald-50 text-emerald-700',
   }
 

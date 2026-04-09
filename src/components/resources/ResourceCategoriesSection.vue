@@ -2,17 +2,13 @@
   <section class="bg-gray-50 px-6 py-8 md:px-16">
     <div class="mx-auto max-w-6xl">
       <div class="mb-16 text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
           Collections
         </span>
         <h2 class="mt-2 text-4xl font-bold text-gray-900">Explore More Resources</h2>
       </div>
 
-      <div
-        v-for="category in categories"
-        :key="category.key"
-        class="mb-16 last:mb-4"
-      >
+      <div v-for="category in categories" :key="category.key" class="mb-16 last:mb-4">
         <div class="mb-6 flex items-start gap-4">
           <div
             class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-lg text-white"
@@ -65,7 +61,7 @@
               </span>
               <button
                 type="button"
-                class="text-sm font-semibold text-teal-700 transition-colors duration-200 hover:text-teal-800"
+                class="text-sm font-semibold text-[var(--color-primary)] transition-colors duration-200 hover:text-teal-800"
               >
                 View Resource →
               </button>

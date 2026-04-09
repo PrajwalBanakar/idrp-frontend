@@ -5,7 +5,7 @@
 
       <RouterLink
         to="/courses"
-        class="mt-6 inline-flex rounded-xl bg-teal-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-teal-800"
+        class="mt-6 inline-flex rounded-xl bg-[var(--color-primary)] px-6 py-3 text-sm font-bold text-white transition hover:bg-teal-800"
       >
         Back to Courses
       </RouterLink>

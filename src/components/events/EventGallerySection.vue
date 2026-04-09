@@ -4,11 +4,11 @@
     class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 md:p-8"
   >
     <div class="mb-6 flex items-center gap-3">
-      <div class="h-8 w-1 rounded-full bg-teal-500" />
+      <div class="h-8 w-1 rounded-full bg-[var(--color-primary-soft)]0" />
       <div>
         <p
           v-if="eyebrow"
-          class="text-xs font-semibold uppercase tracking-[0.22em] text-teal-600"
+          class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]"
         >
           {{ eyebrow }}
         </p>

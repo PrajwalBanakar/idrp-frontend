@@ -79,7 +79,7 @@ export const rgepInnovators = [
 export const rgepHighlights = [
   {
     label: 'Innovators supported',
-    value: '30',
+    value: '2',
   },
   {
     label: 'Monthly stipend',

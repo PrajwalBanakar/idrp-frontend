@@ -1,18 +1,21 @@
 <template>
-  <section class="bg-slate-50 px-6 py-20 md:px-12 lg:px-16 lg:py-24">
+  <section class="bg-[var(--color-bg-soft)] px-6 py-20 md:px-12 lg:px-16 lg:py-24">
     <div class="mx-auto max-w-7xl">
       <div class="mb-12 grid gap-10 lg:mb-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14">
         <div>
-          <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">
+          <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
             Milestones
           </span>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl">
             Awards & Recognition
           </h2>
-          <div class="mt-6 h-1 w-14 rounded-full bg-gradient-to-r from-teal-500 to-cyan-400" />
+          <div
+            class="mt-6 h-1 w-14 rounded-full"
+            style="background: linear-gradient(to right, var(--color-primary-light), var(--color-primary));"
+          />
         </div>
 
-        <div class="space-y-4 text-base leading-7 text-slate-600 sm:text-lg">
+        <div class="space-y-4 text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
           <p>
             Recognition reflects the collective effort behind every founder, mentor, partner, and
             collaborator contributing to the ecosystem.
@@ -21,7 +24,7 @@
             As ventures grow, secure support, and create impact, the broader work of incubation,
             mentorship, and ecosystem building is also acknowledged by institutions and peers.
           </p>
-          <p class="font-medium text-teal-700">
+          <p class="font-medium text-[var(--color-primary)]">
             These milestones represent momentum, trust, and the long-term value of building strong
             innovation pathways.
           </p>
@@ -32,7 +35,7 @@
         <article
           v-for="award in awards"
           :key="award.title"
-          class="group overflow-hidden rounded-3xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-lg"
+          class="group overflow-hidden rounded-3xl border border-[var(--color-border)] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]/20 hover:shadow-lg"
         >
           <div class="h-64 w-full overflow-hidden bg-gradient-to-br sm:h-72 lg:h-80" :class="award.bg">
             <img
@@ -71,7 +74,7 @@
 
           <div class="px-5 py-5 text-center">
             <p
-              class="text-base font-semibold leading-7 text-slate-900 transition-colors duration-300 group-hover:text-teal-700"
+              class="text-base font-semibold leading-7 text-[var(--color-text-primary)] transition-colors duration-300 group-hover:text-[var(--color-primary)]"
             >
               {{ award.title }}
             </p>

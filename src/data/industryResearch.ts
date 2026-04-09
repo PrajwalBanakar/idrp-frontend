@@ -6,7 +6,7 @@ export const industryResearchPage: ServicePage = {
     eyebrow: 'Services',
     title: 'Industry Research & Consulting',
     description:
-      'Applied research, consulting, and innovation support for industries, startups, institutions, and technology teams.',
+      '',
     image: '/industry-research-hero.jfif',
   },
   intro: {

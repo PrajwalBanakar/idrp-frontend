@@ -11,7 +11,7 @@ defineProps<{
   <section class="bg-slate-50 px-6 py-16 md:px-12 lg:px-16 lg:py-20">
     <div class="mx-auto max-w-7xl">
       <div class="mx-auto mb-12 max-w-3xl text-center">
-        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           {{ section.eyebrow }}
         </span>
 
@@ -28,10 +28,10 @@ defineProps<{
         <article
           v-for="reason in reasons"
           :key="reason.title"
-          class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-md"
+          class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]/20 hover:shadow-md"
         >
           <div
-            class="mb-5 h-1.5 w-14 rounded-full bg-teal-500 transition-all duration-300 group-hover:w-20"
+            class="mb-5 h-1.5 w-14 rounded-full bg-[var(--color-primary-soft)]0 transition-all duration-300 group-hover:w-20"
           />
           <h3 class="text-lg font-bold tracking-tight text-slate-900">
             {{ reason.title }}

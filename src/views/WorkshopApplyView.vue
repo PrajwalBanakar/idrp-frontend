@@ -3,7 +3,7 @@
     <section class="bg-white px-6 py-20 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-12 text-center">
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+          <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
             {{ applyPage.eyebrow }}
           </span>
           <h1 class="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
@@ -17,7 +17,9 @@
         <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <aside class="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
             <div class="flex items-start justify-between gap-4">
-              <span class="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
+              <span
+                class="rounded-full bg-[var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-primary)]"
+              >
                 {{ applyPage.workshop.duration }}
               </span>
 
@@ -26,7 +28,7 @@
                 :href="applyPage.workshop.brochureUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-sm font-semibold text-slate-600 hover:text-teal-700"
+                class="text-sm font-semibold text-slate-600 hover:text-[var(--color-primary)]"
               >
                 View Brochure
               </a>
@@ -52,7 +54,7 @@
                   class="flex items-start gap-3"
                 >
                   <span
-                    class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-teal-700"
+                    class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-[var(--color-primary)]"
                   >
                     ✓
                   </span>
@@ -64,12 +66,10 @@
             </div>
 
             <div class="mt-8 rounded-2xl border border-slate-200 bg-white p-5">
-              <p class="text-sm font-semibold text-slate-900">
-                Workshop Enquiry
-              </p>
+              <p class="text-sm font-semibold text-slate-900">Workshop Enquiry</p>
               <p class="mt-2 text-sm leading-6 text-slate-600">
-                Fill in the form to express interest. Our team will contact you with the next
-                steps, schedule details, and participation information.
+                Fill in the form to express interest. Our team will contact you with the next steps,
+                schedule details, and participation information.
               </p>
             </div>
           </aside>
@@ -83,9 +83,7 @@
   </div>
 
   <div v-else class="py-20 text-center">
-    <h2 class="text-2xl font-semibold text-slate-900">
-      Workshop not found
-    </h2>
+    <h2 class="text-2xl font-semibold text-slate-900">Workshop not found</h2>
   </div>
 </template>
 
@@ -97,7 +95,5 @@ import WorkshopApplyFormSection from '@/components/academy/WorkshopApplyFormSect
 
 const route = useRoute()
 
-const applyPage = computed(() =>
-  getWorkshopApplyPageBySlug(String(route.params.slug ?? '')),
-)
+const applyPage = computed(() => getWorkshopApplyPageBySlug(String(route.params.slug ?? '')))
 </script>

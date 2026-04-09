@@ -33,7 +33,7 @@
         <div class="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap">
           <RouterLink
             :to="applyRoute"
-            class="inline-flex min-w-[200px] items-center justify-center rounded-full bg-teal-600 px-8 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 sm:text-base"
+            class="inline-flex min-w-[200px] items-center justify-center rounded-full bg-teal-600 px-8 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] sm:text-base"
           >
             Apply Now
           </RouterLink>
@@ -50,7 +50,7 @@
             :href="brochureUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex min-w-[200px] items-center justify-center rounded-full border border-teal-300/30 bg-teal-400/10 px-8 py-3.5 text-sm font-semibold text-teal-100 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-500 hover:text-slate-950 sm:text-base"
+            class="inline-flex min-w-[200px] items-center justify-center rounded-full border border-teal-300/30 bg-teal-400/10 px-8 py-3.5 text-sm font-semibold text-teal-100 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary-soft)]0 hover:text-slate-950 sm:text-base"
           >
             View Brochure
           </a>

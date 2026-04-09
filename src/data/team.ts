@@ -19,7 +19,7 @@ export const teamMembers: TeamMember[] = [
     image: '/board-deepak.jfif',
     imageAlt: 'Deepak',
     linkedinUrl: 'https://www.linkedin.com/in/deepak-k-t-92270a9/',
-    profileUrl: '/Faculty%20Booklet.pdf#page=25',
+    profileUrl: 'https://deepakthotappa.wixsite.com/mysite',
   },
   {
     name: 'Ms. Darshana Kasar',

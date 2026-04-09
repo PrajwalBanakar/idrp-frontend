@@ -4,7 +4,7 @@
       <div class="mx-auto mb-10 max-w-3xl text-center lg:mb-12">
         <span
           v-if="section.eyebrow"
-          class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700"
+          class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]"
         >
           {{ section.eyebrow }}
         </span>
@@ -33,7 +33,7 @@
           <button
             type="button"
             aria-label="Previous slide"
-            class="absolute left-0 top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-lg text-slate-800 shadow-md transition hover:border-teal-200 hover:text-teal-700 md:flex"
+            class="absolute left-0 top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-lg text-slate-800 shadow-md transition hover:border-[var(--color-primary)]/20 hover:text-[var(--color-primary)] md:flex"
             @click="goToPrevious"
           >
             ‹
@@ -61,7 +61,9 @@
                   v-if="index === centerSlideIndex"
                   class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent p-4"
                 >
-                  <div class="inline-flex max-w-[92%] rounded-2xl bg-white/92 px-4 py-2 shadow-md backdrop-blur">
+                  <div
+                    class="inline-flex max-w-[92%] rounded-2xl bg-white/92 px-4 py-2 shadow-md backdrop-blur"
+                  >
                     <h3 class="text-sm font-semibold text-slate-900 sm:text-base">
                       {{ image.title }}
                     </h3>
@@ -74,7 +76,7 @@
           <button
             type="button"
             aria-label="Next slide"
-            class="absolute right-0 top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-lg text-slate-800 shadow-md transition hover:border-teal-200 hover:text-teal-700 md:flex"
+            class="absolute right-0 top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-lg text-slate-800 shadow-md transition hover:border-[var(--color-primary)]/20 hover:text-[var(--color-primary)] md:flex"
             @click="goToNext"
           >
             ›
@@ -238,7 +240,7 @@ watch(
       currentIndex.value = 0
     }
     restartAutoSlide()
-  }
+  },
 )
 
 onMounted(() => {

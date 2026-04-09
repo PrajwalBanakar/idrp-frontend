@@ -2,13 +2,11 @@
   <section v-if="items.length" class="bg-gray-50 px-6 py-24 md:px-16">
     <div class="mx-auto max-w-6xl">
       <div class="mb-14 text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
           Service Highlights
         </span>
 
-        <h2 class="mt-2 text-4xl font-bold text-gray-900">
-          What This Service Covers
-        </h2>
+        <h2 class="mt-2 text-4xl font-bold text-gray-900">What This Service Covers</h2>
 
         <p class="mx-auto mt-3 max-w-2xl text-gray-500">
           Explore the core focus areas, support capabilities, and value delivered through this
@@ -50,10 +48,7 @@
               {{ item.title }}
             </h3>
 
-            <p
-              v-if="item.description"
-              class="mt-3 text-sm leading-relaxed text-gray-600"
-            >
+            <p v-if="item.description" class="mt-3 text-sm leading-relaxed text-gray-600">
               {{ item.description }}
             </p>
           </div>
@@ -80,7 +75,7 @@ function hideImage(id: string) {
 function cardClasses(tone?: ServiceHighlight['tone']) {
   switch (tone) {
     case 'teal':
-      return 'border-teal-100 hover:border-teal-200'
+      return 'border-teal-100 hover:border-[var(--color-primary)]/20'
     case 'cyan':
       return 'border-cyan-100 hover:border-cyan-200'
     case 'amber':
@@ -96,7 +91,7 @@ function cardClasses(tone?: ServiceHighlight['tone']) {
 function mediaClasses(tone?: ServiceHighlight['tone']) {
   switch (tone) {
     case 'teal':
-      return 'bg-teal-50'
+      return 'bg-[var(--color-primary-soft)]'
     case 'cyan':
       return 'bg-cyan-50'
     case 'amber':

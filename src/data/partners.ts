@@ -20,8 +20,8 @@ export const partnerCategories: PartnerCategory[] = [
       'We collaborate with academic institutions and training providers to build strong technical foundations, enable research translation, and prepare talent for industry and innovation ecosystems.',
     icon: '🎓',
     iconBgClass: 'bg-teal-600',
-    textClass: 'text-teal-600',
-    hoverBorderClass: 'hover:border-teal-200',
+    textClass: 'text-[var(--color-primary)]',
+    hoverBorderClass: 'hover:border-[var(--color-primary)]/20',
     partners: [
       {
         name: 'Sandeepani (SESD)',
@@ -229,7 +229,7 @@ export const partnerCategories: PartnerCategory[] = [
         websiteUrl: 'https://hal-india.co.in/',
         logo: '/partners/hal.jpeg',
       },
-        {
+      {
         name: 'JSW',
         abbr: 'JSW',
         color: 'linear-gradient(135deg,#2563eb,#93c5fd)',

@@ -2,7 +2,7 @@
   <section class="bg-gray-50 px-6 py-24 md:px-16">
     <div class="mx-auto max-w-6xl">
       <div class="mb-14 text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
           Why This Program
         </span>
         <h2 class="mt-2 text-4xl font-bold text-gray-900">Key Highlights</h2>

@@ -2,7 +2,7 @@
   <section class="bg-white px-6 py-20 md:px-12 lg:px-16 lg:py-24">
     <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
       <div>
-        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">
+        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           {{ eyebrow }}
         </span>
 
@@ -11,10 +11,7 @@
         </h2>
 
         <div class="mt-6 space-y-4 text-base leading-7 text-slate-600">
-          <p
-            v-for="paragraph in paragraphs"
-            :key="paragraph"
-          >
+          <p v-for="paragraph in paragraphs" :key="paragraph">
             {{ paragraph }}
           </p>
         </div>
@@ -25,7 +22,7 @@
             :key="stat.label"
             class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-5 shadow-sm"
           >
-            <p class="text-2xl font-bold tracking-tight text-teal-700 sm:text-3xl">
+            <p class="text-2xl font-bold tracking-tight text-[var(--color-primary)] sm:text-3xl">
               {{ stat.value }}
             </p>
             <p class="mt-2 text-sm leading-6 text-slate-500">
@@ -38,7 +35,9 @@
       <div>
         <div
           class="relative overflow-hidden rounded-[2rem] border border-slate-200 shadow-xl"
-          :class="!showImage ? 'bg-gradient-to-br from-teal-100 via-cyan-50 to-white' : 'bg-slate-100'"
+          :class="
+            !showImage ? 'bg-gradient-to-br from-teal-100 via-cyan-50 to-white' : 'bg-slate-100'
+          "
         >
           <img
             v-if="showImage"
@@ -48,17 +47,14 @@
             @error="handleImageError"
           />
 
-          <div
-            v-else
-            class="flex h-[320px] items-center justify-center sm:h-[380px] lg:h-[440px]"
-          >
+          <div v-else class="flex h-[320px] items-center justify-center sm:h-[380px] lg:h-[440px]">
             <div class="text-center">
-              <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/80 text-3xl shadow-sm">
+              <div
+                class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/80 text-3xl shadow-sm"
+              >
                 🚀
               </div>
-              <p class="mt-4 text-sm font-medium text-slate-600">
-                Startup ecosystem image
-              </p>
+              <p class="mt-4 text-sm font-medium text-slate-600">Startup ecosystem image</p>
             </div>
           </div>
 

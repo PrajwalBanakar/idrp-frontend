@@ -5,7 +5,7 @@
         <div class="max-w-3xl">
           <span
             class="text-sm font-semibold uppercase tracking-[0.18em]"
-            :class="variant === 'upcoming' ? 'text-teal-600' : 'text-slate-500'"
+            :class="variant === 'upcoming' ? 'text-[var(--color-primary)]' : 'text-slate-500'"
           >
             {{ eyebrow }}
           </span>
@@ -27,7 +27,7 @@
           class="w-fit rounded-full px-4 py-2 text-xs font-bold"
           :class="
             variant === 'upcoming'
-              ? 'bg-teal-50 text-teal-700'
+              ? 'bg-[var(--color-primary-soft)] text-[var(--color-primary)]'
               : 'bg-slate-100 text-slate-600'
           "
         >
@@ -44,7 +44,10 @@
         />
       </div>
 
-      <div v-else class="rounded-3xl border border-dashed border-slate-200 bg-white py-16 text-center">
+      <div
+        v-else
+        class="rounded-3xl border border-dashed border-slate-200 bg-white py-16 text-center"
+      >
         <p class="mb-4 text-4xl">{{ emptyIcon }}</p>
         <p class="font-semibold text-slate-500">{{ emptyText }}</p>
       </div>
@@ -53,7 +56,7 @@
         <button
           type="button"
           :disabled="currentPage === 1"
-          class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-teal-400 hover:text-teal-600 disabled:cursor-not-allowed disabled:opacity-30"
+          class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-teal-400 hover:text-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-30"
           @click="$emit('update:currentPage', currentPage - 1)"
         >
           Previous
@@ -73,7 +76,7 @@
         <button
           type="button"
           :disabled="currentPage === totalPages"
-          class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-teal-400 hover:text-teal-600 disabled:cursor-not-allowed disabled:opacity-30"
+          class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-teal-400 hover:text-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-30"
           @click="$emit('update:currentPage', currentPage + 1)"
         >
           Next
@@ -123,8 +126,8 @@ const emptyText = computed(() =>
 function pageButtonClass(pageNumber: number) {
   if (props.variant === 'upcoming') {
     return props.currentPage === pageNumber
-      ? 'border-teal-700 bg-teal-700 text-white'
-      : 'border-slate-200 text-slate-600 hover:border-teal-400 hover:text-teal-600'
+      ? 'border-[var(--color-primary)] bg-[var(--color-primary)] text-white'
+      : 'border-slate-200 text-slate-600 hover:border-teal-400 hover:text-[var(--color-primary)]'
   }
 
   return props.currentPage === pageNumber

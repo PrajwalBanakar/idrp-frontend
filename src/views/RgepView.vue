@@ -4,29 +4,24 @@ import ProgramIntroSection from '@/components/program/ProgramIntroSection.vue'
 import ProgramValueSection from '@/components/program/ProgramValueSection.vue'
 import ProgramCTASection from '@/components/program/ProgramCTASection.vue'
 
-import {
-  rgepHighlights,
-  rgepInnovators,
-  rgepPage,
-  rgepSupportPoints,
-} from '@/data/rgep'
+import { rgepHighlights, rgepInnovators, rgepPage, rgepSupportPoints } from '@/data/rgep'
 </script>
 
 <template>
   <div class="rgep-view bg-white">
     <ProgramHeroSection v-bind="rgepPage.hero" />
 
-<ProgramIntroSection
-  :eyebrow="rgepPage.intro.eyebrow"
-  :title="rgepPage.intro.title"
-  :paragraphs="rgepPage.intro.paragraphs"
-  :image="rgepPage.intro.image"
-  :image-alt="rgepPage.intro.imageAlt"
-/>
+    <ProgramIntroSection
+      :eyebrow="rgepPage.intro.eyebrow"
+      :title="rgepPage.intro.title"
+      :paragraphs="rgepPage.intro.paragraphs"
+      :image="rgepPage.intro.image"
+      :image-alt="rgepPage.intro.imageAlt"
+    />
     <section class="bg-slate-50 px-6 py-14 md:px-12 lg:px-16 lg:py-20">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-3xl">
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-600">
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
             Program Snapshot
           </p>
           <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
@@ -55,18 +50,18 @@ import {
       </div>
     </section>
 
-<ProgramValueSection
-  :eyebrow="rgepPage.value.eyebrow"
-  :title="rgepPage.value.title"
-  :items="rgepPage.value.items"
-  :image="rgepPage.value.image"
-  :image-alt="rgepPage.value.imageAlt"
-/>
+    <ProgramValueSection
+      :eyebrow="rgepPage.value.eyebrow"
+      :title="rgepPage.value.title"
+      :items="rgepPage.value.items"
+      :image="rgepPage.value.image"
+      :image-alt="rgepPage.value.imageAlt"
+    />
 
     <section class="bg-white px-6 py-14 md:px-12 lg:px-16 lg:py-20">
       <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <div>
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-600">
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
             What RGEP Enables
           </p>
           <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
@@ -95,7 +90,7 @@ import {
     <section class="bg-slate-50 px-6 py-14 md:px-12 lg:px-16 lg:py-20">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-3xl">
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-600">
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
             Innovators
           </p>
           <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
@@ -109,7 +104,9 @@ import {
             :key="`${innovator.name}-${innovator.projectTitle}`"
             class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md"
           >
-            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-600">
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-primary)]"
+            >
               Innovator
             </p>
 
@@ -127,7 +124,7 @@ import {
                 <p class="font-semibold text-slate-900">Email</p>
                 <a
                   :href="`mailto:${innovator.email}`"
-                  class="text-teal-700 transition hover:text-teal-800 hover:underline"
+                  class="text-[var(--color-primary)] transition hover:text-teal-800 hover:underline"
                 >
                   {{ innovator.email }}
                 </a>
@@ -139,7 +136,7 @@ import {
                   :href="innovator.linkedin"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-teal-700 transition hover:text-teal-800 hover:underline"
+                  class="text-[var(--color-primary)] transition hover:text-teal-800 hover:underline"
                 >
                   View Profile
                 </a>

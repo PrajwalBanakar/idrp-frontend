@@ -1,7 +1,7 @@
 <template>
   <section class="bg-white px-6 py-20 md:px-16">
     <div class="mx-auto max-w-3xl text-center">
-      <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+      <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
         Learn • Explore • Connect
       </span>
 
@@ -11,8 +11,8 @@
 
       <p class="mb-5 text-lg leading-relaxed text-gray-600">
         The IDRP Resources page brings together curated newsletters, blogs, papers, industry
-        reports, and knowledge assets that support innovation, startup growth, research
-        translation, and ecosystem development.
+        reports, and knowledge assets that support innovation, startup growth, research translation,
+        and ecosystem development.
       </p>
 
       <p class="text-lg leading-relaxed text-gray-600">
@@ -20,9 +20,7 @@
         partners, and investors looking to stay informed and connected.
       </p>
 
-      <div
-        class="mx-auto mt-8 h-1 w-16 rounded-full bg-gradient-to-r from-teal-500 to-cyan-400"
-      />
+      <div class="mx-auto mt-8 h-1 w-16 rounded-full bg-gradient-to-r from-teal-500 to-cyan-400" />
     </div>
   </section>
 </template>

@@ -19,7 +19,7 @@ withDefaults(defineProps<Props>(), {
   <section class="bg-gray-50 px-6 py-24 md:px-16">
     <div class="mx-auto max-w-6xl">
       <div class="mx-auto mb-14 max-w-3xl text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
           {{ eyebrow }}
         </span>
 
@@ -33,11 +33,7 @@ withDefaults(defineProps<Props>(), {
       </div>
 
       <div class="space-y-8">
-        <ProgramCard
-          v-for="program in programs"
-          :key="program.id"
-          :program="program"
-        />
+        <ProgramCard v-for="program in programs" :key="program.id" :program="program" />
       </div>
     </div>
   </section>

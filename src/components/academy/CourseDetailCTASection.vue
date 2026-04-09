@@ -12,7 +12,7 @@
       <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
         <RouterLink
           :to="applyRoute"
-          class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition hover:bg-teal-50"
+          class="rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 shadow-lg transition hover:bg-[var(--color-primary-soft)]"
         >
           Apply Now
         </RouterLink>

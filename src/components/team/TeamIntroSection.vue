@@ -13,7 +13,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <section class="bg-white px-6 py-14 md:px-12 lg:px-16 lg:py-16">
     <div class="mx-auto max-w-4xl text-center">
-      <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-600">
+      <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
         {{ eyebrow }}
       </span>
 

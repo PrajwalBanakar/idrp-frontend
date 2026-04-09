@@ -1,26 +1,41 @@
 <template>
-  <section class="relative h-[45vh] min-h-[300px] overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/80 to-teal-700/30" />
+  <section class="relative overflow-hidden bg-slate-950 text-white min-h-[300px]">
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <div
+        class="absolute inset-0 bg-[linear-gradient(135deg,#031527_0%,#073863_45%,#0a4c85_100%)]"
+      />
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.12),_transparent_34%),radial-gradient(circle_at_bottom_right,_rgba(10,76,133,0.30),_transparent_32%)]"
+      />
+      <div class="absolute inset-0 bg-black/10" />
+    </div>
+
+    <!-- Bottom fade -->
     <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
 
-    <div class="relative z-10 flex h-full max-w-2xl flex-col justify-center px-10 md:px-20">
-      <div class="mb-4 flex items-center gap-3">
-        <div class="h-8 w-1 rounded-full bg-teal-400" />
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-300">
+    <!-- Content -->
+    <div class="relative z-10 mx-auto flex min-h-[45vh] max-w-7xl items-center px-6 py-12 sm:px-8 md:px-10 lg:px-16">
+      <div class="max-w-2xl">
+        <!-- Eyebrow -->
+        <p
+          class="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-slate-100 backdrop-blur-sm sm:text-sm"
+        >
           {{ hero.eyebrow }}
-        </span>
-      </div>
+        </p>
 
-      <h1 class="text-5xl font-extrabold leading-tight text-white md:text-6xl">
-        {{ hero.title }}
-      </h1>
+        <!-- Title -->
+        <h1
+          class="text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
+        >
+          {{ hero.title }}
+        </h1>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
 defineProps<{
   hero: {
     eyebrow: string
@@ -29,6 +44,4 @@ defineProps<{
     imageAlt?: string
   }
 }>()
-
-const showHeroImage = ref(true)
 </script>

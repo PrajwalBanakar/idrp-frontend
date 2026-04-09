@@ -22,7 +22,7 @@ const showImage = ref(true)
   <section class="bg-white px-6 py-24 md:px-16">
     <div class="mx-auto flex max-w-6xl flex-col items-center gap-16 lg:flex-row">
       <div class="lg:w-1/2">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
           {{ props.eyebrow }}
         </span>
 
@@ -51,8 +51,6 @@ const showImage = ref(true)
             class="h-full w-full object-contain"
             @error="showImage = false"
           />
-
-
         </div>
       </div>
     </div>

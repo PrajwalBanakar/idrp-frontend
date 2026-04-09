@@ -46,7 +46,7 @@ function getInstituteProjectCount(institute: NAINInstitute) {
 
           <div
             v-else
-            class="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-50 to-cyan-50 text-lg font-bold text-teal-700"
+            class="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-50 to-cyan-50 text-lg font-bold text-[var(--color-primary)]"
           >
             {{ institute.name.charAt(0) }}
           </div>
@@ -69,15 +69,15 @@ function getInstituteProjectCount(institute: NAINInstitute) {
 
       <div class="flex items-center gap-4">
         <div class="text-right">
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
-            Projects
-          </p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Projects</p>
           <p class="text-lg font-bold text-slate-900">
             {{ getInstituteProjectCount(institute) }}
           </p>
         </div>
 
-        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-600">
+        <div
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-600"
+        >
           <span class="text-xl leading-none">
             {{ expanded ? '−' : '+' }}
           </span>
@@ -89,14 +89,14 @@ function getInstituteProjectCount(institute: NAINInstitute) {
       v-if="expanded && selectedYearBlock"
       class="border-t border-slate-200 bg-slate-50/70 px-6 py-6"
     >
-      <div class="rounded-2xl border border-teal-100 bg-teal-50 px-5 py-5">
+      <div class="rounded-2xl border border-teal-100 bg-[var(--color-primary-soft)] px-5 py-5">
         <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900">
           Support Team Details
         </h4>
 
         <div class="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <div>
-            <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
               PMU Tech Mentor
             </p>
             <p class="mt-1 text-sm font-medium text-slate-800">
@@ -105,7 +105,7 @@ function getInstituteProjectCount(institute: NAINInstitute) {
           </div>
 
           <div>
-            <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
               DIA
             </p>
             <p class="mt-1 text-sm font-medium text-slate-800">
@@ -114,7 +114,7 @@ function getInstituteProjectCount(institute: NAINInstitute) {
           </div>
 
           <div>
-            <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
               MIS Executive
             </p>
             <p class="mt-1 text-sm font-medium text-slate-800">
@@ -123,7 +123,7 @@ function getInstituteProjectCount(institute: NAINInstitute) {
           </div>
 
           <div>
-            <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
               NAIN Coordinator
             </p>
             <p class="mt-1 text-sm font-medium text-slate-800">
@@ -149,7 +149,7 @@ function getInstituteProjectCount(institute: NAINInstitute) {
               :href="project.projectLink"
               target="_blank"
               rel="noopener noreferrer"
-              class="shrink-0 rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-semibold text-teal-700 transition hover:bg-teal-100"
+              class="shrink-0 rounded-full border border-[var(--color-primary)]/20 bg-[var(--color-primary-soft)] px-3 py-1.5 text-xs font-semibold text-[var(--color-primary)] transition hover:bg-teal-100"
             >
               View
             </a>

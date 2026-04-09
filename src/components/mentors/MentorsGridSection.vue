@@ -12,13 +12,15 @@
 
       <div
         v-else
-        class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        class="flex flex-wrap justify-center gap-6"
       >
-        <MentorCard
+        <div
           v-for="mentor in mentors"
           :key="mentor.name"
-          :mentor="mentor"
-        />
+          class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)]"
+        >
+          <MentorCard :mentor="mentor" />
+        </div>
       </div>
     </div>
   </section>

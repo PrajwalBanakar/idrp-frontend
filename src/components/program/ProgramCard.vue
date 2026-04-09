@@ -34,7 +34,7 @@ function isSectionOpen(title: string) {
 
             <span
               v-if="program.duration"
-              class="inline-flex items-center rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700"
+              class="inline-flex items-center rounded-full bg-[var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-primary)]"
             >
               {{ program.duration }}
             </span>
@@ -47,10 +47,7 @@ function isSectionOpen(title: string) {
             </span>
           </div>
 
-          <p
-            v-if="program.subtitle"
-            class="mt-2 text-sm font-medium text-teal-700"
-          >
+          <p v-if="program.subtitle" class="mt-2 text-sm font-medium text-[var(--color-primary)]">
             {{ program.subtitle }}
           </p>
 
@@ -58,20 +55,17 @@ function isSectionOpen(title: string) {
             {{ program.description }}
           </p>
         </div>
-        
+
         <RouterLink
           v-if="program.applyTo"
           :to="program.applyTo"
-          class="inline-flex items-center justify-center rounded-full bg-teal-600 px-5 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-700"
+          class="inline-flex items-center justify-center rounded-full bg-teal-600 px-5 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-[var(--color-primary)]"
         >
           Apply Now
         </RouterLink>
       </div>
 
-      <div
-        v-if="program.sections.length"
-        class="space-y-4 border-t border-gray-100 pt-2"
-      >
+      <div v-if="program.sections.length" class="space-y-4 border-t border-gray-100 pt-2">
         <div
           v-for="section in program.sections"
           :key="section.title"
@@ -87,7 +81,7 @@ function isSectionOpen(title: string) {
             </span>
 
             <span
-              class="flex h-8 w-8 items-center justify-center rounded-full bg-white text-lg font-semibold text-teal-700 shadow-sm"
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-white text-lg font-semibold text-[var(--color-primary)] shadow-sm"
             >
               {{ isSectionOpen(section.title) ? '−' : '+' }}
             </span>
@@ -103,7 +97,7 @@ function isSectionOpen(title: string) {
                 :key="item"
                 class="flex items-start gap-3 text-sm leading-relaxed text-gray-600"
               >
-                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-teal-500" />
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--color-primary-soft)]0" />
                 <span>{{ item }}</span>
               </li>
             </ul>

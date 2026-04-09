@@ -9,19 +9,12 @@
       </p>
     </header>
 
-    <div
-      v-for="section in config.sections"
-      :key="section.id"
-      class="space-y-5"
-    >
+    <div v-for="section in config.sections" :key="section.id" class="space-y-5">
       <div v-if="section.title || section.description" class="space-y-1">
         <h3 v-if="section.title" class="text-lg font-semibold text-slate-900">
           {{ section.title }}
         </h3>
-        <p
-          v-if="section.description"
-          class="text-sm leading-6 text-slate-600"
-        >
+        <p v-if="section.description" class="text-sm leading-6 text-slate-600">
           {{ section.description }}
         </p>
       </div>
@@ -49,10 +42,7 @@
               <span v-if="field.required" class="text-rose-500">*</span>
             </label>
 
-            <p
-              v-if="field.helpText"
-              class="mb-2 text-xs leading-5 text-slate-500"
-            >
+            <p v-if="field.helpText" class="mb-2 text-xs leading-5 text-slate-500">
               {{ field.helpText }}
             </p>
 
@@ -149,7 +139,7 @@
               >
                 <input
                   type="checkbox"
-                  class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
+                  class="h-4 w-4 rounded border-gray-300 text-[var(--color-primary)] focus:ring-teal-500"
                   :value="String(option.value)"
                   :checked="isChecked(field.name, option.value)"
                   :disabled="field.disabled || option.disabled || status === 'submitting'"
@@ -181,10 +171,7 @@
               </span>
             </label>
 
-            <p
-              v-if="errors[field.name]"
-              class="mt-2 text-xs font-medium text-rose-600"
-            >
+            <p v-if="errors[field.name]" class="mt-2 text-xs font-medium text-rose-600">
               {{ errors[field.name] }}
             </p>
           </template>
@@ -222,7 +209,7 @@
       <button
         type="submit"
         :disabled="status === 'submitting'"
-        class="inline-flex items-center justify-center rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
+        class="inline-flex items-center justify-center rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {{ status === 'submitting' ? 'Submitting...' : config.submitLabel || 'Submit' }}
       </button>
@@ -253,16 +240,8 @@ const emit = defineEmits<{
   (e: 'error', payload: { message: string }): void
 }>()
 
-const {
-  values,
-  errors,
-  status,
-  submitMessage,
-  setValue,
-  touchField,
-  reset,
-  handleSubmit,
-} = useForm(props.config)
+const { values, errors, status, submitMessage, setValue, touchField, reset, handleSubmit } =
+  useForm(props.config)
 
 const inputTypes: FormFieldType[] = ['text', 'email', 'tel', 'number', 'url', 'date']
 
@@ -280,11 +259,7 @@ function isChecked(name: string, value: FormOption['value']): boolean {
   return Array.isArray(current) && current.includes(String(value))
 }
 
-function onCheckboxGroup(
-  name: string,
-  value: FormOption['value'],
-  event: Event,
-) {
+function onCheckboxGroup(name: string, value: FormOption['value'], event: Event) {
   const target = event.target as HTMLInputElement
   const checked = target.checked
   const current = values[name]
@@ -324,7 +299,7 @@ function onCheckbox(name: string, event: Event) {
 function getFieldClass(name: string): string {
   return errors[name]
     ? 'border-rose-300 focus:border-rose-400 focus:ring-rose-100'
-    : 'border-slate-200 focus:border-teal-400 focus:ring-teal-100'
+    : 'border-slate-200 focus:border-teal-400 focus:ring-[var(--color-primary-soft)]'
 }
 
 async function onSubmit() {

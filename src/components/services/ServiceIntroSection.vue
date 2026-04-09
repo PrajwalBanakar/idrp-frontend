@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-4xl text-center">
       <span
         v-if="intro.eyebrow"
-        class="text-sm font-semibold uppercase tracking-widest text-teal-600"
+        class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]"
       >
         {{ intro.eyebrow }}
       </span>

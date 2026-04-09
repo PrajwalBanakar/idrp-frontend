@@ -36,7 +36,7 @@
         <div class="mt-8 flex flex-wrap gap-4">
           <RouterLink
             to="/matchmaking/startup"
-            class="inline-flex items-center justify-center rounded-xl bg-teal-600 px-6 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-700"
+            class="inline-flex items-center justify-center rounded-xl bg-teal-600 px-6 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-[var(--color-primary)]"
           >
             Apply as Startup
           </RouterLink>
@@ -54,7 +54,7 @@
     <!-- Intro -->
     <section class="bg-white px-6 py-20 md:px-16">
       <div class="mx-auto max-w-3xl text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
           Why Matchmaking
         </span>
         <h2 class="mt-3 mb-6 text-3xl font-bold text-gray-900">
@@ -78,7 +78,7 @@
     <section class="bg-gray-50 px-6 py-20 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-14 text-center">
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+          <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
             Who It Helps
           </span>
           <h2 class="mt-2 text-4xl font-bold text-gray-900">Built for Both Sides</h2>
@@ -96,7 +96,9 @@
               </div>
               <div>
                 <h3 class="text-2xl font-bold text-gray-900">For Startups</h3>
-                <p class="text-sm font-medium text-teal-600">Discover relevant investors</p>
+                <p class="text-sm font-medium text-[var(--color-primary)]">
+                  Discover relevant investors
+                </p>
               </div>
             </div>
 
@@ -116,7 +118,7 @@
             <div class="mt-8">
               <RouterLink
                 to="/matchmaking/startup"
-                class="inline-flex items-center justify-center rounded-xl bg-teal-700 px-5 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-800"
+                class="inline-flex items-center justify-center rounded-xl bg-[var(--color-primary)] px-5 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-800"
               >
                 Apply as Startup
               </RouterLink>
@@ -168,7 +170,7 @@
     <section class="bg-white px-6 py-20 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-14 text-center">
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+          <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
             Matching Logic
           </span>
           <h2 class="mt-2 text-4xl font-bold text-gray-900">How Matching Will Work</h2>
@@ -202,7 +204,7 @@
     <section class="bg-gray-50 px-6 py-20 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-14 text-center">
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+          <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
             Process
           </span>
           <h2 class="mt-2 text-4xl font-bold text-gray-900">How the Flow Works</h2>
@@ -214,7 +216,7 @@
             :key="step.step"
             class="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
           >
-            <span class="text-xs font-bold uppercase tracking-widest text-teal-600">
+            <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
               Step {{ step.step }}
             </span>
             <h3 class="mt-3 text-xl font-bold text-gray-900">{{ step.title }}</h3>
@@ -230,7 +232,7 @@
     <section class="bg-white px-6 py-20 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-14 text-center">
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+          <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
             Profile Data
           </span>
           <h2 class="mt-2 text-4xl font-bold text-gray-900">What We Will Capture</h2>
@@ -292,7 +294,7 @@
           <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <RouterLink
               to="/matchmaking/startup"
-              class="inline-flex items-center justify-center rounded-xl bg-teal-600 px-6 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-700"
+              class="inline-flex items-center justify-center rounded-xl bg-teal-600 px-6 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-[var(--color-primary)]"
             >
               Startup Form
             </RouterLink>

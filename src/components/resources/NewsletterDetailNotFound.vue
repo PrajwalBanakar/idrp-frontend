@@ -7,7 +7,7 @@
       </p>
       <RouterLink
         to="/resources"
-        class="mt-6 inline-flex rounded-xl bg-teal-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-teal-700"
+        class="mt-6 inline-flex rounded-xl bg-teal-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--color-primary)]"
       >
         Back to Resources
       </RouterLink>

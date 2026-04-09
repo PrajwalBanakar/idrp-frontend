@@ -1,8 +1,10 @@
 <template>
-  <section class="bg-gradient-to-b from-[#f7f4ee] to-[#efe9dd] px-4 py-16 sm:px-6 sm:py-18 md:px-12 md:py-20 lg:px-16">
+  <section
+    class="bg-gradient-to-b from-[#f7f4ee] to-[#efe9dd] px-4 py-16 sm:px-6 sm:py-18 md:px-12 md:py-20 lg:px-16"
+  >
     <div class="mx-auto max-w-7xl">
       <div class="mb-10 text-center sm:mb-12 md:mb-14">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
           Featured Collection
         </span>
         <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -24,7 +26,9 @@
           class="pointer-events-none absolute bottom-8 left-4 right-4 hidden h-4 rounded-full bg-gradient-to-b from-[#9a6a3d] to-[#6f4725] shadow-lg md:block"
         />
 
-        <div class="relative z-10 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-5 sm:gap-y-10 lg:grid-cols-5">
+        <div
+          class="relative z-10 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-5 sm:gap-y-10 lg:grid-cols-5"
+        >
           <component
             v-for="newsletter in newsletters"
             :key="newsletter.id"
@@ -44,7 +48,9 @@
                 </span>
 
                 <div>
-                  <h3 class="line-clamp-4 text-lg font-extrabold leading-snug sm:text-[1.75rem] sm:leading-[1.15]">
+                  <h3
+                    class="line-clamp-4 text-lg font-extrabold leading-snug sm:text-[1.75rem] sm:leading-[1.15]"
+                  >
                     {{ newsletter.title }}
                   </h3>
                   <p class="mt-3 text-xs text-white/85 sm:text-sm">

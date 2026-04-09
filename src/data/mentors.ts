@@ -46,9 +46,9 @@ export const allMentors: Mentor[] = [
   {
     name: 'Sasikumar Sundarajan',
     role: 'Business Mentor',
-    image: '/business-sasikumar.jfif',
+    image: '/mentors/business-sasikumar.jpeg',
     imageAlt: 'Sasikumar Sundarajan',
-    linkedin: '',
+    linkedin: 'https://www.linkedin.com/in/sasikumars',
   },
   {
     name: 'Ambarish Kulkarni',

@@ -24,7 +24,7 @@ function getCardClasses(tone?: 'teal' | 'cyan' | 'slate') {
       return 'border-slate-200 bg-slate-50'
     case 'teal':
     default:
-      return 'border-teal-100 bg-teal-50'
+      return 'border-teal-100 bg-[var(--color-primary-soft)]'
   }
 }
 
@@ -36,7 +36,7 @@ function getLabelClasses(tone?: 'teal' | 'cyan' | 'slate') {
       return 'text-slate-700'
     case 'teal':
     default:
-      return 'text-teal-700'
+      return 'text-[var(--color-primary)]'
   }
 }
 </script>
@@ -45,7 +45,7 @@ function getLabelClasses(tone?: 'teal' | 'cyan' | 'slate') {
   <section class="mx-auto max-w-7xl px-6 py-14 md:px-12 lg:py-16">
     <div class="grid items-start gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:gap-10">
       <div>
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
           {{ overview.eyebrow }}
         </span>
 
@@ -60,10 +60,9 @@ function getLabelClasses(tone?: 'teal' | 'cyan' | 'slate') {
         </div>
 
         <div class="mt-8 rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
-
           <div class="mt-5 grid gap-5 md:grid-cols-2">
             <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
                 Project Monitoring Unit (PMU)
               </p>
               <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
@@ -72,7 +71,7 @@ function getLabelClasses(tone?: 'teal' | 'cyan' | 'slate') {
             </div>
 
             <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
                 Principal Investigator
               </p>
               <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
@@ -81,7 +80,7 @@ function getLabelClasses(tone?: 'teal' | 'cyan' | 'slate') {
             </div>
 
             <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
                 Co Principal Investigator
               </p>
               <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
@@ -90,7 +89,7 @@ function getLabelClasses(tone?: 'teal' | 'cyan' | 'slate') {
             </div>
 
             <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-teal-700">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
                 NAIN Program Associate
               </p>
               <p class="mt-1 text-sm font-medium leading-6 text-slate-800">

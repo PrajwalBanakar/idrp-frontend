@@ -91,7 +91,7 @@ export const aboutHero: AboutHeroContent = {
   eyebrow: 'Who We Are',
   title: 'About IDRP',
   subtitle:
-    'A deep-tech innovation hub at IIIT Dharwad, where bold ideas evolve into ventures that create real-world impact.',
+    '',
   image: '/about-hero.jfif',
   imageAlt: 'About IDRP',
   minHeightClass: 'min-h-[380px]',

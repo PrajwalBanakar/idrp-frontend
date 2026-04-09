@@ -9,8 +9,12 @@
         class="absolute inset-0 h-full w-full object-cover object-center"
         @error="showHeroImage = false"
       />
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-teal-950/85 to-teal-700/35" />
-      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-teal-950/85 to-teal-700/35"
+      />
+      <div
+        class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"
+      />
 
       <div class="relative z-10 flex h-full max-w-3xl flex-col justify-center px-10 md:px-20">
         <div class="mb-4 flex items-center gap-3">
@@ -34,17 +38,17 @@
     <!-- Intro -->
     <section class="bg-white px-6 py-16 md:px-16">
       <div class="mx-auto max-w-3xl text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
           Founder Intake
         </span>
-        <h2 class="mt-3 mb-6 text-3xl font-bold text-gray-900">
-          Tell Us About Your Startup
-        </h2>
+        <h2 class="mt-3 mb-6 text-3xl font-bold text-gray-900">Tell Us About Your Startup</h2>
         <p class="text-lg leading-relaxed text-gray-600">
           This form captures the core startup details needed for initial investor-fit assessment,
           ecosystem curation, and future matchmaking workflows.
         </p>
-        <div class="mx-auto mt-8 h-1 w-16 rounded-full bg-gradient-to-r from-teal-500 to-cyan-400" />
+        <div
+          class="mx-auto mt-8 h-1 w-16 rounded-full bg-gradient-to-r from-teal-500 to-cyan-400"
+        />
       </div>
     </section>
 
@@ -81,7 +85,7 @@
     <section class="bg-white px-6 py-20 md:px-16">
       <div class="mx-auto max-w-5xl">
         <div class="mb-10 text-center">
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+          <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
             Startup Form
           </span>
           <h2 class="mt-2 text-4xl font-bold text-gray-900">Submit Your Startup Profile</h2>
@@ -219,9 +223,7 @@
               </div>
 
               <div>
-                <label class="mb-2 block text-sm font-semibold text-gray-700">
-                  Team Size
-                </label>
+                <label class="mb-2 block text-sm font-semibold text-gray-700"> Team Size </label>
                 <input
                   v-model.trim="form.teamSize"
                   type="text"
@@ -358,14 +360,16 @@
           <div>
             <h3 class="mb-5 text-xl font-bold text-gray-900">5. Consent</h3>
 
-            <div class="rounded-2xl border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-500">
+            <div
+              class="rounded-2xl border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-500"
+            >
               <p class="mb-2 font-semibold text-gray-700">Disclaimer &amp; Consent</p>
               <p>
                 By submitting this form, I/We confirm that the information provided is voluntarily
                 shared for the purpose of startup discovery, investor-fit assessment, and ecosystem
-                engagement. Submission does not guarantee investor introduction, funding, or selection.
-                Please avoid sharing confidential information unless you are comfortable disclosing it
-                for preliminary review and matchmaking purposes.
+                engagement. Submission does not guarantee investor introduction, funding, or
+                selection. Please avoid sharing confidential information unless you are comfortable
+                disclosing it for preliminary review and matchmaking purposes.
               </p>
             </div>
 
@@ -390,7 +394,7 @@
           <div class="pt-2">
             <button
               type="submit"
-              class="w-full rounded-xl bg-teal-700 py-4 text-sm font-bold tracking-wide text-white transition-colors duration-200 hover:bg-teal-800"
+              class="w-full rounded-xl bg-[var(--color-primary)] py-4 text-sm font-bold tracking-wide text-white transition-colors duration-200 hover:bg-teal-800"
             >
               Submit Startup Profile
             </button>
@@ -398,7 +402,7 @@
 
           <div
             v-if="submitted"
-            class="flex items-center gap-3 rounded-xl border border-teal-200 bg-teal-50 px-5 py-4 text-sm font-medium text-teal-700"
+            class="flex items-center gap-3 rounded-xl border border-[var(--color-primary)]/20 bg-[var(--color-primary-soft)] px-5 py-4 text-sm font-medium text-[var(--color-primary)]"
           >
             <span class="text-xl">✅</span>
             Thank you! Your startup profile has been submitted successfully.

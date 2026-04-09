@@ -1,6 +1,6 @@
 <template>
   <article
-    class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
+    class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]/20 hover:shadow-xl"
   >
     <div
       class="mx-auto mb-5 h-40 w-40 overflow-hidden rounded-full bg-slate-100 shadow-md ring-4 ring-slate-100 transition-all duration-300 group-hover:ring-teal-200"
@@ -15,7 +15,7 @@
 
       <div
         v-else
-        class="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-100 to-cyan-50 text-4xl font-bold text-teal-700"
+        class="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-100 to-cyan-50 text-4xl font-bold text-[var(--color-primary)]"
       >
         {{ mentor.name.charAt(0) }}
       </div>
@@ -25,14 +25,11 @@
       {{ mentor.name }}
     </h3>
 
-    <p class="mt-1 text-sm font-semibold text-teal-600">
+    <p class="mt-1 text-sm font-semibold text-[var(--color-primary)]">
       {{ mentor.role }}
     </p>
 
-    <p
-      v-if="mentor.organization"
-      class="mt-2 text-sm text-slate-500"
-    >
+    <p v-if="mentor.organization" class="mt-2 text-sm text-slate-500">
       {{ mentor.organization }}
     </p>
 
@@ -45,7 +42,7 @@
         :href="mentor.profileUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-teal-600 transition hover:text-teal-700"
+        class="text-[var(--color-primary)] transition hover:text-[var(--color-primary)]"
       >
         View Profile
       </a>
@@ -57,7 +54,7 @@
         :href="mentor.linkedin"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-teal-600 transition hover:text-teal-700"
+        class="text-[var(--color-primary)] transition hover:text-[var(--color-primary)]"
       >
         View LinkedIn
       </a>

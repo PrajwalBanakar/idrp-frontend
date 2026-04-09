@@ -13,7 +13,7 @@ defineProps<Props>()
   <section class="bg-white px-6 py-24 md:px-16">
     <div class="mx-auto max-w-6xl">
       <div class="mx-auto mb-16 max-w-3xl text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
           {{ section.eyebrow }}
         </span>
 
@@ -38,7 +38,7 @@ defineProps<Props>()
             class="relative md:grid md:grid-cols-2 md:gap-10"
           >
             <div
-              class="absolute left-4 top-8 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-white bg-teal-500 shadow md:left-1/2"
+              class="absolute left-4 top-8 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-white bg-[var(--color-primary-soft)]0 shadow md:left-1/2"
             />
 
             <div
@@ -49,7 +49,9 @@ defineProps<Props>()
                 class="rounded-3xl border border-gray-100 p-8 shadow-sm transition-transform duration-200 hover:-translate-y-1"
                 :class="index % 2 === 0 ? 'bg-gray-50' : 'bg-white'"
               >
-                <p class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+                <p
+                  class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]"
+                >
                   {{ item.year }}
                 </p>
 

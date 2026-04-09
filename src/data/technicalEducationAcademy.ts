@@ -9,7 +9,7 @@ export const technicalEducationAcademyPage: ServicePage & {
     eyebrow: 'Services',
     title: 'Technical Education Academy',
     description:
-      'Industry-aligned technical education, certification courses, workshops, and capacity building for students, faculty, and institutions.',
+      '',
     image: '/academy-hero.jfif',
   },
   intro: {

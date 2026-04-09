@@ -1,7 +1,7 @@
 <template>
   <section class="bg-white px-6 py-14 md:px-12 lg:px-16 lg:py-16">
     <div class="mx-auto max-w-4xl text-center">
-      <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-600">
+      <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
         Together We Build
       </span>
 
@@ -11,15 +11,15 @@
 
       <div class="mx-auto mt-6 max-w-3xl space-y-5 text-base leading-8 text-slate-600 sm:text-lg">
         <p>
-          At IDRP, we believe collaboration drives innovation. Our partnerships span
-          academia, industry, investors, government, and global networks, working
-          together to support startup growth.
+          At IDRP, we believe collaboration drives innovation. Our partnerships span academia,
+          industry, investors, government, and global networks, working together to support startup
+          growth.
         </p>
 
         <p>
-          These collaborations expand access, accelerate impact, and strengthen a
-          connected, founder-first ecosystem that supports research translation,
-          entrepreneurship, and innovation-led growth.
+          These collaborations expand access, accelerate impact, and strengthen a connected,
+          founder-first ecosystem that supports research translation, entrepreneurship, and
+          innovation-led growth.
         </p>
       </div>
 
@@ -28,5 +28,4 @@
   </section>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>

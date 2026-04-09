@@ -17,7 +17,9 @@
             />
 
             <div class="p-4">
-              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-teal-700">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]"
+              >
                 Mobile PDF View
               </p>
 
@@ -26,8 +28,8 @@
               </h2>
 
               <p class="mt-2 text-sm leading-6 text-slate-600">
-                For the best reading experience on phones, open the newsletter in the browser’s
-                full PDF view.
+                For the best reading experience on phones, open the newsletter in the browser’s full
+                PDF view.
               </p>
 
               <div class="mt-4 flex flex-col gap-3">
@@ -35,7 +37,7 @@
                   :href="newsletter.pdfUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center rounded-full bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-teal-700"
+                  class="inline-flex items-center justify-center rounded-full bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-primary)]"
                 >
                   Open Newsletter
                 </a>

@@ -103,6 +103,7 @@ idrp-frontend
 │  │  ├─ business-ravishankar.jpg
 │  │  ├─ business-rk.jpeg
 │  │  ├─ business-santosh.jpeg
+│  │  ├─ business-sasikumar.jpeg
 │  │  ├─ business-shashi.jpeg
 │  │  └─ business-subhas.jpeg
 │  ├─ mentors-hero.jfif

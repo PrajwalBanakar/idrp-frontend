@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import type {
-  AboutSectionIntro,
-  MissionVisionItem,
-  Pillar,
-} from '@/types/about'
+import type { AboutSectionIntro, MissionVisionItem, Pillar } from '@/types/about'
 
 defineProps<{
   section: AboutSectionIntro
@@ -16,7 +12,7 @@ defineProps<{
   <section class="bg-slate-50 px-6 py-16 md:px-12 lg:px-16 lg:py-20">
     <div class="mx-auto max-w-7xl">
       <div class="mx-auto mb-12 max-w-3xl text-center">
-        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           {{ section.eyebrow }}
         </span>
 
@@ -35,7 +31,9 @@ defineProps<{
           :key="item.title"
           class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
         >
-          <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-50 text-2xl">
+          <div
+            class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--color-primary-soft)] text-2xl"
+          >
             {{ item.icon }}
           </div>
 
@@ -55,7 +53,7 @@ defineProps<{
           :key="pillar.title"
           class="rounded-3xl border border-teal-100 bg-white p-6 shadow-sm"
         >
-          <div class="mb-4 h-1.5 w-14 rounded-full bg-teal-500" />
+          <div class="mb-4 h-1.5 w-14 rounded-full bg-[var(--color-primary-soft)]0" />
           <h4 class="text-lg font-bold tracking-tight text-slate-900">
             {{ pillar.title }}
           </h4>

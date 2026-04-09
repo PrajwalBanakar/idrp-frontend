@@ -3,7 +3,9 @@
     <div class="mx-auto max-w-7xl">
       <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-600">
+          <span
+            class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]"
+          >
             Network
           </span>
           <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -21,11 +23,7 @@
         </div>
       </div>
 
-      <div
-        v-for="category in filteredCategories"
-        :key="category.key"
-        class="mb-14 last:mb-0"
-      >
+      <div v-for="category in filteredCategories" :key="category.key" class="mb-14 last:mb-0">
         <div class="mb-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
           <div class="flex items-start gap-4">
             <div
@@ -51,20 +49,18 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-          <PartnerCard
+        <div class="flex flex-wrap justify-center gap-4">
+          <div
             v-for="partner in category.partners"
             :key="partner.name"
-            :partner="partner"
-            :hover-border-class="category.hoverBorderClass"
-          />
+            class="w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(25%-12px)] xl:w-[calc(16.666%-14px)]"
+          >
+            <PartnerCard :partner="partner" :hover-border-class="category.hoverBorderClass" />
+          </div>
         </div>
       </div>
 
-      <div
-        v-if="filteredCategories.length === 0"
-        class="py-16 text-center text-slate-500"
-      >
+      <div v-if="filteredCategories.length === 0" class="py-16 text-center text-slate-500">
         No partners found.
       </div>
     </div>
@@ -92,9 +88,7 @@ const filteredCategories = computed(() => {
   return props.partnerCategories
     .map((category) => ({
       ...category,
-      partners: category.partners.filter((partner) =>
-        partner.name.toLowerCase().includes(query),
-      ),
+      partners: category.partners.filter((partner) => partner.name.toLowerCase().includes(query)),
     }))
     .filter((category) => category.partners.length > 0)
 })

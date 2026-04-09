@@ -1,30 +1,41 @@
 <template>
-  <section class="relative h-[52vh] min-h-[360px] overflow-hidden">
-    <!-- Gradient Overlay -->
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-teal-950/90 via-teal-900/75 to-cyan-800/45"
-    />
+  <section class="relative overflow-hidden bg-slate-950 text-white min-h-[360px]">
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <div
+        class="absolute inset-0 bg-[linear-gradient(135deg,#031527_0%,#073863_45%,#0a4c85_100%)]"
+      />
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.12),_transparent_34%),radial-gradient(circle_at_bottom_right,_rgba(10,76,133,0.30),_transparent_32%)]"
+      />
+      <div class="absolute inset-0 bg-black/10" />
+    </div>
+
+    <!-- Bottom fade -->
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
 
     <!-- Content -->
-    <div class="relative z-10 mx-auto flex h-full max-w-6xl items-end px-6 py-16 md:px-16">
+    <div class="relative z-10 mx-auto flex min-h-[52vh] max-w-7xl items-end px-6 py-16 sm:px-8 md:px-10 lg:px-16">
       <div class="max-w-3xl">
         <!-- Eyebrow -->
-        <span
+        <p
           v-if="hero.eyebrow"
-          class="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white/90 backdrop-blur-sm"
+          class="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-slate-100 backdrop-blur-sm sm:text-sm"
         >
           {{ hero.eyebrow }}
-        </span>
+        </p>
 
         <!-- Title -->
-        <h1 class="mt-5 mb-4 text-5xl font-extrabold leading-tight text-white md:text-6xl">
+        <h1
+          class="mt-5 mb-4 text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
+        >
           {{ hero.title }}
         </h1>
 
         <!-- Description -->
         <p
           v-if="hero.description"
-          class="max-w-2xl text-base leading-relaxed text-white/85 md:text-lg"
+          class="max-w-2xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8"
         >
           {{ hero.description }}
         </p>
@@ -34,12 +45,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { ServiceHero } from '@/types/service'
 
 defineProps<{
   hero: ServiceHero
 }>()
-
-const showImage = ref(true)
 </script>

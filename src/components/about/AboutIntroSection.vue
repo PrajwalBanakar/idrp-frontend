@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
   <section class="bg-white px-6 py-16 md:px-12 lg:px-16 lg:py-20">
     <div class="mx-auto max-w-5xl">
       <div class="text-center">
-        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           {{ props.eyebrow }}
         </span>
 
@@ -23,7 +23,9 @@ const props = withDefaults(defineProps<Props>(), {
         </h2>
       </div>
 
-      <div class="mx-auto mt-8 max-w-3xl space-y-5 text-center text-base leading-8 text-slate-600 sm:text-lg">
+      <div
+        class="mx-auto mt-8 max-w-3xl space-y-5 text-center text-base leading-8 text-slate-600 sm:text-lg"
+      >
         <p v-for="paragraph in props.paragraphs" :key="paragraph">
           {{ paragraph }}
         </p>

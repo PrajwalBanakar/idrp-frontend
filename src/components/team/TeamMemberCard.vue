@@ -23,7 +23,7 @@ const hasActions = computed(() => hasProfile.value || hasLinkedin.value)
 
 <template>
   <article
-    class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
+    class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]/20 hover:shadow-xl"
   >
     <div
       class="mx-auto mb-5 h-28 w-28 overflow-hidden rounded-full bg-slate-100 ring-4 ring-slate-50 transition-all duration-300 group-hover:ring-teal-100"
@@ -38,7 +38,7 @@ const hasActions = computed(() => hasProfile.value || hasLinkedin.value)
 
       <div
         v-else
-        class="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-100 to-cyan-50 text-xl font-bold text-teal-700"
+        class="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-100 to-cyan-50 text-xl font-bold text-[var(--color-primary)]"
       >
         {{ props.member.name.charAt(0) }}
       </div>
@@ -52,16 +52,13 @@ const hasActions = computed(() => hasProfile.value || hasLinkedin.value)
       {{ props.member.role }}
     </p>
 
-    <div
-      v-if="hasActions"
-      class="mt-4 flex items-center justify-between gap-3"
-    >
+    <div v-if="hasActions" class="mt-4 flex items-center justify-between gap-3">
       <a
         v-if="hasProfile"
         :href="props.member.profileUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-teal-700 transition hover:bg-teal-100"
+        class="rounded-full border border-[var(--color-primary)]/20 bg-[var(--color-primary-soft)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)] transition hover:bg-teal-100"
       >
         View Profile
       </a>
@@ -78,7 +75,7 @@ const hasActions = computed(() => hasProfile.value || hasLinkedin.value)
         :href="props.member.linkedinUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-slate-700 transition hover:border-teal-200 hover:text-teal-700"
+        class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-slate-700 transition hover:border-[var(--color-primary)]/20 hover:text-[var(--color-primary)]"
       >
         View LinkedIn
       </a>

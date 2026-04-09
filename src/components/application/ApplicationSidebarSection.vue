@@ -12,16 +12,14 @@ defineProps<{
   <aside class="space-y-6 lg:sticky lg:top-24">
     <section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
       <span
-        class="inline-flex items-center rounded-full bg-teal-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-700"
+        class="inline-flex items-center rounded-full bg-[var(--color-primary-soft)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-primary)]"
       >
         Program Snapshot
       </span>
 
       <div class="mt-5 space-y-4">
         <div>
-          <p class="text-sm font-medium text-slate-500">
-            Program
-          </p>
+          <p class="text-sm font-medium text-slate-500">Program</p>
           <h3 class="mt-1 text-xl font-bold text-slate-900">
             {{ program.title }}
           </h3>
@@ -49,7 +47,7 @@ defineProps<{
           class="flex items-start gap-3 rounded-2xl bg-slate-50 px-4 py-3"
         >
           <span
-            class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-teal-700"
+            class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-[var(--color-primary)]"
           >
             ✓
           </span>
@@ -60,9 +58,7 @@ defineProps<{
       </ul>
     </section>
 
-    <section
-      class="relative overflow-hidden rounded-3xl bg-slate-950 p-6 text-white shadow-xl"
-    >
+    <section class="relative overflow-hidden rounded-3xl bg-slate-950 p-6 text-white shadow-xl">
       <div class="absolute inset-0">
         <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-900" />
         <div
@@ -83,9 +79,7 @@ defineProps<{
         </span>
 
         <div>
-          <h3 class="text-xl font-bold tracking-tight text-white">
-            Need help deciding?
-          </h3>
+          <h3 class="text-xl font-bold tracking-tight text-white">Need help deciding?</h3>
 
           <p class="mt-3 text-sm leading-7 text-slate-200">
             Talk to our team to understand whether this program is the right fit for your stage,
@@ -95,7 +89,7 @@ defineProps<{
 
         <RouterLink
           to="/contact"
-          class="inline-flex w-full items-center justify-center rounded-full bg-teal-600 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700"
+          class="inline-flex w-full items-center justify-center rounded-full bg-teal-600 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)]"
         >
           Contact Us
         </RouterLink>

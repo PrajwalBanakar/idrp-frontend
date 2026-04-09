@@ -3,7 +3,7 @@
     <section class="bg-white px-6 py-20 md:px-16">
       <div class="mx-auto max-w-6xl">
         <div class="mb-14 text-center">
-          <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+          <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
             Technical Education Academy
           </span>
           <h1 class="mt-2 text-4xl font-bold text-slate-900">Workshops</h1>
@@ -17,10 +17,12 @@
           <article
             v-for="workshop in workshops"
             :key="workshop.slug"
-            class="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-200 hover:shadow-xl"
+            class="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--color-primary)]/20 hover:shadow-xl"
           >
             <div class="mb-4 flex items-center justify-between">
-              <span class="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
+              <span
+                class="rounded-full bg-[var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-primary)]"
+              >
                 {{ workshop.duration }}
               </span>
             </div>
@@ -39,7 +41,7 @@
                 :key="feature"
                 class="flex items-start gap-2 text-sm text-slate-700"
               >
-                <span class="text-teal-600">•</span>
+                <span class="text-[var(--color-primary)]">•</span>
                 <span>{{ feature }}</span>
               </li>
             </ul>
@@ -50,14 +52,14 @@
                 :href="workshop.brochureUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-sm font-semibold text-slate-600 hover:text-teal-700"
+                class="text-sm font-semibold text-slate-600 hover:text-[var(--color-primary)]"
               >
                 View Brochure
               </a>
 
               <RouterLink
                 :to="`/courses/workshops/${workshop.slug}/apply`"
-                class="ml-auto rounded-full bg-teal-600 px-5 py-2 text-sm font-semibold text-white hover:bg-teal-700"
+                class="ml-auto rounded-full bg-teal-600 px-5 py-2 text-sm font-semibold text-white hover:bg-[var(--color-primary)]"
               >
                 Apply
               </RouterLink>

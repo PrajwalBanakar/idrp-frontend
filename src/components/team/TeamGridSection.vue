@@ -20,13 +20,14 @@ withDefaults(defineProps<Props>(), {
 <template>
   <section class="bg-slate-50 px-6 py-16 md:px-12 lg:px-16 lg:py-20">
     <div class="mx-auto max-w-7xl">
-
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        <TeamMemberCard
+      <div class="flex flex-wrap justify-center gap-6">
+        <div
           v-for="member in members"
           :key="member.name"
-          :member="member"
-        />
+          class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)]"
+        >
+          <TeamMemberCard :member="member" />
+        </div>
       </div>
     </div>
   </section>

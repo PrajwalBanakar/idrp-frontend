@@ -6,12 +6,7 @@
     <div class="grid gap-0 lg:grid-cols-[360px_1fr]">
       <!-- Left: brochure/poster -->
       <div class="bg-slate-100 p-4 sm:p-5">
-        <a
-          :href="brochureLink"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="block h-full"
-        >
+        <a :href="brochureLink" target="_blank" rel="noopener noreferrer" class="block h-full">
           <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
             <img
               :src="event.image"
@@ -30,14 +25,16 @@
               class="rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em]"
               :class="
                 variant === 'upcoming'
-                  ? 'bg-teal-50 text-teal-700'
+                  ? 'bg-[var(--color-primary-soft)] text-[var(--color-primary)]'
                   : 'bg-slate-100 text-slate-500'
               "
             >
               {{ badgeText }}
             </span>
 
-            <span class="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600">
+            <span
+              class="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600"
+            >
               {{ event.category }}
             </span>
           </div>
@@ -84,7 +81,7 @@
                 :key="`${event.id}-highlight-${index}`"
                 class="flex items-start gap-2 text-sm font-medium text-slate-700"
               >
-                <span class="mt-1 h-2 w-2 rounded-full bg-teal-500" />
+                <span class="mt-1 h-2 w-2 rounded-full bg-[var(--color-primary-soft)]0" />
                 <span>{{ highlight }}</span>
               </li>
             </ul>
@@ -95,7 +92,7 @@
           <RouterLink
             v-if="variant === 'upcoming'"
             :to="registerLink"
-            class="inline-flex items-center justify-center rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal-800"
+            class="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal-800"
           >
             Register Now
           </RouterLink>
@@ -111,7 +108,7 @@
 
           <RouterLink
             to="/contact"
-            class="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-teal-400 hover:text-teal-700"
+            class="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-teal-400 hover:text-[var(--color-primary)]"
           >
             Contact Organizer
           </RouterLink>

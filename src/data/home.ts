@@ -46,6 +46,7 @@ export type GovernmentProgram = {
   title: string
   description: string
   route: string
+  icon: 'atom' | 'lightbulb' | 'beaker' | 'pencil-ruler' | 'banknotes'
 }
 
 export type Service = {
@@ -88,12 +89,13 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     heading: 'Where ideas transform into impactful ventures',
-    subtext: 'Providing the ecosystem, guidance, and capital to help you scale.',
+    subtext: 'Providing the ecosystem, guidance, market & funding access to help you scale.',
     image: '/campus/idrp_building.jpg',
   },
   {
     heading: 'Build, connect, and grow in a space designed for founders',
-    subtext: 'More than just desks, IDRP is a hub for innovation and meaningful collaboration.',
+    subtext:
+      'We are not just workspace, IDRP is a hub for innovation and meaningful collaboration.',
     image: '/campus/idrp_auditorium.JPG',
   },
 ]
@@ -101,25 +103,25 @@ export const heroSlides: HeroSlide[] = [
 export const programs: Program[] = [
   {
     title: 'Yuva Udyami Pre Incubation Program',
-    duration: '6–12 months',
+    duration: '18 months',
     description:
-      'A structured early-stage program for founders at idea, problem-validation, or prototype stage. Designed to help aspiring startups validate the problem, refine the solution, build an MVP roadmap, and prepare for incubation readiness.',
+      'A structured early-stage program for founders at idea, problem-validation, or prototype stage. Designed to help aspiring startups validate the problem, refine the solution, build an MVP, evaluate product-market-fit, pilot with initial customers and prepare for incubation readiness.',
     detailsTo: '/pre-incubation',
     applyTo: '/apply/pre-incubation',
     brochureTo: '/yuva-udyami/yuva_udyami_brochure.pdf',
     brochureLabel: 'View Brochure',
     features: [
       'Idea validation and customer discovery',
-      'Mentorship on problem-solution fit',
-      'MVP planning and prototype guidance',
-      'Business model and market research support',
-      'Pitch deck and founder readiness sessions',
-      'Pathway to incubation and funding opportunities',
+      'State of the art labs',
+      'MVP build guidance',
+      'Industry Expert Mentors',
+      'Business strategies and GTM',
+      'Market and funding access',
     ],
   },
   {
     title: 'Udyami Incubation Program',
-    duration: '12–18 months',
+    duration: '18 months',
     description:
       'Comprehensive support for startups at idea, PoC, or MVP stage. Get access to dedicated workspace, labs, mentorship, and seed funding opportunities.',
     detailsTo: '/incubation',
@@ -127,8 +129,8 @@ export const programs: Program[] = [
     brochureTo: '/udyami/udyami_brochure.pdf',
     brochureLabel: 'View Brochure',
     features: [
-      'Dedicated workspace at campus',
-      'Access to research labs and equipment',
+      'Highly skilled talent and technology patent pool',
+      'Access to research labs and high end equipment',
       'Technical mentorship from faculty',
       'Business development support',
       'Seed funding opportunities',
@@ -139,37 +141,41 @@ export const programs: Program[] = [
 
 export const governmentPrograms: GovernmentProgram[] = [
   {
+    title: 'Centre of Excellence in Quantum AI and Computing (CoE)',
+    description:
+      'A focused Government of Karnataka initiative to advance research, talent development, and innovation in quantum technologies, artificial intelligence, and next-generation computing systems.',
+    route: '/programs/coe-quantum-ai',
+    icon: 'atom',
+  },
+  {
     title: 'New Age Innovation Network (NAIN)',
     description:
-      'A government-supported initiative focused on innovation, entrepreneurship development, and startup ecosystem strengthening for student and early-stage founders.',
+      'A Government of Karnataka supported initiative focussed on innovation, entrepreneurship development, and startup ecosystem for student and early-stage founders.',
     route: '/programs/nain',
+    icon: 'lightbulb',
   },
   {
     title: 'Common Instrumentation Facility (CIF)',
     description:
-      'Shared access to advanced instrumentation, lab facilities, and prototyping infrastructure that supports research, product development, and deep-tech experimentation.',
+      'Shared access to advanced instrumentation, maker lab facilities, and prototyping infrastructure that Government of Karnataka supports to encourage research, product development, and deep-tech experimentation.',
     route: '/programs/cif',
-  },
-  {
-    title: 'Centre of Excellence in Quantum AI and Computing (COE)',
-    description:
-      'A focused initiative to advance research, talent development, and innovation in quantum technologies, artificial intelligence, and next-generation computing systems.',
-    route: '/programs/coe-quantum-ai',
+    icon: 'beaker',
   },
   {
     title: 'Capacity Building for Design and Entrepreneurship (CBDE)',
     description:
-      'A structured program to build innovation capability, product thinking, design mindset, and entrepreneurial readiness among students, researchers, and aspiring founders.',
+      'A MoE program to foster pedagogy changes that helps build innovation capability, product thinking, design mindset, and entrepreneurial readiness among students and researchers.',
     route: '/programs/cbde',
+    icon: 'pencil-ruler',
   },
   {
     title: 'Rajiv Gandhi Entrepreneurship Program (RGEP)',
     description:
-      'An early-stage funding initiative that supports innovators with monthly subsistence grants, structured monitoring, and guidance toward prototype, MVP, or proof-of-concept outcomes with business potential.',
+      'An early-stage funding initiative from Government of Karnataka that supports early-stage innovators with monthly subsistence grant, structured monitoring, and guidance towards prototype, MVP, or proof-of concept outcomes with business potential.',
     route: '/programs/rgep',
+    icon: 'banknotes',
   },
 ]
-
 export const courses: AcademyCategory[] = academyCategories
 
 export const services: Service[] = [
@@ -311,7 +317,7 @@ export const stats: Stat[] = [
   //   suffix: '+',
   //   icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5M3.75 7.5h16.5m-16.5 9h16.5" /></svg>`,
   // },
-    {
+  {
     label: 'Number of Startups',
     target: 60,
     suffix: '+',

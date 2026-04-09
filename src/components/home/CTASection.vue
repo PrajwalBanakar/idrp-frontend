@@ -10,9 +10,15 @@ import { RouterLink } from 'vue-router'
       >
         <!-- Background -->
         <div class="absolute inset-0">
-          <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-900" />
           <div
-            class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(45,212,191,0.18),_transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(34,211,238,0.12),_transparent_28%)]"
+            class="absolute inset-0"
+            style="background: linear-gradient(to bottom right, #021220, var(--color-primary-dark), var(--color-primary));"
+          />
+          <div
+            class="absolute inset-0"
+            style="background:
+              radial-gradient(circle at top right, rgba(10,76,133,0.25), transparent 30%),
+              radial-gradient(circle at bottom left, rgba(7,56,99,0.18), transparent 28%);"
           />
         </div>
 
@@ -26,7 +32,7 @@ import { RouterLink } from 'vue-router'
         <div class="relative z-10 mx-auto max-w-4xl text-center">
           <!-- Eyebrow -->
           <span
-            class="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-teal-100 backdrop-blur-sm sm:text-xs"
+            class="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-soft)] backdrop-blur-sm sm:text-xs"
           >
             Start Your Journey
           </span>
@@ -46,14 +52,14 @@ import { RouterLink } from 'vue-router'
           <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <RouterLink
               to="/apply/incubation"
-              class="inline-flex min-w-[220px] items-center justify-center rounded-full bg-teal-600 px-8 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 sm:text-base"
+              class="btn-brand inline-flex min-w-[220px] items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 sm:text-base"
             >
               Apply to a Program
             </RouterLink>
 
             <RouterLink
               to="/contact"
-              class="inline-flex min-w-[220px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-600 hover:text-slate-950 sm:text-base"
+              class="inline-flex min-w-[220px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white sm:text-base"
             >
               Talk to Our Team
             </RouterLink>

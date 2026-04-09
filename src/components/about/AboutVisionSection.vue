@@ -22,7 +22,7 @@ function hideImage(card: VisionCard) {
   <section class="bg-white px-6 py-16 md:px-12 lg:px-16 lg:py-20">
     <div class="mx-auto max-w-7xl">
       <div class="mx-auto mb-12 max-w-3xl text-center">
-        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           {{ section.eyebrow }}
         </span>
 
@@ -55,7 +55,9 @@ function hideImage(card: VisionCard) {
               class="h-full w-full bg-gradient-to-br from-teal-100 via-cyan-50 to-white"
             />
 
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-slate-950/10 to-transparent" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-slate-950/10 to-transparent"
+            />
           </div>
 
           <div class="flex flex-1 flex-col p-6">

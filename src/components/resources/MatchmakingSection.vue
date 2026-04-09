@@ -2,14 +2,13 @@
   <section class="bg-white px-6 py-24 md:px-16">
     <div class="mx-auto max-w-6xl">
       <div class="mb-14 text-center">
-        <span class="text-sm font-semibold uppercase tracking-widest text-teal-600">
+        <span class="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)]">
           Startup Ecosystem
         </span>
         <h2 class="mt-2 text-4xl font-bold text-gray-900">Investor–Startup Matchmaking</h2>
         <p class="mx-auto mt-3 max-w-3xl text-gray-500">
           In addition to knowledge resources, IDRP can support structured matchmaking between
-          startups and investors by aligning sector focus, stage, funding needs, and strategic
-          fit.
+          startups and investors by aligning sector focus, stage, funding needs, and strategic fit.
         </p>
       </div>
 
@@ -67,7 +66,7 @@
           :key="step.step"
           class="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
         >
-          <span class="text-xs font-bold uppercase tracking-widest text-teal-600">
+          <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
             Step {{ step.step }}
           </span>
           <h4 class="mt-2 text-xl font-bold text-gray-900">{{ step.title }}</h4>

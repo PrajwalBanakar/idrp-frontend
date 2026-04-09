@@ -1,12 +1,16 @@
 <template>
   <section class="relative overflow-hidden bg-slate-950 text-white">
     <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-900" />
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(45,212,191,0.18),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(34,211,238,0.12),_transparent_30%)]" />
+      <div
+        class="absolute inset-0 bg-[linear-gradient(135deg,#031527_0%,#073863_45%,#0a4c85_100%)]"
+      />
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.12),_transparent_34%),radial-gradient(circle_at_bottom_right,_rgba(10,76,133,0.30),_transparent_32%)]"
+      />
       <div class="absolute inset-0 bg-black/10" />
     </div>
 
-    <div class="relative mx-auto max-w-7xl px-5 py-14 sm:px-6 md:px-10 md:py-16 lg:px-16 lg:py-20">
+    <div class="relative mx-auto max-w-7xl px-6 py-14 sm:px-8 md:px-10 md:py-16 lg:px-16 lg:py-20">
       <div
         v-for="(slide, index) in heroSlides"
         :key="slide.heading"
@@ -15,7 +19,15 @@
       >
         <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div class="max-w-3xl">
-            <h1 class="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+            <p
+              class="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-slate-100 backdrop-blur-sm sm:text-sm"
+            >
+              IIIT Dharwad Research Park
+            </p>
+
+            <h1
+              class="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
               {{ slide.heading }}
             </h1>
 
@@ -25,14 +37,16 @@
 
             <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <button
-  @click="scrollToPrograms"
-  class="inline-flex min-w-[220px] items-center justify-center rounded-full bg-teal-500 px-7 py-3.5 text-base font-semibold text-slate-950 shadow-lg shadow-black/20 transition-all duration-300 hover:bg-teal-400"
->
-  Explore Programs
-</button>
+                type="button"
+                class="btn-brand inline-flex min-w-[220px] items-center justify-center rounded-full px-7 py-3.5 text-base font-semibold shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5"
+                @click="scrollToPrograms"
+              >
+                Explore Programs
+              </button>
+
               <RouterLink
                 to="/contact"
-                class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-teal-500 hover:text-slate-950 sm:text-base"
+                class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white hover:text-[var(--color-primary)] sm:text-base"
               >
                 Connect with IDRP
               </RouterLink>
@@ -40,19 +54,20 @@
           </div>
 
           <div class="hidden lg:block">
-            <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-2xl backdrop-blur-sm">
+            <div
+              class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-2xl backdrop-blur-sm"
+            >
               <img
                 :src="slide.image"
                 :alt="slide.heading"
                 class="h-[420px] w-full rounded-[1.4rem] object-cover"
               />
-
             </div>
           </div>
         </div>
       </div>
 
-      <div class="mt-8 flex justify-center gap-3">
+      <div v-if="heroSlides.length > 1" class="mt-8 flex justify-center gap-3">
         <button
           v-for="(_, index) in heroSlides"
           :key="index"
@@ -87,22 +102,25 @@ function goToSlide(index: number) {
 
 function scrollToPrograms() {
   const section = document.getElementById('programs')
-  if (section) {
-    const yOffset = -80 // adjust based on navbar height
-    const y =
-      section.getBoundingClientRect().top +
-      window.pageYOffset +
-      yOffset
 
-    window.scrollTo({ top: y, behavior: 'smooth' })
-  }
+  if (!section) return
+
+  const yOffset = -88
+  const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset
+
+  window.scrollTo({
+    top: y,
+    behavior: 'smooth',
+  })
 }
 
 function nextSlide() {
+  if (!props.heroSlides.length) return
   currentSlide.value = (currentSlide.value + 1) % props.heroSlides.length
 }
 
 function startSlideTimer() {
+  if (props.heroSlides.length <= 1) return
   slideTimer = window.setInterval(nextSlide, 5000)
 }
 
