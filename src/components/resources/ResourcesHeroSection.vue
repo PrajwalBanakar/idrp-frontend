@@ -10,9 +10,7 @@
       <div class="absolute inset-0 bg-black/10" />
     </div>
 
-    <div
-      class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"
-    />
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
 
     <div
       class="relative z-10 mx-auto flex min-h-[50vh] max-w-7xl items-center px-6 py-14 sm:px-8 md:px-10 md:py-16 lg:px-16 lg:py-20"
@@ -34,5 +32,4 @@
   </section>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>

@@ -9,8 +9,12 @@
         class="absolute inset-0 h-full w-full object-cover object-center"
         @error="showHeroImage = false"
       />
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-emerald-950/85 to-teal-700/35" />
-      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-emerald-950/85 to-teal-700/35"
+      />
+      <div
+        class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"
+      />
 
       <div class="relative z-10 flex h-full max-w-3xl flex-col justify-center px-10 md:px-20">
         <div class="mb-4 flex items-center gap-3">
@@ -44,7 +48,9 @@
           This form captures the core investor details needed for startup-fit assessment, curated
           recommendations, and structured ecosystem introductions.
         </p>
-        <div class="mx-auto mt-8 h-1 w-16 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400" />
+        <div
+          class="mx-auto mt-8 h-1 w-16 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400"
+        />
       </div>
     </section>
 
@@ -55,7 +61,8 @@
           <div class="mb-3 text-2xl">🎯</div>
           <h3 class="text-lg font-bold text-gray-900">Focused Discovery</h3>
           <p class="mt-2 text-sm leading-relaxed text-gray-600">
-            Your profile helps identify startups aligned with your sector, stage, and cheque-size preferences.
+            Your profile helps identify startups aligned with your sector, stage, and cheque-size
+            preferences.
           </p>
         </article>
 
@@ -71,7 +78,8 @@
           <div class="mb-3 text-2xl">🤝</div>
           <h3 class="text-lg font-bold text-gray-900">Meaningful Introductions</h3>
           <p class="mt-2 text-sm leading-relaxed text-gray-600">
-            Better fit leads to stronger conversations, more efficient meetings, and higher-quality engagement.
+            Better fit leads to stronger conversations, more efficient meetings, and higher-quality
+            engagement.
           </p>
         </article>
       </div>
@@ -310,7 +318,11 @@
                 </label>
                 <select v-model="form.introductionPreference" class="form-input">
                   <option value="" disabled>Select preference</option>
-                  <option v-for="option in introductionPreferenceOptions" :key="option" :value="option">
+                  <option
+                    v-for="option in introductionPreferenceOptions"
+                    :key="option"
+                    :value="option"
+                  >
                     {{ option }}
                   </option>
                 </select>
@@ -334,14 +346,16 @@
           <div>
             <h3 class="mb-5 text-xl font-bold text-gray-900">5. Consent</h3>
 
-            <div class="rounded-2xl border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-500">
+            <div
+              class="rounded-2xl border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-500"
+            >
               <p class="mb-2 font-semibold text-gray-700">Disclaimer &amp; Consent</p>
               <p>
                 By submitting this form, I/We confirm that the information provided is voluntarily
-                shared for the purpose of startup discovery, fit-based curation, and ecosystem engagement.
-                Submission does not guarantee startup introductions, deal flow exclusivity, or allocation.
-                Please avoid sharing confidential information unless you are comfortable disclosing it
-                for preliminary review and matchmaking purposes.
+                shared for the purpose of startup discovery, fit-based curation, and ecosystem
+                engagement. Submission does not guarantee startup introductions, deal flow
+                exclusivity, or allocation. Please avoid sharing confidential information unless you
+                are comfortable disclosing it for preliminary review and matchmaking purposes.
               </p>
             </div>
 

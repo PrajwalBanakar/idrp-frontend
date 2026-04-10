@@ -23,10 +23,7 @@ function mapValuesToPayload(
   )
 }
 
-export function buildFormPayload(
-  config: FormConfig,
-  values: FormValues,
-): FormSubmitEnvelope {
+export function buildFormPayload(config: FormConfig, values: FormValues): FormSubmitEnvelope {
   const meta: FormMeta = {
     formType: config.type,
     submittedAt: new Date().toISOString(),
@@ -163,9 +160,7 @@ export async function submitForm(
     return {
       success: false,
       message:
-        error instanceof Error
-          ? error.message
-          : 'Something went wrong while submitting the form.',
+        error instanceof Error ? error.message : 'Something went wrong while submitting the form.',
     }
   }
 }

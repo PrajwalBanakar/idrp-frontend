@@ -4,8 +4,7 @@ export const cbdePage = {
   hero: {
     eyebrow: 'Government Initiatives',
     title: 'Capacity Building for Design and Entrepreneurship',
-    subtitle:
-      '',
+    subtitle: '',
     image: '/cbde-hero.jfif',
     imageAlt: 'CBDE Program',
   },
@@ -28,23 +27,19 @@ export const cbdePage = {
     items: [
       {
         title: 'Strong Design Thinking Foundation',
-        description:
-          'Builds structured approaches to problem solving and innovation.',
+        description: 'Builds structured approaches to problem solving and innovation.',
       },
       {
         title: 'Opportunity Identification',
-        description:
-          'Encourages identifying real-world problems and user needs.',
+        description: 'Encourages identifying real-world problems and user needs.',
       },
       {
         title: 'Execution Readiness',
-        description:
-          'Supports movement from idea to implementation.',
+        description: 'Supports movement from idea to implementation.',
       },
       {
         title: 'Startup Orientation',
-        description:
-          'Develops entrepreneurial thinking and venture awareness.',
+        description: 'Develops entrepreneurial thinking and venture awareness.',
       },
     ],
     image: '/cbde/cbde-value.jpeg',

@@ -5,10 +5,14 @@
         <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           How We Work
         </span>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl">
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl"
+        >
           Our Approach
         </h2>
-        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
+        <p
+          class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg"
+        >
           A founder-focused and ecosystem-driven approach designed to support innovation with the
           right guidance, collaboration, and momentum.
         </p>
@@ -26,7 +30,9 @@
             <span v-html="approach.icon" class="h-6 w-6" />
           </div>
 
-          <h3 class="text-xl font-semibold text-[var(--color-text-primary)] transition-colors duration-300 group-hover:text-[var(--color-primary)]">
+          <h3
+            class="text-xl font-semibold text-[var(--color-text-primary)] transition-colors duration-300 group-hover:text-[var(--color-primary)]"
+          >
             {{ approach.title }}
           </h3>
 

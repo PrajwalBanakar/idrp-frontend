@@ -8,9 +8,7 @@ const props = defineProps<{
   workshop: Workshop
 }>()
 
-const formConfig = computed(() =>
-  createWorkshopApplicationFormConfig(props.workshop),
-)
+const formConfig = computed(() => createWorkshopApplicationFormConfig(props.workshop))
 </script>
 
 <template>

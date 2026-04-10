@@ -61,6 +61,22 @@ idrp-frontend
 │  ├─ cif-intro.jfif
 │  ├─ cif-value.jfif
 │  ├─ consulting-hero.jfif
+│  ├─ events
+│  │  ├─ brochures
+│  │  │  └─ startup_school_8.jpeg
+│  │  └─ gallery
+│  │     ├─ hack2future
+│  │     │  ├─ 1.JPG
+│  │     │  ├─ 2.JPG
+│  │     │  ├─ 3.JPG
+│  │     │  ├─ 4.JPG
+│  │     │  └─ cover.JPG
+│  │     └─ yuva_udyami_cohort_2026
+│  │        ├─ 1.JPG
+│  │        ├─ 2.JPG
+│  │        ├─ 3.JPG
+│  │        ├─ 4.JPG
+│  │        └─ cover.JPG
 │  ├─ Faculty Booklet.pdf
 │  ├─ faculty-abdul.jfif
 │  ├─ faculty-anushree.jfif
@@ -83,11 +99,6 @@ idrp-frontend
 │  ├─ faculty-sunilkumar.jfif
 │  ├─ faculty-suvadip.jfif
 │  ├─ faculty-vivekraj.jfif
-│  ├─ hack2future
-│  │  ├─ 1.JPG
-│  │  ├─ 2.JPG
-│  │  ├─ 3.JPG
-│  │  └─ 4.JPG
 │  ├─ hero1.jfif
 │  ├─ hero2.jfif
 │  ├─ hero3.jfif
@@ -231,7 +242,7 @@ idrp-frontend
 │  ├─ vision-innovation.jfif
 │  ├─ vision-resources.jfif
 │  └─ yuva-udyami
-│     ├─ yuva-udyami-intro.jpeg
+│     ├─ yuva-udyami-intro.JPG
 │     ├─ yuva-udyami-value.jpeg
 │     └─ yuva_udyami_brochure.pdf
 ├─ README.md
@@ -278,6 +289,7 @@ idrp-frontend
 │  │  │  └─ ContactSocialLinks.vue
 │  │  ├─ events
 │  │  │  ├─ EventCard.vue
+│  │  │  ├─ EventGalleryModal.vue
 │  │  │  ├─ EventGallerySection.vue
 │  │  │  ├─ EventRegistrationFormSection.vue
 │  │  │  ├─ EventRegistrationHeader.vue
@@ -285,7 +297,6 @@ idrp-frontend
 │  │  │  ├─ EventRegistrationSuccess.vue
 │  │  │  ├─ EventsCTASection.vue
 │  │  │  ├─ EventsHeroSection.vue
-│  │  │  ├─ EventSnapshotCard.vue
 │  │  │  └─ EventsSection.vue
 │  │  ├─ forms
 │  │  │  ├─ BaseForm.vue
@@ -349,6 +360,7 @@ idrp-frontend
 │  │  │  └─ ServiceStatsSection.vue
 │  │  ├─ startups
 │  │  │  ├─ StartupCard.vue
+│  │  │  ├─ StartupGallerySection.vue
 │  │  │  ├─ StartupsCTASection.vue
 │  │  │  ├─ StartupsHeroSection.vue
 │  │  │  ├─ StartupsIntroSection.vue
@@ -359,7 +371,6 @@ idrp-frontend
 │  │     ├─ TeamHeroSection.vue
 │  │     ├─ TeamIntroSection.vue
 │  │     └─ TeamMemberCard.vue
-│  ├─ components.zip
 │  ├─ composables
 │  │  ├─ useForm.ts
 │  │  └─ useNain.ts

@@ -15,7 +15,9 @@
     <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
 
     <!-- Content -->
-    <div class="relative z-10 mx-auto flex min-h-[45vh] max-w-7xl items-center px-6 py-12 sm:px-8 md:px-10 lg:px-16">
+    <div
+      class="relative z-10 mx-auto flex min-h-[45vh] max-w-7xl items-center px-6 py-12 sm:px-8 md:px-10 lg:px-16"
+    >
       <div class="max-w-2xl">
         <!-- Eyebrow -->
         <p

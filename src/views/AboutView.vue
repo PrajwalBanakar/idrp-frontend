@@ -3,10 +3,7 @@
     <AboutHeroSection v-bind="aboutHero" />
     <AboutIntroSection v-bind="aboutIntro" />
 
-    <AboutCampusGallerySection
-      :section="campusGallerySection"
-      :images="campusImages"
-    />
+    <AboutCampusGallerySection :section="campusGallerySection" :images="campusImages" />
 
     <AboutMissionVisionSection
       :section="missionVisionSection"
@@ -20,15 +17,9 @@
       :highlight="offeringsHighlight"
     />
 
-    <AboutReasonsSection
-      :section="reasonsSection"
-      :reasons="reasons"
-    />
+    <AboutReasonsSection :section="reasonsSection" :reasons="reasons" />
 
-    <AboutVisionSection
-      :section="visionSection"
-      :vision-cards="visionCards"
-    />
+    <AboutVisionSection :section="visionSection" :vision-cards="visionCards" />
 
     <AboutCTASection v-bind="aboutCTA" />
   </div>
@@ -59,6 +50,6 @@ import {
   visionSection,
   visionCards,
   campusGallerySection,
-  campusImages
+  campusImages,
 } from '@/data/about'
 </script>

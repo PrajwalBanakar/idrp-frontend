@@ -1,16 +1,15 @@
 import type { ProgramPageData } from '@/types/program'
 
 export const preIncubationPage: ProgramPageData = {
-hero: {
-  eyebrow: 'Pre-Incubation',
-  title: 'Yuva Udyami Pre Incubation Program',
-  subtitle:
-    '',
-  image: '/incubation-hero.jfif',
-  imageAlt: 'Pre-Incubation Program',
-  brochureTo: '/yuva-udyami/yuva_udyami_brochure.pdf',
-  brochureLabel: 'View Brochure',
-},
+  hero: {
+    eyebrow: 'Pre-Incubation',
+    title: 'Yuva Udyami Pre Incubation Program',
+    subtitle: '',
+    image: '/incubation-hero.jfif',
+    imageAlt: 'Pre-Incubation Program',
+    brochureTo: '/yuva-udyami/yuva_udyami_brochure.pdf',
+    brochureLabel: 'View Brochure',
+  },
   intro: {
     eyebrow: 'Our Approach',
     title: 'Helping Ideas Take Shape Before They Become Startups',
@@ -19,7 +18,7 @@ hero: {
       'The program focuses on helping participants discover meaningful problems, shape ideas into structured opportunities, and gain the exposure needed to think like founders.',
       'Rather than pushing teams too early into venture building, the pre-incubation phase creates a guided environment for exploration, validation, mentorship, and capability building.',
     ],
-    image: '/yuva-udyami/yuva-udyami-intro.jpeg',
+    image: '/yuva-udyami/yuva-udyami-intro.JPG',
     imageAlt: 'Yuva Udyami Program',
   },
 

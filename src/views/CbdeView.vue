@@ -7,7 +7,6 @@ import ProgramCTASection from '@/components/program/ProgramCTASection.vue'
 import FocusAreasSection from '@/components/common/FocusSection.vue'
 import BeneficiariesSection from '@/components/common/BeneficiariesSection.vue'
 
-
 import { cbdePage } from '@/data/cbde'
 
 import { focusAreas, beneficiaryGroups } from '@/data/cbdeExtra'

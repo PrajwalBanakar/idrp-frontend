@@ -29,12 +29,9 @@ defineEmits(['back'])
         @click="$emit('back')"
         class="group mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-teal-100 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20"
       >
-        <span class="transition-transform duration-300 group-hover:-translate-x-1">
-          ←
-        </span>
+        <span class="transition-transform duration-300 group-hover:-translate-x-1"> ← </span>
         Back to {{ program.backLabel }}
       </button>
-
 
       <!-- Title -->
       <h1 class="mt-6 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">

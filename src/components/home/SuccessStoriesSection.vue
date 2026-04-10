@@ -5,10 +5,14 @@
         <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           Startup Voices
         </span>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl">
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl"
+        >
           Success Stories
         </h2>
-        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
+        <p
+          class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg"
+        >
           Stories from startups supported through mentorship, validation, technical guidance, and
           ecosystem access at IDRP.
         </p>
@@ -31,7 +35,11 @@
           :key="`left-${index}`"
           class="flex w-[320px] shrink-0 flex-col rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]/20 hover:shadow-lg sm:w-[360px] sm:p-7"
         >
-          <svg class="mb-4 h-8 w-8 text-[var(--color-primary-soft)]" fill="currentColor" viewBox="0 0 24 24">
+          <svg
+            class="mb-4 h-8 w-8 text-[var(--color-primary-soft)]"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path
               d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
             />
@@ -50,13 +58,12 @@
             </div>
 
             <div class="min-w-0">
-              <p class="truncate text-sm font-semibold text-[var(--color-text-primary)] sm:text-base">
+              <p
+                class="truncate text-sm font-semibold text-[var(--color-text-primary)] sm:text-base"
+              >
                 {{ story.company }}
               </p>
-              <p
-                v-if="story.tagline"
-                class="truncate text-xs text-slate-500 sm:text-sm"
-              >
+              <p v-if="story.tagline" class="truncate text-xs text-slate-500 sm:text-sm">
                 {{ story.tagline }}
               </p>
             </div>
@@ -71,7 +78,11 @@
           :key="`right-${index}`"
           class="flex w-[320px] shrink-0 flex-col rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]/20 hover:shadow-lg sm:w-[360px] sm:p-7"
         >
-          <svg class="mb-4 h-8 w-8 text-[var(--color-primary-soft)]" fill="currentColor" viewBox="0 0 24 24">
+          <svg
+            class="mb-4 h-8 w-8 text-[var(--color-primary-soft)]"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path
               d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
             />
@@ -90,13 +101,12 @@
             </div>
 
             <div class="min-w-0">
-              <p class="truncate text-sm font-semibold text-[var(--color-text-primary)] sm:text-base">
+              <p
+                class="truncate text-sm font-semibold text-[var(--color-text-primary)] sm:text-base"
+              >
                 {{ story.company }}
               </p>
-              <p
-                v-if="story.tagline"
-                class="truncate text-xs text-slate-500 sm:text-sm"
-              >
+              <p v-if="story.tagline" class="truncate text-xs text-slate-500 sm:text-sm">
                 {{ story.tagline }}
               </p>
             </div>
@@ -115,14 +125,9 @@ const props = defineProps<{
   successStories: Story[]
 }>()
 
-const duplicatedStories = computed(() => [
-  ...props.successStories,
-  ...props.successStories,
-])
+const duplicatedStories = computed(() => [...props.successStories, ...props.successStories])
 
-const reversedDuplicatedStories = computed(() => [
-  ...duplicatedStories.value,
-].reverse())
+const reversedDuplicatedStories = computed(() => [...duplicatedStories.value].reverse())
 </script>
 
 <style scoped>

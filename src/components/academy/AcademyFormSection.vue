@@ -43,9 +43,7 @@ const academyProgramOptions: ServiceFormOption[] = [
   },
 ]
 
-const formConfig = computed(() =>
-  createServiceFormConfig(academyProgramOptions),
-)
+const formConfig = computed(() => createServiceFormConfig(academyProgramOptions))
 </script>
 
 <template>

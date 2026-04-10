@@ -8,13 +8,9 @@ const props = defineProps<{
   event: EventItem
 }>()
 
-const formConfig = computed(() =>
-  createEventRegistrationFormConfig(props.event),
-)
+const formConfig = computed(() => createEventRegistrationFormConfig(props.event))
 </script>
 
 <template>
-  <GenericFormSection
-    :config="formConfig"
-  />
+  <GenericFormSection :config="formConfig" />
 </template>

@@ -1,13 +1,13 @@
 <template>
-    <ProgramHeroSection v-bind="preIncubationPage.hero" />
-<ProgramIntroSection v-bind="preIncubationPage.intro" />
-<ProgramValueSection v-bind="preIncubationPage.value" />
-    
-<ProgramTracksSection
-  v-if="preIncubationPage.tracks"
-  v-bind="preIncubationPage.tracks"
-  :programs="preIncubationPage.programs"
-/>
+  <ProgramHeroSection v-bind="preIncubationPage.hero" />
+  <ProgramIntroSection v-bind="preIncubationPage.intro" />
+  <ProgramValueSection v-bind="preIncubationPage.value" />
+
+  <ProgramTracksSection
+    v-if="preIncubationPage.tracks"
+    v-bind="preIncubationPage.tracks"
+    :programs="preIncubationPage.programs"
+  />
 
   <ProgramCTASection v-bind="preIncubationPage.cta" />
 </template>

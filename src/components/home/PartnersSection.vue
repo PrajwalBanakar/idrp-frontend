@@ -5,10 +5,14 @@
         <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           Ecosystem
         </span>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl">
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl"
+        >
           Our Partners
         </h2>
-        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
+        <p
+          class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg"
+        >
           A growing network of academic, industry, ecosystem, and institutional partners helping
           strengthen innovation, collaboration, and entrepreneurial growth.
         </p>
@@ -75,9 +79,7 @@
           :target="partner.websiteUrl ? '_blank' : undefined"
           :rel="partner.websiteUrl ? 'noopener noreferrer' : undefined"
           class="group flex min-h-[150px] flex-col items-center justify-center gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-5 text-center transition-all duration-300 sm:min-h-[165px] sm:p-6"
-          :class="
-            'hover:-translate-y-1 hover:border-[var(--color-primary)]/20 hover:bg-white hover:shadow-md'
-          "
+          :class="'hover:-translate-y-1 hover:border-[var(--color-primary)]/20 hover:bg-white hover:shadow-md'"
         >
           <!-- Logo -->
           <div
@@ -145,8 +147,6 @@ const filteredPartners = computed(() => {
 
   const query = searchQuery.value.toLowerCase()
 
-  return byCategory.filter((partner) =>
-    partner.name.toLowerCase().includes(query)
-  )
+  return byCategory.filter((partner) => partner.name.toLowerCase().includes(query))
 })
 </script>

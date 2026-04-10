@@ -2,13 +2,13 @@
   <div class="app-layout">
     <header class="site-header" :class="{ 'site-header--scrolled': isScrolled }">
       <div class="container header-inner">
-<RouterLink to="/" class="brand" @click="closeAllMenus">
-  <img src="/idrp.jfif" alt="IDRP" class="brand-logo" />
-  <div class="brand-text">
-    <span class="brand-title">IDRP</span>
-    <span class="brand-subtitle">Ignite • Incubate • Innovate</span>
-  </div>
-</RouterLink>
+        <RouterLink to="/" class="brand" @click="closeAllMenus">
+          <img src="/idrp.jfif" alt="IDRP" class="brand-logo" />
+          <div class="brand-text">
+            <span class="brand-title">IDRP</span>
+            <span class="brand-subtitle">Ignite • Incubate • Innovate</span>
+          </div>
+        </RouterLink>
 
         <nav class="desktop-nav">
           <div
@@ -327,7 +327,7 @@ const navSections: NavSection[] = [
     items: [
       { label: 'About IDRP', to: '/about' },
       { label: 'Our Team', to: '/about/team' },
-{ label: 'Mentors', to: '/about/mentors' },
+      { label: 'Mentors', to: '/about/mentors' },
       { label: 'Our Board', to: '/about/investment-committee' },
     ],
   },
@@ -335,13 +335,13 @@ const navSections: NavSection[] = [
     key: 'programs',
     label: 'Programs',
     items: [
-{
-  label: 'Incubation Programs',
-  children: [
-    { label: 'Yuva Udyami Pre Incubation Program', to: '/programs/pre-incubation' },
-    { label: 'Udyami Incubation Program', to: '/programs/incubation' },
-  ],
-},
+      {
+        label: 'Incubation Programs',
+        children: [
+          { label: 'Yuva Udyami Pre Incubation Program', to: '/programs/pre-incubation' },
+          { label: 'Udyami Incubation Program', to: '/programs/incubation' },
+        ],
+      },
       {
         label: 'Government Initiatives',
         children: [

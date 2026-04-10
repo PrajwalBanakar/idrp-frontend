@@ -144,18 +144,8 @@ const programRoutes: RouteRecordRaw[] = [
     'Acceleration',
   ),
   createPageRoute('/programs/funding', ROUTE_NAMES.FUNDING, 'AccessFundingView', 'Access Funding'),
-  createPageRoute(
-    '/programs/nain',
-    ROUTE_NAMES.NAIN,
-    'NainView',
-    'New Age Innovation Network',
-  ),
-  createPageRoute(
-    '/programs/cif',
-    ROUTE_NAMES.CIF,
-    'CifView',
-    'Common Instrumentation Facility',
-  ),
+  createPageRoute('/programs/nain', ROUTE_NAMES.NAIN, 'NainView', 'New Age Innovation Network'),
+  createPageRoute('/programs/cif', ROUTE_NAMES.CIF, 'CifView', 'Common Instrumentation Facility'),
   createPageRoute(
     '/programs/coe-quantum-ai',
     ROUTE_NAMES.COE_QUANTUM_AI,
@@ -168,7 +158,7 @@ const programRoutes: RouteRecordRaw[] = [
     'CbdeView',
     'Capacity Building for Design and Entrepreneurship',
   ),
-    createPageRoute(
+  createPageRoute(
     '/programs/rgep',
     ROUTE_NAMES.RGEP,
     'RgepView',
@@ -205,12 +195,7 @@ const courseRoutes: RouteRecordRaw[] = [
     'Apply for Certification Course',
   ),
 
-  createPageRoute(
-    '/courses/workshops',
-    ROUTE_NAMES.WORKSHOPS,
-    'WorkshopsView',
-    'Workshops',
-  ),
+  createPageRoute('/courses/workshops', ROUTE_NAMES.WORKSHOPS, 'WorkshopsView', 'Workshops'),
 
   createPageRoute(
     '/courses/workshops/:slug/apply',
@@ -252,12 +237,7 @@ const ecosystemRoutes: RouteRecordRaw[] = [
     'TechnicalEducationAcademyView',
     'Technical Education Academy',
   ),
-  createPageRoute(
-    '/ecosystem/consulting',
-    ROUTE_NAMES.CONSULTING,
-    'ConsultingView',
-    'Consulting',
-  ),
+  createPageRoute('/ecosystem/consulting', ROUTE_NAMES.CONSULTING, 'ConsultingView', 'Consulting'),
 ]
 
 const communityRoutes: RouteRecordRaw[] = [
@@ -336,10 +316,7 @@ const legacyRedirects: RouteRecordRaw[] = [
   createRedirectByName('/co-working', ROUTE_NAMES.CO_WORKING),
   createRedirectByName('/industry-research', ROUTE_NAMES.INDUSTRY_RESEARCH),
   createRedirectByName('/prototype-development', ROUTE_NAMES.PROTOTYPE_DEVELOPMENT),
-  createRedirectByName(
-    '/technical-education-academy',
-    ROUTE_NAMES.TECHNICAL_EDUCATION_ACADEMY,
-  ),
+  createRedirectByName('/technical-education-academy', ROUTE_NAMES.TECHNICAL_EDUCATION_ACADEMY),
   createRedirectByName('/consulting', ROUTE_NAMES.CONSULTING),
 
   createRedirectByName('/events', ROUTE_NAMES.EVENTS),
@@ -354,7 +331,7 @@ const legacyRedirects: RouteRecordRaw[] = [
   createRedirectByName('/courses/online-mtech', ROUTE_NAMES.CERTIFICATION_COURSES),
   createRedirectByName('/courses/fdp', ROUTE_NAMES.WORKSHOPS),
   createRedirectByName('/courses/3dw', ROUTE_NAMES.WORKSHOPS),
-    {
+  {
     path: '/courses/iet',
     redirect: {
       name: ROUTE_NAMES.COURSE_DETAIL,

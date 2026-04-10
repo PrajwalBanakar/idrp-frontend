@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="applyPage"
-    class="course-apply-view"
-  >
+  <div v-if="applyPage" class="course-apply-view">
     <CourseApplyHeroSection
       :eyebrow="applyPage.eyebrow"
       :title="applyPage.title"

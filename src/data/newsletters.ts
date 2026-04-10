@@ -31,8 +31,7 @@ export const newsletters: Newsletter[] = [
       'Faculty development program on design and entrepreneurship',
       'Startup spotlight, workshops, and ecosystem activity',
     ],
-    coverGradient:
-      'linear-gradient(180deg, #0f3d6e 0%, #0b2f57 45%, #08213c 100%)',
+    coverGradient: 'linear-gradient(180deg, #0f3d6e 0%, #0b2f57 45%, #08213c 100%)',
     pdfUrl: '/newsletters/01-jan-mar-2025-edition.pdf',
     totalPages: 9,
     previewImage: '/newsletters/jan-mar-2025-cover.jpg',
@@ -45,16 +44,14 @@ export const newsletters: Newsletter[] = [
     date: 'Apr–Jun 2025',
     description:
       'Quarterly highlights from programs, activities, collaborations, and startup ecosystem engagement.',
-    preview:
-      'Browse the Apr–Jun 2025 edition of the IIIT Dharwad Research Park newsletter.',
+    preview: 'Browse the Apr–Jun 2025 edition of the IIIT Dharwad Research Park newsletter.',
     highlights: [
       'Quarterly updates from the ecosystem',
       'Program and event highlights',
       'Founder and community activities',
       'Institutional and innovation milestones',
     ],
-    coverGradient:
-      'linear-gradient(180deg, #0f766e 0%, #115e59 45%, #0b3b39 100%)',
+    coverGradient: 'linear-gradient(180deg, #0f766e 0%, #115e59 45%, #0b3b39 100%)',
     pdfUrl: '/newsletters/02-apr-jun-2025-edition.pdf',
     previewImage: '/newsletters/apr-jun-2025-cover.jpg',
   },
@@ -66,16 +63,14 @@ export const newsletters: Newsletter[] = [
     date: 'Jul–Sep 2025',
     description:
       'Quarterly highlights from programs, partnerships, startup support, and innovation-led initiatives.',
-    preview:
-      'Browse the Jul–Sep 2025 edition of the IIIT Dharwad Research Park newsletter.',
+    preview: 'Browse the Jul–Sep 2025 edition of the IIIT Dharwad Research Park newsletter.',
     highlights: [
       'Quarterly updates from the ecosystem',
       'Program and event highlights',
       'Founder and community activities',
       'Institutional and innovation milestones',
     ],
-    coverGradient:
-      'linear-gradient(180deg, #1d4ed8 0%, #1e40af 45%, #172554 100%)',
+    coverGradient: 'linear-gradient(180deg, #1d4ed8 0%, #1e40af 45%, #172554 100%)',
     pdfUrl: '/newsletters/03-jul-sep-2025-edition.pdf',
     previewImage: '/newsletters/jul-sep-2025-cover.jpg',
   },
@@ -87,16 +82,14 @@ export const newsletters: Newsletter[] = [
     date: 'Oct–Dec 2025',
     description:
       'Quarterly highlights from programs, ecosystem developments, events, and startup engagement.',
-    preview:
-      'Browse the Oct–Dec 2025 edition of the IIIT Dharwad Research Park newsletter.',
+    preview: 'Browse the Oct–Dec 2025 edition of the IIIT Dharwad Research Park newsletter.',
     highlights: [
       'Quarterly updates from the ecosystem',
       'Program and event highlights',
       'Founder and community activities',
       'Institutional and innovation milestones',
     ],
-    coverGradient:
-      'linear-gradient(180deg, #4338ca 0%, #3730a3 45%, #1e1b4b 100%)',
+    coverGradient: 'linear-gradient(180deg, #4338ca 0%, #3730a3 45%, #1e1b4b 100%)',
     pdfUrl: '/newsletters/04-oct-dec-2025-edition.pdf',
     previewImage: '/newsletters/oct-dec-2025-cover.jpg',
   },
@@ -106,6 +99,4 @@ export const getVisibleNewsletters = () =>
   newsletters.filter((newsletter) => newsletter.visible !== false)
 
 export const getNewsletterBySlug = (slug: string) =>
-  newsletters.find(
-    (newsletter) => newsletter.slug === slug && newsletter.visible !== false,
-  )
+  newsletters.find((newsletter) => newsletter.slug === slug && newsletter.visible !== false)

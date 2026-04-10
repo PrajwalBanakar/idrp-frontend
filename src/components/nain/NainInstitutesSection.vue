@@ -29,11 +29,15 @@
               {{ year }}
             </h3>
             <p class="mt-1 text-sm text-slate-500">
-              {{ getInstituteCountByYear(year) }} institute{{ getInstituteCountByYear(year) > 1 ? 's' : '' }}
+              {{ getInstituteCountByYear(year) }} institute{{
+                getInstituteCountByYear(year) > 1 ? 's' : ''
+              }}
             </p>
           </div>
 
-          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-600">
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-600"
+          >
             <span class="text-xl leading-none">
               {{ expandedYear === year ? '−' : '+' }}
             </span>

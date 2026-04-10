@@ -1,9 +1,7 @@
 import type { FormConfig } from '@/types/form'
 import type { ServiceFormOption } from '@/types/service'
 
-export function createServiceFormConfig(
-  options: ServiceFormOption[] = [],
-): FormConfig {
+export function createServiceFormConfig(options: ServiceFormOption[] = []): FormConfig {
   return {
     id: 'service-form',
     type: 'service-inquiry',

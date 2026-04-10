@@ -2,9 +2,7 @@
   <section class="bg-[var(--color-bg-soft)] px-6 py-20 md:px-12 lg:px-16 lg:py-24">
     <div class="mx-auto max-w-7xl">
       <div class="mx-auto mb-12 max-w-3xl text-center lg:mb-14">
-        <span
-          class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]"
-        >
+        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           Our Impact
         </span>
 
@@ -34,11 +32,7 @@
             );
           "
         >
-          <div
-            v-for="stat in animatedStats"
-            :key="stat.label"
-            class="text-center"
-          >
+          <div v-for="stat in animatedStats" :key="stat.label" class="text-center">
             <!-- Icon -->
             <div class="mb-3 flex items-center justify-center text-[var(--color-primary-soft)]">
               <span v-html="stat.icon" class="h-6 w-6" />

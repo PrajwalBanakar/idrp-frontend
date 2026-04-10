@@ -16,11 +16,7 @@ export const academyCategories: AcademyCategory[] = [
     route: '/courses/certification',
     ctaLabel: 'Explore certification courses',
     badge: '3 Programs',
-    items: [
-      'Innovation Entrepreneurship & Technology (IET)',
-      'VLSI Design',
-      'Agentic AI',
-    ],
+    items: ['Innovation Entrepreneurship & Technology (IET)', 'VLSI Design', 'Agentic AI'],
   },
   {
     id: 'workshops',
@@ -255,14 +251,12 @@ export const certificationCourseDetailPages: CertificationCourseDetailPage[] = [
       },
       {
         title: 'Applied Technical Learning',
-        description:
-          'Focuses on practical understanding rather than purely theoretical exposure.',
+        description: 'Focuses on practical understanding rather than purely theoretical exposure.',
         icon: '🛠️',
       },
       {
         title: 'Structured Certification Format',
-        description:
-          'Offers a focused 3-month pathway for systematic capability building.',
+        description: 'Offers a focused 3-month pathway for systematic capability building.',
         icon: '📘',
       },
       {
@@ -279,8 +273,7 @@ export const certificationCourseDetailPages: CertificationCourseDetailPage[] = [
       },
       {
         title: 'Short-Term Depth',
-        description:
-          'Balances compact duration with meaningful technical depth and direction.',
+        description: 'Balances compact duration with meaningful technical depth and direction.',
         icon: '⏱️',
       },
     ],
@@ -331,8 +324,7 @@ export const certificationCourseDetailPages: CertificationCourseDetailPage[] = [
     highlights: [
       {
         title: 'Emerging AI Focus',
-        description:
-          'Introduces learners to an important fast-growing area in modern AI practice.',
+        description: 'Introduces learners to an important fast-growing area in modern AI practice.',
         icon: '🤖',
       },
       {
@@ -355,8 +347,7 @@ export const certificationCourseDetailPages: CertificationCourseDetailPage[] = [
       },
       {
         title: 'Structured 3-Month Format',
-        description:
-          'Provides continuity and guided learning over a focused short-term duration.',
+        description: 'Provides continuity and guided learning over a focused short-term duration.',
         icon: '📘',
       },
       {

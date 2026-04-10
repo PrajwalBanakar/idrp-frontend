@@ -30,7 +30,9 @@
               class="h-56 w-full object-contain bg-white p-6 transition duration-500 group-hover:scale-[1.03] sm:h-64"
               loading="lazy"
             />
-            <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-900/8 to-transparent" />
+            <div
+              class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-900/8 to-transparent"
+            />
           </div>
 
           <div class="p-5">
@@ -45,7 +47,9 @@
               </span>
             </div>
 
-            <p class="mt-2 text-sm font-medium uppercase tracking-[0.14em] text-[var(--color-primary)]">
+            <p
+              class="mt-2 text-sm font-medium uppercase tracking-[0.14em] text-[var(--color-primary)]"
+            >
               {{ item.sector }}
             </p>
 

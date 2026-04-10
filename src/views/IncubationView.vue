@@ -13,11 +13,11 @@ import { incubationPage } from '@/data/incubation'
     <ProgramHeroSection v-bind="incubationPage.hero" />
     <ProgramIntroSection v-bind="incubationPage.intro" />
     <ProgramValueSection v-bind="incubationPage.value" />
-<ProgramTracksSection
-  v-if="incubationPage.tracks"
-  v-bind="incubationPage.tracks"
-  :programs="incubationPage.programs"
-/>
+    <ProgramTracksSection
+      v-if="incubationPage.tracks"
+      v-bind="incubationPage.tracks"
+      :programs="incubationPage.programs"
+    />
     <ProgramCTASection v-bind="incubationPage.cta" />
   </div>
 </template>

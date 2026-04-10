@@ -1,8 +1,4 @@
-import type {
-  TeamCTAContent,
-  TeamHeroContent,
-  TeamMember,
-} from '@/types/team'
+import type { TeamCTAContent, TeamHeroContent, TeamMember } from '@/types/team'
 
 export const teamHero: TeamHeroContent = {
   eyebrow: 'Our Team',
@@ -10,7 +6,6 @@ export const teamHero: TeamHeroContent = {
   image: '/team-hero.jfif',
   imageAlt: 'Our Team',
 }
-
 
 export const teamMembers: TeamMember[] = [
   {

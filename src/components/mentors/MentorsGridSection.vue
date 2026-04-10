@@ -5,15 +5,10 @@
         v-if="mentors.length === 0"
         class="rounded-3xl border border-slate-200 bg-slate-50 px-6 py-14 text-center"
       >
-        <p class="text-base font-medium text-slate-600">
-          No mentors found.
-        </p>
+        <p class="text-base font-medium text-slate-600">No mentors found.</p>
       </div>
 
-      <div
-        v-else
-        class="flex flex-wrap justify-center gap-6"
-      >
+      <div v-else class="flex flex-wrap justify-center gap-6">
         <div
           v-for="mentor in mentors"
           :key="mentor.name"

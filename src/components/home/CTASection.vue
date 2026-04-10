@@ -12,13 +12,22 @@ import { RouterLink } from 'vue-router'
         <div class="absolute inset-0">
           <div
             class="absolute inset-0"
-            style="background: linear-gradient(to bottom right, #021220, var(--color-primary-dark), var(--color-primary));"
+            style="
+              background: linear-gradient(
+                to bottom right,
+                #021220,
+                var(--color-primary-dark),
+                var(--color-primary)
+              );
+            "
           />
           <div
             class="absolute inset-0"
-            style="background:
-              radial-gradient(circle at top right, rgba(10,76,133,0.25), transparent 30%),
-              radial-gradient(circle at bottom left, rgba(7,56,99,0.18), transparent 28%);"
+            style="
+              background:
+                radial-gradient(circle at top right, rgba(10, 76, 133, 0.25), transparent 30%),
+                radial-gradient(circle at bottom left, rgba(7, 56, 99, 0.18), transparent 28%);
+            "
           />
         </div>
 
@@ -43,7 +52,9 @@ import { RouterLink } from 'vue-router'
           </h2>
 
           <!-- Description -->
-          <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
+          <p
+            class="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8"
+          >
             Explore programs, connect with the ecosystem, and take the next step with the right
             support, guidance, and infrastructure behind you.
           </p>

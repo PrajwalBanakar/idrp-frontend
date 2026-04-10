@@ -1,23 +1,15 @@
 <template>
   <div>
-    <ApplicationHeroSection
-      :program="currentProgram"
-      @back="goBack"
-    />
+    <ApplicationHeroSection :program="currentProgram" @back="goBack" />
 
     <section class="px-6 py-16 md:px-16">
       <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10">
-
-        <ApplicationFormSection
-          :program="currentProgram"
-          :support-options="supportOptions"
-        />
+        <ApplicationFormSection :program="currentProgram" :support-options="supportOptions" />
 
         <ApplicationSidebarSection
           :program="currentProgram"
           :evaluation-points="evaluationPoints"
         />
-
       </div>
     </section>
   </div>

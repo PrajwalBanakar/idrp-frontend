@@ -5,10 +5,14 @@
         <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           Learning & Capacity Building
         </span>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl">
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl"
+        >
           Certification Courses & Workshops
         </h2>
-        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
+        <p
+          class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg"
+        >
           Explore structured learning tracks through certification courses and workshops offered by
           the Technical Education Academy.
         </p>
@@ -22,7 +26,9 @@
           class="group block rounded-2xl border border-[var(--color-border)] bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]/20 hover:shadow-lg sm:p-7"
         >
           <div class="flex items-start justify-between gap-4">
-            <span class="rounded-full bg-[var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-primary)]">
+            <span
+              class="rounded-full bg-[var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-primary)]"
+            >
               {{ item.badge }}
             </span>
 
@@ -40,7 +46,9 @@
             </span>
           </div>
 
-          <h3 class="mt-5 text-xl font-semibold text-[var(--color-text-primary)] transition-colors duration-300 group-hover:text-[var(--color-primary)] sm:text-2xl">
+          <h3
+            class="mt-5 text-xl font-semibold text-[var(--color-text-primary)] transition-colors duration-300 group-hover:text-[var(--color-primary)] sm:text-2xl"
+          >
             {{ item.title }}
           </h3>
 
@@ -59,7 +67,9 @@
             </li>
           </ul>
 
-          <div class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] transition-all duration-300 group-hover:gap-3">
+          <div
+            class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] transition-all duration-300 group-hover:gap-3"
+          >
             {{ item.ctaLabel }}
             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path

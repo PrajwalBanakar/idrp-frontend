@@ -11,17 +11,13 @@ export function useNain(institutes: NAINInstitute[]) {
 
   const availableYears = computed(() => {
     const set = new Set<string>()
-    institutes.forEach((i) =>
-      i.years.forEach((y) => set.add(y.year)),
-    )
+    institutes.forEach((i) => i.years.forEach((y) => set.add(y.year)))
     return Array.from(set).sort().reverse()
   })
 
   const totalProjects = computed(() =>
     institutes.reduce(
-      (total, inst) =>
-        total +
-        inst.years.reduce((sum, y) => sum + y.projects.length, 0),
+      (total, inst) => total + inst.years.reduce((sum, y) => sum + y.projects.length, 0),
       0,
     ),
   )

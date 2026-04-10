@@ -2,10 +2,7 @@
   <div class="mentors-view bg-white">
     <MentorsHeroSection />
 
-    <MentorsSearchSection
-      :search-query="searchQuery"
-      @update:searchQuery="searchQuery = $event"
-    />
+    <MentorsSearchSection :search-query="searchQuery" @update:searchQuery="searchQuery = $event" />
 
     <MentorsGridSection :mentors="filteredMentors" />
 
@@ -31,12 +28,7 @@ const filteredMentors = computed(() => {
   if (!query) return allMentors
 
   return allMentors.filter((mentor) => {
-    return [
-      mentor.name,
-      mentor.role,
-      mentor.organization ?? '',
-      mentor.bio ?? '',
-    ]
+    return [mentor.name, mentor.role, mentor.organization ?? '', mentor.bio ?? '']
       .join(' ')
       .toLowerCase()
       .includes(query)

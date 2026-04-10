@@ -2,9 +2,7 @@
   <section id="programs" class="bg-white px-6 py-20 md:px-12 lg:px-16 lg:py-24">
     <div class="mx-auto max-w-7xl">
       <div class="mx-auto mb-12 max-w-3xl text-center lg:mb-14">
-        <span
-          class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]"
-        >
+        <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           Programs
         </span>
         <h2
@@ -118,8 +116,8 @@
               Which program is right for you?
             </h3>
             <p class="mt-4 text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
-              Whether you are validating an idea or building on an MVP, compare the two core
-              startup pathways at IDRP and choose the one that fits your current stage.
+              Whether you are validating an idea or building on an MVP, compare the two core startup
+              pathways at IDRP and choose the one that fits your current stage.
             </p>
           </div>
 
@@ -318,13 +316,7 @@
                   />
                 </svg>
 
-                <svg
-                  v-else
-                  class="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                <svg v-else class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"

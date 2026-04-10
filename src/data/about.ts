@@ -13,7 +13,6 @@ import type {
   AboutCampusGalleryImage,
 } from '@/types/about'
 
-
 export const campusGallerySection: AboutSectionIntro = {
   eyebrow: 'Inside IDRP',
   title: 'Campus & Ecosystem',
@@ -82,7 +81,7 @@ export const campusImages: AboutCampusGalleryImage[] = [
     alt: 'Speech laboratory at IDRP',
     title: 'Speech Lab',
   },
-    {
+  {
     id: 'campus-11',
     src: '/campus/idrp_vlsi_lab.jpg',
     alt: 'VLSI laboratory at IDRP',
@@ -96,8 +95,7 @@ export const campusImages: AboutCampusGalleryImage[] = [
 export const aboutHero: AboutHeroContent = {
   eyebrow: 'Who We Are',
   title: 'About IDRP',
-  subtitle:
-    '',
+  subtitle: '',
   image: '/about-hero.jfif',
   imageAlt: 'About IDRP',
   minHeightClass: 'min-h-[380px]',
@@ -138,7 +136,7 @@ export const missionVisionSection: AboutSectionIntro = {
 }
 
 export const missionVision: MissionVisionItem[] = [
-    {
+  {
     title: 'Our Vision',
     description:
       'To become a globally recognized deep-tech innovation hub that drives research translation, startup growth, and meaningful societal impact.',
@@ -238,8 +236,7 @@ export const offerings: Offering[] = [
   },
   {
     title: 'Mentorship Network',
-    description:
-      'A strong network of mentors including founders, investors, and domain experts.',
+    description: 'A strong network of mentors including founders, investors, and domain experts.',
   },
   {
     title: 'Research & Innovation Support',
@@ -248,18 +245,15 @@ export const offerings: Offering[] = [
   },
   {
     title: 'Investor & Market Connect',
-    description:
-      'Access to investors, industry leaders, and market opportunities.',
+    description: 'Access to investors, industry leaders, and market opportunities.',
   },
   {
     title: 'Infrastructure & Workspace',
-    description:
-      'Collaborative workspaces and institutional infrastructure.',
+    description: 'Collaborative workspaces and institutional infrastructure.',
   },
   {
     title: 'Programs & Capacity Building',
-    description:
-      'Workshops, academies, and curated programs for growth.',
+    description: 'Workshops, academies, and curated programs for growth.',
   },
 ]
 
@@ -271,18 +265,15 @@ export const offeringsHighlight: OfferingsHighlight = {
   stages: [
     {
       label: 'Stage 1 · Explore',
-      description:
-        'Identify problems, validate ideas, and explore research-backed solutions.',
+      description: 'Identify problems, validate ideas, and explore research-backed solutions.',
     },
     {
       label: 'Stage 2 · Build',
-      description:
-        'Develop products, gain traction, and refine value propositions.',
+      description: 'Develop products, gain traction, and refine value propositions.',
     },
     {
       label: 'Stage 3 · Scale',
-      description:
-        'Prepare for investment, expand to markets, and grow sustainably.',
+      description: 'Prepare for investment, expand to markets, and grow sustainably.',
     },
   ],
 }
@@ -301,23 +292,19 @@ export const reasonsSection: AboutSectionIntro = {
 export const reasons: Reason[] = [
   {
     title: 'Rooted in Academic Excellence',
-    description:
-      'Access to IIIT Dharwad’s research, expertise, and innovation culture.',
+    description: 'Access to IIIT Dharwad’s research, expertise, and innovation culture.',
   },
   {
     title: 'Designed for Deep-Tech',
-    description:
-      'Built for technically ambitious ideas requiring long-term development.',
+    description: 'Built for technically ambitious ideas requiring long-term development.',
   },
   {
     title: 'End-to-End Support',
-    description:
-      'From idea validation to scaling, we support the entire journey.',
+    description: 'From idea validation to scaling, we support the entire journey.',
   },
   {
     title: 'Strong Ecosystem Access',
-    description:
-      'Connections to mentors, investors, institutions, and industry leaders.',
+    description: 'Connections to mentors, investors, institutions, and industry leaders.',
   },
 ]
 
@@ -335,22 +322,19 @@ export const visionSection: AboutSectionIntro = {
 export const visionCards: VisionCard[] = [
   {
     title: 'Think Bold, Build Meaningfully',
-    description:
-      'We encourage ambitious thinking and real-world impact through innovation.',
+    description: 'We encourage ambitious thinking and real-world impact through innovation.',
     image: '/vision-innovation.jfif',
     imageAlt: 'Innovation at IDRP',
   },
   {
     title: 'Grow Together',
-    description:
-      'We believe in collaborative ecosystems that accelerate progress.',
+    description: 'We believe in collaborative ecosystems that accelerate progress.',
     image: '/vision-community.jfif',
     imageAlt: 'Community at IDRP',
   },
   {
     title: 'Enable, Don’t Limit',
-    description:
-      'We remove barriers and provide support so founders can focus on building.',
+    description: 'We remove barriers and provide support so founders can focus on building.',
     image: '/vision-resources.jfif',
     imageAlt: 'Resources at IDRP',
   },

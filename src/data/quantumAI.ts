@@ -4,8 +4,7 @@ export const quantumAIPage = {
   hero: {
     eyebrow: 'Government Initiatives',
     title: 'Centre of Excellence in Quantum AI and Computing',
-    subtitle:
-      '',
+    subtitle: '',
     image: '/quantum-ai-hero.jfif',
     imageAlt: 'Quantum AI Centre',
   },
@@ -33,18 +32,15 @@ export const quantumAIPage = {
       },
       {
         title: 'Future-Ready Research',
-        description:
-          'Supports interdisciplinary exploration and knowledge creation.',
+        description: 'Supports interdisciplinary exploration and knowledge creation.',
       },
       {
         title: 'Talent Development',
-        description:
-          'Prepares students and researchers for emerging domains.',
+        description: 'Prepares students and researchers for emerging domains.',
       },
       {
         title: 'Innovation Ecosystem',
-        description:
-          'Enables collaboration and ecosystem engagement in advanced computing.',
+        description: 'Enables collaboration and ecosystem engagement in advanced computing.',
       },
     ],
     image: '/quantum-ai/quantum-ai-value.jpeg',

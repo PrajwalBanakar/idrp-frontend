@@ -117,8 +117,7 @@ function parseLocalDate(dateString: string, endOfDay = false) {
 
   return new Date(year, month - 1, day, 0, 0, 0, 0)
 }
-export const getVisibleEvents = () =>
-  events.filter((event) => event.visible !== false)
+export const getVisibleEvents = () => events.filter((event) => event.visible !== false)
 
 export const getEventById = (id: number) =>
   events.find((event) => event.id === id && event.visible !== false)
@@ -132,14 +131,9 @@ export const getUpcomingEvents = () => {
   return events
     .filter(
       (event) =>
-        parseLocalDate(event.endDate, true).getTime() >= now.getTime() &&
-        event.visible !== false,
+        parseLocalDate(event.endDate, true).getTime() >= now.getTime() && event.visible !== false,
     )
-    .sort(
-      (a, b) =>
-        parseLocalDate(a.startDate).getTime() -
-        parseLocalDate(b.startDate).getTime(),
-    )
+    .sort((a, b) => parseLocalDate(a.startDate).getTime() - parseLocalDate(b.startDate).getTime())
 }
 
 export const getPastEvents = () => {
@@ -148,12 +142,7 @@ export const getPastEvents = () => {
   return events
     .filter(
       (event) =>
-        parseLocalDate(event.endDate, true).getTime() < now.getTime() &&
-        event.visible !== false,
+        parseLocalDate(event.endDate, true).getTime() < now.getTime() && event.visible !== false,
     )
-    .sort(
-      (a, b) =>
-        parseLocalDate(b.startDate).getTime() -
-        parseLocalDate(a.startDate).getTime(),
-    )
+    .sort((a, b) => parseLocalDate(b.startDate).getTime() - parseLocalDate(a.startDate).getTime())
 }

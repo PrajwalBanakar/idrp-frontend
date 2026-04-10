@@ -8,13 +8,9 @@ const props = defineProps<{
   options?: ServiceFormOption[]
 }>()
 
-const formConfig = computed(() =>
-  createServiceFormConfig(props.options ?? []),
-)
+const formConfig = computed(() => createServiceFormConfig(props.options ?? []))
 </script>
 
 <template>
-  <GenericFormSection
-    :config="formConfig"
-  />
+  <GenericFormSection :config="formConfig" />
 </template>

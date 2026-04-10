@@ -13,7 +13,6 @@ const pinia = createPinia()
 
 const head = createHead()
 
-
 // Register plugins
 app.use(pinia)
 app.use(router)

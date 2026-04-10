@@ -3,7 +3,7 @@
     <ResourcesHeroSection />
     <!-- <ResourcesIntroSection /> -->
     <NewsletterBookshelfSection :newsletters="newsletters" />
-     <!-- <ResourceCategoriesSection :categories="resourceCategories" />  -->
+    <!-- <ResourceCategoriesSection :categories="resourceCategories" />  -->
     <!-- <MatchmakingSection :steps="matchmakingSteps" /> -->
     <!-- <ResourcesCTASection /> -->
   </div>

@@ -6,10 +6,14 @@
         <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           Services
         </span>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl">
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl lg:text-5xl"
+        >
           Enabling innovation through focused support
         </h2>
-        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
+        <p
+          class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg"
+        >
           Targeted services designed to strengthen research, industry collaboration, and technical
           capacity across the ecosystem.
         </p>
@@ -30,7 +34,9 @@
               <span v-html="service.icon" class="h-6 w-6" />
             </div>
 
-            <h3 class="text-xl font-semibold text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-primary)] sm:text-2xl">
+            <h3
+              class="text-xl font-semibold text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-primary)] sm:text-2xl"
+            >
               {{ service.title }}
             </h3>
 
@@ -44,7 +50,12 @@
           >
             Explore service
             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </div>
         </RouterLink>

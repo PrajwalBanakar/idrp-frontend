@@ -5,9 +5,7 @@
     <ServiceHighlightsSection :items="technicalEducationAcademyPage.highlights ?? []" />
     <!-- <ServiceStatsSection :stats="technicalEducationAcademyPage.stats ?? []" /> -->
 
-    <AcademyCategoriesSection
-      :categories="technicalEducationAcademyPage.academyCategories"
-    />
+    <AcademyCategoriesSection :categories="technicalEducationAcademyPage.academyCategories" />
 
     <ServiceCTASection
       v-if="technicalEducationAcademyPage.cta"

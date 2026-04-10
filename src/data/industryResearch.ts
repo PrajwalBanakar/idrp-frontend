@@ -5,8 +5,7 @@ export const industryResearchPage: ServicePage = {
   hero: {
     eyebrow: 'Services',
     title: 'Industry Research & Consulting',
-    description:
-      '',
+    description: '',
     image: '/industry-research-hero.jfif',
   },
   intro: {
@@ -68,11 +67,23 @@ export const industryResearchPage: ServicePage = {
   },
   formOptions: [
     { label: 'Applied Technology Research', value: 'Applied Technology Research' },
-    { label: 'Industry Problem Solving & Validation', value: 'Industry Problem Solving & Validation' },
+    {
+      label: 'Industry Problem Solving & Validation',
+      value: 'Industry Problem Solving & Validation',
+    },
     { label: 'Strategy & Consulting Support', value: 'Strategy & Consulting Support' },
-    { label: 'Process Improvement & Performance Study', value: 'Process Improvement & Performance Study' },
-    { label: 'Innovation / Product / Feasibility Support', value: 'Innovation / Product / Feasibility Support' },
+    {
+      label: 'Process Improvement & Performance Study',
+      value: 'Process Improvement & Performance Study',
+    },
+    {
+      label: 'Innovation / Product / Feasibility Support',
+      value: 'Innovation / Product / Feasibility Support',
+    },
     { label: 'AI / Data / Digital Transformation', value: 'AI / Data / Digital Transformation' },
-    { label: 'Pilot / Execution / Implementation Support', value: 'Pilot / Execution / Implementation Support' },
+    {
+      label: 'Pilot / Execution / Implementation Support',
+      value: 'Pilot / Execution / Implementation Support',
+    },
   ],
 }

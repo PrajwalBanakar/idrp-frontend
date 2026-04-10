@@ -15,7 +15,9 @@ defineProps<{
         <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
           {{ section.eyebrow }}
         </span>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl"
+        >
           {{ section.title }}
         </h2>
         <p class="mt-5 text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">

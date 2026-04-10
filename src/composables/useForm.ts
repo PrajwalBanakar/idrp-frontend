@@ -17,11 +17,7 @@ function getInitialValues(config: FormConfig): FormValues {
   return fields.reduce<FormValues>((acc, field) => {
     acc[field.name] =
       field.defaultValue ??
-      (field.type === 'checkbox'
-        ? false
-        : field.type === 'checkbox-group'
-          ? []
-          : '')
+      (field.type === 'checkbox' ? false : field.type === 'checkbox-group' ? [] : '')
 
     return acc
   }, {})
@@ -55,13 +51,13 @@ function validateRule(
       if (!normalizedValue || Array.isArray(normalizedValue)) return null
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(normalizedValue))
         ? null
-        : rule.message ?? 'Enter a valid email address.'
+        : (rule.message ?? 'Enter a valid email address.')
 
     case 'phone':
       if (!normalizedValue || Array.isArray(normalizedValue)) return null
       return /^[0-9+\-\s()]{7,15}$/.test(String(normalizedValue))
         ? null
-        : rule.message ?? 'Enter a valid phone number.'
+        : (rule.message ?? 'Enter a valid phone number.')
 
     case 'url':
       if (!normalizedValue || Array.isArray(normalizedValue)) return null
@@ -76,43 +72,35 @@ function validateRule(
       if (!normalizedValue || Array.isArray(normalizedValue)) return null
       return String(normalizedValue).length >= rule.value
         ? null
-        : rule.message ?? `${label} must be at least ${rule.value} characters.`
+        : (rule.message ?? `${label} must be at least ${rule.value} characters.`)
 
     case 'maxLength':
       if (!normalizedValue || Array.isArray(normalizedValue)) return null
       return String(normalizedValue).length <= rule.value
         ? null
-        : rule.message ?? `${label} must be at most ${rule.value} characters.`
+        : (rule.message ?? `${label} must be at most ${rule.value} characters.`)
 
     case 'min':
-      if (
-        normalizedValue === '' ||
-        normalizedValue === null ||
-        Array.isArray(normalizedValue)
-      ) {
+      if (normalizedValue === '' || normalizedValue === null || Array.isArray(normalizedValue)) {
         return null
       }
       return Number(normalizedValue) >= rule.value
         ? null
-        : rule.message ?? `${label} must be at least ${rule.value}.`
+        : (rule.message ?? `${label} must be at least ${rule.value}.`)
 
     case 'max':
-      if (
-        normalizedValue === '' ||
-        normalizedValue === null ||
-        Array.isArray(normalizedValue)
-      ) {
+      if (normalizedValue === '' || normalizedValue === null || Array.isArray(normalizedValue)) {
         return null
       }
       return Number(normalizedValue) <= rule.value
         ? null
-        : rule.message ?? `${label} must be at most ${rule.value}.`
+        : (rule.message ?? `${label} must be at most ${rule.value}.`)
 
     case 'pattern':
       if (!normalizedValue || Array.isArray(normalizedValue)) return null
       return rule.value.test(String(normalizedValue))
         ? null
-        : rule.message ?? `${label} format is invalid.`
+        : (rule.message ?? `${label} format is invalid.`)
 
     default:
       return null

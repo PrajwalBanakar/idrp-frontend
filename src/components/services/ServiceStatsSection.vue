@@ -1,29 +1,23 @@
 <template>
-  <section v-if="stats.length" class="bg-gradient-to-br from-teal-800 to-cyan-600 px-6 py-24 md:px-16">
+  <section
+    v-if="stats.length"
+    class="bg-gradient-to-br from-teal-800 to-cyan-600 px-6 py-24 md:px-16"
+  >
     <div class="mx-auto max-w-5xl">
       <div class="mb-14 text-center">
         <span class="text-sm font-semibold uppercase tracking-widest text-teal-100">
           Impact Snapshot
         </span>
 
-        <h2 class="mt-2 text-3xl font-bold text-white md:text-4xl">
-          Service Impact at a Glance
-        </h2>
+        <h2 class="mt-2 text-3xl font-bold text-white md:text-4xl">Service Impact at a Glance</h2>
 
         <p class="mt-3 text-teal-100">
           Key numbers that reflect the reach, focus, and value created through this service.
         </p>
       </div>
 
-      <div
-        class="grid gap-8"
-        :class="gridClasses"
-      >
-        <div
-          v-for="stat in stats"
-          :key="stat.label"
-          class="text-center"
-        >
+      <div class="grid gap-8" :class="gridClasses">
+        <div v-for="stat in stats" :key="stat.label" class="text-center">
           <p class="text-4xl font-extrabold text-white md:text-5xl">
             {{ stat.value }}
           </p>

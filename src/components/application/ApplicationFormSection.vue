@@ -9,13 +9,9 @@ const props = defineProps<{
   supportOptions: string[]
 }>()
 
-const formConfig = computed(() =>
-  createApplicationFormConfig(props.program, props.supportOptions),
-)
+const formConfig = computed(() => createApplicationFormConfig(props.program, props.supportOptions))
 </script>
 
 <template>
-  <GenericFormSection
-    :config="formConfig"
-  />
+  <GenericFormSection :config="formConfig" />
 </template>

@@ -8,8 +8,7 @@ export const technicalEducationAcademyPage: ServicePage & {
   hero: {
     eyebrow: 'Services',
     title: 'Technical Education Academy',
-    description:
-      '',
+    description: '',
     image: '/academy-hero.jfif',
   },
   intro: {

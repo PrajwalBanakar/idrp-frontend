@@ -24,12 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  startupStats,
-  startups,
-  startupsHero,
-  startupsIntro,
-} from '@/data/startups'
+import { startupStats, startups, startupsHero, startupsIntro } from '@/data/startups'
 
 import StartupsPortfolioSection from '@/components/startups/StartupsPortfolioSection.vue'
 import StartupsHeroSection from '@/components/startups/StartupsHeroSection.vue'

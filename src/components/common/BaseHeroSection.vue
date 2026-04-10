@@ -18,10 +18,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <section
-    class="relative overflow-hidden bg-slate-950 text-white"
-    :class="minHeightClass"
-  >
+  <section class="relative overflow-hidden bg-slate-950 text-white" :class="minHeightClass">
     <div class="absolute inset-0">
       <div
         class="absolute inset-0 bg-[linear-gradient(135deg,#031527_0%,#073863_45%,#0a4c85_100%)]"
@@ -34,10 +31,7 @@ withDefaults(defineProps<Props>(), {
 
     <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
 
-    <div
-      class="relative z-10 mx-auto flex w-full max-w-7xl items-center"
-      :class="containerClass"
-    >
+    <div class="relative z-10 mx-auto flex w-full max-w-7xl items-center" :class="containerClass">
       <div :class="contentWidthClass">
         <p
           v-if="eyebrow"

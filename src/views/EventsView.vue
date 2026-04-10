@@ -79,13 +79,13 @@ const pastEvents = computed(() => getPastEvents())
 const upcomingPage = ref(1)
 const pastPage = ref(1)
 
-const {
-  totalPages: upcomingTotalPages,
-  paginatedItems: upcomingPaginatedItems,
-} = createPagination(upcomingEvents, upcomingPage)
+const { totalPages: upcomingTotalPages, paginatedItems: upcomingPaginatedItems } = createPagination(
+  upcomingEvents,
+  upcomingPage,
+)
 
-const {
-  totalPages: pastTotalPages,
-  paginatedItems: pastPaginatedItems,
-} = createPagination(pastEvents, pastPage)
+const { totalPages: pastTotalPages, paginatedItems: pastPaginatedItems } = createPagination(
+  pastEvents,
+  pastPage,
+)
 </script>

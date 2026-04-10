@@ -8,9 +8,7 @@ const props = defineProps<{
   course: CertificationCourse
 }>()
 
-const formConfig = computed(() =>
-  createCourseApplicationFormConfig(props.course),
-)
+const formConfig = computed(() => createCourseApplicationFormConfig(props.course))
 </script>
 
 <template>

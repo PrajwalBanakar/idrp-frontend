@@ -96,15 +96,12 @@ export const nainPage: NAINPageData = {
               title: 'Development of AIuminum Air Battery',
               facultyGuideName: 'Mr. Manjunath G. Prasad',
               teamLeaderName: 'Mr. Omkar Deshpande',
-              teamMembers: [
-                'Kiran Madiwalar',
-                'Mr. Gagan R. Kori',
-                'Mr. khushal R. Damamgar',
-              ],
+              teamMembers: ['Kiran Madiwalar', 'Mr. Gagan R. Kori', 'Mr. khushal R. Damamgar'],
             },
             {
               id: 'kleit-p4',
-              title: 'Smart Medicine Dispenser with App Integration for Automated Medication Management',
+              title:
+                'Smart Medicine Dispenser with App Integration for Automated Medication Management',
               facultyGuideName: 'Dr. Manu T. M.',
               teamLeaderName: 'Miss. Vinaya Alandkar',
               teamMembers: [
@@ -116,7 +113,8 @@ export const nainPage: NAINPageData = {
             },
             {
               id: 'kleit-p5',
-              title: 'Evaluating the Feasibility and Benefits of Grey water for the Urban Community Using IoT.',
+              title:
+                'Evaluating the Feasibility and Benefits of Grey water for the Urban Community Using IoT.',
               facultyGuideName: 'Dr. Rajashekhar S. Laddimath',
               teamLeaderName: 'Mr. Umar Faruk Budde Saheb Hallikeri',
               teamMembers: [
@@ -135,7 +133,8 @@ export const nainPage: NAINPageData = {
             },
             {
               id: 'kleit-p7',
-              title: 'Assistive Technology for Empowering Visually Impaired Students in Mainstream Classrooms',
+              title:
+                'Assistive Technology for Empowering Visually Impaired Students in Mainstream Classrooms',
               facultyGuideName: 'Dr. Rajesh Yakkundimath',
               teamLeaderName: 'Miss. Ananya Kalasaraddi',
               teamMembers: [
@@ -146,7 +145,8 @@ export const nainPage: NAINPageData = {
             },
             {
               id: 'kleit-p8',
-              title: 'Influences of marbel powder on properties of alkali activated slag concrete cured atambint temperature',
+              title:
+                'Influences of marbel powder on properties of alkali activated slag concrete cured atambint temperature',
               facultyGuideName: 'Dr. Veeresh B. Karikatti',
               teamLeaderName: 'Mr. Sagar Munavalli',
               teamMembers: [
@@ -170,7 +170,8 @@ export const nainPage: NAINPageData = {
             },
             {
               id: 'kleit-p10',
-              title: 'NiravaDx: Revolutionizing Non - Invasive Blood Group Detection for Rapid Diagnostics',
+              title:
+                'NiravaDx: Revolutionizing Non - Invasive Blood Group Detection for Rapid Diagnostics',
               facultyGuideName: 'Dr. Sushrut S. H.',
               teamLeaderName: 'Miss. Sharadeeshri H Kenchagoudati',
               teamMembers: ['Miss. Rajeshwari D.'],
@@ -253,7 +254,7 @@ export const nainPage: NAINPageData = {
             {
               id: 'dimhans-p5',
               title:
-                "Development of SNP Panel for Screening of Alzheimer’s disease associated SNP’s in Indian Cohort",
+                'Development of SNP Panel for Screening of Alzheimer’s disease associated SNP’s in Indian Cohort',
               facultyGuideName: 'Dr. Manjunath Bajantri and Dr. Srinivas Kosgi',
               teamLeaderName: 'Dr. Ramchandra Horatti - Department of Psychiatry',
               teamMembers: [
@@ -269,11 +270,7 @@ export const nainPage: NAINPageData = {
                 'Relapse Prevention Among Patients With Alcohol Use Disorder in Indian Scenario: Role of Psycho-Social Interventions',
               facultyGuideName: 'Dr. Ashok Kori',
               teamLeaderName: 'Mr. Ramesh - Department of Psychiatry Social Work',
-              teamMembers: [
-                'Arunkumar C',
-                'Dr. Srinivas Kosgi',
-                'Dr. Susheelkumar V Ronad',
-              ],
+              teamMembers: ['Arunkumar C', 'Dr. Srinivas Kosgi', 'Dr. Susheelkumar V Ronad'],
             },
             {
               id: 'dimhans-p7',
@@ -358,14 +355,11 @@ export const nainPage: NAINPageData = {
             },
             {
               id: 'klecop-p4',
-              title: 'Cosmeceutical Dual-Action Nano Formulation for Hair Restoration and Hair Growth',
+              title:
+                'Cosmeceutical Dual-Action Nano Formulation for Hair Restoration and Hair Growth',
               facultyGuideName: 'Dr. V.S. Mannur',
               teamLeaderName: 'Mr. Naman Kothari',
-              teamMembers: [
-                'Mr. Rahul Koli',
-                'Mr. Gangadhar Meled',
-                'Mr. Pratik Basagoudar',
-              ],
+              teamMembers: ['Mr. Rahul Koli', 'Mr. Gangadhar Meled', 'Mr. Pratik Basagoudar'],
             },
             {
               id: 'klecop-p5',
@@ -390,7 +384,8 @@ export const nainPage: NAINPageData = {
             },
             {
               id: 'klecop-p7',
-              title: 'Exploring natural dyes for commercially viable environmental friendly applications.',
+              title:
+                'Exploring natural dyes for commercially viable environmental friendly applications.',
               facultyGuideName: 'Dr. Nithyananda Sastry Darbha',
               teamLeaderName: 'Mr. Kumar B Koneri',
               teamMembers: ['Ms. Aakanksha Shinde', 'Mr. Shreyash Gaikwad'],
@@ -472,12 +467,7 @@ export const nainPage: NAINPageData = {
                 'Production of Eco-Friendly Cementless Interlocking Paver Blocks using Plastic Sand for Light Traffic',
               facultyGuideName: 'Prof.Vivekanand Korishetti, Prof.Sandeep Kulkarni',
               teamLeaderName: 'Rahul Gadaveer',
-              teamMembers: [
-                'Pradeep M Amboji',
-                'B Jhanu',
-                'Sanjana Mutakekar',
-                'Masud Ahmed',
-              ],
+              teamMembers: ['Pradeep M Amboji', 'B Jhanu', 'Sanjana Mutakekar', 'Masud Ahmed'],
             },
             {
               id: 'sgbit-p3',
@@ -496,11 +486,7 @@ export const nainPage: NAINPageData = {
               title: 'Tribrid Vehicle',
               facultyGuideName: 'Prof. Mallikarjun Bhagawati',
               teamLeaderName: 'Kartik Payannavar',
-              teamMembers: [
-                'Basavaraj M Bhusani',
-                'Darshan Badiger',
-                'Priyanka Badiger',
-              ],
+              teamMembers: ['Basavaraj M Bhusani', 'Darshan Badiger', 'Priyanka Badiger'],
             },
             {
               id: 'sgbit-p5',
@@ -520,12 +506,7 @@ export const nainPage: NAINPageData = {
                 'CareTroid: Robotic Assistance for Elderly Well-being and Remote Family Support',
               facultyGuideName: 'Prof.Rajeshwari Kisan, Prof.Kshitij Sheth',
               teamLeaderName: 'Shrusti Padmannavar',
-              teamMembers: [
-                'Sampada Chaugule',
-                'Hemant Mandi',
-                'Chirag Kamble',
-                'Rushikesh Patil',
-              ],
+              teamMembers: ['Sampada Chaugule', 'Hemant Mandi', 'Chirag Kamble', 'Rushikesh Patil'],
             },
             {
               id: 'sgbit-p7',
@@ -545,11 +526,7 @@ export const nainPage: NAINPageData = {
               title: 'Automated Effluent Treatment System',
               facultyGuideName: 'Dr.Supanna Shirguppe, Dr Prashant B Bhagawati',
               teamLeaderName: 'Adnan Belwadi',
-              teamMembers: [
-                'Misbha Killedar',
-                'Rohan Bajantri',
-                'Prachi Jakkanawar',
-              ],
+              teamMembers: ['Misbha Killedar', 'Rohan Bajantri', 'Prachi Jakkanawar'],
             },
             {
               id: 'sgbit-p9',
@@ -624,7 +601,8 @@ export const nainPage: NAINPageData = {
             },
             {
               id: 'bldea-p3',
-              title: 'SmartWeed: Automated Weed Detection and Removal System for Sustainable Farming',
+              title:
+                'SmartWeed: Automated Weed Detection and Removal System for Sustainable Farming',
               facultyGuideName: 'Prof. V. C. Sajjanar',
               teamLeaderName: 'Mruthunjay Hiremath',
               teamMembers: [
@@ -668,8 +646,7 @@ export const nainPage: NAINPageData = {
             },
             {
               id: 'bldea-p7',
-              title:
-                'Krishi care:Collecting and Analyzing Drone Imagery for Crop pest control',
+              title: 'Krishi care:Collecting and Analyzing Drone Imagery for Crop pest control',
               facultyGuideName: 'Dr. Leena Ragha',
               teamLeaderName: 'Nikita S Nirvanashetti',
               teamMembers: [
@@ -681,16 +658,10 @@ export const nainPage: NAINPageData = {
             },
             {
               id: 'bldea-p8',
-              title:
-                'Cattle feed (Pallets) Manufacturing machine using agricultural waste',
+              title: 'Cattle feed (Pallets) Manufacturing machine using agricultural waste',
               facultyGuideName: 'Dr. B. M. Angadi',
               teamLeaderName: 'Bhavya Melinamath',
-              teamMembers: [
-                'Iranna Karakal',
-                'Nandeesh Awati',
-                'Omkar Mane',
-                'Basangouda P Patil',
-              ],
+              teamMembers: ['Iranna Karakal', 'Nandeesh Awati', 'Omkar Mane', 'Basangouda P Patil'],
             },
             {
               id: 'bldea-p9',

@@ -71,7 +71,7 @@ export const allMentors: Mentor[] = [
     imageAlt: 'Prof. Dr. Subhash Marihal',
     linkedin: 'https://www.linkedin.com/in/prof-dr-subhas-marihal-81359315',
   },
-    {
+  {
     name: 'Prof. V. Ravishankar',
     role: 'Business Mentor',
     image: '/mentors/business-ravishankar.jpg',

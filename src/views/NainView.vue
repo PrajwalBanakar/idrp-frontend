@@ -2,11 +2,7 @@
   <div class="nain-view bg-white">
     <NainHeroSection v-bind="nainPage.hero" />
 
-    <NainOverviewSection
-      :overview="nainPage.overview"
-      :stats="overviewStats"
-      :pmu="nainPage.pmu"
-    />
+    <NainOverviewSection :overview="nainPage.overview" :stats="overviewStats" :pmu="nainPage.pmu" />
 
     <NainGallerySection :images="nainImages" />
 
@@ -149,5 +145,4 @@ const filteredInstitutes = computed<NAINInstitute[]>(() => {
     })
     .filter(Boolean) as NAINInstitute[]
 })
-
 </script>

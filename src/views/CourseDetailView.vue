@@ -1,16 +1,13 @@
 <template>
-  <div
-    v-if="coursePage"
-    class="course-detail-view"
-  >
-<CourseDetailHeroSection
-  :eyebrow="coursePage.eyebrow"
-  :title="coursePage.heroTitle"
-  :description="coursePage.heroDescription"
-  :apply-route="coursePage.applyRoute"
-  :enquire-route="coursePage.enquireRoute"
-  :brochure-url="course?.brochureUrl"
-/>
+  <div v-if="coursePage" class="course-detail-view">
+    <CourseDetailHeroSection
+      :eyebrow="coursePage.eyebrow"
+      :title="coursePage.heroTitle"
+      :description="coursePage.heroDescription"
+      :apply-route="coursePage.applyRoute"
+      :enquire-route="coursePage.enquireRoute"
+      :brochure-url="course?.brochureUrl"
+    />
 
     <CourseDetailOverviewSection
       :overview-title="coursePage.overviewTitle"
@@ -21,10 +18,7 @@
 
     <CourseHighlightsSection :highlights="coursePage.highlights" />
 
-    <CourseAudienceSection
-      :audience="coursePage.audience"
-      :outcomes="coursePage.outcomes"
-    />
+    <CourseAudienceSection :audience="coursePage.audience" :outcomes="coursePage.outcomes" />
 
     <CourseDetailCTASection
       :title="coursePage.ctaTitle"
@@ -47,17 +41,16 @@ import CourseDetailNotFound from '@/components/academy/CourseDetailNotFound.vue'
 import CourseDetailOverviewSection from '@/components/academy/CourseDetailOverviewSection.vue'
 import CourseHighlightsSection from '@/components/academy/CourseHighlightsSection.vue'
 
-import { getCertificationCourseDetailPageBySlug, getCertificationCourseBySlug } from '@/data/academyCatalog'
+import {
+  getCertificationCourseDetailPageBySlug,
+  getCertificationCourseBySlug,
+} from '@/data/academyCatalog'
 
 const route = useRoute()
 
 const slug = computed(() => String(route.params.slug ?? ''))
 
-const coursePage = computed(() =>
-  getCertificationCourseDetailPageBySlug(slug.value),
-)
+const coursePage = computed(() => getCertificationCourseDetailPageBySlug(slug.value))
 
-const course = computed(() =>
-  getCertificationCourseBySlug(slug.value),
-)
+const course = computed(() => getCertificationCourseBySlug(slug.value))
 </script>

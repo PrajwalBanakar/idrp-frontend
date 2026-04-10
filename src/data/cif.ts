@@ -4,8 +4,7 @@ export const cifPage: InitiativePageData = {
   hero: {
     eyebrow: 'Government Initiatives',
     title: 'Common Instrumentation Facility',
-    subtitle:
-      '',
+    subtitle: '',
     image: '/cif-hero.jfif',
     imageAlt: 'Common Instrumentation Facility',
   },
@@ -33,13 +32,11 @@ export const cifPage: InitiativePageData = {
       },
       {
         title: 'Cost efficiency',
-        description:
-          'Minimize capital investment while gaining access to essential resources.',
+        description: 'Minimize capital investment while gaining access to essential resources.',
       },
       {
         title: 'Faster prototyping',
-        description:
-          'Accelerate testing, iteration, and validation cycles.',
+        description: 'Accelerate testing, iteration, and validation cycles.',
       },
       {
         title: 'Collaborative ecosystem',

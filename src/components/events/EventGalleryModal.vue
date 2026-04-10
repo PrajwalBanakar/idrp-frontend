@@ -51,14 +51,9 @@
             class="border-t border-slate-800 bg-slate-900 px-4 py-3 text-sm text-slate-300 sm:px-5 sm:py-4"
           >
             <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <p>
-                Image {{ currentIndex + 1 }} of {{ images.length }}
-              </p>
+              <p>Image {{ currentIndex + 1 }} of {{ images.length }}</p>
 
-              <div
-                v-if="images.length > 1"
-                class="flex gap-2 overflow-x-auto pb-1 sm:max-w-[70%]"
-              >
+              <div v-if="images.length > 1" class="flex gap-2 overflow-x-auto pb-1 sm:max-w-[70%]">
                 <button
                   v-for="(image, index) in images"
                   :key="`${image}-${index}`"
@@ -122,13 +117,11 @@ watch(
 )
 
 function previousImage() {
-  currentIndex.value =
-    currentIndex.value === 0 ? props.images.length - 1 : currentIndex.value - 1
+  currentIndex.value = currentIndex.value === 0 ? props.images.length - 1 : currentIndex.value - 1
 }
 
 function nextImage() {
-  currentIndex.value =
-    currentIndex.value === props.images.length - 1 ? 0 : currentIndex.value + 1
+  currentIndex.value = currentIndex.value === props.images.length - 1 ? 0 : currentIndex.value + 1
 }
 
 function handleKeydown(event: KeyboardEvent) {

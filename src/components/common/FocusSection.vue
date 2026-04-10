@@ -14,9 +14,7 @@ defineProps<{
   <section class="bg-white px-6 py-24 md:px-16">
     <div class="mx-auto max-w-6xl">
       <div class="mb-16 text-center">
-        <h2 class="text-4xl font-bold text-gray-900">
-          What the Initiative Supports
-        </h2>
+        <h2 class="text-4xl font-bold text-gray-900">What the Initiative Supports</h2>
       </div>
 
       <div class="grid gap-8 md:grid-cols-2">

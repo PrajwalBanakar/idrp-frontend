@@ -130,9 +130,7 @@ const props = defineProps<{
 
 const isGalleryOpen = ref(false)
 
-const badgeText = computed(() =>
-  props.variant === 'upcoming' ? 'Upcoming' : 'Past',
-)
+const badgeText = computed(() => (props.variant === 'upcoming' ? 'Upcoming' : 'Past'))
 
 const hasGallery = computed(
   () => Array.isArray(props.event.gallery) && props.event.gallery.length > 0,

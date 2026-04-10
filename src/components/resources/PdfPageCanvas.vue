@@ -6,11 +6,7 @@
       {{ error }}
     </div>
 
-    <canvas
-      v-else
-      ref="canvasRef"
-      class="max-h-full max-w-full rounded-lg shadow-sm"
-    />
+    <canvas v-else ref="canvasRef" class="max-h-full max-w-full rounded-lg shadow-sm" />
   </div>
 </template>
 
@@ -64,10 +60,10 @@ async function renderPage() {
 
     context.setTransform(ratio, 0, 0, ratio, 0, 0)
 
-await page.render({
-  canvas,
-  viewport,
-}).promise
+    await page.render({
+      canvas,
+      viewport,
+    }).promise
   } catch (err) {
     console.error(err)
     error.value = 'Unable to load this page.'

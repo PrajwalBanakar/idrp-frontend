@@ -13,9 +13,7 @@ defineProps<{
   <section class="bg-gray-50 px-6 py-24 md:px-16">
     <div class="mx-auto max-w-6xl">
       <div class="mb-16 text-center">
-        <h2 class="text-4xl font-bold text-gray-900">
-          Who Can Benefit
-        </h2>
+        <h2 class="text-4xl font-bold text-gray-900">Who Can Benefit</h2>
       </div>
 
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">

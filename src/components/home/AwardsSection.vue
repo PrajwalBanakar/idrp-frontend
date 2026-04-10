@@ -3,7 +3,9 @@
     <div class="mx-auto max-w-7xl">
       <div class="mb-12 grid gap-10 lg:mb-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14">
         <div>
-          <span class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
+          <span
+            class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]"
+          >
             Milestones
           </span>
           <h2
@@ -13,7 +15,13 @@
           </h2>
           <div
             class="mt-6 h-1 w-14 rounded-full"
-            style="background: linear-gradient(to right, var(--color-primary-light), var(--color-primary));"
+            style="
+              background: linear-gradient(
+                to right,
+                var(--color-primary-light),
+                var(--color-primary)
+              );
+            "
           />
         </div>
 
@@ -92,9 +100,7 @@
               {{ award.title }}
             </p>
 
-            <p class="mt-2 text-sm text-slate-500">
-              {{ award.issuer }} · {{ award.year }}
-            </p>
+            <p class="mt-2 text-sm text-slate-500">{{ award.issuer }} · {{ award.year }}</p>
           </div>
         </article>
       </div>
