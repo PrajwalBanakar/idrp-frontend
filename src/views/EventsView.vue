@@ -34,17 +34,18 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, type Ref } from 'vue'
+import { computed, ref, watch, type Ref } from 'vue'
 
 import EventsCTASection from '@/components/events/EventsCTASection.vue'
 import EventsHeroSection from '@/components/events/EventsHeroSection.vue'
 import EventsSection from '@/components/events/EventsSection.vue'
 
 import {
-  events,
   eventsCta,
   eventsHero,
   eventsSections,
+  getUpcomingEvents,
+  getPastEvents,
 } from '@/data/events'
 
 import type { EventItem } from '@/types/events'
@@ -60,15 +61,20 @@ function createPagination(items: Ref<EventItem[]>, page: Ref<number>) {
     return items.value.slice(start, start + PER_PAGE)
   })
 
+  watch(items, () => {
+    if (page.value > totalPages.value) {
+      page.value = 1
+    }
+  })
+
   return {
     totalPages,
     paginatedItems,
   }
 }
 
-const visibleEvents = computed(() => events.filter((event) => event.visible !== false))
-const upcomingEvents = computed(() => visibleEvents.value.filter((event) => event.isUpcoming))
-const pastEvents = computed(() => visibleEvents.value.filter((event) => !event.isUpcoming))
+const upcomingEvents = computed(() => getUpcomingEvents())
+const pastEvents = computed(() => getPastEvents())
 
 const upcomingPage = ref(1)
 const pastPage = ref(1)

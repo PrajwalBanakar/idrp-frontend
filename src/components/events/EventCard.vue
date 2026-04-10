@@ -4,20 +4,26 @@
     :class="variant === 'past' ? 'opacity-95' : ''"
   >
     <div class="grid gap-0 lg:grid-cols-[360px_1fr]">
-      <!-- Left: brochure/poster -->
       <div class="bg-slate-100 p-4 sm:p-5">
-        <a :href="brochureLink" target="_blank" rel="noopener noreferrer" class="block h-full">
-          <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
+        <a :href="event.image" target="_blank" rel="noopener noreferrer" class="block w-full">
+          <div
+            class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md"
+            :class="event.imageFit === 'cover' ? 'h-[220px]' : ''"
+          >
             <img
               :src="event.image"
               :alt="event.title"
-              class="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
+              class="w-full transition duration-500 hover:scale-[1.03]"
+              :class="
+                event.imageFit === 'contain'
+                  ? 'h-auto object-contain bg-white'
+                  : 'h-full object-cover object-center'
+              "
             />
           </div>
         </a>
       </div>
 
-      <!-- Right: content -->
       <div class="flex flex-col justify-between p-6 sm:p-8">
         <div>
           <div class="mb-5 flex items-center gap-3">
@@ -50,11 +56,11 @@
           <div class="mt-6 grid gap-4 sm:grid-cols-2">
             <div
               v-for="item in metaItems"
-              :key="`${event.id}-${item.label}`"
+              :key="item.label"
               class="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3"
             >
               <div
-                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-lg shadow-sm ring-1 ring-slate-200"
+                class="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-lg shadow-sm ring-1 ring-slate-200"
               >
                 {{ item.icon }}
               </div>
@@ -69,71 +75,44 @@
               </div>
             </div>
           </div>
-
-          <div v-if="event.highlights?.length" class="mt-6">
-            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-              Highlights
-            </p>
-
-            <ul class="mt-3 grid gap-2">
-              <li
-                v-for="(highlight, index) in event.highlights"
-                :key="`${event.id}-highlight-${index}`"
-                class="flex items-start gap-2 text-sm font-medium text-slate-700"
-              >
-                <span class="mt-1 h-2 w-2 rounded-full bg-[var(--color-primary-soft)]0" />
-                <span>{{ highlight }}</span>
-              </li>
-            </ul>
-          </div>
         </div>
 
         <div class="mt-8 flex flex-wrap gap-3">
-          <RouterLink
-            v-if="variant === 'upcoming'"
-            :to="registerLink"
-            class="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal-800"
+          <a
+            v-if="variant === 'upcoming' && event.registerUrl"
+            :href="event.registerUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
           >
-            Register Now
-          </RouterLink>
+            {{ primaryActionLabel }}
+          </a>
 
           <button
             v-if="variant === 'past' && hasGallery"
             type="button"
             class="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-            @click="isGalleryOpen = !isGalleryOpen"
+            @click="isGalleryOpen = true"
           >
-            {{ isGalleryOpen ? 'Hide Event Gallery' : 'View Event Gallery' }}
+            View Gallery
           </button>
-
-          <RouterLink
-            to="/contact"
-            class="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-teal-400 hover:text-[var(--color-primary)]"
-          >
-            Contact Organizer
-          </RouterLink>
         </div>
       </div>
     </div>
 
-    <div
-      v-if="variant === 'past' && hasGallery && isGalleryOpen"
-      class="border-t border-slate-200 bg-slate-50 p-4 sm:p-6"
-    >
-      <EventGallerySection
-        :images="event.gallery"
-        title="Event Gallery"
-        eyebrow="Captured Moments"
-        :alt-prefix="event.title"
-      />
-    </div>
+    <EventGalleryModal
+      v-if="hasGallery"
+      :open="isGalleryOpen"
+      :images="event.gallery ?? []"
+      :alt-prefix="event.title"
+      @close="isGalleryOpen = false"
+    />
   </article>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RouterLink } from 'vue-router'
-import EventGallerySection from '@/components/events/EventGallerySection.vue'
+import EventGalleryModal from '@/components/events/EventGalleryModal.vue'
 import type { EventItem } from '@/types/events'
 
 type EventCardVariant = 'upcoming' | 'past'
@@ -151,20 +130,23 @@ const props = defineProps<{
 
 const isGalleryOpen = ref(false)
 
-const badgeText = computed(() => (props.variant === 'upcoming' ? 'Upcoming' : 'Past'))
-
-const registerLink = computed(() => `/community/events/${props.event.id}/register`)
-const brochureLink = computed(() => props.event.brochureUrl || props.event.image)
+const badgeText = computed(() =>
+  props.variant === 'upcoming' ? 'Upcoming' : 'Past',
+)
 
 const hasGallery = computed(
   () => Array.isArray(props.event.gallery) && props.event.gallery.length > 0,
+)
+
+const primaryActionLabel = computed(() =>
+  props.event.mode === 'Online' ? 'Join Session' : 'Register Now',
 )
 
 const metaItems = computed<MetaItem[]>(() => {
   const items: MetaItem[] = [
     {
       label: 'Date',
-      value: props.event.date,
+      value: props.event.displayDate,
       icon: '📅',
     },
   ]

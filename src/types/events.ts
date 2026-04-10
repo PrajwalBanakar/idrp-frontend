@@ -6,22 +6,19 @@ export type EventItem = {
   category: string
   description: string
 
-  date: string
+  startDate: string
+  endDate: string
+  displayDate: string
   time?: string
   location: string
   mode?: string
 
-  audience?: string
-  organiser?: string
-
   image: string
-  fallbackBg: string
+  imageFit?: 'contain' | 'cover'
 
   registerUrl?: string
-  isUpcoming: boolean
   visible?: boolean
   brochureUrl?: string
 
-  highlights?: string[]
   gallery?: string[]
 }

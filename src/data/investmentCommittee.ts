@@ -28,7 +28,7 @@ export const investmentCommitteeMembers: InvestmentCommitteeMember[] = [
     image: '/board-prasanna.jfif',
     imageAlt: 'Prasanna',
     linkedinUrl: 'https://www.linkedin.com/in/prof-mahadeva-prasanna-1b238b1a4/',
-    profileUrl: '/Faculty%20Booklet.pdf#page=47',
+    profileUrl: 'http://sites.google.com/iitdh.ac.in/prasanna/home',
   },
 ]
 

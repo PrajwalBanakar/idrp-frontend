@@ -15,11 +15,7 @@
           </h2>
 
           <p class="mt-3 text-base leading-7 text-slate-600">
-            {{
-              variant === 'upcoming'
-                ? 'Browse current opportunities to participate in workshops, showcases, networking sessions, and startup-focused programs.'
-                : 'Explore previously hosted events, ecosystem engagements, and milestone programs from IDRP.'
-            }}
+            {{ descriptionText }}
           </p>
         </div>
 
@@ -35,7 +31,7 @@
         </span>
       </div>
 
-      <div v-if="items.length" class="flex flex-col" :class="listGapClass">
+      <div v-if="items.length" class="flex flex-col gap-8">
         <EventCard
           v-for="event in paginatedItems"
           :key="event.id"
@@ -52,12 +48,17 @@
         <p class="font-semibold text-slate-500">{{ emptyText }}</p>
       </div>
 
-      <div v-if="totalPages > 1" class="mt-10 flex justify-center gap-2">
+      <div v-if="totalPages > 1" class="mt-10 flex flex-wrap justify-center gap-2">
         <button
           type="button"
           :disabled="currentPage === 1"
-          class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-teal-400 hover:text-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-30"
-          @click="$emit('update:currentPage', currentPage - 1)"
+          class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition disabled:cursor-not-allowed disabled:opacity-30"
+          :class="
+            variant === 'upcoming'
+              ? 'hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
+              : 'hover:border-slate-400 hover:text-slate-800'
+          "
+          @click="emit('update:currentPage', currentPage - 1)"
         >
           Previous
         </button>
@@ -68,7 +69,7 @@
           type="button"
           class="h-10 w-10 rounded-xl border text-sm font-bold transition"
           :class="pageButtonClass(pageNumber)"
-          @click="$emit('update:currentPage', pageNumber)"
+          @click="emit('update:currentPage', pageNumber)"
         >
           {{ pageNumber }}
         </button>
@@ -76,8 +77,13 @@
         <button
           type="button"
           :disabled="currentPage === totalPages"
-          class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-teal-400 hover:text-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-30"
-          @click="$emit('update:currentPage', currentPage + 1)"
+          class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition disabled:cursor-not-allowed disabled:opacity-30"
+          :class="
+            variant === 'upcoming'
+              ? 'hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
+              : 'hover:border-slate-400 hover:text-slate-800'
+          "
+          @click="emit('update:currentPage', currentPage + 1)"
         >
           Next
         </button>
@@ -103,7 +109,7 @@ const props = defineProps<{
   variant: EventsSectionVariant
 }>()
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'update:currentPage', value: number): void
 }>()
 
@@ -113,7 +119,11 @@ const sectionClass = computed(() =>
     : 'bg-slate-50 px-6 py-16 md:px-12 lg:px-16 lg:py-20',
 )
 
-const listGapClass = computed(() => 'gap-8')
+const descriptionText = computed(() =>
+  props.variant === 'upcoming'
+    ? 'Join upcoming sessions, workshops, showcases, and startup-focused events hosted by IDRP.'
+    : 'Explore previously hosted events, ecosystem engagements, and milestone programs from IDRP.',
+)
 
 const emptyIcon = computed(() => (props.variant === 'upcoming' ? '📅' : '🗂️'))
 
@@ -127,11 +137,11 @@ function pageButtonClass(pageNumber: number) {
   if (props.variant === 'upcoming') {
     return props.currentPage === pageNumber
       ? 'border-[var(--color-primary)] bg-[var(--color-primary)] text-white'
-      : 'border-slate-200 text-slate-600 hover:border-teal-400 hover:text-[var(--color-primary)]'
+      : 'border-slate-200 text-slate-600 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
   }
 
   return props.currentPage === pageNumber
     ? 'border-slate-700 bg-slate-700 text-white'
-    : 'border-slate-200 text-slate-600 hover:border-slate-400'
+    : 'border-slate-200 text-slate-600 hover:border-slate-400 hover:text-slate-800'
 }
 </script>
