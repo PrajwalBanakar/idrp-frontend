@@ -4,12 +4,13 @@ export const nainImages = [
   { src: '/nain/img1.jpeg', alt: 'Startup demo' },
   { src: '/nain/img2.jpeg', alt: 'Student innovation' },
   { src: '/nain/img3.jpeg', alt: 'Mentorship session' },
+  { src: '/nain/img4.jpeg', alt: 'Project showcase' },
 ]
 
 export const nainPage: NAINPageData = {
   hero: {
     eyebrow: 'Government Initiatives',
-    title: 'New Age Innovation Network',
+    title: 'New Age Innovation Network (NAIN)',
     subtitle:
       'NAIN at IDRP supports innovation, mentoring, prototyping, and entrepreneurship by connecting institutes, coordinators, faculty guides, and student teams through structured project guidance and ecosystem support.',
     primaryActionLabel: 'Explore Institutes',
@@ -20,10 +21,10 @@ export const nainPage: NAINPageData = {
 
   overview: {
     eyebrow: 'Overview',
-    title: 'Building an institute-level innovation network',
+    title: 'Building an Institute-Level Innovation Network',
     paragraphs: [
-      'The New Age Innovation Network (NAIN) builds an innovation pipeline by mentoring institutes, supporting student idea development, enabling project execution, and strengthening early-stage entrepreneurial thinking.',
-      'As the number of supported institutes and projects grows every year, this page is designed to showcase support in a scalable way — year-wise, institute-wise, and project-wise.',
+      'NAIN focuses on creating a sustainable innovation pipeline by mentoring institutions, supporting student-led idea development, enabling project execution, and fostering early-stage entrepreneurial thinking.',
+      'As the network continues to expand with a growing number of institutes and projects each year, this platform is designed to present the support in a structured and scalable manner — year-wise, institute-wise, and project-wise.',
     ],
     stats: [
       {

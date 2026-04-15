@@ -54,3 +54,14 @@ export const beneficiaryGroups: CIFBeneficiaryGroup[] = [
     description: 'Teams requiring instrumentation for experimentation and validation.',
   },
 ]
+
+export const cifGalleryImages = [
+  { src: '/cif/img1.jpeg', alt: 'CIF Tool 1' },
+  { src: '/cif/img2.jpeg', alt: 'CIF Tool 2' },
+  { src: '/cif/img3.jpeg', alt: 'CIF Tool 3' },
+  { src: '/cif/img4.jpeg', alt: 'CIF Tool 4' },
+  { src: '/cif/img5.jpeg', alt: 'CIF Tool 5' },
+  { src: '/cif/img6.jpeg', alt: 'CIF Tool 6' },
+  { src: '/cif/img7.jpeg', alt: 'CIF Tool 7' },
+  { src: '/cif/img8.jpeg', alt: 'CIF Tool 8' },
+]

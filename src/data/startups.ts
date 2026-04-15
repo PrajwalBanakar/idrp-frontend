@@ -92,48 +92,48 @@ export const startups: Startup[] = [
     ],
   },
   {
-    id: 'c-3',
-    name: 'C^3',
-    sector: 'SOCIAL TECH',
-    category: 'pre-incubated',
-    logo: '/startups/logo/c_3.jpg',
-    website: '',
-    onePager: '',
-    brief: '',
-    contactEmail: '22bcs041@iiitdwd.ac.in',
-    contactPhone: '+917259216502',
-    techFacultyMentors: [
-      {
-        name: 'Dr. Siddharth R',
-        email: 'siddharth_r@iiitdwd.ac.in',
-      },
-      {
-        name: 'Dr. Sandesh Phalke',
-        email: 's.phalke@iiitdwd.ac.in',
-      },
-    ],
-    founders: [
-      {
-        name: 'G Rohith Yadav',
-        role: 'Founder',
-        linkedin: '',
-        email: '22bcs041@iiitdwd.ac.in',
-        phone: '+917259216502',
-      },
-    ],
-    teamMembers: [
-      {
-        name: 'G Rohith Yadav',
-        phone: '+917259216502',
-        email: '22bcs041@iiitdwd.ac.in',
-      },
-      {
-        name: 'Medasani Bharath Reddy',
-        phone: '+917995736278',
-        email: '22bcs068@iiitdwd.ac.in',
-      },
-    ],
-  },
+  id: 'c-3',
+  name: 'C^3',
+  sector: 'SOCIAL TECH',
+  category: 'pre-incubated',
+  logo: '/startups/logo/c_3.jpg',
+  website: '',
+  onePager: '',
+  brief: '',
+  contactEmail: '22bcs041@iiitdwd.ac.in',
+  contactPhone: '+917259216502',
+  techFacultyMentors: [
+    {
+      name: 'Dr. Siddharth R',
+      email: 'siddharth_r@iiitdwd.ac.in',
+    },
+    {
+      name: 'Dr. Sandesh Phalke',
+      email: 's.phalke@iiitdwd.ac.in',
+    },
+  ],
+  founders: [
+    {
+      name: 'G Rohith Yadav',
+      role: 'Founder',
+      linkedin: '',
+      email: '22bcs041@iiitdwd.ac.in',
+      phone: '+917259216502',
+    },
+  ],
+  teamMembers: [
+    {
+      name: 'G Rohith Yadav',
+      phone: '+917259216502',
+      email: '22bcs041@iiitdwd.ac.in',
+    },
+    {
+      name: 'Vankadara Shanmukha Sai',
+      phone: '',
+      email: '22BCS135@iiitdwd.ac.in',
+    },
+  ],
+},
   {
     id: 'cre8hub',
     name: 'Cre8Hub',
@@ -498,7 +498,7 @@ export const startups: Startup[] = [
     contactPhone: '+917022429486',
     techFacultyMentors: [
       {
-        name: 'Prof. S R Mahadev Prasanna',
+        name: 'Prof. S R Mahadeva Prasanna',
         email: 'prasanna@iiitdwd.ac.in',
       },
     ],
@@ -622,7 +622,7 @@ export const startups: Startup[] = [
     name: 'Removation',
     sector: 'DESIGN TECH',
     category: 'pre-incubated',
-    logo: '',
+    logo: '/startups/logo/removation.jpeg',
     website: '',
     onePager: '',
     brief: '',
@@ -1070,7 +1070,7 @@ export const startups: Startup[] = [
     contactPhone: '+918217680139',
     techFacultyMentors: [
       {
-        name: 'Prof. S R Mahadev Prasanna',
+        name: 'Prof. S R Mahadeva Prasanna',
         email: 'prasanna@iiitdwd.ac.in',
       },
     ],
@@ -1094,13 +1094,6 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '22bcs104@iiitdwd.ac.in',
-        phone: '',
-      },
-      {
-        name: 'Rahul Trimukhe',
-        role: 'Founder',
-        linkedin: '',
-        email: '22bcs097@iiitdwd.ac.in',
         phone: '',
       },
     ],

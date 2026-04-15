@@ -20,7 +20,7 @@
       </div>
 
       <div class="overflow-hidden rounded-[2rem] bg-slate-950 shadow-2xl">
-        <div
+        <dl
           ref="statsSectionRef"
           class="grid grid-cols-2 gap-x-6 gap-y-8 px-6 py-10 sm:px-8 lg:grid-cols-4 lg:px-12 lg:py-12"
           style="
@@ -33,22 +33,21 @@
           "
         >
           <div v-for="stat in animatedStats" :key="stat.label" class="text-center">
-            <!-- Icon -->
-            <div class="mb-3 flex items-center justify-center text-[var(--color-primary-soft)]">
-              <span v-html="stat.icon" class="h-6 w-6" />
-            </div>
+            <div
+              class="mb-3 flex items-center justify-center text-[var(--color-primary-soft)]"
+              aria-hidden="true"
+              v-html="stat.icon"
+            />
 
-            <!-- Number -->
-            <div class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            <dd class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
               {{ stat.prefix ?? '' }}{{ stat.displayed }}{{ stat.suffix }}
-            </div>
+            </dd>
 
-            <!-- Label -->
-            <p class="mt-2 text-sm leading-6 text-slate-100">
+            <dt class="mt-2 text-sm leading-6 text-slate-100">
               {{ stat.label }}
-            </p>
+            </dt>
           </div>
-        </div>
+        </dl>
       </div>
     </div>
   </section>
@@ -58,22 +57,14 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import type { Stat } from '@/data/home'
 
-type AnimatedStat = Stat & {
-  displayed: number
-}
+type AnimatedStat = Stat & { displayed: number }
 
 const props = defineProps<{
   stats: Stat[]
 }>()
 
 const statsSectionRef = ref<HTMLElement | null>(null)
-
-const animatedStats = ref<AnimatedStat[]>(
-  props.stats.map((stat) => ({
-    ...stat,
-    displayed: 0,
-  })),
-)
+const animatedStats = ref<AnimatedStat[]>(props.stats.map((stat) => ({ ...stat, displayed: 0 })))
 
 let statsObserver: IntersectionObserver | null = null
 let hasAnimatedStats = false
@@ -82,30 +73,30 @@ function animateStats() {
   if (hasAnimatedStats) return
   hasAnimatedStats = true
 
+  const DURATION = 1800
+  const STEPS = 60
+  const INTERVAL = DURATION / STEPS
+
   animatedStats.value.forEach((stat) => {
-    const duration = 1800
-    const steps = 60
+    const increment = stat.target / STEPS
     let current = 0
-    const increment = stat.target / steps
 
-    const interval = window.setInterval(() => {
+    const timer = window.setInterval(() => {
       current += increment
-
       if (current >= stat.target) {
         stat.displayed = stat.target
-        window.clearInterval(interval)
-        return
+        window.clearInterval(timer)
+      } else {
+        stat.displayed = Math.round(current)
       }
-
-      stat.displayed = Math.round(current)
-    }, duration / steps)
+    }, INTERVAL)
   })
 }
 
 onMounted(() => {
   statsObserver = new IntersectionObserver(
-    (entries) => {
-      if (entries[0]?.isIntersecting) {
+    ([entry]) => {
+      if (entry?.isIntersecting) {
         animateStats()
         statsObserver?.disconnect()
       }
@@ -113,9 +104,7 @@ onMounted(() => {
     { threshold: 0.2 },
   )
 
-  if (statsSectionRef.value) {
-    statsObserver.observe(statsSectionRef.value)
-  }
+  if (statsSectionRef.value) statsObserver.observe(statsSectionRef.value)
 })
 
 onUnmounted(() => {

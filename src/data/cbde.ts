@@ -3,23 +3,23 @@ import type { ProgramPageData } from '@/types/program'
 export const cbdePage = {
   hero: {
     eyebrow: 'Government Initiatives',
-    title: 'Capacity Building for Design and Entrepreneurship',
+    title: 'Capacity Building for Design and Entrepreneurship (CBDE)',
     subtitle: '',
     image: '/cbde-hero.jfif',
     imageAlt: 'CBDE Program',
   },
 
-  intro: {
-    eyebrow: 'Overview',
-    title: 'Building design capability and entrepreneurial confidence',
-    paragraphs: [
-      'Capacity Building for Design and Entrepreneurship is aimed at creating a strong foundation for innovation by equipping participants with the mindset, methods, and practical orientation needed to identify opportunities, design solutions, and pursue entrepreneurial pathways.',
-      'The initiative encourages a structured approach to creativity, user understanding, problem-solving, product thinking, and venture exploration.',
-      'Through this initiative, IDRP nurtures innovators and aspiring founders prepared for real-world execution.',
-    ],
-    image: '/cbde/cbde-intro.jpeg',
-    imageAlt: 'CBDE Overview',
-  },
+intro: {
+  eyebrow: 'Overview',
+  title: 'Building Design Capability and Entrepreneurial Confidence',
+  paragraphs: [
+    'Capacity Building for Design and Entrepreneurship (CBDE) is an initiative of the Ministry of Education, Government of India.',
+    'The nodal centre for this program is the Indian Institute of Information Technology Design & Manufacturing (IIITDM) Kancheepuram, through its Malaviya Mission Teacher Training Centre (MMTTC), Tamil Nadu, India.',
+    'Through this initiative, IDRP contributes to strengthening design capability, innovation mindset, and entrepreneurial readiness among participants.',
+  ],
+  image: '/cbde/cbde-intro.jpeg',
+  imageAlt: 'CBDE Overview',
+},
 
   value: {
     eyebrow: 'Why This Initiative?',

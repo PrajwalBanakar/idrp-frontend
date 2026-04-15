@@ -3,7 +3,7 @@ import type { ProgramPageData } from '@/types/program'
 export const quantumAIPage = {
   hero: {
     eyebrow: 'Government Initiatives',
-    title: 'Centre of Excellence in Quantum AI and Computing',
+    title: 'Centre of Excellence in Quantum AI and Computing (CoE)',
     subtitle: '',
     image: '/quantum-ai-hero.jfif',
     imageAlt: 'Quantum AI Centre',
@@ -11,11 +11,11 @@ export const quantumAIPage = {
 
   intro: {
     eyebrow: 'Overview',
-    title: 'Building capability in emerging and high-impact computing domains',
+    title: 'Building Capability in Emerging and High-Impact Computing Domains',
     paragraphs: [
       'The Centre of Excellence in Quantum AI and Computing is envisioned as a platform for research, innovation, and collaboration in advanced computing.',
-      'It integrates artificial intelligence, quantum thinking, and interdisciplinary problem-solving.',
-      'The initiative enables talent development, research-led innovation, and strategic technology advancement.',
+      'It brings together artificial intelligence, quantum thinking, and interdisciplinary problem-solving to address complex technological challenges.',
+      'The initiative supports talent development, drives research-led innovation, and enables strategic advancements in next-generation technologies.',
     ],
     image: '/quantum-ai/quantum-ai-intro.jpeg',
     imageAlt: 'Quantum AI Overview',

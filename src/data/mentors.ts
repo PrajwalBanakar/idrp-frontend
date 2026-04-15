@@ -3,14 +3,14 @@ import type { Mentor } from '@/types/mentors'
 export const allMentors: Mentor[] = [
   {
     name: 'Ram Subramanian',
-    role: 'Business Mentor',
+    role: 'Professor of Practice',
     image: '/mentors/business-ram.jpg',
     imageAlt: 'Ram Subramanian',
-    linkedin: '',
+    linkedin: 'https://assets.iiitdwd.ac.in/docs/RamSubramanianProfile.pdf',
   },
   {
     name: 'Mallikarjun Kande',
-    role: 'Business & Technology Mentor',
+    role: 'Professor of Practice',
     image: '/business-mallikarjun.jfif',
     imageAlt: 'Mallikarjun Kande',
     linkedin: 'https://www.linkedin.com/in/mallikarjun-kande-18709342/',
@@ -24,17 +24,17 @@ export const allMentors: Mentor[] = [
   },
   {
     name: 'Santosh Devanallikar',
-    role: 'Business & Technology Mentor',
+    role: 'Professor of Practice',
     image: '/mentors/business-santosh.jpeg',
     imageAlt: 'Santosh Devanallikar',
     linkedin: 'https://www.linkedin.com/in/adsantosh/',
   },
   {
     name: 'Ravi Kumar',
-    role: 'Business & Technology Mentor',
+    role: 'Adjunct Professor',
     image: '/mentors/business-ravi.jpg',
     imageAlt: 'Ravi Kumar',
-    linkedin: '',
+    linkedin: 'https://assets.iiitdwd.ac.in/docs/RavikumarCP.pdf',
   },
   {
     name: 'RK Patil',
@@ -52,7 +52,7 @@ export const allMentors: Mentor[] = [
   },
   {
     name: 'Ambarish Kulkarni',
-    role: 'Business Mentor',
+    role: 'Adjunct Professor',
     image: '/mentors/business-ambarish.jpg',
     imageAlt: 'Ambarish Kulkarni',
     linkedin: '',
@@ -66,16 +66,16 @@ export const allMentors: Mentor[] = [
   },
   {
     name: 'Prof. Dr. Subhash Marihal',
-    role: 'Business Mentor',
+    role: 'Advisory Consultant',
     image: '/mentors/business-subhas.jpeg',
     imageAlt: 'Prof. Dr. Subhash Marihal',
     linkedin: 'https://www.linkedin.com/in/prof-dr-subhas-marihal-81359315',
   },
   {
     name: 'Prof. V. Ravishankar',
-    role: 'Business Mentor',
+    role: 'Adjunct Professor',
     image: '/mentors/business-ravishankar.jpg',
     imageAlt: 'Prof. V. Ravishankar',
-    linkedin: '',
+    linkedin: 'https://iitd.irins.org/profile/2271',
   },
 ]

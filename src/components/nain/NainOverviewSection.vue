@@ -87,15 +87,6 @@ function getLabelClasses(tone?: 'teal' | 'cyan' | 'slate') {
                 {{ pmu.coPrincipalInvestigator }}
               </p>
             </div>
-
-            <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
-                NAIN Program Associate
-              </p>
-              <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
-                {{ pmu.programAssociate }}
-              </p>
-            </div>
           </div>
         </div>
       </div>

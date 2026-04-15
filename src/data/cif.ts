@@ -3,7 +3,7 @@ import type { InitiativePageData } from '@/types/program'
 export const cifPage: InitiativePageData = {
   hero: {
     eyebrow: 'Government Initiatives',
-    title: 'Common Instrumentation Facility',
+    title: 'Common Instrumentation Facility (CIF)',
     subtitle: '',
     image: '/cif-hero.jfif',
     imageAlt: 'Common Instrumentation Facility',
@@ -11,11 +11,11 @@ export const cifPage: InitiativePageData = {
 
   intro: {
     eyebrow: 'Overview',
-    title: 'Enabling innovation through shared infrastructure',
+    title: 'Enabling Innovation through Shared Infrastructure',
     paragraphs: [
-      'The Common Instrumentation Facility (CIF) enables startups, researchers, and academic teams to access specialized equipment and lab infrastructure without the need for individual ownership.',
-      'It supports faster product development by providing the tools required for testing, validation, and experimentation in one integrated environment.',
-      'By bridging infrastructure gaps, CIF strengthens deep-tech innovation, interdisciplinary research, and early-stage prototyping.',
+      'The Common Instrumentation Facility (CIF) provides startups, researchers, and academic teams with access to specialized equipment and advanced lab infrastructure, eliminating the need for individual ownership.',
+      'It accelerates product development by offering a unified environment for testing, validation, and experimentation.',
+      'By addressing critical infrastructure gaps, CIF plays a key role in strengthening deep-tech innovation, fostering interdisciplinary research, and supporting early-stage prototyping.',
     ],
     image: '/cif/cif-intro.jpeg',
     imageAlt: 'CIF Overview',

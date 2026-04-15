@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
+import type { AboutCampusGalleryImage, AboutSectionIntro } from '@/types/about'
+
+defineProps<{
+  section: AboutSectionIntro
+  images: AboutCampusGalleryImage[]
+}>()
+</script>
+
 <template>
   <section class="bg-white px-4 py-14 sm:px-6 md:px-12 lg:px-16 lg:py-16">
     <div class="mx-auto max-w-7xl">
@@ -21,44 +36,37 @@
         </p>
       </div>
 
-      <div
-        v-if="images.length"
-        class="relative"
-        @mouseenter="pauseAutoSlide"
-        @mouseleave="startAutoSlide"
-        @touchstart.passive="handleTouchStart"
-        @touchend.passive="handleTouchEnd"
-      >
-        <div class="relative mx-auto h-[320px] sm:h-[360px] lg:h-[420px]">
-          <button
-            type="button"
-            aria-label="Previous slide"
-            class="absolute left-0 top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-lg text-slate-800 shadow-md transition hover:border-[var(--color-primary)]/20 hover:text-[var(--color-primary)] md:flex"
-            @click="goToPrevious"
+      <div v-if="images.length">
+        <Swiper
+          :modules="[Navigation, Pagination]"
+          :space-between="24"
+          :navigation="true"
+          :pagination="{ clickable: true }"
+          :breakpoints="{
+            0: { slidesPerView: 1 },
+            640: { slidesPerView: 1.2 },
+            768: { slidesPerView: 2 },
+            1280: { slidesPerView: 2.6 }
+          }"
+          class="about-campus-gallery-swiper"
+        >
+          <SwiperSlide
+            v-for="image in images"
+            :key="image.id"
           >
-            ‹
-          </button>
-
-          <div class="relative h-full w-full overflow-hidden">
             <div
-              v-for="(image, index) in visibleSlides"
-              :key="`${image.id}-${index}`"
-              class="absolute left-1/2 top-1/2 transition-all duration-500 ease-out"
-              :class="getSlideClass(index)"
-              :style="getSlideStyle(index)"
+              class="group overflow-hidden rounded-[28px] bg-white shadow-xl ring-1 ring-slate-200"
             >
-              <div
-                class="group relative overflow-hidden rounded-[28px] bg-white shadow-xl ring-1 ring-slate-200"
-              >
+              <div class="relative">
                 <img
                   :src="image.src"
-                  :alt="image.alt"
-                  class="h-[260px] w-[88vw] max-w-[360px] object-cover sm:h-[250px] sm:w-[320px] lg:h-[300px] lg:w-[430px]"
+                  :alt="image.alt || image.title || 'Campus image'"
+                  class="h-[260px] w-full object-cover sm:h-[300px] lg:h-[360px]"
                   loading="lazy"
                 />
 
                 <div
-                  v-if="index === centerSlideIndex"
+                  v-if="image.title"
                   class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent p-4"
                 >
                   <div
@@ -71,183 +79,57 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <button
-            type="button"
-            aria-label="Next slide"
-            class="absolute right-0 top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-lg text-slate-800 shadow-md transition hover:border-[var(--color-primary)]/20 hover:text-[var(--color-primary)] md:flex"
-            @click="goToNext"
-          >
-            ›
-          </button>
-        </div>
-
-        <div class="mt-6 flex items-center justify-center gap-2">
-          <button
-            v-for="(image, index) in images"
-            :key="image.id"
-            type="button"
-            :aria-label="`Go to slide ${index + 1}`"
-            class="rounded-full transition-all duration-300"
-            :class="
-              index === currentIndex
-                ? 'h-2.5 w-8 bg-teal-600'
-                : 'h-2.5 w-2.5 bg-slate-300 hover:bg-slate-400'
-            "
-            @click="goToSlide(index)"
-          />
-        </div>
-
-        <div class="mt-3 hidden text-center text-sm text-slate-500 sm:block">
-          {{ currentIndex + 1 }} / {{ images.length }}
-        </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   </section>
 </template>
 
-<script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import type { AboutCampusGalleryImage, AboutSectionIntro } from '@/types/about'
-
-const props = defineProps<{
-  section: AboutSectionIntro
-  images: AboutCampusGalleryImage[]
-}>()
-
-const currentIndex = ref(0)
-const touchStartX = ref(0)
-const touchEndX = ref(0)
-const autoSlideInterval = ref<number | null>(null)
-
-const centerSlideIndex = 1
-
-const fallbackImage: AboutCampusGalleryImage = {
-  id: 'fallback',
-  src: '',
-  alt: '',
-  title: '',
+<style scoped>
+:deep(.about-campus-gallery-swiper) {
+  padding-inline: 0.25rem;
+  padding-bottom: 3.5rem;
 }
 
-function normalizeIndex(index: number) {
-  const length = props.images.length
-  if (!length) return 0
-  return (index + length) % length
+:deep(.about-campus-gallery-swiper .swiper-slide) {
+  height: auto;
 }
 
-function getImageAt(index: number): AboutCampusGalleryImage {
-  return props.images[normalizeIndex(index)] ?? fallbackImage
+:deep(.about-campus-gallery-swiper .swiper-button-prev),
+:deep(.about-campus-gallery-swiper .swiper-button-next) {
+  height: 2.75rem;
+  width: 2.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgb(226 232 240);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  color: var(--color-primary);
 }
 
-const visibleSlides = computed<AboutCampusGalleryImage[]>(() => {
-  if (!props.images.length) return []
-
-  return [
-    getImageAt(currentIndex.value - 1),
-    getImageAt(currentIndex.value),
-    getImageAt(currentIndex.value + 1),
-  ]
-})
-
-function getSlideClass(index: number) {
-  if (index === centerSlideIndex) {
-    return 'z-20'
-  }
-
-  return 'z-10 hidden sm:block'
+:deep(.about-campus-gallery-swiper .swiper-button-prev::after),
+:deep(.about-campus-gallery-swiper .swiper-button-next::after) {
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
-function getSlideStyle(index: number) {
-  if (index === centerSlideIndex) {
-    return {
-      transform: 'translate(-50%, -50%) scale(1)',
-      opacity: '1',
-    }
-  }
+:deep(.about-campus-gallery-swiper .swiper-pagination-bullet) {
+  width: 0.55rem;
+  height: 0.55rem;
+  background: #cbd5e1;
+  opacity: 1;
+}
 
-  if (index === 0) {
-    return {
-      transform: 'translate(-135%, -50%) scale(0.88)',
-      opacity: '0.5',
-    }
-  }
+:deep(.about-campus-gallery-swiper .swiper-pagination-bullet-active) {
+  width: 1.9rem;
+  border-radius: 9999px;
+  background: var(--color-primary);
+}
 
-  return {
-    transform: 'translate(35%, -50%) scale(0.88)',
-    opacity: '0.5',
+@media (max-width: 767px) {
+  :deep(.about-campus-gallery-swiper .swiper-button-prev),
+  :deep(.about-campus-gallery-swiper .swiper-button-next) {
+    display: none;
   }
 }
-
-function goToSlide(index: number) {
-  currentIndex.value = index
-  restartAutoSlide()
-}
-
-function goToPrevious() {
-  if (!props.images.length) return
-  currentIndex.value = normalizeIndex(currentIndex.value - 1)
-  restartAutoSlide()
-}
-
-function goToNext() {
-  if (!props.images.length) return
-  currentIndex.value = normalizeIndex(currentIndex.value + 1)
-  restartAutoSlide()
-}
-
-function goToNextWithoutRestart() {
-  if (!props.images.length) return
-  currentIndex.value = normalizeIndex(currentIndex.value + 1)
-}
-
-function startAutoSlide() {
-  if (autoSlideInterval.value !== null || props.images.length <= 1) return
-
-  autoSlideInterval.value = window.setInterval(() => {
-    goToNextWithoutRestart()
-  }, 4500)
-}
-
-function pauseAutoSlide() {
-  if (autoSlideInterval.value !== null) {
-    window.clearInterval(autoSlideInterval.value)
-    autoSlideInterval.value = null
-  }
-}
-
-function restartAutoSlide() {
-  pauseAutoSlide()
-  startAutoSlide()
-}
-
-function handleTouchStart(event: TouchEvent) {
-  touchStartX.value = event.changedTouches[0]?.clientX ?? 0
-}
-
-function handleTouchEnd(event: TouchEvent) {
-  touchEndX.value = event.changedTouches[0]?.clientX ?? 0
-  const diff = touchStartX.value - touchEndX.value
-
-  if (diff > 50) goToNext()
-  else if (diff < -50) goToPrevious()
-}
-
-watch(
-  () => props.images.length,
-  () => {
-    if (currentIndex.value >= props.images.length) {
-      currentIndex.value = 0
-    }
-    restartAutoSlide()
-  },
-)
-
-onMounted(() => {
-  startAutoSlide()
-})
-
-onBeforeUnmount(() => {
-  pauseAutoSlide()
-})
-</script>
+</style>

@@ -306,6 +306,14 @@ export const awards: Award[] = [
     bg: 'from-teal-600 to-cyan-500',
   },
   {
+    entity: 'NeXR Technology Private Limited',
+    title: 'Recognized for Innovation Excellence at HDB Blue 2025',
+    issuer: 'HDB Techceleration',
+    year: '2025',
+    image: '/awards/NeXR.jpeg',
+    bg: 'from-teal-600 to-cyan-500',
+  },
+  {
     entity: 'Cipherion',
     title: 'Featured on Doordarshan’s “Karnataka Startup Champion – Navabharatada Shilpigalu”',
     issuer: 'Doordarshan Karnataka',

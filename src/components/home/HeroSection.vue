@@ -1,6 +1,6 @@
 <template>
   <section class="relative overflow-hidden bg-slate-950 text-white">
-    <div class="absolute inset-0">
+    <div class="absolute inset-0" aria-hidden="true">
       <div
         class="absolute inset-0 bg-[linear-gradient(135deg,#031527_0%,#073863_45%,#0a4c85_100%)]"
       />
@@ -14,17 +14,12 @@
       <div
         v-for="(slide, index) in heroSlides"
         :key="slide.heading"
+        v-show="currentSlide === index"
         class="transition-opacity duration-700 ease-in-out"
-        :class="currentSlide === index ? 'block opacity-100' : 'hidden opacity-0'"
+        :aria-hidden="currentSlide !== index"
       >
         <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div class="max-w-3xl">
-            <p
-              class="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-slate-100 backdrop-blur-sm sm:text-sm"
-            >
-              IIIT Dharwad Research Park
-            </p>
-
             <h1
               class="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
@@ -61,18 +56,29 @@
                 :src="slide.image"
                 :alt="slide.heading"
                 class="h-[420px] w-full rounded-[1.4rem] object-cover"
+                :fetchpriority="index === 0 ? 'high' : 'auto'"
+                :loading="index === 0 ? 'eager' : 'lazy'"
+                width="630"
+                height="420"
               />
             </div>
           </div>
         </div>
       </div>
 
-      <div v-if="heroSlides.length > 1" class="mt-8 flex justify-center gap-3">
+      <div
+        v-if="heroSlides.length > 1"
+        role="tablist"
+        :aria-label="`Slide ${currentSlide + 1} of ${heroSlides.length}`"
+        class="mt-8 flex justify-center gap-3"
+      >
         <button
-          v-for="(_, index) in heroSlides"
-          :key="index"
+          v-for="(slide, index) in heroSlides"
+          :key="slide.heading"
           type="button"
-          :aria-label="`Go to slide ${index + 1}`"
+          role="tab"
+          :aria-label="`Go to slide ${index + 1}: ${slide.heading}`"
+          :aria-selected="currentSlide === index"
           class="h-2.5 rounded-full transition-all duration-300"
           :class="currentSlide === index ? 'w-10 bg-white' : 'w-2.5 bg-white/35 hover:bg-white/60'"
           @click="goToSlide(index)"
@@ -92,7 +98,6 @@ const props = defineProps<{
 }>()
 
 const currentSlide = ref(0)
-
 let slideTimer: number | undefined
 
 function goToSlide(index: number) {
@@ -102,16 +107,9 @@ function goToSlide(index: number) {
 
 function scrollToPrograms() {
   const section = document.getElementById('programs')
-
   if (!section) return
-
-  const yOffset = -88
-  const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset
-
-  window.scrollTo({
-    top: y,
-    behavior: 'smooth',
-  })
+  const y = section.getBoundingClientRect().top + window.pageYOffset - 88
+  window.scrollTo({ top: y, behavior: 'smooth' })
 }
 
 function nextSlide() {
@@ -136,11 +134,6 @@ function restartSlideTimer() {
   startSlideTimer()
 }
 
-onMounted(() => {
-  startSlideTimer()
-})
-
-onUnmounted(() => {
-  stopSlideTimer()
-})
+onMounted(startSlideTimer)
+onUnmounted(stopSlideTimer)
 </script>

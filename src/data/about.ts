@@ -253,7 +253,7 @@ export const offerings: Offering[] = [
   },
   {
     title: 'Programs & Capacity Building',
-    description: 'Workshops, academies, and curated programs for growth.',
+    description: 'Workshops and curated programs for growth.',
   },
 ]
 

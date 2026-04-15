@@ -17,7 +17,8 @@ idrp-frontend
 │  │  ├─ cipherion_doordarshan.png
 │  │  ├─ cipherion_hdb_blue.jpg
 │  │  ├─ cipherion_onecr.jpg
-│  │  └─ coe.jpeg
+│  │  ├─ coe.jpeg
+│  │  └─ NeXR.jpeg
 │  ├─ board-deepak.jfif
 │  ├─ board-hero.jfif
 │  ├─ board-prasanna.jfif
@@ -125,7 +126,8 @@ idrp-frontend
 │  ├─ nain
 │  │  ├─ img1.jpeg
 │  │  ├─ img2.jpeg
-│  │  └─ img3.jpeg
+│  │  ├─ img3.jpeg
+│  │  └─ img4.jpeg
 │  ├─ nain-hero.jfif
 │  ├─ nain-intro.jfif
 │  ├─ nain-value.jfif
@@ -188,15 +190,13 @@ idrp-frontend
 │  ├─ partners-hero.jfif
 │  ├─ prototype-development-hero.jfif
 │  ├─ quantum-ai
-│  │  ├─ quantum-ai-intro.jpeg
-│  │  └─ quantum-ai-value.jpeg
+│  │  └─ quantum-ai-intro.jpeg
 │  ├─ quantum-ai-hero.jfif
 │  ├─ quantum-ai-intro.jfif
 │  ├─ quantum-ai-value.jfif
 │  ├─ resources-hero.jfif
 │  ├─ rgep
-│  │  ├─ rgep-intro.jpeg
-│  │  └─ rgep-value.jfif
+│  │  └─ rgep-intro.jpeg
 │  ├─ services.jpg
 │  ├─ startup-matchmaking-hero.jfif
 │  ├─ startups
@@ -216,6 +216,7 @@ idrp-frontend
 │  │     ├─ Natanasvara.jpg
 │  │     ├─ neuraforesight.jpeg
 │  │     ├─ NeXR.jpeg
+│  │     ├─ removation.jpeg
 │  │     ├─ Smart Nest.png
 │  │     ├─ Sparkle Studio.jpeg
 │  │     ├─ sphuranex.jpeg
@@ -435,6 +436,7 @@ idrp-frontend
 │  │  ├─ rgep.ts
 │  │  ├─ service.ts
 │  │  ├─ startups.ts
+│  │  ├─ swiper.d.ts
 │  │  └─ team.ts
 │  └─ views
 │     ├─ AboutView.vue

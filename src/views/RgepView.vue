@@ -3,6 +3,7 @@ import ProgramHeroSection from '@/components/program/ProgramHeroSection.vue'
 import ProgramIntroSection from '@/components/program/ProgramIntroSection.vue'
 import ProgramValueSection from '@/components/program/ProgramValueSection.vue'
 import ProgramCTASection from '@/components/program/ProgramCTASection.vue'
+import { rgepProjectMonitoringUnit } from '@/data/rgep'
 
 import { rgepHighlights, rgepInnovators, rgepPage, rgepSupportPoints } from '@/data/rgep'
 </script>
@@ -59,6 +60,22 @@ import { rgepHighlights, rgepInnovators, rgepPage, rgepSupportPoints } from '@/d
     />
 
     <section class="bg-white px-6 py-14 md:px-12 lg:px-16 lg:py-20">
+  <div class="mx-auto max-w-7xl">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
+        Project Monitoring Unit
+      </p>
+      <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+        {{ rgepProjectMonitoringUnit.title }}
+      </h2>
+      <p class="mt-4 text-base leading-8 text-slate-600">
+        {{ rgepProjectMonitoringUnit.description }}
+      </p>
+    </div>
+  </div>
+</section>
+
+    <section class="bg-white px-6 py-14 md:px-12 lg:px-16 lg:py-20">
       <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
@@ -110,6 +127,8 @@ import { rgepHighlights, rgepInnovators, rgepPage, rgepSupportPoints } from '@/d
               Innovator
             </p>
 
+            
+
             <h3 class="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
               {{ innovator.name }}
             </h3>
@@ -129,6 +148,11 @@ import { rgepHighlights, rgepInnovators, rgepPage, rgepSupportPoints } from '@/d
                   {{ innovator.email }}
                 </a>
               </div>
+
+              <div v-if="innovator.description">
+  <p class="font-semibold text-slate-900">Overview</p>
+  <p>{{ innovator.description }}</p>
+</div>
 
               <div v-if="innovator.linkedin">
                 <p class="font-semibold text-slate-900">LinkedIn</p>

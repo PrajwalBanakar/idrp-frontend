@@ -3,14 +3,21 @@
     <header class="site-header" :class="{ 'site-header--scrolled': isScrolled }">
       <div class="container header-inner">
         <RouterLink to="/" class="brand" @click="closeAllMenus">
-          <img src="/idrp.jfif" alt="IDRP" class="brand-logo" />
+          <img
+            src="/idrp.jfif"
+            alt="IDRP"
+            class="brand-logo"
+            fetchpriority="high"
+            width="52"
+            height="52"
+          />
           <div class="brand-text">
             <span class="brand-title">IDRP</span>
             <span class="brand-subtitle">Ignite • Incubate • Innovate</span>
           </div>
         </RouterLink>
 
-        <nav class="desktop-nav">
+        <nav class="desktop-nav" aria-label="Main navigation">
           <div
             v-for="section in navSections"
             :key="section.key"
@@ -22,10 +29,12 @@
               type="button"
               class="nav-link nav-button"
               :class="{ 'nav-link--active': isSectionActive(section.items) }"
+              :aria-expanded="activeDropdown === section.key"
+              :aria-haspopup="true"
               @click="toggleDropdown(section.key)"
             >
               {{ section.label }}
-              <span class="chevron" :class="{ 'chevron--open': activeDropdown === section.key }">
+              <span class="chevron" :class="{ 'chevron--open': activeDropdown === section.key }" aria-hidden="true">
                 ▾
               </span>
             </button>
@@ -34,6 +43,7 @@
               <div
                 v-if="activeDropdown === section.key"
                 class="dropdown-menu"
+                role="menu"
                 @mouseenter="cancelDropdownClose"
                 @mouseleave="scheduleDropdownClose"
               >
@@ -43,24 +53,26 @@
                     :to="item.to"
                     class="dropdown-link"
                     :class="{ 'dropdown-link--active': isExactNavMatch(item.to) }"
+                    role="menuitem"
                     @click="closeAllMenus"
                   >
                     {{ item.label }}
                   </RouterLink>
 
                   <div v-else class="dropdown-group has-children">
-                    <div class="dropdown-link dropdown-link--parent">
+                    <div class="dropdown-link dropdown-link--parent" aria-hidden="true">
                       <span>{{ item.label }}</span>
                       <span class="submenu-arrow">›</span>
                     </div>
 
-                    <div class="submenu">
+                    <div class="submenu" role="menu">
                       <RouterLink
                         v-for="child in item.children"
                         :key="child.to"
                         :to="child.to!"
                         class="dropdown-link"
                         :class="{ 'dropdown-link--active': isExactNavMatch(child.to!) }"
+                        role="menuitem"
                         @click="closeAllMenus"
                       >
                         {{ child.label }}
@@ -93,27 +105,28 @@
           type="button"
           class="mobile-toggle"
           :aria-expanded="isMobileMenuOpen"
-          aria-label="Toggle navigation menu"
+          :aria-label="isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'"
           @click="toggleMobileMenu"
         >
-          <span />
-          <span />
-          <span />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
         </button>
       </div>
 
       <transition name="mobile-menu">
-        <div v-if="isMobileMenuOpen" class="mobile-nav">
+        <nav v-if="isMobileMenuOpen" class="mobile-nav" aria-label="Mobile navigation">
           <div class="container mobile-nav-inner">
             <div v-for="section in navSections" :key="section.key" class="mobile-section">
               <button
                 type="button"
                 class="mobile-section-trigger"
                 :class="{ 'mobile-section-trigger--active': isSectionActive(section.items) }"
+                :aria-expanded="mobileSections[section.key]"
                 @click="toggleMobileSection(section.key)"
               >
                 <span>{{ section.label }}</span>
-                <span>{{ mobileSections[section.key] ? '−' : '+' }}</span>
+                <span aria-hidden="true">{{ mobileSections[section.key] ? '−' : '+' }}</span>
               </button>
 
               <div v-if="mobileSections[section.key]" class="mobile-submenu">
@@ -129,7 +142,7 @@
                   </RouterLink>
 
                   <div v-else class="mobile-subgroup">
-                    <div class="mobile-sublink mobile-sublink--parent">
+                    <div class="mobile-sublink mobile-sublink--parent" aria-hidden="true">
                       {{ item.label }}
                     </div>
 
@@ -166,7 +179,7 @@
               Contact
             </RouterLink>
           </div>
-        </div>
+        </nav>
       </transition>
     </header>
 
@@ -177,7 +190,14 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <section class="footer-brand">
-          <img src="/idrp.jfif" alt="IDRP" class="footer-logo" />
+          <img
+            src="/idrp.jfif"
+            alt="IDRP"
+            class="footer-logo"
+            loading="lazy"
+            width="52"
+            height="52"
+          />
           <h3>IDRP</h3>
           <p>
             Supporting innovation, incubation, acceleration, and ecosystem development through a
@@ -187,7 +207,7 @@
 
         <section>
           <h4 class="footer-title">About</h4>
-          <nav class="footer-links">
+          <nav class="footer-links" aria-label="About links">
             <template v-for="item in aboutFooterLinks" :key="item.label">
               <RouterLink
                 v-if="item.to"
@@ -216,7 +236,7 @@
 
         <section>
           <h4 class="footer-title">Programs & Services</h4>
-          <nav class="footer-links">
+          <nav class="footer-links" aria-label="Programs and services links">
             <template v-for="item in programsFooterLinks" :key="item.label">
               <RouterLink
                 v-if="item.to"
@@ -245,34 +265,15 @@
 
         <section>
           <h4 class="footer-title">Quick Actions</h4>
-          <nav class="footer-links">
+          <nav class="footer-links" aria-label="Quick action links">
             <RouterLink
-              to="/apply/incubation"
+              v-for="link in quickActionLinks"
+              :key="link.to"
+              :to="link.to"
               class="footer-link"
-              :class="{ 'footer-link--active': isExactNavMatch('/apply/incubation') }"
+              :class="{ 'footer-link--active': isExactNavMatch(link.to) }"
             >
-              Apply Now
-            </RouterLink>
-            <RouterLink
-              to="/contact"
-              class="footer-link"
-              :class="{ 'footer-link--active': isExactNavMatch('/contact') }"
-            >
-              Contact Us
-            </RouterLink>
-            <RouterLink
-              to="/community/events"
-              class="footer-link"
-              :class="{ 'footer-link--active': isExactNavMatch('/community/events') }"
-            >
-              Events
-            </RouterLink>
-            <RouterLink
-              to="/resources"
-              class="footer-link"
-              :class="{ 'footer-link--active': isExactNavMatch('/resources') }"
-            >
-              Resources
+              {{ link.label }}
             </RouterLink>
           </nav>
         </section>
@@ -301,7 +302,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
+import { onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 
 type NavItem = {
@@ -347,7 +348,7 @@ const navSections: NavSection[] = [
         children: [
           { label: 'NAIN', to: '/programs/nain' },
           { label: 'CIF', to: '/programs/cif' },
-          { label: 'Quantum AI', to: '/programs/coe-quantum-ai' },
+          { label: 'CoE', to: '/programs/coe-quantum-ai' },
           { label: 'CBDE', to: '/programs/cbde' },
           { label: 'RGEP', to: '/programs/rgep' },
         ],
@@ -372,13 +373,16 @@ const navSections: NavSection[] = [
   },
 ]
 
-const aboutFooterLinks = computed(
-  () => navSections.find((section) => section.key === 'about')?.items ?? [],
-)
+// Derived directly from navSections — no computed() needed for static data
+const aboutFooterLinks = navSections.find((s) => s.key === 'about')?.items ?? []
+const programsFooterLinks = navSections.find((s) => s.key === 'programs')?.items ?? []
 
-const programsFooterLinks = computed(
-  () => navSections.find((section) => section.key === 'programs')?.items ?? [],
-)
+const quickActionLinks = [
+  { label: 'Apply Now', to: '/apply/incubation' },
+  { label: 'Contact Us', to: '/contact' },
+  { label: 'Events', to: '/community/events' },
+  { label: 'Resources', to: '/resources' },
+]
 
 const activeDropdown = ref<SectionKey | null>(null)
 const isMobileMenuOpen = ref(false)
@@ -391,7 +395,8 @@ const mobileSections = reactive<Record<SectionKey, boolean>>({
   community: false,
 })
 
-const currentYear = computed(() => new Date().getFullYear())
+// Plain value — no reactivity needed for a year that never changes
+const currentYear = new Date().getFullYear()
 
 let dropdownCloseTimer: number | null = null
 
@@ -417,34 +422,22 @@ function isExactNavMatch(to: string) {
     }
   }
 
-  const targetKeys = Array.from(params.keys())
-  const routeKeys = Object.keys(route.query)
-
-  return targetKeys.length === routeKeys.length
+  return Array.from(params.keys()).length === Object.keys(route.query).length
 }
 
 function isPathPrefixMatch(to: string) {
   const [targetPath] = to.split('?')
-
   if (targetPath === '/') return route.path === '/'
-
   return route.path === targetPath || route.path.startsWith(`${targetPath}/`)
 }
 
 function isSectionActive(items: NavItem[]) {
   return items.some((item) => {
-    if (item.to && (isExactNavMatch(item.to) || isPathPrefixMatch(item.to))) {
-      return true
-    }
-
-    if (item.children) {
-      return item.children.some(
-        (child) => !!child.to && (isExactNavMatch(child.to) || isPathPrefixMatch(child.to)),
-      )
-    }
-
-    return false
-  })
+    if (item.to && (isExactNavMatch(item.to) || isPathPrefixMatch(item.to))) return true
+    return item.children?.some(
+      (child) => !!child.to && (isExactNavMatch(child.to) || isPathPrefixMatch(child.to)),
+    ) ?? false
+  }) 
 }
 
 function clearDropdownTimer() {
@@ -477,10 +470,7 @@ function cancelDropdownClose() {
 
 function toggleMobileMenu() {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
-
-  if (!isMobileMenuOpen.value) {
-    resetMobileSections()
-  }
+  if (!isMobileMenuOpen.value) resetMobileSections()
 }
 
 function toggleMobileSection(section: SectionKey) {
@@ -501,10 +491,7 @@ function closeAllMenus() {
 }
 
 function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  })
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 function handleScroll() {
@@ -513,12 +500,7 @@ function handleScroll() {
   showScrollTop.value = y > 400
 }
 
-watch(
-  () => route.fullPath,
-  () => {
-    closeAllMenus()
-  },
-)
+watch(() => route.fullPath, closeAllMenus)
 
 onMounted(() => {
   handleScroll()
