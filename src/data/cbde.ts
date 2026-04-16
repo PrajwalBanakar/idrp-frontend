@@ -9,17 +9,31 @@ export const cbdePage = {
     imageAlt: 'CBDE Program',
   },
 
-intro: {
-  eyebrow: 'Overview',
-  title: 'Building Design Capability and Entrepreneurial Confidence',
-  paragraphs: [
-    'Capacity Building for Design and Entrepreneurship (CBDE) is an initiative of the Ministry of Education, Government of India.',
-    'The nodal centre for this program is the Indian Institute of Information Technology Design & Manufacturing (IIITDM) Kancheepuram, through its Malaviya Mission Teacher Training Centre (MMTTC), Tamil Nadu, India.',
-    'Through this initiative, IDRP contributes to strengthening design capability, innovation mindset, and entrepreneurial readiness among participants.',
-  ],
-  image: '/cbde/cbde-intro.jpeg',
-  imageAlt: 'CBDE Overview',
-},
+  intro: {
+    eyebrow: 'Overview',
+    title: 'Building Design Capability and Entrepreneurial Confidence',
+    paragraphs: [
+      'Capacity Building for Design and Entrepreneurship (CBDE) is an initiative of the Ministry of Education, Government of India.',
+      'The nodal centre for this program is the Indian Institute of Information Technology Design & Manufacturing (IIITDM) Kancheepuram, through its Malaviya Mission Teacher Training Centre (MMTTC), Tamil Nadu, India.',
+      'Through this initiative, IDRP contributes to strengthening design capability, innovation mindset, and entrepreneurial readiness among participants.',
+    ],
+    image: '/cbde/cbde-intro.jpeg',
+    imageAlt: 'CBDE Overview',
+    details: [
+      {
+        label: 'Higher Education Institution (HEI)',
+        value: 'Indian Institute of Information Technology, Dharwad',
+      },
+      {
+        label: 'Principal Investigator',
+        value: 'Dr. Deepak K T',
+      },
+      {
+        label: 'Co-Principal Investigator',
+        value: 'Prof. S R Mahadeva Prasanna',
+      },
+    ],
+  },
 
   value: {
     eyebrow: 'Why This Initiative?',

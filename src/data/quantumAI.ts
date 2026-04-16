@@ -13,12 +13,31 @@ export const quantumAIPage = {
     eyebrow: 'Overview',
     title: 'Building Capability in Emerging and High-Impact Computing Domains',
     paragraphs: [
+      'Centre of Excellence in Quantum AI and Computing is an initiative of the Department of Electronics, IT, BT, Government of Karnataka, focused on building capability in emerging and high-impact computing domains.',
       'The Centre of Excellence in Quantum AI and Computing is envisioned as a platform for research, innovation, and collaboration in advanced computing.',
       'It brings together artificial intelligence, quantum thinking, and interdisciplinary problem-solving to address complex technological challenges.',
       'The initiative supports talent development, drives research-led innovation, and enables strategic advancements in next-generation technologies.',
     ],
     image: '/quantum-ai/quantum-ai-intro.jpeg',
     imageAlt: 'Quantum AI Overview',
+    details: [
+      {
+        label: 'Project Monitoring Unit (PMU)',
+        value: 'Indian Institute of Information Technology, Dharwad',
+      },
+      {
+        label: 'Principal Investigator',
+        value: 'Dr. Aswath Babu',
+      },
+      {
+        label: 'Co-Principal Investigator',
+        value: 'Prof. V Ravishankar',
+      },
+      {
+        label: 'Co-Principal Investigator',
+        value: 'Dr. Priodyuti Pradhan',
+      }
+    ],
   },
 
   value: {

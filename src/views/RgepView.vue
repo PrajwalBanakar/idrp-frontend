@@ -18,6 +18,7 @@ import { rgepHighlights, rgepInnovators, rgepPage, rgepSupportPoints } from '@/d
       :paragraphs="rgepPage.intro.paragraphs"
       :image="rgepPage.intro.image"
       :image-alt="rgepPage.intro.imageAlt"
+      :details="rgepPage.intro.details"
     />
     <section class="bg-slate-50 px-6 py-14 md:px-12 lg:px-16 lg:py-20">
       <div class="mx-auto max-w-7xl">

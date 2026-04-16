@@ -93,6 +93,25 @@ export const newsletters: Newsletter[] = [
     pdfUrl: '/newsletters/04-oct-dec-2025-edition.pdf',
     previewImage: '/newsletters/oct-dec-2025-cover.jpg',
   },
+    {
+    id: 5,
+    slug: 'jan-mar-2026-edition',
+    title: 'IIIT Dharwad Research Park Newsletter',
+    issue: '05',
+    date: 'Jan–Mar 2026',
+    description:
+      'Quarterly highlights from programs, ecosystem developments, events, and startup engagement.',
+    preview: 'Browse the Jan–Mar 2026 edition of the IIIT Dharwad Research Park newsletter.',
+    highlights: [
+      'Quarterly updates from the ecosystem',
+      'Program and event highlights',
+      'Founder and community activities',
+      'Institutional and innovation milestones',
+    ],
+    coverGradient: 'linear-gradient(180deg, #4338ca 0%, #3730a3 45%, #1e1b4b 100%)',
+    pdfUrl: '/newsletters/05-jan-mar-2026-edition.pdf',
+    previewImage: '/newsletters/jan-mar-2026-cover.jpg',
+  },
 ]
 
 export const getVisibleNewsletters = () =>

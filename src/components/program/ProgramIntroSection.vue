@@ -1,18 +1,25 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+type DetailItem = {
+  label: string
+  value: string
+}
+
 type Props = {
   eyebrow?: string
   title: string
   paragraphs: string[]
   image?: string
   imageAlt?: string
+  details?: DetailItem[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
   eyebrow: 'Overview',
   image: '',
   imageAlt: 'Program intro image',
+  details: () => [],
 })
 
 const showImage = ref(true)
@@ -34,6 +41,22 @@ const showImage = ref(true)
           <p v-for="paragraph in props.paragraphs" :key="paragraph">
             {{ paragraph }}
           </p>
+        </div>
+
+        <div
+          v-if="props.details.length"
+          class="mt-8 rounded-[24px] border border-slate-200 bg-white px-5 py-4 shadow-sm"
+        >
+          <div class="grid gap-4 md:grid-cols-2">
+            <div v-for="detail in props.details" :key="detail.label">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
+                {{ detail.label }}
+              </p>
+              <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
+                {{ detail.value }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

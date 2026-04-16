@@ -59,36 +59,36 @@ function getLabelClasses(tone?: 'teal' | 'cyan' | 'slate') {
           </p>
         </div>
 
-        <div class="mt-8 rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
-          <div class="mt-5 grid gap-5 md:grid-cols-2">
-            <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
-                Project Monitoring Unit (PMU)
-              </p>
-              <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
-                {{ pmu.name }}
-              </p>
-            </div>
+<div class="mt-8 rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm">
+  <div class="grid gap-4 md:grid-cols-3 md:gap-6">
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
+        Project Monitoring Unit (PMU)
+      </p>
+      <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
+        {{ pmu.name }}
+      </p>
+    </div>
 
-            <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
-                Principal Investigator
-              </p>
-              <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
-                {{ pmu.principalInvestigator }}
-              </p>
-            </div>
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
+        Principal Investigator
+      </p>
+      <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
+        {{ pmu.principalInvestigator }}
+      </p>
+    </div>
 
-            <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
-                Co Principal Investigator
-              </p>
-              <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
-                {{ pmu.coPrincipalInvestigator }}
-              </p>
-            </div>
-          </div>
-        </div>
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
+        Co Principal Investigator
+      </p>
+      <p class="mt-1 text-sm font-medium leading-6 text-slate-800">
+        {{ pmu.coPrincipalInvestigator }}
+      </p>
+    </div>
+  </div>
+</div>
       </div>
 
       <div class="grid content-start gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">

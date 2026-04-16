@@ -4,8 +4,7 @@ export const rgepPage: InitiativePageData = {
   hero: {
     eyebrow: 'Government Initiatives',
     title: 'Rajiv Gandhi Entrepreneurship Program (RGEP)',
-    subtitle:
-      '',
+    subtitle: '',
     image: '/rgep/rgep-intro.jfif',
     imageAlt: 'Rajiv Gandhi Entrepreneurship Program',
   },
@@ -21,6 +20,16 @@ export const rgepPage: InitiativePageData = {
     ],
     image: '/rgep/rgep-intro.jpeg',
     imageAlt: 'RGEP Overview',
+    details: [
+      {
+        label: 'Project Monitoring Partner (PMP)',
+        value: 'Indian Institute of Information Technology, Dharwad',
+      },
+      {
+        label: 'Principal Investigator',
+        value: 'Dr. Deepak K T',
+      },
+    ],
   },
 
   value: {

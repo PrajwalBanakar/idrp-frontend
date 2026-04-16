@@ -12,12 +12,18 @@ export type PageHeroContent = {
   brochureLabel?: string
 }
 
+export type PageDetailItem = {
+  label: string
+  value: string
+}
+
 export type PageIntroContent = {
   eyebrow: string
   title: string
   paragraphs: string[]
   image: string
   imageAlt: string
+  details?: PageDetailItem[]
 }
 
 export type PageValueItem = {
@@ -111,6 +117,7 @@ export type InitiativePageData = BaseProgramLikePageData
 // ─────────────────────────────────────────────────────
 
 export type ProgramHeroContent = PageHeroContent
+export type ProgramDetailItem = PageDetailItem
 export type ProgramIntroContent = PageIntroContent
 export type ProgramValueItem = PageValueItem
 export type ProgramValueContent = PageValueContent

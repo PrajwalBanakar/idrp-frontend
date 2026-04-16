@@ -23,6 +23,7 @@ export const nainPage: NAINPageData = {
     eyebrow: 'Overview',
     title: 'Building an Institute-Level Innovation Network',
     paragraphs: [
+      'New Age Innovation Network (NAIN) is an initiative of the Department of Electronics, IT, BT, Government of Karnataka, aimed at building a strong institute-level innovation ecosystem.',
       'NAIN focuses on creating a sustainable innovation pipeline by mentoring institutions, supporting student-led idea development, enabling project execution, and fostering early-stage entrepreneurial thinking.',
       'As the network continues to expand with a growing number of institutes and projects each year, this platform is designed to present the support in a structured and scalable manner — year-wise, institute-wise, and project-wise.',
     ],

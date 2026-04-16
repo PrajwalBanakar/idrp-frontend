@@ -13,12 +13,26 @@ export const cifPage: InitiativePageData = {
     eyebrow: 'Overview',
     title: 'Enabling Innovation through Shared Infrastructure',
     paragraphs: [
+      'Common Instrumentation Facility (CIF) is an initiative of the Department of Electronics, IT, BT, Government of Karnataka, aimed at enabling innovation through shared infrastructure.',
       'The Common Instrumentation Facility (CIF) provides startups, researchers, and academic teams with access to specialized equipment and advanced lab infrastructure, eliminating the need for individual ownership.',
-      'It accelerates product development by offering a unified environment for testing, validation, and experimentation.',
       'By addressing critical infrastructure gaps, CIF plays a key role in strengthening deep-tech innovation, fostering interdisciplinary research, and supporting early-stage prototyping.',
     ],
     image: '/cif/cif-intro.jpeg',
     imageAlt: 'CIF Overview',
+    details: [
+      {
+        label: 'Implementing Partner',
+        value: 'Indian Institute of Information Technology, Dharwad',
+      },
+      {
+        label: 'Principal Investigator',
+        value: 'Dr. Rajesh Kumar',
+      },
+      {
+        label: 'Co Principal Investigator',
+        value: 'Dr. Prabhu Prasad B M',
+      },
+    ],
   },
 
   value: {
