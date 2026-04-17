@@ -46,14 +46,11 @@ defineProps<{
             0: { slidesPerView: 1 },
             640: { slidesPerView: 1.2 },
             768: { slidesPerView: 2 },
-            1280: { slidesPerView: 2.6 }
+            1280: { slidesPerView: 2.6 },
           }"
           class="about-campus-gallery-swiper"
         >
-          <SwiperSlide
-            v-for="image in images"
-            :key="image.id"
-          >
+          <SwiperSlide v-for="image in images" :key="image.id">
             <div
               class="group overflow-hidden rounded-[28px] bg-white shadow-xl ring-1 ring-slate-200"
             >

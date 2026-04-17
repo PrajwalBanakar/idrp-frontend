@@ -19,7 +19,7 @@ export const cbdePage = {
     ],
     image: '/cbde/cbde-intro.jpeg',
     imageAlt: 'CBDE Overview',
-    details: [
+    details: [ 
       {
         label: 'Higher Education Institution (HEI)',
         value: 'Indian Institute of Information Technology, Dharwad',

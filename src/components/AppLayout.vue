@@ -34,7 +34,11 @@
               @click="toggleDropdown(section.key)"
             >
               {{ section.label }}
-              <span class="chevron" :class="{ 'chevron--open': activeDropdown === section.key }" aria-hidden="true">
+              <span
+                class="chevron"
+                :class="{ 'chevron--open': activeDropdown === section.key }"
+                aria-hidden="true"
+              >
                 ▾
               </span>
             </button>
@@ -434,10 +438,12 @@ function isPathPrefixMatch(to: string) {
 function isSectionActive(items: NavItem[]) {
   return items.some((item) => {
     if (item.to && (isExactNavMatch(item.to) || isPathPrefixMatch(item.to))) return true
-    return item.children?.some(
-      (child) => !!child.to && (isExactNavMatch(child.to) || isPathPrefixMatch(child.to)),
-    ) ?? false
-  }) 
+    return (
+      item.children?.some(
+        (child) => !!child.to && (isExactNavMatch(child.to) || isPathPrefixMatch(child.to)),
+      ) ?? false
+    )
+  })
 }
 
 function clearDropdownTimer() {

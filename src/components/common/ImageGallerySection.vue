@@ -30,10 +30,7 @@ withDefaults(defineProps<Props>(), {
           {{ title }}
         </h2>
 
-        <p
-          v-if="description"
-          class="mt-4 text-base leading-7 text-slate-600 sm:text-lg"
-        >
+        <p v-if="description" class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
           {{ description }}
         </p>
       </div>
@@ -48,14 +45,11 @@ withDefaults(defineProps<Props>(), {
           0: { slidesPerView: 1 },
           640: { slidesPerView: 1.4 },
           768: { slidesPerView: 2 },
-          1280: { slidesPerView: 3 }
+          1280: { slidesPerView: 3 },
         }"
         class="image-gallery-swiper"
       >
-        <SwiperSlide
-          v-for="img in images"
-          :key="img.src"
-        >
+        <SwiperSlide v-for="img in images" :key="img.src">
           <div class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
             <img
               :src="img.src"

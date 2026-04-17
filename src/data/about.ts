@@ -323,7 +323,7 @@ export const visionCards: VisionCard[] = [
   {
     title: 'Think Bold, Build Meaningfully',
     description: 'We encourage ambitious thinking and real-world impact through innovation.',
-    image: '/vision-innovation.jfif',
+    image: '/vision-innovation.jpeg',
     imageAlt: 'Innovation at IDRP',
   },
   {

@@ -23,17 +23,12 @@ defineProps<Props>()
         :breakpoints="{
           0: { slidesPerView: 1 },
           640: { slidesPerView: 2 },
-          1280: { slidesPerView: 3 }
+          1280: { slidesPerView: 3 },
         }"
         class="nain-gallery-swiper"
       >
-        <SwiperSlide
-          v-for="img in images"
-          :key="img.src"
-        >
-          <div
-            class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
-          >
+        <SwiperSlide v-for="img in images" :key="img.src">
+          <div class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
             <img
               :src="img.src"
               :alt="img.alt || 'NAIN activity'"
