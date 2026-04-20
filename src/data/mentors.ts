@@ -16,10 +16,10 @@ export const allMentors: Mentor[] = [
     linkedin: 'https://www.linkedin.com/in/mallikarjun-kande-18709342/',
   },
   {
-    name: 'Shashi Shettar',
+    name: 'Shashidhar Shettar',
     role: 'Business Mentor',
     image: '/mentors/business-shashi.jpeg',
-    imageAlt: 'Shashi Shettar',
+    imageAlt: 'Shashidhar Shettar',
     linkedin: 'https://www.linkedin.com/in/shashishettar',
   },
   {
@@ -30,26 +30,19 @@ export const allMentors: Mentor[] = [
     linkedin: 'https://www.linkedin.com/in/adsantosh/',
   },
   {
-    name: 'Ravi Kumar',
-    role: 'Adjunct Professor',
-    image: '/mentors/business-ravi.jpg',
-    imageAlt: 'Ravi Kumar',
-    linkedin: 'https://assets.iiitdwd.ac.in/docs/RavikumarCP.pdf',
-  },
-  {
-    name: 'RK Patil',
-    role: 'Business & Technology Mentor',
-    image: '/mentors/business-rk.jpeg',
-    imageAlt: 'RK Patil',
-    linkedin: 'https://www.linkedin.com/in/patilrk',
-  },
-  {
     name: 'Sasikumar Sundarajan',
     role: 'Business Mentor',
     image: '/mentors/business-sasikumar.jpeg',
     imageAlt: 'Sasikumar Sundarajan',
     linkedin: 'https://www.linkedin.com/in/sasikumars',
   },
+  {
+  name: 'Chetan Khosla',
+  role: 'Investor & Entrepreneur',
+  image: '/mentors/chetan_khosla.jfif',
+  imageAlt: 'Chetan Khosla',
+  linkedin: 'https://www.linkedin.com/in/chetankhosla/',
+},
   {
     name: 'Ambarish Kulkarni',
     role: 'Adjunct Professor',
@@ -70,12 +63,5 @@ export const allMentors: Mentor[] = [
     image: '/mentors/business-subhas.jpeg',
     imageAlt: 'Prof. Dr. Subhash Marihal',
     linkedin: 'https://www.linkedin.com/in/prof-dr-subhas-marihal-81359315',
-  },
-  {
-    name: 'Prof. V. Ravishankar',
-    role: 'Adjunct Professor',
-    image: '/mentors/business-ravishankar.jpg',
-    imageAlt: 'Prof. V. Ravishankar',
-    linkedin: 'https://iitd.irins.org/profile/2271',
   },
 ]

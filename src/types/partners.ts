@@ -3,8 +3,6 @@ export type PartnerKey =
   | 'technology'
   | 'ecosystem'
   | 'investor'
-  | 'corporate'
-  | 'government'
   | 'media'
   | 'other'
 

@@ -15,8 +15,6 @@ export const partnerCategories: Array<{
   { key: 'technology', label: 'Technology' },
   { key: 'ecosystem', label: 'Ecosystem' },
   { key: 'investor', label: 'Investor' },
-  { key: 'corporate', label: 'Corporate' },
-  { key: 'government', label: 'Government' },
 ]
 
 export type HeroSlide = {

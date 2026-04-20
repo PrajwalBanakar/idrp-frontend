@@ -54,8 +54,6 @@ export const partnerFormConfig: FormConfig = {
             { label: 'Technology Partner', value: 'technology' },
             { label: 'Ecosystem Partner', value: 'ecosystem' },
             { label: 'Investor Network', value: 'investor-network' },
-            { label: 'Corporate Partner', value: 'corporate' },
-            { label: 'Government / Policy Partner', value: 'government-policy' },
             { label: 'Media Partner', value: 'media' },
             { label: 'Other', value: 'other' },
           ],
