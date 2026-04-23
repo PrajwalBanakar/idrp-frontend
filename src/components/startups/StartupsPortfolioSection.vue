@@ -1,7 +1,6 @@
 <template>
   <section class="bg-slate-50 px-6 py-16 md:px-12 lg:px-16 lg:py-20">
     <div class="mx-auto max-w-7xl">
-      <!-- HEADER -->
       <div class="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div class="max-w-2xl">
           <span
@@ -20,7 +19,6 @@
           </p>
         </div>
 
-        <!-- RESULT CARD -->
         <div class="rounded-3xl border border-slate-200 bg-white px-6 py-5 shadow-sm">
           <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">Results</p>
           <p class="mt-1 text-3xl font-bold text-slate-900">
@@ -30,10 +28,8 @@
         </div>
       </div>
 
-      <!-- FILTER BAR -->
       <div class="mb-6 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
         <div class="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
-          <!-- TABS -->
           <div class="flex flex-wrap gap-3">
             <button
               v-for="tab in startupTabs"
@@ -43,7 +39,7 @@
               :class="
                 activeTab === tab.key
                   ? 'bg-[var(--color-primary)] text-white shadow-md'
-                  : 'border border-slate-200 bg-white text-slate-600 hover:border-teal-400 hover:text-[var(--color-primary)]'
+                  : 'border border-slate-200 bg-white text-slate-600 hover:border-[var(--color-primary)]/30 hover:text-[var(--color-primary)]'
               "
               @click="activeTab = tab.key"
             >
@@ -54,18 +50,17 @@
             </button>
           </div>
 
-          <!-- SEARCH + SORT -->
           <div class="flex w-full flex-col gap-3 sm:flex-row xl:w-auto">
             <input
               v-model.trim="searchQuery"
               type="text"
               placeholder="Search by startup, founder, mentor, sector..."
-              class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-teal-400 focus:ring-2 focus:ring-[var(--color-primary-soft)] sm:w-80"
+              class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[var(--color-primary)]/40 focus:ring-2 focus:ring-[var(--color-primary-soft)] sm:w-80"
             />
 
             <select
               v-model="sortBy"
-              class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-teal-400 focus:ring-2 focus:ring-[var(--color-primary-soft)] sm:min-w-[180px]"
+              class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[var(--color-primary)]/40 focus:ring-2 focus:ring-[var(--color-primary-soft)] sm:min-w-[180px]"
             >
               <option value="name-asc">Sort: A–Z</option>
               <option value="name-desc">Sort: Z–A</option>
@@ -75,7 +70,6 @@
         </div>
       </div>
 
-      <!-- RESULT SUMMARY -->
       <div class="mb-8 flex flex-wrap items-center justify-between gap-3 text-sm text-slate-500">
         <p>
           Showing
@@ -89,10 +83,9 @@
           startups
         </p>
 
-        <p v-if="searchQuery || activeTab !== 'all' || sortBy !== 'name-asc'">Filters applied</p>
+        <p v-if="hasActiveFilters">Filters applied</p>
       </div>
 
-      <!-- LIST -->
       <div v-if="visibleStartups.length > 0" class="space-y-6">
         <StartupCard
           v-for="startup in visibleStartups"
@@ -103,7 +96,6 @@
         />
       </div>
 
-      <!-- EMPTY STATE -->
       <div
         v-else
         class="rounded-3xl border border-dashed border-slate-300 bg-white px-6 py-16 text-center shadow-sm"
@@ -123,7 +115,7 @@
 
         <button
           type="button"
-          class="mt-6 inline-flex rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-800"
+          class="mt-6 inline-flex rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
           @click="resetFilters"
         >
           Reset Filters
@@ -154,33 +146,33 @@ const filteredStartups = computed(() => {
   const base =
     activeTab.value === 'all'
       ? props.startups
-      : props.startups.filter((s) => s.category === activeTab.value)
+      : props.startups.filter((startup) => startup.category === activeTab.value)
 
   const query = searchQuery.value.toLowerCase()
   if (!query) return base
 
-  return base.filter((s) => {
-    const founderText = s.founders
-      .map((f) => `${f.name} ${f.role} ${f.email} ${f.phone}`)
+  return base.filter((startup) => {
+    const founderText = startup.founders
+      .map((founder) => [founder.name, founder.role, founder.email ?? '', founder.linkedin ?? ''].join(' '))
       .join(' ')
       .toLowerCase()
 
-    const mentorText =
-      s.techFacultyMentors
-        ?.map((m) => `${m.name} ${m.email}`)
-        .join(' ')
-        .toLowerCase() ?? ''
+    const mentorText = startup.techFacultyMentors
+      .map((mentor) => [mentor.name, mentor.email ?? ''].join(' '))
+      .join(' ')
+      .toLowerCase()
 
-    const teamText =
-      s.teamMembers
-        ?.map((m) => `${m.name} ${m.email ?? ''} ${m.phone ?? ''}`)
-        .join(' ')
-        .toLowerCase() ?? ''
+    const teamText = startup.teamMembers
+      .map((member) => [member.name, member.email ?? ''].join(' '))
+      .join(' ')
+      .toLowerCase()
 
     return (
-      s.name.toLowerCase().includes(query) ||
-      s.sector.toLowerCase().includes(query) ||
-      s.brief.toLowerCase().includes(query) ||
+      startup.name.toLowerCase().includes(query) ||
+      startup.sector.toLowerCase().includes(query) ||
+      (startup.brief ?? '').toLowerCase().includes(query) ||
+      (startup.contactEmail ?? '').toLowerCase().includes(query) ||
+      (startup.contactPhone ?? '').toLowerCase().includes(query) ||
       founderText.includes(query) ||
       mentorText.includes(query) ||
       teamText.includes(query)
@@ -203,9 +195,14 @@ const visibleStartups = computed(() => {
     if (a.category === b.category) {
       return a.name.localeCompare(b.name)
     }
+
     return a.category.localeCompare(b.category)
   })
 })
+
+const hasActiveFilters = computed(
+  () => !!searchQuery.value || activeTab.value !== 'all' || sortBy.value !== 'name-asc',
+)
 
 function toggleStartup(id: string) {
   expandedStartupId.value = expandedStartupId.value === id ? null : id
@@ -213,7 +210,7 @@ function toggleStartup(id: string) {
 
 function getTabCount(key: TabKey) {
   if (key === 'all') return props.startups.length
-  return props.startups.filter((s) => s.category === key).length
+  return props.startups.filter((startup) => startup.category === key).length
 }
 
 function resetFilters() {

@@ -43,7 +43,7 @@ export const certificationCourses: CertificationCourse[] = [
     description:
       'A structured certification program that builds innovation, entrepreneurship, and industry-oriented thinking through practical frameworks and guided learning.',
     route: '/courses/certification/iet',
-    brochureUrl: '/brochures/IET-Brochure.pdf',
+    brochureUrl: '',
     features: [
       '3-month structured learning format',
       'Innovation and entrepreneurship orientation',

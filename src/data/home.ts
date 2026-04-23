@@ -237,6 +237,14 @@ export const successStories: Story[] = [
     initials: 'CH',
     color: 'linear-gradient(135deg, #ea580c, #fbbf24)',
   },
+    {
+    quote:
+      'IDRP turned ideas into direction, and direction into a business we can stand on.',
+    company: 'Aatrangi',
+    tagline: 'From idea to business',
+    initials: 'AA',
+    color: 'linear-gradient(135deg, #0284c7, #22d3ee)',
+  },
   {
     quote:
       'We built with confidence knowing we had strong technical backing, practical mentorship, and access to a supportive innovation ecosystem.',

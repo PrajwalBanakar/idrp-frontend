@@ -1,52 +1,50 @@
 export type StartupCategory = 'pre-incubated' | 'incubated' | 'funded'
 export type TabKey = 'all' | StartupCategory
 
-export type Tab = {
+export interface Tab {
   key: TabKey
   label: string
 }
 
-export type StartupStat = {
+export interface StartupStat {
   value: string
   label: string
 }
 
-export type Founder = {
+export interface Founder {
   name: string
   role: string
-  linkedin: string
-  email: string
-  phone: string
-}
-
-export type TechFacultyMentor = {
-  name: string
-  email: string
-}
-
-export type TeamMember = {
-  name: string
-  phone?: string
+  linkedin?: string
   email?: string
 }
 
-export type Startup = {
+export interface TechFacultyMentor {
+  name: string
+  email?: string
+}
+
+export interface TeamMember {
+  name: string
+  email?: string
+}
+
+export interface Startup {
   id: string
   name: string
   sector: string
   category: StartupCategory
-  logo: string
-  website: string
-  onePager: string
-  brief: string
-  contactEmail: string
-  contactPhone: string
+  logo?: string
+  website?: string
+  onePager?: string
+  brief?: string
+  contactEmail?: string
+  contactPhone?: string
   techFacultyMentors: TechFacultyMentor[]
   founders: Founder[]
   teamMembers: TeamMember[]
 }
 
-export type StartupsHero = {
+export interface StartupsHero {
   imageSrc: string
   imageAlt: string
   eyebrow: string
@@ -54,7 +52,7 @@ export type StartupsHero = {
   description: string
 }
 
-export type StartupsIntro = {
+export interface StartupsIntro {
   eyebrow: string
   title: string
   paragraphs: string[]

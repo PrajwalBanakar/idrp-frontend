@@ -22,6 +22,14 @@ export const partnerCategories: PartnerCategory[] = [
     hoverBorderClass: 'hover:border-[var(--color-primary)]/20',
     partners: [
       {
+        name: 'Boltstart Academy',
+        abbr: 'Boltstart',
+        color: 'linear-gradient(135deg,#7c3aed,#a78bfa)',
+        category: 'academic',
+        websiteUrl: 'https://www.linkedin.com/in/boltstart-academy-842a913b8/',
+        logo: '/partners/boltstart.jpeg',
+      },
+      {
         name: 'KLE Institute of Technology, Hubli',
         abbr: 'KLEIT',
         color: 'linear-gradient(135deg,#0f766e,#14b8a6)',

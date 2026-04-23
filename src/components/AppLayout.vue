@@ -8,8 +8,6 @@
             alt="IDRP"
             class="brand-logo"
             fetchpriority="high"
-            width="52"
-            height="52"
           />
           <div class="brand-text">
             <span class="brand-title">IDRP</span>
@@ -586,7 +584,7 @@ onBeforeUnmount(() => {
 }
 
 .header-inner {
-  min-height: 82px;
+  min-height: 88px;
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -595,16 +593,16 @@ onBeforeUnmount(() => {
 /* ================= BRAND ================= */
 
 .brand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 12px;
   flex-shrink: 0;
 }
 
 .brand-logo,
 .footer-logo {
   width: 52px;
-  height: 52px;
+  height: 64px;
   object-fit: cover;
   border-radius: 12px;
   flex-shrink: 0;

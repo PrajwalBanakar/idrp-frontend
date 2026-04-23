@@ -70,70 +70,63 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '24bcs125@iiitdwd.ac.in',
-        phone: '+917319785299',
       },
     ],
     teamMembers: [
       {
         name: 'Sachin Kumar',
-        phone: '+917319785299',
         email: '24bcs125@iiitdwd.ac.in',
       },
       {
         name: 'Udit Dadhich',
-        phone: '+917976231451',
         email: '24bcs158@iiitdwd.ac.in',
       },
       {
         name: 'Sudhanshu Baberwal',
-        phone: '+917568348002',
         email: '24bcs147@iiitdwd.ac.in',
       },
     ],
   },
   {
-  id: 'c-3',
-  name: 'C^3',
-  sector: 'SOCIAL TECH',
-  category: 'pre-incubated',
-  logo: '/startups/logo/c_3.jpg',
-  website: '',
-  onePager: '',
-  brief: '',
-  contactEmail: '22bcs041@iiitdwd.ac.in',
-  contactPhone: '+917259216502',
-  techFacultyMentors: [
-    {
-      name: 'Dr. Siddharth R',
-      email: 'siddharth_r@iiitdwd.ac.in',
-    },
-    {
-      name: 'Dr. Sandesh Phalke',
-      email: 's.phalke@iiitdwd.ac.in',
-    },
-  ],
-  founders: [
-    {
-      name: 'G Rohith Yadav',
-      role: 'Founder',
-      linkedin: '',
-      email: '22bcs041@iiitdwd.ac.in',
-      phone: '+917259216502',
-    },
-  ],
-  teamMembers: [
-    {
-      name: 'G Rohith Yadav',
-      phone: '+917259216502',
-      email: '22bcs041@iiitdwd.ac.in',
-    },
-    {
-      name: 'Vankadara Shanmukha Sai',
-      phone: '',
-      email: '22BCS135@iiitdwd.ac.in',
-    },
-  ],
-},
+    id: 'c-3',
+    name: 'C^3',
+    sector: 'SOCIAL TECH',
+    category: 'pre-incubated',
+    logo: '/startups/logo/c_3.jpg',
+    website: '',
+    onePager: '',
+    brief: '',
+    contactEmail: '22bcs041@iiitdwd.ac.in',
+    contactPhone: '+917259216502',
+    techFacultyMentors: [
+      {
+        name: 'Dr. Siddharth R',
+        email: 'siddharth_r@iiitdwd.ac.in',
+      },
+      {
+        name: 'Dr. Sandesh Phalke',
+        email: 's.phalke@iiitdwd.ac.in',
+      },
+    ],
+    founders: [
+      {
+        name: 'G Rohith Yadav',
+        role: 'Founder',
+        linkedin: '',
+        email: '22bcs041@iiitdwd.ac.in',
+      },
+    ],
+    teamMembers: [
+      {
+        name: 'G Rohith Yadav',
+        email: '22bcs041@iiitdwd.ac.in',
+      },
+      {
+        name: 'Vankadara Shanmukha Sai',
+        email: '22BCS135@iiitdwd.ac.in',
+      },
+    ],
+  },
   {
     id: 'cre8hub',
     name: 'Cre8Hub',
@@ -157,28 +150,23 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '23bec028@iiitdwd.ac.in',
-        phone: '+917860278600',
       },
     ],
     teamMembers: [
       {
         name: 'Md Adnan Khan',
-        phone: '+917860278600',
         email: '23bec028@iiitdwd.ac.in',
       },
       {
         name: 'Pratyush Anand',
-        phone: '+916394911939',
         email: '23bec039@iiitdwd.ac.in',
       },
       {
         name: 'Prathamesh Rajaram Patil',
-        phone: '+918767825953',
         email: '23bds043@iiitdwd.ac.in',
       },
       {
         name: 'Nikhil Kumar',
-        phone: '+917990134940',
         email: '23bds038@iiitdwd.ac.in',
       },
     ],
@@ -206,28 +194,23 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '24bcs148@iiitdwd.ac.in',
-        phone: '+919263520241',
       },
     ],
     teamMembers: [
       {
         name: 'Arhan Ghosarwade',
-        phone: '+916366616225',
         email: '24bcs020@iiitdwd.ac.in',
       },
       {
         name: 'Sugyan',
-        phone: '+919263520241',
         email: '24bcs148@iiitdwd.ac.in',
       },
       {
         name: 'Sachin Kumar',
-        phone: '+919142388602',
         email: '24bcs124@iiitdwd.ac.in',
       },
       {
         name: 'Siddhant Kumar',
-        phone: '+917903979639',
         email: '24bcs144@iiitdwd.ac.in',
       },
     ],
@@ -259,72 +242,58 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '24bec062@iiitdwd.ac.in',
-        phone: '+919810830166',
       },
     ],
     teamMembers: [
       {
         name: 'Sushant Sharma',
-        phone: '+919810830166',
         email: '24bec062@iiitdwd.ac.in',
       },
       {
         name: 'Hemant Kumar',
-        phone: '+919117371642',
         email: '24bds025@iiitdwd.ac.in',
       },
     ],
   },
-
   {
     id: 'hey-attrangi',
     name: 'Hey Attrangi',
     sector: 'HEALTH TECH',
-    category: 'incubated',
+    category: 'funded',
     logo: '/startups/logo/heyattrangi.jpeg',
     website: '',
     onePager: '',
     brief: '',
     contactEmail: '22bcs068@iiitdwd.ac.in',
     contactPhone: '+917995736278',
-
-    // No tech mentor
     techFacultyMentors: [],
-
     founders: [
       {
         name: 'Dr. Sandesh Sanjeev Phalke',
         role: 'Founder',
         linkedin: '',
         email: 's.phalke@iiitdwd.ac.in',
-        phone: '',
       },
     ],
-
     teamMembers: [
       {
         name: 'Dusary Charan',
-        phone: '',
         email: '23bcs047@iiitdwd.ac.in',
       },
       {
         name: 'Medasani Bharath Reddy',
-        phone: '',
         email: '22bcs068@iiitdwd.ac.in',
       },
       {
         name: 'Jakkoju Kalyan',
-        phone: '',
         email: '23bec022@iiitdwd.ac.in',
       },
       {
         name: 'Doddi VenkataLakshmi Prasad',
-        phone: '',
         email: '23bec018@iiitdwd.ac.in',
       },
       {
         name: 'Daraboina Harshith',
-        phone: '',
         email: '23bcs037@iiitdwd.ac.in',
       },
     ],
@@ -352,18 +321,15 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '22bds036@iiitdwd.ac.in',
-        phone: '+918667419176',
       },
     ],
     teamMembers: [
       {
         name: 'Madhan S',
-        phone: '+918667119176',
         email: '22bds036@iiitdwd.ac.in',
       },
       {
         name: 'H Shri Harsha',
-        phone: '+919113593508',
         email: '22bcs044@iiitdwd.ac.in',
       },
     ],
@@ -391,48 +357,39 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: 'chinmay@iiitdwd.ac.in',
-        phone: '+918197254535',
       },
     ],
     teamMembers: [
       {
         name: 'Raksha Karthik',
-        phone: '+919886107701',
         email: 'raksha.jayaram@gmail.com',
       },
       {
         name: 'Devaraju B V',
-        phone: '+919035773052',
         email: 'dev.nkm@gmail.com',
       },
       {
         name: 'Chinmayananda A',
-        phone: '+918197254535',
         email: 'chinmay@iiitdwd.ac.in',
       },
       {
         name: 'Tanmay Gupta',
-        phone: '+917067478042',
         email: '23bds061@iiitdwd.ac.in',
       },
       {
         name: 'Dhrupad Das',
-        phone: '+917003984898',
         email: '23bds018@iiitdwd.ac.in',
       },
       {
         name: 'Yashpreet Singh Reejak',
-        phone: '+917820026551',
         email: '23bds072@iiitdwd.ac.in',
       },
       {
         name: 'Thirumala Teena Chowdary',
-        phone: '+918143941625',
         email: '22bds059@iiitdwd.ac.in',
       },
       {
         name: 'Aditya Guntur',
-        phone: '+918688580516',
         email: '23bds003@iiitdwd.ac.in',
       },
     ],
@@ -464,23 +421,19 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '22bds056@iiitdwd.ac.in',
-        phone: '+919113612246',
       },
     ],
     teamMembers: [
       {
         name: 'Suhaas S',
-        phone: '+919113612246',
         email: '22bds056@iiitdwd.ac.in',
       },
       {
         name: 'Vansh',
-        phone: '+919121761830',
         email: '22bds061@iiitdwd.ac.in',
       },
       {
         name: 'Dr Sandesh Phalke Sir',
-        phone: '+919552324069',
         email: 's.phalke@iiitdwd.ac.in',
       },
     ],
@@ -508,18 +461,15 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: 'jyoti.24phdcs08@iiitdwd.ac.in',
-        phone: '+917022429486',
       },
     ],
     teamMembers: [
       {
         name: 'Jyoti Gadad',
-        phone: '+917022429486',
         email: 'jyoti.24phdcs08@iiitdwd.ac.in',
       },
       {
         name: 'Shruti B S',
-        phone: '+918105390215',
         email: 'shruthi.24mtrec01@iiitdwd.ac.in',
       },
     ],
@@ -547,28 +497,23 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: 'shraddha.22phdec02@iiitdwd.ac.in',
-        phone: '+918792098337',
       },
     ],
     teamMembers: [
       {
         name: 'Shraddha Revankar',
-        phone: '+918792098337',
         email: 'shraddha.22phdec02@iiitdwd.ac.in',
       },
       {
         name: 'Dr. Chinmayananda A',
-        phone: '+918197254535',
         email: 'chinmay@iiitdwd.ac.in',
       },
       {
         name: 'Dr. Nataraj K S',
-        phone: '+917257832741',
         email: 'nataraj@iiitdwd.ac.in',
       },
       {
         name: 'Dr. Manjunath Vanahalli',
-        phone: '+919538156995',
         email: 'manjunathkv@iiitdwd.ac.in',
       },
     ],
@@ -596,23 +541,19 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: 'prashantb@iiitdwd.ac.in',
-        phone: '+917892069460',
       },
     ],
     teamMembers: [
       {
         name: 'Prashant Bannulmath',
-        phone: '+917892069460',
         email: 'prashantb@iiitdwd.ac.in',
       },
       {
         name: 'Swapnil Sontakke',
-        phone: '+918149536928',
         email: 'swapnil.sontakke@iiitdwd.ac.in',
       },
       {
         name: 'Shaik Zuhair Hasan',
-        phone: '+919494292277',
         email: '21bds060@iiitdwd.ac.in',
       },
     ],
@@ -640,23 +581,19 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '24bcs086@iiitdwd.ac.in',
-        phone: '+919334100814',
       },
     ],
     teamMembers: [
       {
         name: 'Nikhil Kumar Sinha',
-        phone: '+919334100814',
         email: '24bcs086@iiitdwd.ac.in',
       },
       {
         name: 'Nirbhay Kumar',
-        phone: '+916207454417',
         email: '24bcs089@iiitdwd.ac.in',
       },
       {
         name: 'Nitish Kumar',
-        phone: '+919905500462',
         email: '24bcs093@iiitdwd.ac.in',
       },
     ],
@@ -684,18 +621,15 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: 'sunil.saumya@iiitdwd.ac.in',
-        phone: '+918863830309',
       },
     ],
     teamMembers: [
       {
         name: 'Sunil Saumya',
-        phone: '+918863830309',
         email: 'sunil.saumya@iiitdwd.ac.in',
       },
       {
         name: 'Shlok Jha',
-        phone: '+919625130545',
         email: 'shlokjha.3@gmail.com',
       },
     ],
@@ -723,33 +657,28 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '24bcs104@iiitdwd.ac.in',
-        phone: '+916301260330',
       },
     ],
     teamMembers: [
       {
         name: 'P.Mithil',
-        phone: '+916301260330',
         email: '24bcs104@iiitdwd.ac.in',
       },
       {
         name: 'Tharun',
-        phone: '+919467487777',
         email: '24bds032@iiitdwd.ac.in',
       },
       {
         name: 'Jeevan',
-        phone: '+918688525471',
         email: '24bds046@iiitdwd.ac.in',
       },
     ],
   },
-
   {
     id: 'cipherion',
     name: 'Cipherion',
     sector: 'CYBERSECURITY',
-    category: 'incubated',
+    category: 'funded',
     logo: '/startups/logo/cipherion.png',
     website: '',
     onePager: '',
@@ -768,21 +697,18 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '',
-        phone: '+918105188413',
       },
       {
         name: 'Pooja Ekbote',
         role: 'Founder',
         linkedin: '',
         email: '',
-        phone: '',
       },
       {
         name: 'Nagaraj Bhandare',
         role: 'Founder',
         linkedin: '',
         email: '',
-        phone: '',
       },
     ],
     teamMembers: [],
@@ -810,14 +736,12 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: 'vinay.oswald@gmail.com',
-        phone: '+919538246925',
       },
       {
         name: 'Shyam Sundar',
         role: 'Founder',
         linkedin: '',
         email: 'yadavshyam686@gmail.com',
-        phone: '+919739277227',
       },
     ],
     teamMembers: [],
@@ -826,7 +750,7 @@ export const startups: Startup[] = [
     id: 'neuraforesight',
     name: 'Neuraforesight Pvt Ltd',
     sector: 'HEALTH TECH',
-    category: 'incubated',
+    category: 'funded',
     logo: '/startups/logo/neuraforesight.jpeg',
     website: '',
     onePager: '',
@@ -845,21 +769,18 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: 'sachin.marihal@saspinjara.com',
-        phone: '+919538033363',
       },
       {
         name: 'Aravind Puttakkalavar',
         role: 'Founder',
         linkedin: '',
         email: 'aravind.p@saspinjara.com',
-        phone: '',
       },
       {
         name: 'Anil Ranadev',
         role: 'Founder',
         linkedin: '',
         email: 'anil_ranadev@saspinjara.com',
-        phone: '',
       },
     ],
     teamMembers: [],
@@ -887,18 +808,15 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '23bec035@iiitdwd.ac.in',
-        phone: '+917257832741',
       },
     ],
     teamMembers: [
       {
         name: 'Om Mishra',
-        phone: '+917257832741',
         email: '23bec035@iiitdwd.ac.in',
       },
       {
         name: 'Natraj K S',
-        phone: '+918879538379',
         email: 'nataraj@iiitdwd.ac.in',
       },
     ],
@@ -926,18 +844,15 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '24bcs150@iiitdwd.ac.in',
-        phone: '+917975793771',
       },
     ],
     teamMembers: [
       {
         name: 'Swetha S',
-        phone: '+917975793771',
         email: '24bcs150@iiitdwd.ac.in',
       },
       {
         name: 'M Praneeth',
-        phone: '+919481910170',
         email: '24bcs064@iiitdwd.ac.in',
       },
     ],
@@ -969,28 +884,23 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '24bcs025@iiitdwd.ac.in',
-        phone: '+918081116505',
       },
     ],
     teamMembers: [
       {
         name: 'Ayush Kumar Pal',
-        phone: '+918081116505',
         email: '24bcs025@iiitdwd.ac.in',
       },
       {
         name: 'Abhijeet Nagar',
-        phone: '+919165134017',
         email: '24bcs002@iiitdwd.ac.in',
       },
       {
         name: 'Avi Arora',
-        phone: '+918959524959',
         email: '24bcs023@iiitdwd.ac.in',
       },
       {
         name: 'Saswath Chowta',
-        phone: '+919989441092',
         email: '24bcs031@iiitdwd.ac.in',
       },
     ],
@@ -1013,7 +923,6 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: 'rajeshk@iiitdwd.ac.in',
-        phone: '',
       },
     ],
     teamMembers: [],
@@ -1041,18 +950,15 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: 'prashantb@iiitdwd.ac.in',
-        phone: '+917892069460',
       },
     ],
     teamMembers: [
       {
         name: 'Prashant Bannulmath',
-        phone: '+917892069460',
         email: 'prashantb@iiitdwd.ac.in',
       },
       {
         name: 'Swapnil Sontakke',
-        phone: '+918149536928',
         email: 'swapnil.sontakke@iiitdwd.ac.in',
       },
     ],
@@ -1080,39 +986,32 @@ export const startups: Startup[] = [
         role: 'Founder',
         linkedin: '',
         email: '22bcs126@iiitdwd.ac.in',
-        phone: '+918217680139',
       },
       {
         name: 'Samuel Naik',
         role: 'Founder',
         linkedin: '',
         email: '22bcs108@iiitdwd.ac.in',
-        phone: '',
       },
       {
         name: 'S.N.Bhakti',
         role: 'Founder',
         linkedin: '',
         email: '22bcs104@iiitdwd.ac.in',
-        phone: '',
       },
     ],
     teamMembers: [
       {
         name: 'Suchit Artal',
-        phone: '+918217680139',
       },
       {
         name: 'Samuel Naik',
-        phone: '+919916511834',
       },
       {
         name: 'S.N.Bhakti',
-        phone: '+916360718021',
       },
       {
         name: 'Rahul Trimukhe',
-        phone: '+917406173077',
       },
     ],
   },
