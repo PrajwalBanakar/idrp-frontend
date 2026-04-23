@@ -20,11 +20,13 @@ export interface Founder {
 
 export interface TechFacultyMentor {
   name: string
+  linkedin?: string
   email?: string
 }
 
 export interface TeamMember {
   name: string
+  linkedin?: string
   email?: string
 }
 
@@ -38,7 +40,6 @@ export interface Startup {
   onePager?: string
   brief?: string
   contactEmail?: string
-  contactPhone?: string
   techFacultyMentors: TechFacultyMentor[]
   founders: Founder[]
   teamMembers: TeamMember[]

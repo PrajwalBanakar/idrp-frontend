@@ -14,8 +14,8 @@
           </h2>
 
           <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
-            Discover startups across incubation stages, explore founder profiles, and connect with
-            ventures from the IDRP ecosystem.
+            Discover startups across incubation stages, explore founding teams, mentors, and connect
+            with ventures from the IDRP ecosystem.
           </p>
         </div>
 
@@ -54,7 +54,7 @@
             <input
               v-model.trim="searchQuery"
               type="text"
-              placeholder="Search by startup, founder, mentor, sector..."
+              placeholder="Search by startup, founder, co-founder, mentor, sector..."
               class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[var(--color-primary)]/40 focus:ring-2 focus:ring-[var(--color-primary-soft)] sm:w-80"
             />
 
@@ -153,17 +153,19 @@ const filteredStartups = computed(() => {
 
   return base.filter((startup) => {
     const founderText = startup.founders
-      .map((founder) => [founder.name, founder.role, founder.email ?? '', founder.linkedin ?? ''].join(' '))
+      .map((founder) =>
+        [founder.name, founder.role, founder.email ?? '', founder.linkedin ?? ''].join(' '),
+      )
       .join(' ')
       .toLowerCase()
 
     const mentorText = startup.techFacultyMentors
-      .map((mentor) => [mentor.name, mentor.email ?? ''].join(' '))
+      .map((mentor) => [mentor.name, mentor.email ?? '', mentor.linkedin ?? ''].join(' '))
       .join(' ')
       .toLowerCase()
 
     const teamText = startup.teamMembers
-      .map((member) => [member.name, member.email ?? ''].join(' '))
+      .map((member) => [member.name, member.email ?? '', member.linkedin ?? ''].join(' '))
       .join(' ')
       .toLowerCase()
 
@@ -172,7 +174,6 @@ const filteredStartups = computed(() => {
       startup.sector.toLowerCase().includes(query) ||
       (startup.brief ?? '').toLowerCase().includes(query) ||
       (startup.contactEmail ?? '').toLowerCase().includes(query) ||
-      (startup.contactPhone ?? '').toLowerCase().includes(query) ||
       founderText.includes(query) ||
       mentorText.includes(query) ||
       teamText.includes(query)

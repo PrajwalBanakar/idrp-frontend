@@ -38,20 +38,13 @@
               {{ startup.sector || 'Sector to be updated' }}
             </p>
 
-            <p
-              v-if="startup.brief"
-              class="mt-3 max-w-3xl text-sm leading-6 text-slate-600 line-clamp-2"
-            >
-              {{ startup.brief }}
-            </p>
-
             <div v-if="startup.website || startup.onePager" class="mt-4 flex flex-wrap gap-2.5">
               <a
                 v-if="startup.website"
                 :href="startup.website"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center rounded-full bg-[var(--color-primary)] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
+                class="inline-flex items-center rounded-full bg-[var(--color-primary)] px-4 py-2 text-xs font-semibold !text-white shadow-sm transition hover:bg-[var(--color-primary-dark)]"
               >
                 Visit Website
               </a>
@@ -87,110 +80,105 @@
     <transition
       enter-active-class="transition-all duration-300 ease-out"
       enter-from-class="max-h-0 opacity-0"
-      enter-to-class="max-h-[1400px] opacity-100"
+      enter-to-class="max-h-[1800px] opacity-100"
       leave-active-class="transition-all duration-200 ease-in"
-      leave-from-class="max-h-[1400px] opacity-100"
+      leave-from-class="max-h-[1800px] opacity-100"
       leave-to-class="max-h-0 opacity-0"
     >
       <div v-if="expanded" class="border-t border-slate-200 bg-slate-50 px-6 py-6 sm:px-7">
         <div class="grid gap-6 xl:grid-cols-[1.35fr_0.95fr]">
           <div class="space-y-6">
-            <section v-if="startup.founders?.length">
-              <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Founders</h4>
+            <section v-if="startup.brief">
+              <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                About Startup
+              </h4>
 
-              <div class="mt-3 space-y-3">
-                <div
-                  v-for="founder in startup.founders"
-                  :key="`${startup.id}-founder-${founder.name}`"
-                  class="rounded-2xl border border-slate-200 bg-white px-4 py-3"
-                >
-                  <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <p class="text-sm font-semibold text-slate-900">
-                        {{ founder.name }}
-                      </p>
-                      <p v-if="founder.role" class="mt-0.5 text-xs text-slate-500">
-                        {{ founder.role }}
-                      </p>
-                    </div>
-
-                    <a
-                      v-if="founder.linkedin"
-                      :href="founder.linkedin"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-xs font-semibold text-[var(--color-primary)] transition hover:text-[var(--color-primary-dark)]"
-                    >
-                      LinkedIn
-                    </a>
-                  </div>
-
-                  <div v-if="founder.email" class="mt-3 flex flex-wrap gap-2">
-                    <a
-                      :href="`mailto:${founder.email}`"
-                      class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-600 transition hover:border-[var(--color-primary)]/30 hover:text-[var(--color-primary)]"
-                    >
-                      {{ founder.email }}
-                    </a>
-                  </div>
-                </div>
+              <div class="mt-3 rounded-2xl border border-slate-200 bg-white px-4 py-4">
+                <p class="text-sm leading-7 text-slate-600">
+                  {{ startup.brief }}
+                </p>
               </div>
             </section>
 
             <section v-if="startup.techFacultyMentors?.length">
               <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
-                Tech Faculty Mentors
+                {{ mentorSectionTitle }}
               </h4>
 
-              <div class="mt-3 flex flex-wrap gap-3">
+              <div class="mt-3 grid gap-3 sm:grid-cols-2">
                 <div
                   v-for="mentor in startup.techFacultyMentors"
                   :key="`${startup.id}-mentor-${mentor.name}`"
                   class="rounded-2xl border border-slate-200 bg-white px-4 py-3"
                 >
-                  <p class="text-sm font-semibold text-slate-900">
-                    {{ mentor.name }}
-                  </p>
-                  <a
-                    v-if="mentor.email"
-                    :href="`mailto:${mentor.email}`"
-                    class="mt-1 inline-block text-xs text-slate-600 transition hover:text-[var(--color-primary)]"
-                  >
-                    {{ mentor.email }}
-                  </a>
+                  <div class="flex items-start justify-between gap-3">
+                    <div class="min-w-0">
+                      <p class="text-sm font-semibold text-slate-900">
+                        {{ mentor.name }}
+                      </p>
+
+                      <a
+                        v-if="mentor.email"
+                        :href="`mailto:${mentor.email}`"
+                        class="mt-2 block break-all text-xs text-slate-600 transition hover:text-[var(--color-primary)]"
+                      >
+                        {{ mentor.email }}
+                      </a>
+                    </div>
+
+                    <a
+                      v-if="mentor.linkedin"
+                      :href="mentor.linkedin"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="shrink-0 text-xs font-semibold text-[var(--color-primary)] transition hover:text-[var(--color-primary-dark)]"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
                 </div>
               </div>
             </section>
 
-            <section v-if="startup.teamMembers?.length">
-              <div class="flex items-center justify-between gap-3">
-                <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
-                  Team Members
-                </h4>
-                <span
-                  class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500 ring-1 ring-slate-200"
-                >
-                  {{ startup.teamMembers.length }}
-                </span>
-              </div>
+            <section v-if="foundingTeam.length">
+              <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                {{ foundingSectionTitle }}
+              </h4>
 
               <div class="mt-3 grid gap-3 sm:grid-cols-2">
                 <div
-                  v-for="member in startup.teamMembers"
-                  :key="`${startup.id}-member-${member.name}`"
+                  v-for="member in foundingTeam"
+                  :key="`${startup.id}-founding-${member.name}-${member.email ?? ''}`"
                   class="rounded-2xl border border-slate-200 bg-white px-4 py-3"
                 >
-                  <p class="text-sm font-semibold text-slate-900">
-                    {{ member.name }}
-                  </p>
+                  <div class="flex items-start justify-between gap-3">
+                    <div class="min-w-0">
+                      <p class="text-sm font-semibold text-slate-900">
+                        {{ member.name }}
+                      </p>
+                      <p v-if="member.role" class="mt-0.5 text-xs text-slate-500">
+                        {{ member.role }}
+                      </p>
 
-                  <a
-                    v-if="member.email"
-                    :href="`mailto:${member.email}`"
-                    class="mt-2 block text-xs text-slate-600 transition hover:text-[var(--color-primary)]"
-                  >
-                    {{ member.email }}
-                  </a>
+                      <a
+                        v-if="member.email"
+                        :href="`mailto:${member.email}`"
+                        class="mt-2 block break-all text-xs text-slate-600 transition hover:text-[var(--color-primary)]"
+                      >
+                        {{ member.email }}
+                      </a>
+                    </div>
+
+                    <a
+                      v-if="member.linkedin"
+                      :href="member.linkedin"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="shrink-0 text-xs font-semibold text-[var(--color-primary)] transition hover:text-[var(--color-primary-dark)]"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
                 </div>
               </div>
             </section>
@@ -212,18 +200,6 @@
                     class="mt-1 inline-block break-all text-sm font-medium text-slate-800 transition hover:text-[var(--color-primary)]"
                   >
                     {{ startup.contactEmail }}
-                  </a>
-                </div>
-
-                <div v-if="startup.contactPhone">
-                  <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                    Phone
-                  </p>
-                  <a
-                    :href="`tel:${startup.contactPhone}`"
-                    class="mt-1 inline-block text-sm font-medium text-slate-800 transition hover:text-[var(--color-primary)]"
-                  >
-                    {{ startup.contactPhone }}
                   </a>
                 </div>
 
@@ -269,6 +245,13 @@ import { ChevronDown } from 'lucide-vue-next'
 import { categoryLabels } from '@/data/startups'
 import type { Startup, StartupCategory } from '@/types/startups'
 
+type FoundingTeamPerson = {
+  name: string
+  role?: string
+  linkedin?: string
+  email?: string
+}
+
 const props = defineProps<{
   startup: Startup
   expanded: boolean
@@ -286,6 +269,41 @@ const categoryLabel = computed(() => categoryLabels[props.startup.category])
 
 const websiteLabel = computed(() =>
   props.startup.website ? props.startup.website.replace(/^https?:\/\//, '') : '',
+)
+
+const foundingTeam = computed<FoundingTeamPerson[]>(() => {
+  const people: FoundingTeamPerson[] = [
+    ...(props.startup.founders ?? []).map((person) => ({
+      name: person.name,
+      role: person.role,
+      linkedin: person.linkedin,
+      email: person.email,
+    })),
+    ...(props.startup.teamMembers ?? []).map((person) => ({
+      name: person.name,
+      role: undefined,
+      linkedin: person.linkedin,
+      email: person.email,
+    })),
+  ]
+
+  const seen = new Set<string>()
+
+  return people.filter((person) => {
+    const key = `${person.name.trim().toLowerCase()}|${person.email?.trim().toLowerCase() ?? ''}|${person.linkedin?.trim().toLowerCase() ?? ''}`
+
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+})
+
+const foundingSectionTitle = computed(() =>
+  foundingTeam.value.length <= 1 ? 'Founder' : 'Co-Founders',
+)
+
+const mentorSectionTitle = computed(() =>
+  props.startup.techFacultyMentors.length <= 1 ? 'Tech Faculty Mentor' : 'Tech Faculty Mentors',
 )
 
 const badgeClass = computed(() => {
